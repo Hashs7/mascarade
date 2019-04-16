@@ -31,10 +31,15 @@
 </template>
 
 <script>
+import API from '@/utils/API';
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  mounted: function() {
+    console.log(API().get('/users').then(res => console.log(res.data)))
   }
 }
 </script>
