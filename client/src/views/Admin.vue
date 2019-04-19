@@ -2,24 +2,20 @@
   <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Eleve login</span>
+        <span>Admin login</span>
       </v-toolbar-title>
     </v-toolbar>
-
-    <v-content>
-      <router-view/>
-    </v-content>
+    <AdminLogin />
   </v-app>
 </template>
 
 <script>
+import AdminLogin from '../components/AdminLogin'
 
 export default {
   name: 'App',
-  data () {
-    return {
-      //
-    }
+  components: {
+    AdminLogin
   }
 }
 </script>

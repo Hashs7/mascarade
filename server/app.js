@@ -27,7 +27,5 @@ app.get('/', (req, res) => {
 
 mongoose
     .connect(uri, {useNewUrlParser: true})
-    .then(res => {
-        app.listen(PORT || 3000)
-    })
+    .then(res => app.listen(PORT || 3000))
     .catch(err => console.log('connection failed => ', err));
