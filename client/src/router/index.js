@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '../views/Home.vue';
-import TeacherDashboard from '../views/teacher/TeacherDashboard.vue';
-import TeacherLogin from '../views/teacher/TeacherLogin.vue';
-import StudentSignup from '../views/student/StudentSignup.vue';
-import StudentLogin from '../views/student/StudentLogin.vue';
+import TeacherDashboard from '../views/teacher/TeacherDashboardView.vue';
+import TeacherLogin from '../views/teacher/TeacherLoginView.vue';
+import StudentSignup from '../views/student/StudentSignupView.vue';
+import StudentLogin from '../views/student/StudentLoginView.vue';
 import FirstScene from '../views/student/scenes/FirstScene.vue';
 
 Vue.use(Router);

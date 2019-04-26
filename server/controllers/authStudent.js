@@ -1,20 +1,16 @@
 const {validationResult} = require('express-validator/check');
 const bcrypt             = require('bcryptjs');
 const jwt                = require('jsonwebtoken');
-const logError           = require('../utils');
+const {logError}         = require('../utils');
 const Student            = require('../models/Student');
 
 exports.signup = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        // logError('La validation a échouée', 422, errors);
-        const error = new Error('La validation a échouée');
-        error.statusCode = 422;
-        error.data = errors.array();
-        throw error;
+        logError('La validation a échouée', 422, errors);
     }
 
-    const { email, firstname, surname, password, gender } = req.body;
+    const {email, firstname, surname, password, gender} = req.body;
 
     bcrypt
         .hash(password, 12)
