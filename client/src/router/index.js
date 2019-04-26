@@ -1,10 +1,11 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
-import TeacherDashboard from './views/teacher/TeacherDashboard.vue'
-import TeacherLogin from './views/teacher/TeacherLogin.vue';
-import StudentSignup from './views/student/StudentSignup.vue';
-import StudentLogin from './views/student/StudentLogin.vue';
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '../views/Home.vue';
+import TeacherDashboard from '../views/teacher/TeacherDashboard.vue';
+import TeacherLogin from '../views/teacher/TeacherLogin.vue';
+import StudentSignup from '../views/student/StudentSignup.vue';
+import StudentLogin from '../views/student/StudentLogin.vue';
+import FirstScene from '../views/student/scenes/FirstScene.vue';
 
 Vue.use(Router);
 
@@ -33,9 +34,15 @@ export default new Router({
             component: StudentSignup
         },
         {
+            // temporary route
             path: '/student/login',
             name: 'StudentLogin',
             component: StudentLogin
+        },
+        {
+            path: '/student/first',
+            name: 'FirstScene',
+            component: FirstScene
         }
     ]
 })

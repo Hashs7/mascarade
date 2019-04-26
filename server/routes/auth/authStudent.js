@@ -22,7 +22,15 @@ router.put(
         body('password')
             .trim()
             .isLength({ min: 5 }),
-        body('name')
+        body('firstname')
+            .trim()
+            .not()
+            .isEmpty(),
+        body('surname')
+            .trim()
+            .not()
+            .isEmpty(),
+        body('gender')
             .trim()
             .not()
             .isEmpty()

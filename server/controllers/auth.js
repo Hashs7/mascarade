@@ -7,12 +7,14 @@ const Student            = require('../models/Student');
 exports.signup = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        logError('La validation a échouée', 422, errors);
+        // logError('La validation a échouée', 422, errors);
+        const error = new Error('La validation a échouée');
+        error.statusCode = 422;
+        error.data = errors.array();
+        throw error;
     }
 
-    const email    = req.body.email;
-    const name     = req.body.name;
-    const password = req.body.password;
+    const { email, firstname, surname, password, gender } = req.body;
 
     bcrypt
         .hash(password, 12)
@@ -20,12 +22,14 @@ exports.signup = (req, res, next) => {
             const student = new Student({
                 email: email,
                 password: hashedPw,
-                name: name
+                firstname: firstname,
+                surname: surname,
+                gender: gender
             });
             return student.save();
         })
         .then(result => {
-            res.status(201).json({message: 'User created!', userId: result._id});
+            res.status(201).json({message: 'Le profil étudiant a été créé', userId: result._id});
         })
         .catch(err => {
             if (!err.statusCode) {
