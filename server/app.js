@@ -1,16 +1,25 @@
+const path        = require('path');
+const fs          = require('fs');
+const https       = require('https');
 const mongoose    = require('mongoose');
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const cors        = require('cors');
 const morgan      = require('morgan');
+const helmet      = require('helmet');
 const authStudent = require('./routes/auth/authStudent');
 const authTeacher = require('./routes/auth/authTeacher');
 
 const app = express();
 
-app.use(morgan('dev'));
+const accessLogStream = fs.createWriteStream(
+    path.join(__dirname, 'access.log'),
+    {flags: 'a'});
+
+app.use(morgan('dev', {stream: accessLogStream}));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(helmet());
 
 app.use('/auth/student', authStudent);
 app.use('/auth/teacher', authTeacher);
