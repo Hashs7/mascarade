@@ -1,32 +1,61 @@
 <template>
-    <v-form
-            ref="form"
-            v-model="valid"
-            lazy-validation
-    >
+    <div>
+        <v-card>
+            <v-card-title primary-title>
+                <div>
+                    <h3 class="headline mb-0">Hint</h3>
+                    <p>Login: admin@dev.com</p>
+                    <p>Password: admin</p>
+                </div>
+            </v-card-title>
+        </v-card>
 
-        <v-text-field
-                v-model="email"
-                :rules="emailRules"
-                label="E-mail"
-                required
-        ></v-text-field>
-
-        <v-text-field
-                v-model="password"
-                label="Password"
-                required
-                type="password"
-        ></v-text-field>
-
-        <v-btn
-                :disabled="!valid"
-                color="success"
-                @click="validate"
+        <v-snackbar
+                v-model="snackbar"
+                :timeout="6000"
+                top
+                right
         >
-            Connexion
-        </v-btn>
-    </v-form>
+            {{ responseMsg }}
+            <v-btn
+                    color="blue"
+                    flat
+                    @click="snackbar = false"
+            >
+                Fermer
+            </v-btn>
+        </v-snackbar>
+
+        <v-form
+                ref="form"
+                v-model="valid"
+                lazy-validation
+        >
+
+            <v-text-field
+                    v-model="email"
+                    :rules="emailRules"
+                    label="E-mail"
+                    required
+            ></v-text-field>
+
+            <v-text-field
+                    v-model="password"
+                    label="Password"
+                    required
+                    type="password"
+            ></v-text-field>
+
+            <v-btn
+                    :disabled="!valid"
+                    color="success"
+                    @click="validate"
+            >
+                Connexion
+            </v-btn>
+        </v-form>
+    </div>
+
 </template>
 
 <script>
@@ -37,6 +66,8 @@
         name: 'TeacherLogin',
         data: () => ({
             valid: true,
+            snackbar: false,
+            responseMsg: '',
             email: '',
             password: '',
             emailRules: [
@@ -61,11 +92,11 @@
 
                 api(options)
                     .then(res => {
-                        setTimeout(() => {
-                            this.$router.push('/dashboard')
-                        }, 3000)
+                        this.$router.push('/dashboard')
                     })
                     .catch(err => {
+                        this.responseMsg = 'Les données saisies sont incorrectes';
+                        this.snackbar = true;
                         console.log(err);
                     })
             },
