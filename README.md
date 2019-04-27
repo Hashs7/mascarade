@@ -3,9 +3,7 @@
 ## Project setup
 ```
 npm install
-cd client
-npm install
-
+cd client && npm install
 ```
 
 ### Démarrer le serveur pour l'API
