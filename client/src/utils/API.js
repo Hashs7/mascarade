@@ -1,7 +1,6 @@
 import axios from 'axios';
+import {BASE_API_URL} from "./constant";
 
-export default () => {
-    return axios.create({
-        baseURL: `http://localhost:3000/`
-    })
-}
+export const api = axios.create({
+    baseURL: BASE_API_URL
+});

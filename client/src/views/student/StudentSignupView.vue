@@ -1,0 +1,31 @@
+<template>
+    <div>
+        <v-toolbar app>
+            <v-toolbar-title class="headline text-uppercase">
+                <span>Student signup</span>
+            </v-toolbar-title>
+        </v-toolbar>
+        <v-content>
+            <div class="container">
+                <StudentFrom />
+            </div>
+        </v-content>
+    </div>
+</template>
+
+<script>
+    import StudentFrom from '@/components/StudentForm';
+
+    export default {
+        name: 'StudentSignupView',
+        components: {
+            StudentFrom
+        }
+    }
+</script>
+
+<style scoped lang="scss">
+    .container {
+        max-width: 400px;
+    }
+</style>
