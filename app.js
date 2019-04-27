@@ -33,9 +33,9 @@ app.use((error, req, res, next) => {
     res.status(status).json({message: message, data: data});
 });
 
-const {HOSTNAME, USERNAME, PASSWORD, PORT} = process.env;
+const {HOSTNAME, DB_USER, DB_PASSWORD, PORT} = process.env;
 
-const uri = `mongodb+srv://${USERNAME}:${PASSWORD}@${HOSTNAME}?retryWrites=true`;
+const uri = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${HOSTNAME}?retryWrites=true`;
 
 mongoose
     .connect(uri, {useNewUrlParser: true})
