@@ -82,14 +82,12 @@
 
                api(options)
                 .then(res => {
-                  this.responseMsg = res.data.message;
-                  this.snackbar = true;
-                  setTimeout(() => {
-                    this.$router.push('/student/first')
-                  }, 3000)
+                  this.$router.push('/student/first')
                 })
                 .catch(err => {
                   console.log(err);
+                  this.responseMsg = res.data.message;
+                  this.snackbar = true;
               })
             },
             reset () {
