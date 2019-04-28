@@ -59,7 +59,7 @@ exports.login = (req, res, next) => {
                     email: loadedStudent.email,
                     studentId: loadedStudent._id.toString()
                 },
-                'somesupersecretsecret',
+                process.env.SECRET_TOKEN_KEY,
                 {expiresIn: '2h'}
             );
             res.status(200).json({token: token, studentId: loadedStudent._id.toString()});

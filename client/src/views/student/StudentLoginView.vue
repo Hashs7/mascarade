@@ -27,5 +27,6 @@
 <style scoped lang="scss">
     .container {
         max-width: 400px;
+        margin: 0 auto;
     }
 </style>

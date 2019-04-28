@@ -88,8 +88,9 @@
                     this.$router.push('/student/first')
                   }, 3000)
                 })
-                .catch(err => {
+                .catch((err, msg) => {
                   console.log(err);
+                  console.log(msg);
               })
             },
             reset () {

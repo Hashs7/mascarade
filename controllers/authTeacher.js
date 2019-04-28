@@ -51,16 +51,16 @@ exports.login = (req, res, next) => {
         })
         .then(isEqual => {
             // Escape validation / Admin password is not crypted
-            /*if (!isEqual) {
+            if (!isEqual) {
                 logError('Mauvais mot de passe', 401);
-            }*/
+            }
 
             const token = jwt.sign(
                 {
                     email: loadedTeacher.email,
                     teacherId: loadedTeacher._id.toString()
                 },
-                'somesupersecretsecret',
+                process.env.SECRET_TOKEN_KEY,
                 {expiresIn: '2h'}
             );
             res.status(200).json({token: token, teacherId: loadedTeacher._id.toString()});
