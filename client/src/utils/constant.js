@@ -3,3 +3,4 @@ export const BASE_API_URL = 'https://mascarade.herokuapp.com/';
 
 export const ROUTE_STUDENT_SIGNUP = '/auth/student/signup';
 export const ROUTE_TEACHER_LOGIN  = '/auth/teacher/login';
+export const ROUTE_STUDENT_LOGIN  = '/auth/student/login';
