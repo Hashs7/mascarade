@@ -61,13 +61,13 @@
             email: '',
             password: '',
             emailRules: [
-              v => !!v || 'E-mail is required',
-              v => /.+@.+/.test(v) || 'E-mail must be valid'
+                v => !!v || 'E-mail is required',
+                v => /.+@.+/.test(v) || 'E-mail must be valid'
             ]
         }),
 
         methods: {
-            validate () {
+            validate() {
                 if (!this.$refs.form.validate()) return;
                 const data    = {
                     email: this.email,
@@ -80,23 +80,22 @@
                     url: ROUTE_STUDENT_LOGIN
                 };
 
-               api(options)
-                .then(res => {
-                  this.responseMsg = res.data.message;
-                  this.snackbar = true;
-                  setTimeout(() => {
-                    this.$router.push('/student/first')
-                  }, 3000)
-                })
-                .catch((err, msg) => {
-                  console.log(err);
-                  console.log(msg);
-              })
+                api(options)
+                    .then(res => {
+
+                        this.$router.push('/student/first')
+                    })
+                    .catch((err) => {
+                        // todo show response msg
+                        this.responseMsg = res.data.message;
+                        this.snackbar    = true;
+                        console.log(err);
+                    })
             },
-            reset () {
+            reset() {
                 this.$refs.form.reset()
             },
-            resetValidation () {
+            resetValidation() {
                 this.$refs.form.resetValidation()
             }
         }
@@ -104,7 +103,7 @@
 </script>
 
 <style scoped>
- button {
-    margin-left: 0;
-  }
+    button {
+        margin-left: 0;
+    }
 </style>

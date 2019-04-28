@@ -9,6 +9,7 @@ const morgan      = require('morgan');
 const helmet      = require('helmet');
 const authStudent = require('./routes/auth/authStudent');
 const authTeacher = require('./routes/auth/authTeacher');
+const session     = require('./routes/session');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(helmet());
 
 app.use('/auth/student', authStudent);
 app.use('/auth/teacher', authTeacher);
+app.use('/session', session);
 
 // Invalid route
 app.use((error, req, res, next) => {
@@ -35,7 +37,7 @@ app.use((error, req, res, next) => {
 
 
 const {HOSTNAME, DB_USER, DB_PASSWORD, PORT} = process.env;
-const uri = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${HOSTNAME}?retryWrites=true`;
+const uri                                    = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${HOSTNAME}?retryWrites=true`;
 
 mongoose
     .connect(uri, {useNewUrlParser: true})

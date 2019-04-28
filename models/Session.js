@@ -6,6 +6,10 @@ const sessionSchema = new Schema({
         type: String,
         required: true
     },
+    className: {
+        type: String,
+        required: true
+    },
     teacher: {
         type: Schema.Types.ObjectId,
         ref: 'Teacher',
