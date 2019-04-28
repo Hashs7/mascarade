@@ -2,41 +2,30 @@
 
 ## Project setup
 ```
-cd client
 npm install
-cd ../server
-npm install
+cd client && npm install
 ```
 
-### Start server for API
-In server folder :
-rename .env.example by .env
+### Démarrer le serveur pour l'API
+Renommer .env.example par .env en renseignant les champs et lancer le server
 ```
 npm start
 ```
-### Start client
-In client folder :
+### Démarrer le client
+Dans le dossier client
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiler et minifier le client pour la production
+Dans le dossier client
 ```
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
+### Lancer le linter et fix les fichiers
+Dans le dossier client
 ```
 npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
 ```
 
