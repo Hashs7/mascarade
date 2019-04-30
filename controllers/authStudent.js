@@ -3,6 +3,7 @@ const bcrypt             = require('bcryptjs');
 const jwt                = require('jsonwebtoken');
 const {logError}         = require('../utils');
 const Student            = require('../models/Student');
+const Session            = require('../models/Session');
 
 exports.signup = (req, res, next) => {
     const errors = validationResult(req);
@@ -11,18 +12,27 @@ exports.signup = (req, res, next) => {
     }
 
     const {email, firstname, surname, password, gender} = req.body;
+    const roomId = req.query.room;
+    let newStudent;
 
     bcrypt
         .hash(password, 12)
         .then(hashedPw => {
-            const student = new Student({
+            newStudent = new Student({
                 email: email,
                 password: hashedPw,
                 firstname: firstname,
                 surname: surname,
                 gender: gender
             });
-            return student.save();
+            return newStudent.save();
+        })
+        .then(_ => {
+            return Session.findOne({ shortId: roomId });
+        })
+        .then(session => {
+            session.students.push(newStudent);
+            return session.save();
         })
         .then(result => {
             res.status(201).json({message: 'Le profil étudiant a été créé', userId: result._id});

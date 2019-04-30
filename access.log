@@ -32,3 +32,13 @@
 [0mPOST /auth/teacher/login [32m200 [0m334.168 ms - 263[0m
 [0mOPTIONS /session/new [32m204 [0m0.100 ms - 0[0m
 [0mPUT /session/new [32m201 [0m82.577 ms - 100[0m
+[0mOPTIONS /auth/teacher/login [32m204 [0m1.465 ms - 0[0m
+[0mPOST /auth/teacher/login [32m200 [0m347.504 ms - 263[0m
+[0mOPTIONS /session/new [32m204 [0m0.197 ms - 0[0m
+[0mPUT /session/new [32m201 [0m146.949 ms - 100[0m
+[0mOPTIONS /auth/student/signup [32m204 [0m0.068 ms - 0[0m
+[0mPUT /auth/student/signup [32m201 [0m353.149 ms - 84[0m
+[0mOPTIONS /auth/student/signup?room=oT5zlZbxH [32m204 [0m0.087 ms - 0[0m
+[0mPUT /auth/student/signup?room=oT5zlZbxH [32m201 [0m324.815 ms - 84[0m
+[0mOPTIONS /auth/student/signup?room=oT5zlZbxH [32m204 [0m1.774 ms - 0[0m
+[0mPUT /auth/student/signup?room=oT5zlZbxH [32m201 [0m498.982 ms - 84[0m
