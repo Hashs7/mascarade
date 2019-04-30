@@ -27,7 +27,7 @@
             </v-form>
             <div v-if="sessionCreated">
                 <p>Partagez ce lien à vos élèves: {{ linkToShare }}</p>
-                <StudentTable />
+                <TableStudent />
             </div>
 
         </v-content>
@@ -72,7 +72,7 @@
                 api(options)
                     .then(res => {
                         console.log(res);
-                        this.linkToShare = window.location.origin + '/student/signup?room=' + res.data.shareId
+                        this.linkToShare = window.location.origin + '/student/signup/' + res.data.shareId
                         this.sessionCreated = true
                     })
                     .catch((err) => {

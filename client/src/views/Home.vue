@@ -20,6 +20,9 @@
 <script>
 
     export default {
-        components: {}
+        components: {},
+        mounted() {
+            localStorage.clear();
+        }
     }
 </script>

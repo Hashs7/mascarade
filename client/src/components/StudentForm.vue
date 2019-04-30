@@ -125,7 +125,7 @@
         methods: {
             validate() {
                 if (!this.$refs.form.validate()) return;
-                const roomId = window.location.search;
+                const roomId = this.$route.params.room;
                 const data    = {
                     firstname: this.firstname,
                     surname: this.surname,
