@@ -25,20 +25,25 @@
                     Démarrer une session
                 </v-btn>
             </v-form>
-            <p v-if="sessionCreated">Partagez ce lien à vos élèves: {{ linkToShare }}</p>
+            <div v-if="sessionCreated">
+                <p>Partagez ce lien à vos élèves: {{ linkToShare }}</p>
+                <StudentTable />
+            </div>
 
         </v-content>
     </div>
 </template>
 
 <script>
-
     import {api} from "../../utils/API";
-    import {ROUTE_TEACHER_IS_AUTH, ROUTE_TEACHER_NEW_SESSION} from "../../utils/constant";
+    import {ROUTE_TEACHER_NEW_SESSION} from "../../utils/constant";
+    import TableStudent from '@/components/TableStudent';
 
     export default {
         name: 'TeacherDashboard',
-        components: {},
+        components: {
+            TableStudent
+        },
         data: () => ({
             valid: true,
             sessionCreated: false,
@@ -66,8 +71,6 @@
 
                 api(options)
                     .then(res => {
-                        // this.responseMsg = res.data.message;
-                        // this.snackbar    = true;
                         console.log(res);
                         this.linkToShare = window.location.origin + '/student/signup?room=' + res.data.shareId
                         this.sessionCreated = true

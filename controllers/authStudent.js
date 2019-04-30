@@ -2,6 +2,7 @@ const {validationResult} = require('express-validator/check');
 const bcrypt             = require('bcryptjs');
 const jwt                = require('jsonwebtoken');
 const {logError}         = require('../utils');
+const io                 = require('../socket');
 const Student            = require('../models/Student');
 const Session            = require('../models/Session');
 
@@ -28,13 +29,18 @@ exports.signup = (req, res, next) => {
             return newStudent.save();
         })
         .then(_ => {
-            return Session.findOne({ shortId: roomId });
+            return Session.findOne({shortId: roomId});
         })
         .then(session => {
             session.students.push(newStudent);
             return session.save();
         })
         .then(result => {
+            io.getIO().emit('student-connection', {
+                firstname,
+                surname,
+                gender
+            });
             res.status(201).json({message: 'Le profil étudiant a été créé', userId: result._id});
         })
         .catch(err => {
