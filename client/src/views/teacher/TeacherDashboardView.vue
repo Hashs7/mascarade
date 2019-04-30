@@ -34,7 +34,7 @@
 <script>
 
     import {api} from "../../utils/API";
-    import {ROUTE_TEACHER_NEW_SESSION} from "../../utils/constant";
+    import {ROUTE_TEACHER_IS_AUTH, ROUTE_TEACHER_NEW_SESSION} from "../../utils/constant";
 
     export default {
         name: 'TeacherDashboard',
@@ -76,6 +76,7 @@
                         console.log(err);
                     })
             }
-        }
+        },
+
     }
 </script>

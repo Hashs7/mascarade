@@ -6,6 +6,7 @@ import TeacherLogin from '../views/teacher/TeacherLoginView.vue';
 import StudentSignup from '../views/student/StudentSignupView.vue';
 import StudentLogin from '../views/student/StudentLoginView.vue';
 import FirstScene from '../views/student/scenes/FirstScene.vue';
+import { tokenIsValid } from "../utils/API";
 
 Vue.use(Router);
 
@@ -26,7 +27,12 @@ export default new Router({
         {
             path: '/dashboard',
             name: 'TeacherDashboard',
-            component: TeacherDashboard
+            component: TeacherDashboard,
+            beforeEnter: (to, from, next) => {
+                tokenIsValid()
+                    .then(_ => next())
+                    .catch(_ => next('/'))
+            }
         },
         {
             path: '/student/signup',

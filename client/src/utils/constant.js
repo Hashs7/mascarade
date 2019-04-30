@@ -3,5 +3,6 @@ export const BASE_API_URL = 'http://localhost:3000/';
 
 export const ROUTE_STUDENT_SIGNUP      = '/auth/student/signup';
 export const ROUTE_TEACHER_LOGIN       = '/auth/teacher/login';
+export const ROUTE_TEACHER_IS_AUTH     = '/auth/teacher/is-auth';
 export const ROUTE_STUDENT_LOGIN       = '/auth/student/login';
 export const ROUTE_TEACHER_NEW_SESSION = '/session/new';
