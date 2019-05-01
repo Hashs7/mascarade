@@ -2,7 +2,9 @@ const {validationResult} = require('express-validator/check');
 const bcrypt             = require('bcryptjs');
 const jwt                = require('jsonwebtoken');
 const {logError}         = require('../utils');
+const io                 = require('../socket');
 const Student            = require('../models/Student');
+const Session            = require('../models/Session');
 
 exports.signup = (req, res, next) => {
     const errors = validationResult(req);
@@ -11,20 +13,34 @@ exports.signup = (req, res, next) => {
     }
 
     const {email, firstname, surname, password, gender} = req.body;
+    const roomId = req.query.room;
+    let newStudent;
 
     bcrypt
         .hash(password, 12)
         .then(hashedPw => {
-            const student = new Student({
+            newStudent = new Student({
                 email: email,
                 password: hashedPw,
                 firstname: firstname,
                 surname: surname,
                 gender: gender
             });
-            return student.save();
+            return newStudent.save();
+        })
+        .then(_ => {
+            return Session.findOne({shortId: roomId});
+        })
+        .then(session => {
+            session.students.push(newStudent);
+            return session.save();
         })
         .then(result => {
+            io.getIO().emit('student-connection', {
+                firstname,
+                surname,
+                gender
+            });
             res.status(201).json({message: 'Le profil étudiant a été créé', userId: result._id});
         })
         .catch(err => {
@@ -59,7 +75,7 @@ exports.login = (req, res, next) => {
                     email: loadedStudent.email,
                     studentId: loadedStudent._id.toString()
                 },
-                'somesupersecretsecret',
+                process.env.SECRET_TOKEN_KEY,
                 {expiresIn: '2h'}
             );
             res.status(200).json({token: token, studentId: loadedStudent._id.toString()});

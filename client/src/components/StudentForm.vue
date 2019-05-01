@@ -125,6 +125,7 @@
         methods: {
             validate() {
                 if (!this.$refs.form.validate()) return;
+                const roomId = this.$route.params.room;
                 const data    = {
                     firstname: this.firstname,
                     surname: this.surname,
@@ -136,7 +137,7 @@
                     method: 'PUT',
                     headers: {'Content-Type': 'application/json'},
                     data: JSON.stringify(data),
-                    url: ROUTE_STUDENT_SIGNUP
+                    url: ROUTE_STUDENT_SIGNUP + roomId
                 };
 
                 api(options)

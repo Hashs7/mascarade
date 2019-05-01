@@ -92,7 +92,9 @@
 
                 api(options)
                     .then(res => {
-                        this.$router.push('/dashboard')
+                        localStorage.setItem('token', res.data.token);
+                        localStorage.setItem('teacherId', res.data.teacherId);
+                        this.$router.push('/dashboard');
                     })
                     .catch(err => {
                         this.responseMsg = 'Les données saisies sont incorrectes';

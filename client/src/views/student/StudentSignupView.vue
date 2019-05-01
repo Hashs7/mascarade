@@ -7,19 +7,19 @@
         </v-toolbar>
         <v-content>
             <div class="container">
-                <StudentFrom />
+                <StudentForm />
             </div>
         </v-content>
     </div>
 </template>
 
 <script>
-    import StudentFrom from '@/components/StudentForm';
+    import StudentForm from '@/components/StudentForm';
 
     export default {
         name: 'StudentSignupView',
         components: {
-            StudentFrom
+            StudentForm
         }
     }
 </script>

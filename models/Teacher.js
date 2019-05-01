@@ -18,10 +18,11 @@ const teacherSchema = new Schema({
         type: String,
         required: true
     },
-    sessions: {
+    sessions: [{
         type: Schema.Types.ObjectId,
-        ref: 'Session'
-    }
+        ref: 'Session',
+        required: false
+    }]
 });
 
 module.exports = mongoose.model('Teacher', teacherSchema);

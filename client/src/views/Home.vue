@@ -8,7 +8,7 @@
         <v-content>
             <router-link to="teacher/login">Login as teacher</router-link>
             <br>
-            <router-link to="student/signup">Signup as student</router-link>
+            <router-link to="student/signup/randomRoomId">Signup as student</router-link>
             <br>
 
             <!--Route temporaire-->
@@ -20,6 +20,9 @@
 <script>
 
     export default {
-        components: {}
+        components: {},
+        mounted() {
+            localStorage.clear();
+        }
     }
 </script>

@@ -1,7 +1,8 @@
-const express = require('express');
-const { body } = require('express-validator/check/index');
-const Teacher = require('../../models/Teacher');
+const express        = require('express');
+const {body}         = require('express-validator/check/index');
+const Teacher        = require('../../models/Teacher');
 const authController = require('../../controllers/authTeacher');
+const isAuth         = require('../../middlewares/is-auth');
 
 const router = express.Router();
 
@@ -11,8 +12,8 @@ router.put(
         body('email')
             .isEmail()
             .withMessage('Entrez un email valide')
-            .custom((value, { req }) => {
-                return Teacher.findOne({ email: value }).then(userDoc => {
+            .custom((value, {req}) => {
+                return Teacher.findOne({email: value}).then(userDoc => {
                     if (userDoc) {
                         return Promise.reject('Cet email est déjà pris');
                     }
@@ -21,7 +22,7 @@ router.put(
             .normalizeEmail(),
         body('password')
             .trim()
-            .isLength({ min: 5 }),
+            .isLength({min: 5}),
         body('firstname')
             .trim()
             .not()
@@ -35,5 +36,7 @@ router.put(
 );
 
 router.post('/login', authController.login);
+
+router.get('/is-auth', isAuth, authController.isAuth);
 
 module.exports = router;

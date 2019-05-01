@@ -11,6 +11,7 @@ exports.signup = (req, res, next) => {
     }
 
     const {email, firstname, surname, password} = req.body;
+    console.log(req.body, "body");
 
     bcrypt
         .hash(password, 12)
@@ -51,16 +52,16 @@ exports.login = (req, res, next) => {
         })
         .then(isEqual => {
             // Escape validation / Admin password is not crypted
-            /*if (!isEqual) {
+            if (!isEqual) {
                 logError('Mauvais mot de passe', 401);
-            }*/
+            }
 
             const token = jwt.sign(
                 {
                     email: loadedTeacher.email,
                     teacherId: loadedTeacher._id.toString()
                 },
-                'somesupersecretsecret',
+                process.env.SECRET_TOKEN_KEY,
                 {expiresIn: '2h'}
             );
             res.status(200).json({token: token, teacherId: loadedTeacher._id.toString()});
@@ -71,4 +72,8 @@ exports.login = (req, res, next) => {
             }
             next(err);
         });
+};
+
+exports.isAuth = (req, res, next) => {
+    res.status(200).send('Valid token')
 };
