@@ -6,6 +6,8 @@
             </v-toolbar-title>
         </v-toolbar>
         <v-content>
+            <router-link to="teacher/signup">Signup as teacher</router-link>
+            <br>
             <router-link to="teacher/login">Login as teacher</router-link>
             <br>
             <router-link to="student/signup/randomRoomId">Signup as student</router-link>
