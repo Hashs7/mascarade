@@ -1,4 +1,5 @@
 # Projet Mascarade
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b9d21598-bdc9-42d6-806c-330021b14adb/deploy-status)](https://app.netlify.com/sites/mascarade/deploys)
 
 ## Project setup
 ```
