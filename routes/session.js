@@ -17,5 +17,7 @@ router.put(
     sessionController.newSession
 );
 
+router.get('/all', isAuth, sessionController.getSessions);
+
 
 module.exports = router;

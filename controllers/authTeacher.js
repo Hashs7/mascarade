@@ -77,3 +77,4 @@ exports.login = (req, res, next) => {
 exports.isAuth = (req, res, next) => {
     res.status(200).send('Valid token')
 };
+

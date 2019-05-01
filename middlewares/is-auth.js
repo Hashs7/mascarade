@@ -1,4 +1,4 @@
-const { logError } = require('../utils');
+const {logError} = require('../utils');
 
 const jwt = require('jsonwebtoken');
 
@@ -21,6 +21,7 @@ module.exports = (req, res, next) => {
         logError('Not Authentificated', 403);
     }
 
-    req.userId = decodedToken.userId;
+    req.userId    = decodedToken.userId;
+    req.teacherId = decodedToken.teacherId;
     next();
 };

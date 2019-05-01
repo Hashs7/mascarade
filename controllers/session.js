@@ -14,13 +14,14 @@ exports.newSession = (req, res, next) => {
 
     const {className, teacherId} = req.body;
     const shortId = shortid.generate();
-    console.log(teacherId, req, "teacher");
+
     const session = new Session({
         shortId: shortId,
         className: className,
         teacher: teacherId,
         students: []
     });
+
     session.save()
         .then(result => {
             return Teacher.findById(teacherId)
@@ -42,4 +43,24 @@ exports.newSession = (req, res, next) => {
             }
             next(err);
         });
+};
+
+
+exports.getSessions = (req, res, next) => {
+    console.log(req.teacherId);
+
+    Teacher.findById(req.teacherId)
+        .populate({
+            path: 'sessions',
+            populate: {
+                path: 'students',
+                model: 'Student'
+            }
+        })
+        .then(teacher => {
+            console.log(teacher);
+            res.status(201).json({
+                sessions: teacher.sessions
+            });
+        })
 };

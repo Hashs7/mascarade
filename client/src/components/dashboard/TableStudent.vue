@@ -14,7 +14,7 @@
 
 <script>
     import openSocket from 'socket.io-client';
-    import {BASE_API_URL} from "../utils/constant";
+    import {BASE_API_URL} from "../../utils/constant";
 
     export default {
         name: "StudentTable",
