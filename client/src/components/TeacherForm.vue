@@ -49,14 +49,6 @@
                     required
             ></v-text-field>
 
-            <v-select
-                    v-model="gender"
-                    :items="items"
-                    :rules="[v => !!v || 'Le genre est requis']"
-                    label="Genre"
-                    required
-            ></v-select>
-
             <v-checkbox
                     v-model="checkbox"
                     :rules="[v => !!v || 'Vous devez accepter pour continuer']"
@@ -91,10 +83,10 @@
 
 <script>
     import {api} from "../utils/API";
-    import {ROUTE_STUDENT_SIGNUP} from "../utils/constant";
+    import {ROUTE_TEACHER_SIGNUP} from "../utils/constant";
 
     export default {
-        name: 'StudentForm',
+        name: 'TeacherForm',
         data: () => ({
             snackbar: false,
             responseMsg: '',
@@ -114,18 +106,12 @@
                 v => !!v || 'Un mot de passe est requis',
                 v => v.length > 5 || 'Le mot de passe doit faire au moins 5 caractères'
             ],
-            gender: null,
-            items: [
-                'Homme',
-                'Femme'
-            ],
             checkbox: false
         }),
 
         methods: {
             validate() {
                 if (!this.$refs.form.validate()) return;
-                const roomId = this.$route.params.room;
                 const data    = {
                     firstname: this.firstname,
                     surname: this.surname,
@@ -137,7 +123,7 @@
                     method: 'PUT',
                     headers: {'Content-Type': 'application/json'},
                     data: JSON.stringify(data),
-                    url: ROUTE_STUDENT_SIGNUP + roomId
+                    url: ROUTE_TEACHER_SIGNUP
                 };
 
                 api(options)
@@ -145,7 +131,7 @@
                         this.responseMsg = res.data.message;
                         this.snackbar = true;
                         setTimeout(() => {
-                            this.$router.push('/student/first')
+                            this.$router.push('/teacher/login')
                         }, 3000)
                     })
                     .catch(err => {

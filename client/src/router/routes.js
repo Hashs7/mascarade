@@ -1,5 +1,6 @@
 import Home from '../views/Home.vue';
 import TeacherDashboard from '../views/teacher/TeacherDashboardView.vue';
+import TeacherSignup from '../views/teacher/TeacherSignupView.vue';
 import TeacherLogin from '../views/teacher/TeacherLoginView.vue';
 import StudentSignup from '../views/student/StudentSignupView.vue';
 import StudentLogin from '../views/student/StudentLoginView.vue';
@@ -11,6 +12,11 @@ export default [
         path: '/',
         name: 'home',
         component: Home
+    },
+    {
+        path: '/teacher/signup',
+        name: 'TeacherSignup',
+        component: TeacherSignup
     },
     {
         path: '/teacher/login',
