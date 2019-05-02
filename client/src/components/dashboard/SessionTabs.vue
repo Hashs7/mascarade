@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div v-if="currentSessions.length">
         <v-tabs
+                v-model="tabIndex"
                 dark
-                color="cyan"
                 show-arrows
         >
-            <v-tabs-slider color="yellow"></v-tabs-slider>
+            <v-tabs-slider color="blue"></v-tabs-slider>
 
             <v-tab
                     v-for="(session, i) in currentSessions"
@@ -47,7 +47,12 @@
         computed: {
             currentSessions() {
                 return this.$store.state.sessions
+            },
+            tabIndex: {
+                get() { return this.$store.state.tabIndex },
+                set(value){ this.$store.commit("updateIndex", value );}
             }
+
         },
         methods: {
         },

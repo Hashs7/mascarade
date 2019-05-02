@@ -16,7 +16,7 @@ export default {
 
         api(options)
             .then(res => {
-                console.log(res);
+                console.log(res.data.session, res.data);
                 // this.linkToShare = window.location.origin + '/student/signup/' + res.data.shareId
                 ctx.commit('addSession', res.data.session)
             })

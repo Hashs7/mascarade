@@ -1,3 +1,4 @@
 export default {
-    sessions: null
+    sessions: null,
+    tabIndex: null
 }
