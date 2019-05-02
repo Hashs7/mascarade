@@ -1,7 +1,7 @@
 <template>
     <v-data-table
             :headers="headers"
-            :items="students"
+            :items="session.students"
             class="elevation-1"
     >
         <template v-slot:items="props">
@@ -18,32 +18,20 @@
 
     export default {
         name: "StudentTable",
+        props: ['session'],
         data () {
             return {
                 headers: [
-                    {
-                        text: 'Prénom',
-                        align: 'left',
-                        // sortable: false,
-                        value: 'firstname'
-                    },
+                    { text: 'Prénom', align: 'left', value: 'firstname' },
                     { text: 'Nom', value: 'surname', align: 'left' },
                     { text: 'Genre', value: 'gender' },
-                ],
-                students: [
-                    {
-                        firstname: 'Frozen',
-                        surname: 'Yogurt',
-                        gender: 'Homme'
-                    }
                 ]
             }
         },
         mounted() {
             const socket = openSocket(BASE_API_URL);
-            socket.on('student-connection', student => {
-                console.log(student);
-                this.students.push(student)
+            socket.on('student-connection', ({ student, sessionId }) => {
+                this.$store.commit('addStudent', {student, sessionId});
             })
         }
     }

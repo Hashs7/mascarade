@@ -12,19 +12,19 @@ exports.newSession = (req, res, next) => {
         logError('La validation a échouée', 422, errors);
     }
 
-    const {className, teacherId} = req.body;
+    const {className} = req.body;
     const shortId = shortid.generate();
 
     const session = new Session({
         shortId: shortId,
         className: className,
-        teacher: teacherId,
+        teacher: req.teacherId,
         students: []
     });
 
     session.save()
         .then(result => {
-            return Teacher.findById(teacherId)
+            return Teacher.findById(req.teacherId)
         })
         .then(teacher => {
             teacher.sessions.push(session);
@@ -33,8 +33,7 @@ exports.newSession = (req, res, next) => {
         .then(result => {
             res.status(201).json({
                 message: 'La session a été créé',
-                sessionId: result._id,
-                shareId: shortId
+                session: session,
             });
         })
         .catch(err => {

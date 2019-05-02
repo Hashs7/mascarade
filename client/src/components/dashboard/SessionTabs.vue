@@ -1,48 +1,64 @@
 <template>
-    <v-tabs
-            dark
-            color="cyan"
-            show-arrows
-    >
-        <v-tabs-slider color="yellow"></v-tabs-slider>
-
-        <v-tab
-                v-for="i in 30"
-                :key="i"
-                :href="'#tab-' + i"
+    <div>
+        <v-tabs
+                dark
+                color="cyan"
+                show-arrows
         >
-            Item {{ i }}
-        </v-tab>
+            <v-tabs-slider color="yellow"></v-tabs-slider>
 
-        <v-tabs-items>
-            <v-tab-item
-                    v-for="i in 30"
+            <v-tab
+                    v-for="(session, i) in currentSessions"
                     :key="i"
-                    :value="'tab-' + i"
+                    :href="'#tab-' + i"
             >
-                <v-card flat>
-                    <v-card-text>{{ text }}</v-card-text>
-                </v-card>
-            </v-tab-item>
-        </v-tabs-items>
-    </v-tabs>
+                {{ session.className }}
+            </v-tab>
+            <v-tabs-items>
+                <v-tab-item
+                        v-for="(session, i) in currentSessions"
+                        :key="i"
+                        :value="'tab-' + i"
+                >
+                    <p>Lien de partage de la session: {{ linkSignup + session.shortId }}</p>
+                    <TableStudent :session="session"/>
+                </v-tab-item>
+            </v-tabs-items>
+        </v-tabs>
+    </div>
+
 </template>
 
 <script>
     import {getSession} from "../../utils/API";
+    import TableStudent from '@/components/dashboard/TableStudent';
 
     export default {
         name: "SessionTabs",
+        components: {
+            TableStudent
+        },
         data () {
             return {
+                linkSignup: window.location.origin + '/student/signup/',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
             }
         },
-        created() {
+        computed: {
+            currentSessions() {
+                return this.$store.state.sessions
+            }
+        },
+        methods: {
+        },
+        mounted() {
+            console.log(this.$store.state.sessions);
+            if(this.$store.state.sessions !== null) return;
             console.log('did');
             getSession()
                 .then(res => {
-                    console.log(res.data);
+                    console.log('commit', res.data.sessions);
+                    this.$store.commit('initSessions', res.data.sessions);
                 })
                 .catch(err => console.log(err))
         }

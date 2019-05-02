@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import './style/global.scss';
 import theme from './style/theme';
 import App from './App.vue';
 import router from './router';

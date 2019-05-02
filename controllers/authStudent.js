@@ -36,10 +36,14 @@ exports.signup = (req, res, next) => {
             return session.save();
         })
         .then(result => {
+            console.log(result);
             io.getIO().emit('student-connection', {
-                firstname,
-                surname,
-                gender
+                student: {
+                    firstname,
+                    surname,
+                    gender
+                },
+                sessionId: result._id
             });
             res.status(201).json({message: 'Le profil étudiant a été créé', userId: result._id});
         })

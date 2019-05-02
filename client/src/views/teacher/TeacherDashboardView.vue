@@ -9,28 +9,8 @@
             <Navigation />
             <div class="content">
                 <p>Bienvenue sur le dashboard</p>
-                <v-form
-                        ref="form"
-                        v-model="valid"
-                        lazy-validation
-                >
-                    <v-text-field
-                            v-model="className"
-                            label="Nom de la classe"
-                            required
-                    ></v-text-field>
-                    <v-btn
-                            :disabled="!valid"
-                            color="success"
-                            @click="validate"
-                    >
-                        Démarrer une session
-                    </v-btn>
-                </v-form>
-                <div v-if="sessionCreated">
-                    <p>Partagez ce lien à vos élèves: {{ linkToShare }}</p>
-                    <TableStudent />
-                </div>
+
+                <NewSession />
                 <SessionTabs />
             </div>
         </v-content>
@@ -38,8 +18,7 @@
 </template>
 
 <script>
-    import {api} from "../../utils/API";
-    import {ROUTE_TEACHER_NEW_SESSION} from "../../utils/constant";
+    import NewSession from '@/components/dashboard/NewSession';
     import Navigation from '@/components/dashboard/Navigation';
     import TableStudent from '@/components/dashboard/TableStudent';
     import SessionTabs from '@/components/dashboard/SessionTabs';
@@ -49,7 +28,8 @@
         components: {
             TableStudent,
             Navigation,
-            SessionTabs
+            SessionTabs,
+            NewSession
         },
         data: () => ({
             valid: true,
@@ -58,36 +38,8 @@
             linkToShare: ''
         }),
         methods: {
-            validate() {
-                if (!this.$refs.form.validate()) return;
-                const token = localStorage.getItem('token');
-                const teacherId = localStorage.getItem('teacherId');
-                const data    = {
-                    className: this.className,
-                    teacherId
-                };
-                const options = {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: 'Bearer ' + token
-                    },
-                    data: JSON.stringify(data),
-                    url: ROUTE_TEACHER_NEW_SESSION
-                };
 
-                api(options)
-                    .then(res => {
-                        console.log(res);
-                        this.linkToShare = window.location.origin + '/student/signup/' + res.data.shareId
-                        this.sessionCreated = true
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            }
         },
-
     }
 </script>
 
@@ -95,9 +47,12 @@
     .v-content {
         height: calc(100vh - 3px)
     }
+    .v-content__wrap {
+        display: flex;
+
+    }
     .content {
-        display: inline-block;
-        vertical-align: top;
-        width: calc(100% - 300px);
+        flex-grow: 1;
+        padding: 20px;
     }
 </style>

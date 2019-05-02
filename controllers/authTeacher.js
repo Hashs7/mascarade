@@ -42,6 +42,13 @@ exports.login = (req, res, next) => {
     let loadedTeacher;
 
     Teacher.findOne({ email: email })
+        .populate({
+            path: 'sessions',
+            populate: {
+                path: 'students',
+                model: 'Student'
+            }
+        })
         .then(teacher => {
             if (!teacher) {
                 logError('Aucun utilisateur avec cet email n\'a été trouvé', 401);
@@ -64,7 +71,7 @@ exports.login = (req, res, next) => {
                 process.env.SECRET_TOKEN_KEY,
                 {expiresIn: '2h'}
             );
-            res.status(200).json({token: token, teacherId: loadedTeacher._id.toString()});
+            res.status(200).json({token: token, teacherId: loadedTeacher._id.toString(), sessions: loadedTeacher.sessions});
         })
         .catch(err => {
             if (!err.statusCode) {
