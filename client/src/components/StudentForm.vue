@@ -106,7 +106,7 @@
             ],
             email: '',
             emailRules: [
-                v => !!v || 'E-mail is required',
+                v => !!v || 'Un e-mail est requis',
                 v => /.+@.+/.test(v) || 'E-mail must be valid'
             ],
             password: '',

@@ -1,14 +1,5 @@
 <template>
     <div>
-        <v-card>
-            <v-card-title primary-title>
-                <div>
-                    <h3 class="headline mb-0">Hint</h3>
-                    <p>Login: admin@dev.com</p>
-                    <p>Password: admin</p>
-                </div>
-            </v-card-title>
-        </v-card>
 
         <v-snackbar
                 v-model="snackbar"
