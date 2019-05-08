@@ -39,38 +39,59 @@ export default [
     {
         path: '/',
         name: 'home',
-        component: Home
+        component: Home,
+        meta: {
+            title: 'Accueil',
+        }
     },
     {
         path: '/teacher/signup',
         name: 'TeacherSignup',
-        component: TeacherSignup
+        component: TeacherSignup,
+        meta: {
+            title: 'Inscription - Professeur',
+        }
     },
     {
         path: '/teacher/login',
         name: 'TeacherLogin',
-        component: TeacherLogin
+        component: TeacherLogin,
+        meta: {
+            title: 'Connexion - Professeur',
+        }
     },
     {
         path: '/dashboard',
         name: 'TeacherDashboard',
         component: TeacherDashboard,
-        beforeEnter: redirectIfNotAuth
+        beforeEnter: redirectIfNotAuth,
+        meta: {
+            title: 'Dashboard',
+        }
     },
     {
         path: '/student/signup/:room',
         name: 'StudentSignup',
-        component: StudentSignup
+        component: StudentSignup,
+        meta: {
+            title: 'Inscription - Élève',
+        }
     },
     {
         // temporary route
         path: '/student/login',
         name: 'StudentLogin',
-        component: StudentLogin
+        component: StudentLogin,
+        meta: {
+            title: 'Connexion - Élève',
+        }
     },
     {
         path: '/student/first',
         name: 'FirstScene',
-        component: FirstScene
+        component: FirstScene,
+        meta: {
+            title: 'Scène 1',
+        }
     }
 ]
