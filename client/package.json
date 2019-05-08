@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -16,7 +15,8 @@
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuetify": "^1.5.5",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.6.0",
@@ -34,3 +34,4 @@
     "vuetify-loader": "^1.0.5"
   }
 }
+

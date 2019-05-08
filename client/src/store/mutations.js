@@ -1,8 +1,5 @@
-import Vue from "vue";
-
 export default {
     initSessions(state, sessions) {
-        // Vue.delete(state, 'sessions');
         state.sessions = sessions
     },
     addSession(state, newSession) {

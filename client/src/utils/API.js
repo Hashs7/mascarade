@@ -6,9 +6,7 @@ export const api = axios.create({
 });
 
 
-export const tokenIsValid = () => {
-    const token = localStorage.getItem('token');
-
+export const tokenIsValid = (token) => {
     const options = {
         method: 'GET',
         headers: {
@@ -23,9 +21,6 @@ export const tokenIsValid = () => {
 
 export const getSession = () => {
     const token = localStorage.getItem('token');
-    const data  = {
-        teacherId: "5cc5eba02256137763414c0f"
-    };
 
     const options = {
         method: 'GET',
@@ -33,7 +28,6 @@ export const getSession = () => {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + token
         },
-        // data: JSON.stringify(data),
         url: ROUTE_TEACHER_ALL_SESSION
     };
 

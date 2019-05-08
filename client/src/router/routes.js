@@ -6,6 +6,35 @@ import StudentSignup from '../views/student/StudentSignupView.vue';
 import StudentLogin from '../views/student/StudentLoginView.vue';
 import FirstScene from '../views/student/scenes/FirstScene.vue';
 import {tokenIsValid} from "../utils/API";
+import store from '../store';
+
+async function redirectIfNotAuth (to, from, next) {
+    const token = await getTokenState();
+    console.log(token, 'token');
+    if (token !== null) {
+        tokenIsValid(token)
+            .then(_ => next())
+            .catch(_ => next('/'))
+    } else {
+        next('/')
+    }
+}
+
+function getTokenState () {
+    return new Promise((resolve, reject) => {
+        if (store.state.token === undefined) {
+            const unwatch = store.watch(
+                () => store.state.token,
+                (value) => {
+                    unwatch();
+                    resolve(value);
+                }
+            )
+        } else {
+            resolve(store.state.token)
+        }
+    })
+}
 
 export default [
     {
@@ -27,11 +56,7 @@ export default [
         path: '/dashboard',
         name: 'TeacherDashboard',
         component: TeacherDashboard,
-        beforeEnter: (to, from, next) => {
-            tokenIsValid()
-                .then(_ => next())
-                .catch(_ => next('/'))
-        }
+        beforeEnter: redirectIfNotAuth
     },
     {
         path: '/student/signup/:room',

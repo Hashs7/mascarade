@@ -7,9 +7,9 @@
     "node": "11.10.0"
   },
   "scripts": {
-    "start": "nodemon -r dotenv/config app.js",
-    "start:prod": "node -r dotenv/config app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon -r dotenv/config server.js",
+    "start:prod": "node -r dotenv/config server.js",
+    "test": "jest"
   },
   "author": "Sebastien Hernoux",
   "license": "ISC",
@@ -29,6 +29,8 @@
   },
   "devDependencies": {
     "dotenv": "^7.0.0",
-    "nodemon": "^1.18.11"
+    "jest": "^24.8.0",
+    "nodemon": "^1.18.11",
+    "supertest": "^4.0.2"
   }
 }

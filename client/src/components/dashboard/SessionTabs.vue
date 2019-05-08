@@ -57,9 +57,8 @@
         methods: {
         },
         mounted() {
-            console.log(this.$store.state.sessions);
             if(this.$store.state.sessions !== null) return;
-            console.log('did');
+
             getSession()
                 .then(res => {
                     console.log('commit', res.data.sessions);

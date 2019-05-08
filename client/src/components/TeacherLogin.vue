@@ -91,8 +91,8 @@
 
                 api(options)
                     .then(res => {
-                        localStorage.setItem('token', res.data.token);
-                        localStorage.setItem('teacherId', res.data.teacherId);
+                        this.$store.state.token = res.data.token;
+                        this.$store.state.teacherId = res.data.teacherId;
                         this.$store.commit('initSessions', res.data.sessions);
 
                         this.$router.push('/dashboard');
