@@ -10,7 +10,6 @@ import store from '../store';
 
 async function redirectIfNotAuth (to, from, next) {
     const token = await getTokenState();
-    console.log(token, 'token');
     if (token !== null) {
         tokenIsValid(token)
             .then(_ => next())
