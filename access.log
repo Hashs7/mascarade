@@ -974,3 +974,15 @@
 [0mGET /auth/teacher/is-auth [32m200 [0m3.556 ms - 11[0m
 [0mGET / [33m404 [0m4.512 ms - 139[0m
 [0mGET / [33m404 [0m4.070 ms - 139[0m
+[0mOPTIONS /auth/teacher/is-auth [32m204 [0m1.902 ms - 0[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m5.520 ms - 11[0m
+[0mOPTIONS /auth/student/signup?room=JMf7-quK1 [32m204 [0m0.163 ms - 0[0m
+[0mPUT /auth/student/signup?room=JMf7-quK1 [32m201 [0m453.682 ms - 84[0m
+[0mOPTIONS /auth/teacher/is-auth [32m204 [0m1.602 ms - 0[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m5.279 ms - 11[0m
+[0mOPTIONS /auth/teacher/is-auth [32m204 [0m0.166 ms - 0[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m0.549 ms - 11[0m
+[0mOPTIONS /auth/teacher/is-auth [32m204 [0m0.064 ms - 0[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m0.426 ms - 11[0m
+[0mOPTIONS /auth/teacher/is-auth [32m204 [0m0.061 ms - 0[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m0.416 ms - 11[0m

@@ -1,15 +1,22 @@
 <template>
-    <v-data-table
-            :headers="headers"
-            :items="session.students"
-            class="elevation-1"
-    >
-        <template v-slot:items="props">
-            <td class="text-xs-left">{{ props.item.firstname }}</td>
-            <td class="text-xs-left">{{ props.item.surname }}</td>
-            <td class="text-xs-left">{{ props.item.gender }}</td>
-        </template>
+    <div>
+
+        <v-data-table
+                :headers="headers"
+                :items="session.students"
+                class="elevation-1"
+        >
+            <template v-slot:items="props">
+                <td class="text-xs-left">{{ props.item.firstname }}</td>
+                <td class="text-xs-left">{{ props.item.surname }}</td>
+                <td class="text-xs-left">{{ props.item.gender }}</td>
+                <td class="text-xs-left">
+                    <v-progress-linear v-model="studentCounter" />
+                </td>
+            </template>
     </v-data-table>
+    </div>
+
 </template>
 
 <script>
@@ -21,15 +28,20 @@
         props: ['session'],
         data () {
             return {
+                studentCounter: 0,
                 headers: [
                     { text: 'Prénom', align: 'left', value: 'firstname' },
                     { text: 'Nom', value: 'surname', align: 'left' },
                     { text: 'Genre', value: 'gender' },
+                    { text: 'Compteur', value: 'gender' },
                 ]
             }
         },
         mounted() {
             const socket = openSocket(BASE_API_URL);
+            socket.on('poke', (counter) => {
+                this.studentCounter = counter;
+            });
             socket.on('student-connection', ({ student, sessionId }) => {
                 this.$store.commit('addStudent', {student, sessionId});
             })

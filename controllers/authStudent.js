@@ -74,6 +74,15 @@ exports.login = (req, res, next) => {
                 logError('Mauvais mot de passe', 401);
             }
 
+            io.getIO().emit('student-connection', {
+                student: {
+                    firstname: loadedStudent.firstname,
+                    surname: loadedStudent.surname,
+                    gender: loadedStudent.gender
+                },
+                sessionId: loadedStudent.sessionId
+            });
+
             const token = jwt.sign(
                 {
                     email: loadedStudent.email,
@@ -82,6 +91,7 @@ exports.login = (req, res, next) => {
                 process.env.SECRET_TOKEN_KEY,
                 {expiresIn: '2h'}
             );
+
             res.status(200).json({token: token, studentId: loadedStudent._id.toString()});
         })
         .catch(err => {
