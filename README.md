@@ -1,5 +1,6 @@
 # Projet Mascarade
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b9d21598-bdc9-42d6-806c-330021b14adb/deploy-status)](https://app.netlify.com/sites/mascarade/deploys)
+[![Tests Status](https://travis-ci.com/Hashs7/mascarade.svg?token=4iexNTB5mpzz4SKFFb2q&branch=develop)](https://travis-ci.com/Hashs7/mascarade)
 
 ## Project setup
 ```
