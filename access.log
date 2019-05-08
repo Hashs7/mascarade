@@ -972,3 +972,5 @@
 [0mGET /auth/teacher/is-auth [32m200 [0m5.632 ms - 11[0m
 [0mOPTIONS /auth/teacher/is-auth [32m204 [0m1.413 ms - 0[0m
 [0mGET /auth/teacher/is-auth [32m200 [0m3.556 ms - 11[0m
+[0mGET / [33m404 [0m4.512 ms - 139[0m
+[0mGET / [33m404 [0m4.070 ms - 139[0m
