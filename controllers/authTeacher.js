@@ -26,7 +26,8 @@ exports.signup = (req, res, next) => {
             return teacher.save();
         })
         .then(result => {
-            res.status(201).json({message: 'Le profil professeur a été créé', userId: result._id});
+            const name = firstname + ' ' + surname;
+            res.status(201).json({ message: 'Le profil professeur a été créé', userId: result._id, name: name });
         })
         .catch(err => {
             if (!err.statusCode) {
@@ -71,7 +72,13 @@ exports.login = (req, res, next) => {
                 process.env.SECRET_TOKEN_KEY,
                 {expiresIn: '2h'}
             );
-            res.status(200).json({token: token, teacherId: loadedTeacher._id.toString(), sessions: loadedTeacher.sessions});
+            const name = loadedTeacher.firstname + ' ' + loadedTeacher.surname;
+            res.status(200).json({
+                token: token,
+                teacherId: loadedTeacher._id.toString(),
+                name: name,
+                sessions: loadedTeacher.sessions
+            });
         })
         .catch(err => {
             if (!err.statusCode) {

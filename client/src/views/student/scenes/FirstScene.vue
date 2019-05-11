@@ -22,6 +22,16 @@
                 console.log(counter);
             });
 
+            window.addEventListener('visibilitychange', () => {
+                switch(document.visibilityState) {
+                    case 'prerender':
+                        console.log('Tab is pre-rendering');
+                    case 'hidden':
+                        console.log('Tab is hidden');
+                    case 'visible':
+                        console.log('Tab focused');
+                }
+            })
         },
         methods: {
             emitEvent() {

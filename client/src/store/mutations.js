@@ -16,5 +16,8 @@ export default {
     },
     updateIndex(state, index) {
         state.tabIndex = index;
+    },
+    updateDashboardView(state, index) {
+        state.dashboardView = index;
     }
 }

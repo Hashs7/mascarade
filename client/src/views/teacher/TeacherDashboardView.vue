@@ -7,29 +7,36 @@
         </v-toolbar>
         <v-content>
             <Navigation />
-            <div class="content">
-                <p>Bienvenue sur le dashboard</p>
-
-                <NewSession />
-                <SessionTabs />
+            <div v-if="viewId === 'home'" class="content home">
+                <Home></Home>
+            </div>
+            <div v-else-if="viewId === 'board'" class="content board">
+                <p>Board</p>
+            </div>
+            <div v-else-if="viewId === 'student'" class="content student">
+                <p>Elèves</p>
+            </div>
+            <div v-else-if="viewId === 'help'" class="content help">
+                <p>Help</p>
+            </div>
+            <div v-else-if="viewId === 'settings'" class="content settings">
+                <p>Settings</p>
             </div>
         </v-content>
     </div>
 </template>
 
 <script>
-    import NewSession from '@/components/dashboard/NewSession';
     import Navigation from '@/components/dashboard/Navigation';
     import TableStudent from '@/components/dashboard/TableStudent';
-    import SessionTabs from '@/components/dashboard/SessionTabs';
+    import Home from '@/components/dashboard/views/home';
 
     export default {
         name: 'TeacherDashboard',
         components: {
             TableStudent,
             Navigation,
-            SessionTabs,
-            NewSession
+            Home
         },
         data: () => ({
             valid: true,
@@ -37,8 +44,10 @@
             className: '',
             linkToShare: ''
         }),
-        methods: {
-
+        computed: {
+            viewId() {
+                return this.$store.state.dashboardView;
+            }
         },
     }
 </script>

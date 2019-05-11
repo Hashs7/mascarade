@@ -34,7 +34,7 @@
             <v-list-tile
                     v-for="item in items"
                     :key="item.title"
-                    @click=""
+                    @click="changeView(item.id)"
             >
                 <v-list-tile-action>
                     <v-icon>{{ item.icon }}</v-icon>
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+    import { mapMutations } from 'vuex'
+
     export default {
         name: "Navigation",
         props: ['teacherName'],
@@ -56,15 +58,29 @@
             return {
                 drawer: true,
                 items: [
-                    { title: 'Home', icon: 'home' },
-                    { title: 'Tableau de bord', icon: 'face' },
-                    { title: 'Élèves', icon: 'question_answer' },
-                    { title: 'Aide', icon: 'help' },
-                    { title: 'Paramètres', icon: 'settings' },
+                    { title: 'Home', icon: 'home', id: 'home' },
+                    { title: 'Tableau de bord', icon: 'face', id: 'board' },
+                    { title: 'Élèves', icon: 'question_answer', id: 'student' },
+                    { title: 'Aide', icon: 'help', id: 'help' },
+                    { title: 'Paramètres', icon: 'settings', id: 'settings' },
                 ],
                 mini: true,
-                right: null
+                right: null,
+                teacherName: ''
             }
+        },
+        created() {
+            this.teacherName = this.$store.state.teacherName
+        },
+        methods: {
+            ...mapMutations({
+                updateView: 'updateDashboardView'
+            }),
+            changeView(item) {
+                this.updateView(item);
+                console.log(item);
+            },
+
         }
     }
 </script>
