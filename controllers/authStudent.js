@@ -15,6 +15,7 @@ exports.signup = (req, res, next) => {
     const {email, firstname, surname, password, gender} = req.body;
     const roomId = req.query.room;
     let newStudent;
+    let idStudent;
 
     bcrypt
         .hash(password, 12)
@@ -24,11 +25,13 @@ exports.signup = (req, res, next) => {
                 password: hashedPw,
                 firstname: firstname,
                 surname: surname,
-                gender: gender
+                gender: gender,
+                scene: 0
             });
             return newStudent.save();
         })
-        .then(_ => {
+        .then(student => {
+            idStudent = student._id;
             return Session.findOne({shortId: roomId});
         })
         .then(session => {
@@ -41,11 +44,16 @@ exports.signup = (req, res, next) => {
                 student: {
                     firstname,
                     surname,
-                    gender
+                    gender,
+                    scene: 0
                 },
                 sessionId: result._id
             });
-            res.status(201).json({message: 'Le profil étudiant a été créé', userId: result._id});
+            res.status(201).json({
+                message: 'Le profil étudiant a été créé',
+                studentId: idStudent,
+                sessionId: result._id
+            });
         })
         .catch(err => {
             if (!err.statusCode) {
@@ -78,7 +86,8 @@ exports.login = (req, res, next) => {
                 student: {
                     firstname: loadedStudent.firstname,
                     surname: loadedStudent.surname,
-                    gender: loadedStudent.gender
+                    gender: loadedStudent.gender,
+                    scene: loadedStudent.scene,
                 },
                 sessionId: loadedStudent.sessionId
             });

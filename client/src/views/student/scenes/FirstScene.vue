@@ -37,7 +37,11 @@
             emitEvent() {
                 console.log(this.socket);
                 this.counter +=5;
-                this.socket.emit('poke', this.counter);
+                this.socket.emit('poke', {
+                    counter: this.counter,
+                    studentId: this.$store.state.studentId,
+                    sessionId: this.$store.state.sessionId
+                });
             }
         }
     }

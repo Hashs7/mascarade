@@ -83,7 +83,7 @@
 
                 api(options)
                     .then(res => {
-
+                        this.$store.state.studentId = res.data.studentId;
                         this.$router.push('/student/first')
                     })
                     .catch((err) => {

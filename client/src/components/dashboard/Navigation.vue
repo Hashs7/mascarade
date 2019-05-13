@@ -53,7 +53,6 @@
 
     export default {
         name: "Navigation",
-        props: ['teacherName'],
         data () {
             return {
                 drawer: true,

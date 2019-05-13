@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <v-data-table
                 :headers="headers"
                 :items="session.students"
@@ -11,10 +10,10 @@
                 <td class="text-xs-left">{{ props.item.surname }}</td>
                 <td class="text-xs-left">{{ props.item.gender }}</td>
                 <td class="text-xs-left">
-                    <v-progress-linear v-model="studentCounter" />
+                    <v-progress-linear v-model="props.item.scene" />
                 </td>
             </template>
-    </v-data-table>
+        </v-data-table>
     </div>
 
 </template>
@@ -33,14 +32,16 @@
                     { text: 'Prénom', align: 'left', value: 'firstname' },
                     { text: 'Nom', value: 'surname', align: 'left' },
                     { text: 'Genre', value: 'gender' },
-                    { text: 'Compteur', value: 'gender' },
+                    { text: 'Compteur', value: 'Scène' },
                 ]
             }
         },
         mounted() {
             const socket = openSocket(BASE_API_URL);
-            socket.on('poke', (counter) => {
-                this.studentCounter = counter;
+            socket.on('poke', (data) => {
+                this.$store.commit('updateStudentScene', data);
+                // this.studentCounter = counter;
+                console.log('poke', this.session.students);
             });
             socket.on('student-connection', ({ student, sessionId }) => {
                 this.$store.commit('addStudent', {student, sessionId});

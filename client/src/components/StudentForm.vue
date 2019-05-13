@@ -144,6 +144,11 @@
                     .then(res => {
                         this.responseMsg = res.data.message;
                         this.snackbar = true;
+
+                        this.$store.commit('initStudent', {
+                            studentId: res.data.studentId,
+                            sessionId: res.data.sessionId
+                        });
                         setTimeout(() => {
                             this.$router.push('/student/first')
                         }, 3000)

@@ -19,7 +19,7 @@ async function redirectIfNotAuth (to, from, next) {
     }
 }
 
-function getTokenState () {
+export const getTokenState = () => {
     return new Promise((resolve, reject) => {
         if (store.state.token === undefined) {
             const unwatch = store.watch(

@@ -21,6 +21,10 @@ const studentSchema = new Schema({
     gender: {
         type: String,
         required: true
+    },
+    scene: {
+        type: Number,
+        required: false
     }
 });
 

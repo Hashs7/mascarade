@@ -46,22 +46,23 @@
         },
         computed: {
             currentSessions() {
+                console.log('update sessions');
                 return this.$store.state.sessions
             },
             tabIndex: {
                 get() { return this.$store.state.tabIndex },
                 set(value){ this.$store.commit("updateIndex", value );}
             }
-
         },
         methods: {
         },
         mounted() {
-            if(this.$store.state.sessions !== null) return;
+            // if(this.$store.state.sessions !== null) return;
 
             getSession()
                 .then(res => {
                     console.log('commit', res.data.sessions);
+                    console.log(res.data);
                     this.$store.commit('initSessions', res.data.sessions);
                 })
                 .catch(err => console.log(err))
