@@ -1629,3 +1629,17 @@
 [0mGET /session/all [32m201 [0m292.217 ms - 911[0m
 [0mOPTIONS /session/all [32m204 [0m0.158 ms - 0[0m
 [0mGET /session/all [32m201 [0m286.898 ms - 911[0m
+[0mOPTIONS /auth/teacher/login [32m204 [0m1.581 ms - 0[0m
+[0mPOST /auth/teacher/login [32m200 [0m577.689 ms - 1192[0m
+[0mOPTIONS /auth/teacher/is-auth [32m204 [0m0.127 ms - 0[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m1.663 ms - 11[0m
+[0mOPTIONS /session/all [32m204 [0m0.061 ms - 0[0m
+[0mGET /session/all [32m201 [0m252.776 ms - 911[0m
+[0mOPTIONS /session/all [32m204 [0m0.163 ms - 0[0m
+[0mGET /session/all [32m201 [0m253.928 ms - 911[0m
+[0mOPTIONS /session/all [32m204 [0m0.173 ms - 0[0m
+[0mGET /session/all [32m201 [0m250.140 ms - 911[0m
+[0mOPTIONS /session/all [32m204 [0m0.075 ms - 0[0m
+[0mGET /session/all [32m201 [0m309.375 ms - 911[0m
+[0mOPTIONS /session/all [32m204 [0m0.070 ms - 0[0m
+[0mGET /session/all [32m201 [0m383.058 ms - 911[0m
