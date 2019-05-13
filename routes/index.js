@@ -1,8 +1,11 @@
 const authStudent = require('./auth/authStudent');
 const authTeacher = require('./auth/authTeacher');
 const session     = require('./session');
+const cors        = require('cors');
+
 
 exports.init = (app) => {
+    app.use(cors());
     app.use('/auth/student', authStudent);
     app.use('/auth/teacher', authTeacher);
     app.use('/session', session);
