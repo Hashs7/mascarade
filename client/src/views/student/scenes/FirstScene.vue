@@ -18,8 +18,8 @@
         }),
         mounted() {
             this.socket = openSocket(BASE_API_URL);
-            this.socket.on('poke', counter =>  {
-                console.log(counter);
+            this.socket.on('poke', data =>  {
+                console.log(data);
             });
 
             window.addEventListener('visibilitychange', () => {
@@ -37,6 +37,7 @@
             emitEvent() {
                 console.log(this.socket);
                 this.counter +=5;
+                console.log();
                 this.socket.emit('poke', {
                     counter: this.counter,
                     studentId: this.$store.state.studentId,

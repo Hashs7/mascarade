@@ -57,9 +57,9 @@
             return {
                 drawer: true,
                 items: [
-                    { title: 'Home', icon: 'home', id: 'home' },
-                    { title: 'Tableau de bord', icon: 'face', id: 'board' },
-                    { title: 'Élèves', icon: 'question_answer', id: 'student' },
+                    { title: 'Tableau de bord', icon: 'home', id: 'board' },
+                    { title: 'Élèves', icon: 'face', id: 'student' },
+                    { title: 'Message', icon: 'question_answer', id: 'message' },
                     { title: 'Aide', icon: 'help', id: 'help' },
                     { title: 'Paramètres', icon: 'settings', id: 'settings' },
                 ],

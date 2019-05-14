@@ -151,7 +151,7 @@
                         });
                         setTimeout(() => {
                             this.$router.push('/student/first')
-                        }, 3000)
+                        }, 2000)
                     })
                     .catch(err => {
                         console.log(err);

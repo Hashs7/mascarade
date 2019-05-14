@@ -83,7 +83,11 @@
 
                 api(options)
                     .then(res => {
-                        this.$store.state.studentId = res.data.studentId;
+                        console.log(res.data);
+                        this.$store.commit('initStudent', {
+                            studentId: res.data.studentId,
+                            sessionId: res.data.sessionId
+                        });
                         this.$router.push('/student/first')
                     })
                     .catch((err) => {

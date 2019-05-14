@@ -91,11 +91,8 @@
 
                 api(options)
                     .then(res => {
-                        this.$store.state.token = res.data.token;
-                        this.$store.state.teacherId = res.data.teacherId;
-                        this.$store.state.teacherName = res.data.name;
                         this.$store.commit('initSessions', res.data.sessions);
-
+                        this.$store.commit('initTeacher', res.data);
                         this.$router.push('/dashboard');
                     })
                     .catch(err => {

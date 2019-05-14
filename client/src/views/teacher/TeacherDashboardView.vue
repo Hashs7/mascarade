@@ -7,14 +7,14 @@
         </v-toolbar>
         <v-content>
             <Navigation />
-            <div v-if="viewId === 'home'" class="content home">
+            <div v-if="viewId === 'board'" class="content board">
                 <Home></Home>
-            </div>
-            <div v-else-if="viewId === 'board'" class="content board">
-                <p>Board</p>
             </div>
             <div v-else-if="viewId === 'student'" class="content student">
                 <p>Elèves</p>
+            </div>
+            <div v-else-if="viewId === 'message'" class="content message">
+                <p>Message</p>
             </div>
             <div v-else-if="viewId === 'help'" class="content help">
                 <p>Help</p>
@@ -49,6 +49,9 @@
                 return this.$store.state.dashboardView;
             }
         },
+        mounted() {
+            this.$store.state.dashboardView = "board";
+        }
     }
 </script>
 

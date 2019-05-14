@@ -81,7 +81,6 @@ exports.login = (req, res, next) => {
             if (!isEqual) {
                 logError('Mauvais mot de passe', 401);
             }
-
             io.getIO().emit('student-connection', {
                 student: {
                     firstname: loadedStudent.firstname,
@@ -89,7 +88,7 @@ exports.login = (req, res, next) => {
                     gender: loadedStudent.gender,
                     scene: loadedStudent.scene,
                 },
-                sessionId: loadedStudent.sessionId
+                // sessionId: loadedStudent.sessionId
             });
 
             const token = jwt.sign(
@@ -101,7 +100,11 @@ exports.login = (req, res, next) => {
                 {expiresIn: '2h'}
             );
 
-            res.status(200).json({token: token, studentId: loadedStudent._id.toString()});
+            res.status(200).json({
+                token: token,
+                studentId: loadedStudent._id.toString(),
+                // sessionId: loadedStudent.sessionId
+            });
         })
         .catch(err => {
             if (!err.statusCode) {

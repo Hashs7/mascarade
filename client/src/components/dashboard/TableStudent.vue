@@ -40,8 +40,7 @@
             const socket = openSocket(BASE_API_URL);
             socket.on('poke', (data) => {
                 this.$store.commit('updateStudentScene', data);
-                // this.studentCounter = counter;
-                console.log('poke', this.session.students);
+                console.log('poke', data);
             });
             socket.on('student-connection', ({ student, sessionId }) => {
                 this.$store.commit('addStudent', {student, sessionId});

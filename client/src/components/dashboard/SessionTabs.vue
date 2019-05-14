@@ -61,8 +61,7 @@
 
             getSession()
                 .then(res => {
-                    console.log('commit', res.data.sessions);
-                    console.log(res.data);
+                    console.log('initSessions', res.data.sessions);
                     this.$store.commit('initSessions', res.data.sessions);
                 })
                 .catch(err => console.log(err))

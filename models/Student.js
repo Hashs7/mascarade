@@ -25,6 +25,10 @@ const studentSchema = new Schema({
     scene: {
         type: Number,
         required: false
+    },
+    roomId: {
+        type: String,
+        required: false
     }
 });
 
