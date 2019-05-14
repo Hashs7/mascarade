@@ -6,7 +6,7 @@ import StudentSignup from '../views/student/StudentSignupView.vue';
 import StudentLogin from '../views/student/StudentLoginView.vue';
 import FirstScene from '../views/student/scenes/FirstScene.vue';
 import {tokenIsValid} from "../utils/API";
-import store from '../store';
+import {getTokenState} from "../utils/methods";
 
 async function redirectIfNotAuth (to, from, next) {
     const token = await getTokenState();
@@ -17,22 +17,6 @@ async function redirectIfNotAuth (to, from, next) {
     } else {
         next('/')
     }
-}
-
-export const getTokenState = () => {
-    return new Promise((resolve, reject) => {
-        if (store.state.token === undefined) {
-            const unwatch = store.watch(
-                () => store.state.token,
-                (value) => {
-                    unwatch();
-                    resolve(value);
-                }
-            )
-        } else {
-            resolve(store.state.token)
-        }
-    })
 }
 
 export default [

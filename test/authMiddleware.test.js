@@ -15,31 +15,31 @@ const app        = require('../app');
 
 });*/
 
-/*test('It should response the GET method', (done) => {
+test('It should response the GET method', (done) => {
     return request(app)
         .put('/auth/teacher/signup')
         .send({ email: 'admin@dev.com', password: 'csuperpassword', firstname: 'Jean', surname: 'Point' })
         .set('Accept', 'application/json')
         // .expect('Content-Type', /json/)
-        /!*.expect(function(res) {
+        /*.expect(function(res) {
             res.body.userId = 'some fixed id';
             res.body.message = res.body.name.toLowerCase();
-        })*!/
+        })*/
         .expect(500)
         .end(function(err, res) {
             if (err) return done(err);
             done();
         });
 
-    /!*.expect(201, {
+    /*.expect(201, {
         message: 'super',
         userId: "superID"
     })
     .end(function(err, res) {
         if (err) return done(err);
         done();
-    });*!/
-});*/
+    });*/
+});
 
 
 describe('Test the root path', () => {

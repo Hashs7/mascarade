@@ -40,7 +40,6 @@
             const socket = openSocket(BASE_API_URL);
             socket.on('poke', (data) => {
                 this.$store.commit('updateStudentScene', data);
-                console.log('poke', data);
             });
             socket.on('student-connection', ({ student, sessionId }) => {
                 this.$store.commit('addStudent', {student, sessionId});
