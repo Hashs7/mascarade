@@ -3,6 +3,7 @@ import {isNull} from "../utils/methods";
 
 export default {
     initSessions(state, sessions) {
+        state.sessions = [];
         sessions.map((session, i) => {
             Vue.set(state.sessions, i, session);
             session.students.map((student, j) => {
@@ -32,9 +33,13 @@ export default {
         state.sessions[index].students.push(student);
     },
     updateStudentScene(state, { counter, studentId, sessionId }) {
+        console.log('updateScene');
         const indexSession = state.sessions.findIndex(el => el._id === sessionId);
+        console.log('indexSession', indexSession, isNull(indexSession));
         if(isNull(indexSession)) return;
+
         const indexStudent = state.sessions[indexSession].students.findIndex(el => el._id === studentId);
+        console.log('indexStudent', indexStudent, isNull(indexStudent));
         if(isNull(indexStudent)) return;
 
         const student = state.sessions[indexSession].students[indexStudent];
@@ -42,6 +47,7 @@ export default {
             ...student,
             scene: counter
         });
+        console.log('student', student, state.sessions[indexSession].students[indexStudent]);
     },
     updateIndex(state, index) {
         state.tabIndex = index;

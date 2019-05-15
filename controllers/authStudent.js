@@ -42,6 +42,7 @@ exports.signup = (req, res, next) => {
             console.log(result);
             io.getIO().emit('student-connection', {
                 student: {
+                    _id: idStudent,
                     firstname,
                     surname,
                     gender,
