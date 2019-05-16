@@ -33,7 +33,7 @@ export default [
         name: 'TeacherSignup',
         component: TeacherSignup,
         meta: {
-            title: 'Inscription - Professeur',
+            title: 'Inscription - Administrateur',
         }
     },
     {
@@ -41,7 +41,7 @@ export default [
         name: 'TeacherLogin',
         component: TeacherLogin,
         meta: {
-            title: 'Connexion - Professeur',
+            title: 'Connexion - Administrateur',
         }
     },
     {

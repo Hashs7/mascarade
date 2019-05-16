@@ -2,7 +2,7 @@
     <div>
         <v-toolbar app>
             <v-toolbar-title class="headline text-uppercase">
-                <span>Teacher dashboard</span>
+                <span>Administrateur dashboard</span>
             </v-toolbar-title>
         </v-toolbar>
         <v-content>
