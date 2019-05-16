@@ -56,6 +56,10 @@ exports.getSessions = (req, res, next) => {
                 model: 'Student'
             }
         })
+        /*.exec((err, sessions) => {
+            sessions.
+            TODO don't return password and email
+        })*/
         .then(teacher => {
             console.log(teacher);
             res.status(201).json({

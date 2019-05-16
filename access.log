@@ -1865,3 +1865,5 @@
 [0mGET /session/all [32m201 [0m246.736 ms - 577[0m
 [0mPUT /auth/student/signup?room=aQmShmrcF [32m201 [0m736.697 ms - 126[0m
 [0mPUT /auth/student/signup?room=aQmShmrcF [32m201 [0m766.880 ms - 126[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m4.492 ms - 11[0m
+[0mGET /session/all [32m201 [0m248.342 ms - 996[0m
