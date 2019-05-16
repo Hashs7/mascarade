@@ -23,35 +23,35 @@
             <v-text-field
                     v-model="firstname"
                     :rules="nameRules"
-                    label="Prénom"
+                    label="Prénom*"
                     required
             ></v-text-field>
 
             <v-text-field
                     v-model="surname"
                     :rules="nameRules"
-                    label="Nom"
+                    label="Nom*"
                     required
             ></v-text-field>
 
             <v-text-field
                     v-model="schoolName"
                     :rules="nameRules"
-                    label="Établissement"
+                    label="Établissement*"
                     required
             ></v-text-field>
 
             <v-text-field
                     v-model="email"
                     :rules="emailRules"
-                    label="E-mail"
+                    label="E-mail*"
                     required
             ></v-text-field>
 
             <v-text-field
                     v-model="password"
                     :rules="passwordRules"
-                    label="Mot de passe"
+                    label="Mot de passe*"
                     type="password"
                     required
             ></v-text-field>
@@ -65,7 +65,7 @@
                     v-model="gender"
                     :items="items"
                     :rules="[v => !!v || 'Le genre est requis']"
-                    label="Genre"
+                    label="Genre*"
                     required
             ></v-select>
 
