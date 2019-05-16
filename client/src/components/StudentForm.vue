@@ -35,6 +35,13 @@
             ></v-text-field>
 
             <v-text-field
+                    v-model="schoolName"
+                    :rules="nameRules"
+                    label="Établissement"
+                    required
+            ></v-text-field>
+
+            <v-text-field
                     v-model="email"
                     :rules="emailRules"
                     label="E-mail"
@@ -49,6 +56,11 @@
                     required
             ></v-text-field>
 
+            <v-text-field
+                    v-model="phone"
+                    label="Téléphone"
+            ></v-text-field>
+
             <v-select
                     v-model="gender"
                     :items="items"
@@ -57,10 +69,32 @@
                     required
             ></v-select>
 
+            <v-menu
+                    v-model="menu"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    lazy
+                    transition="scale-transition"
+                    offset-y
+                    full-width
+                    min-width="290px"
+            >
+                <template v-slot:activator="{ on }">
+                    <v-text-field
+                            v-model="dateFormatted"
+                            label="Date de naissance"
+                            prepend-icon="event"
+                            readonly
+                            v-on="on"
+                    ></v-text-field>
+                </template>
+                <v-date-picker v-model="date" @input="menu2 = false"></v-date-picker>
+            </v-menu>
+
             <v-checkbox
                     v-model="checkbox"
                     :rules="[v => !!v || 'Vous devez accepter pour continuer']"
-                    label="Do you agree?"
+                    label="Acceptez-vous les conditions d'utilisation ?"
                     required
             ></v-checkbox>
 
@@ -69,21 +103,7 @@
                     color="success"
                     @click="validate"
             >
-                Validate
-            </v-btn>
-
-            <v-btn
-                    color="error"
-                    @click="reset"
-            >
-                Reset Form
-            </v-btn>
-
-            <v-btn
-                    color="warning"
-                    @click="resetValidation"
-            >
-                Reset Validation
+                S'inscrire
             </v-btn>
         </v-form>
     </div>
@@ -99,6 +119,10 @@
             snackbar: false,
             responseMsg: '',
             valid: true,
+            date: new Date(2008, 1, 1).toISOString().substr(0, 10),
+            menu: false,
+            schoolName: '',
+            phone: '',
             firstname: '',
             surname: '',
             nameRules: [
@@ -121,8 +145,19 @@
             ],
             checkbox: false
         }),
-
+        computed: {
+            dateFormatted() {
+                return this.formatDate(this.date)
+            }
+        },
         methods: {
+            formatDate (date) {
+                if (!date) return null;
+
+                const [year, month, day] = date.split('-');
+                console.log(year, month, day, 'date');
+                return `${day}/${month}/${year}`;
+            },
             validate() {
                 if (!this.$refs.form.validate()) return;
                 const roomId = this.$route.params.room;
@@ -156,12 +191,6 @@
                     .catch(err => {
                         console.log(err);
                     })
-            },
-            reset() {
-                this.$refs.form.reset()
-            },
-            resetValidation() {
-                this.$refs.form.resetValidation()
             }
         }
     }
