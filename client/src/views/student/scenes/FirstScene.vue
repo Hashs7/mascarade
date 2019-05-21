@@ -3,15 +3,18 @@
         <p>Super tu es à la première scène</p>
         <p>Compteur : {{ counter }}</p>
         <button @click="emitEvent">Envoyer un poke</button>
+        <MessageContainer />
     </div>
 </template>
 
 <script>
     import openSocket from 'socket.io-client';
     import {BASE_API_URL} from "../../../utils/constant";
+    import MessageContainer from '@/components/messaging/MessageContainer';
 
     export default {
         name: "FirstScene",
+        components: { MessageContainer },
         data: () => ({
             counter: 0,
             socket: null,
@@ -24,8 +27,6 @@
 
             window.addEventListener('visibilitychange', () => {
                 switch(document.visibilityState) {
-                    case 'prerender':
-                        console.log('Tab is pre-rendering');
                     case 'hidden':
                         console.log('Tab is hidden');
                     case 'visible':

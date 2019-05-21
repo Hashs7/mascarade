@@ -185,7 +185,7 @@
                             sessionId: res.data.sessionId
                         });
                         setTimeout(() => {
-                            this.$router.push('/student/first')
+                            this.$router.push('/student/tuto')
                         }, 2000)
                     })
                     .catch(err => {

@@ -59,9 +59,11 @@
         },
         methods: {
             nextStep() {
-                if(this.step === 3) return;
-                this.step++;
-                console.log(this.step);
+                if(this.step < 3) {
+                    this.step++;
+                } else {
+                    this.$router.push('/student/first')
+                }
             },
             previousStep() {
                 if(this.step === 1) return;
