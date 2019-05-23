@@ -44,10 +44,6 @@
 
 <style scoped lang="scss">
     .Informations {
-      &-container {
-        background-color: #fff;
-        padding: 2rem;
-      }
       &-group {
         display: flex;
         justify-content: space-between;
