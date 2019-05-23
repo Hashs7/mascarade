@@ -6,6 +6,7 @@ import StudentSignup from '../views/student/StudentSignupView.vue';
 import StudentLogin from '../views/student/StudentLoginView.vue';
 import Tutorial from '../views/student/scenes/Tutorial.vue';
 import FirstScene from '../views/student/scenes/FirstScene.vue';
+import FakeNewsScene from '../views/student/scenes/FakeNewsScene.vue';
 import {tokenIsValid} from "../utils/API";
 import {getTokenState} from "../utils/methods";
 
@@ -77,6 +78,14 @@ export default [
         component: FirstScene,
         meta: {
             title: 'Scène 1',
+        }
+    },
+    {
+        path: '/student/fakenews',
+        name: 'FakeNewsScene',
+        component: FakeNewsScene,
+        meta: {
+            title: 'Scène fake news',
         }
     },
     {
