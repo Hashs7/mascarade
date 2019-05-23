@@ -5,7 +5,7 @@ import TeacherLogin from '../views/teacher/TeacherLoginView.vue';
 import StudentSignup from '../views/student/StudentSignupView.vue';
 import StudentLogin from '../views/student/StudentLoginView.vue';
 import Tutorial from '../views/student/scenes/Tutorial.vue';
-import FirstScene from '../views/student/scenes/FirstScene.vue';
+import SceneLayout from '../views/student/scenes/SceneLayout.vue';
 import {tokenIsValid} from "../utils/API";
 import {getTokenState} from "../utils/methods";
 
@@ -72,11 +72,11 @@ export default [
         }
     },
     {
-        path: '/student/first',
-        name: 'FirstScene',
-        component: FirstScene,
+        path: '/student/exp',
+        name: 'SceneLayout',
+        component: SceneLayout,
         meta: {
-            title: 'Scène 1',
+            title: 'Mascarade',
         }
     },
     {

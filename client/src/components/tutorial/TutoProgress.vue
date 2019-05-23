@@ -62,7 +62,7 @@
                 if(this.step < 3) {
                     this.step++;
                 } else {
-                    this.$router.push('/student/first')
+                    this.$router.push('/student/exp')
                 }
             },
             previousStep() {
