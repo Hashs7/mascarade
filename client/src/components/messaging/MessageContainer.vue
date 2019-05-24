@@ -88,7 +88,7 @@
     }
     .contacts {
         width: 220px;
-        background-color: #00acc1;
+        background-color: $primary;
     }
     .chatbox {
         padding: 16px;
@@ -107,6 +107,8 @@
     }
 
     .answer {
+        margin: 0 4px;
+        padding: 8px 16px;
         background-color: white;
         &.outline {
             border: 1px solid blue;

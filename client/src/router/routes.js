@@ -6,6 +6,7 @@ import StudentSignup from '../views/student/StudentSignupView.vue';
 import StudentLogin from '../views/student/StudentLoginView.vue';
 import Tutorial from '../views/student/scenes/Tutorial.vue';
 import SceneLayout from '../views/student/scenes/SceneLayout.vue';
+import MessageLayout from '../views/student/scenes/MessageLayout.vue';
 import {tokenIsValid} from "../utils/API";
 import {getTokenState} from "../utils/methods";
 
@@ -85,6 +86,14 @@ export default [
         component: Tutorial,
         meta: {
             title: 'Tutoriel',
+        }
+    },
+    {
+        path: '/student/messages',
+        name: 'Message',
+        component: MessageLayout,
+        meta: {
+            title: 'Mascarade - Messages',
         }
     },
 ]

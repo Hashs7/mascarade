@@ -4,10 +4,11 @@
             <StudentAchievement />
         </div>
         <div class="layout-content">
+            <StudentNavigation />
+
             <p>Super tu es à la première scène</p>
             <p>Compteur : {{ counter }}</p>
             <button @click="emitEvent">Envoyer un poke</button>
-            <MessageContainer />
             <Charity />
             <Charity />
             <Charity />
@@ -21,10 +22,11 @@
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
+    import StudentNavigation from '@/components/StudentNavigation';
 
     export default {
         name: "SceneLayout",
-        components: { MessageContainer, StudentAchievement, Charity },
+        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation },
         data: () => ({
             counter: 0,
             socket: null,
@@ -59,7 +61,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .student-achievement {
         position: fixed;
         z-index: 10;
