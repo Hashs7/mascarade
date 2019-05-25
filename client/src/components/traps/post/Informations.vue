@@ -3,19 +3,19 @@
         <div class="Informations-group">
             <div class="Informations-content">
               <img class="Informations-image" src="../../../assets/logo.png"/>
-              <p class="Informations-title">{{informations[0].title}}</p>
+              <p class="Informations-title">{{name}}</p>
             </div>
             <div class="Informations-content">
               <img class="Informations-image" src="../../../assets/logo.png"/>
-              <p class="Informations-title">{{informations[1].title}}</p>
+              <p class="Informations-title">{{like}}</p>
             </div>
             <div class="Informations-content">
               <img class="Informations-image" src="../../../assets/logo.png"/>
-              <p class="Informations-title">{{informations[2].title}}</p>
+              <p class="Informations-title">{{comment}}</p>
             </div>
             <div class="Informations-content">
               <img class="Informations-image" src="../../../assets/logo.png"/>
-              <p class="Informations-title">{{informations[3].title}}</p>
+              <p class="Informations-title">{{date}}</p>
             </div> 
         </div>
     </div>
@@ -25,20 +25,14 @@
     export default {
         name: "Informations",
         data: () => ({
-          informations: [{
-              title: "Publié par Mr Chafoin",
-              image: "",
-            },{
-              title: "60",
-              image: "",
-            },{
-              title: "12",
-              image: "",
-            },{
-              title: "Il y a 2h",
-              image: "",
-          }]
+        
         }),
+        props: [
+          "name",
+          "like",
+          "comment",
+          "date",
+        ]
     }
 </script>
 
