@@ -13,7 +13,6 @@
             </v-stepper-step>
 
             <v-stepper-content step="1">
-                <v-card color="grey lighten-1" class="mb-5" height="50px"></v-card>
             </v-stepper-content>
 
             <v-stepper-step :complete="step > 2" step="2">Etape 2</v-stepper-step>
@@ -62,7 +61,7 @@
                 if(this.step < 3) {
                     this.step++;
                 } else {
-                    this.$router.push('/student/first')
+                    this.$router.push('/student/exp')
                 }
             },
             previousStep() {

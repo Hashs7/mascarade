@@ -31,6 +31,7 @@
 
 <script>
     import Message from '@/components/messaging/Message';
+    import {initMsg} from './dialogs';
 
     export default {
         name: "MessageContainer",
@@ -44,19 +45,17 @@
         },
         methods: {
             initChat() {
-                setTimeout(() => {
-                    this.addMessage("Salut Sarah! Ca fait longtemps !", 'stranger')
-                }, 500);
-                setTimeout(() => {
-                    this.addMessage("Comment ça va?", 'stranger')
-                }, 2500);
-                setTimeout(() => {
-                    this.addMessage("J'aimerais te faire gagner un iphone", 'stranger')
-                }, 5000);
-                setTimeout(() => {
-                    this.addMessage("Tout ce que tu as à faire c'est cliquer sur ce lien :", 'stranger')
-                    this.showAnswers = true;
-                }, 9000);
+                this.addGroupMessage(initMsg('Sarah'));
+            },
+            addGroupMessage(msgArray) {
+                msgArray.forEach(({content, delay, type}, i) => {
+                    setTimeout(() => {
+                        this.addMessage(content, type);
+                        if(msgArray.length - 1 === i) {
+                            setTimeout(() => this.showAnswers = true, 1000);
+                        }
+                    }, delay);
+                });
             },
             addMessage(msg, type) {
                 this.messages.push({
@@ -89,7 +88,7 @@
     }
     .contacts {
         width: 220px;
-        background-color: #00acc1;
+        background-color: $primary;
     }
     .chatbox {
         padding: 16px;
@@ -108,6 +107,8 @@
     }
 
     .answer {
+        margin: 0 4px;
+        padding: 8px 16px;
         background-color: white;
         &.outline {
             border: 1px solid blue;

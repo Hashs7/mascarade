@@ -1,18 +1,17 @@
 <template>
     <div class="FakeNews-container">
-        <Content />
+        <Content title="Au programme des 6e le chinois !" description="Le ministère de l’éducation nationale et de la jeunesse souhaite ajouter une nouvelle langue au programme scolaire des élèves de 6ème : le chinois !"/>
         <Informations />
-        <Button />
+        <ButtonContainer />
     </div>
-
 </template>
 <script>
     import Content from '@/components/traps/post/Content';
     import Informations from '@/components/traps/post/Informations';
-    import Button from '@/components/traps/post/Button';
+    import ButtonContainer from '@/components/traps/post/ButtonContainer';
     export default {
         name: "FakeNews",
-        components: { Content, Informations, Button },
+        components: { Content, Informations, ButtonContainer },
         data: () => ({
           
         }),
