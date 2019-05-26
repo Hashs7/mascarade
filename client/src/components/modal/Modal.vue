@@ -5,6 +5,13 @@
     data: () => ({
       isModalVisible: false,
     }),
+    props: [
+      "title",
+      "description",
+      "question",
+      "button_1",
+      "button_2"
+    ],
     methods: {
       close() {
         this.$emit('close');
@@ -27,7 +34,7 @@
           id="modalTitle"
         >
           <slot name="header">
-            Notifications
+            {{title}}
 
             <button
               type="button"
@@ -44,13 +51,12 @@
           id="modalDescription"
         >
           <slot name="body">
-            Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. 
-Vérifie la source de l’information pour pouvoir te faire ton propre avis.
+            {{description}}
           </slot>
         </section>
         <footer class="modal-footer">
           <slot name="footer">
-           L’information est-elle correcte ? 
+           {{question}}
           </slot>
         </footer>
         <div class="button-footer">
@@ -60,7 +66,7 @@ Vérifie la source de l’information pour pouvoir te faire ton propre avis.
             @click="close"
             aria-label="Close modal"
           >
-            Oui
+            {{button_1}}
         </button>
         <button
             type="button"
@@ -68,7 +74,7 @@ Vérifie la source de l’information pour pouvoir te faire ton propre avis.
             @click="close"
             aria-label="Close modal"
           >
-            Non
+            {{button_2}}
         </button>
         </div>
       </div>

@@ -3,7 +3,8 @@
         <div class="Button-group">
             <button class="Button-share" type="button" id="show-modal" @click="showModal()">{{title_1}}</button>
             <button class="Button-report" type="button">{{title_2}}</button>
-            <modal v-show="isModalVisible" @close="closeModal()" />
+            <modal v-show="isModalVisible" @close="closeModal()" title="Notifications" description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. 
+Vérifie la source de l’information pour pouvoir te faire ton propre avis." question="L’information est-elle correcte ? " button_1="Oui" button_2="Non"/>
         </div>
     </div>
 </template>
