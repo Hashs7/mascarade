@@ -1,8 +1,10 @@
 <template>
     <div class="message-container">
         <div class="contacts">
-            <Contact name="Jean Michel" lastAnswer="bienvenue"/>
-            <Contact name="Patrick" lastAnswer="gagne ton iphone"/>
+            <Contact v-for="(contact, i) in contacts"
+                     :key="i"
+                     :name="contact.author"
+                     :lastAnswer="contact.lastAnswer"/>
         </div>
         <div class="chatbox">
             <div class="contact-info">
@@ -10,9 +12,9 @@
                 <span class="current-time">25 juin 2019</span>
             </div>
             <div class="chatbox-content">
-                <Message v-for="(msg, i) in messages" :key="i" :txt="msg.txt" :time="msg.time" :msgType="msg.type"/>
+                <Message v-for="(msg, i) in getCurrentConversation" :key="i" :txt="msg.txt" :time="msg.time" :msgType="msg.type"/>
             </div>
-            <div class="chatbox-answer" v-if="showAnswers">
+            <div class="chatbox-answer" v-if="$store.state.messages.showAnswers">
                 <span class="chatbox-help-msg">Choisis ta réponse</span>
                 <button
                         class="answer outline"
@@ -34,6 +36,7 @@
     import Message from '@/components/messaging/Message';
     import Contact from '@/components/messaging/Contact';
     import {initMsg} from './dialogs';
+    import {mapGetters, mapMutations} from "vuex";
 
     export default {
         name: "MessageContainer",
@@ -43,31 +46,41 @@
             showAnswers: false
         }),
         mounted() {
+            console.log(this.$store.state);
             this.initChat();
         },
+        computed: {
+            ...mapGetters([
+                'getContact',
+                'getCurrentConversation',
+                'getSelectedContact'
+            ]),
+            contacts() {
+                return this.$store.state.messages.conversations;
+            }
+        },
         methods: {
+            ...mapMutations([
+                'addMessage',
+                'addContact'
+            ]),
             initChat() {
+                if(this.getCurrentConversation.length) return;
                 this.addGroupMessage(initMsg('Sarah'));
             },
             addGroupMessage(msgArray) {
                 msgArray.forEach(({content, delay, type}, i) => {
                     setTimeout(() => {
-                        this.addMessage(content, type);
+                        this.addMessage({id: 0, answer: content, type});
                         if(msgArray.length - 1 === i) {
-                            setTimeout(() => this.showAnswers = true, 1000);
+                            setTimeout(() => this.$store.state.messages.showAnswers = true, 1000);
                         }
                     }, delay);
                 });
             },
-            addMessage(msg, type) {
-                this.messages.push({
-                    txt: msg,
-                    type: type,
-                    time: this.getTime()
-                })
-            },
-            studentResponse(msg, repIndex) {
-                this.addMessage(msg, 'student');
+            studentResponse(answer, repIndex) {
+                const id = this.getSelectedContact;
+                this.addMessage({id, answer, type: 'student'});
                 console.log(repIndex);
             },
             getTime() {

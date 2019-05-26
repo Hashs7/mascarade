@@ -2008,3 +2008,8 @@
 [0mGET /__webpack_hmr/client [33m404 [0m0.221 ms - 159[0m
 [0mGET /__webpack_hmr/client [33m404 [0m0.188 ms - 159[0m
 [0mGET /__webpack_hmr/client [33m404 [0m3.952 ms - 159[0m
+[0mPOST /auth/teacher/login [32m200 [0m483.850 ms - 2610[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m2.139 ms - 11[0m
+[0mGET /session/all [32m201 [0m112.884 ms - 2329[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m4.925 ms - 11[0m
+[0mGET /session/all [32m201 [0m135.186 ms - 2329[0m
