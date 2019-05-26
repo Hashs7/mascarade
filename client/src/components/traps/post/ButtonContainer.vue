@@ -1,8 +1,8 @@
 <template>
     <div class="Button-container">
         <div class="Button-group">
-            <button class="Button-share" type="button">Partager</button>
-            <button class="Button-report" type="button">Signaler</button>
+            <button class="Button-share" type="button">{{title_1}}</button>
+            <button class="Button-report" type="button">{{title_2}}</button>
         </div>
     </div>
 </template>
@@ -13,6 +13,10 @@
         data: () => ({
         
         }),
+        props: [
+          "title_1",
+          "title_2"
+        ]
     }
 </script>
 
