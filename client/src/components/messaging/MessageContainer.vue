@@ -1,7 +1,8 @@
 <template>
     <div class="message-container">
         <div class="contacts">
-
+            <Contact name="Jean Michel" lastAnswer="bienvenue"/>
+            <Contact name="Patrick" lastAnswer="gagne ton iphone"/>
         </div>
         <div class="chatbox">
             <div class="contact-info">
@@ -31,11 +32,12 @@
 
 <script>
     import Message from '@/components/messaging/Message';
+    import Contact from '@/components/messaging/Contact';
     import {initMsg} from './dialogs';
 
     export default {
         name: "MessageContainer",
-        components: { Message },
+        components: { Message, Contact },
         data: () => ({
             messages: [],
             showAnswers: false

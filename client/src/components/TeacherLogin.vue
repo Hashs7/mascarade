@@ -60,6 +60,7 @@
 <script>
     import {ROUTE_TEACHER_LOGIN} from "../utils/constant";
     import {api} from "../utils/API";
+    import {routePath} from "../router/routes";
 
     export default {
         name: 'TeacherLogin',
@@ -93,7 +94,7 @@
                     .then(res => {
                         this.$store.commit('initSessions', res.data.sessions);
                         this.$store.commit('initTeacher', res.data);
-                        this.$router.push('/dashboard');
+                        this.$router.push(routePath.TEACHER_DASHBOARD);
                     })
                     .catch(err => {
                         this.responseMsg = 'Les données saisies sont incorrectes';

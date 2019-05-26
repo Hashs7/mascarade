@@ -84,6 +84,7 @@
 <script>
     import {api} from "../utils/API";
     import {ROUTE_TEACHER_SIGNUP} from "../utils/constant";
+    import {routePath} from "../router/routes";
 
     export default {
         name: 'TeacherForm',
@@ -131,7 +132,7 @@
                         this.responseMsg = res.data.message;
                         this.snackbar = true;
                         setTimeout(() => {
-                            this.$router.push('/teacher/login')
+                            this.$router.push(routePath.TEACHER_LOGIN)
                         }, 3000)
                     })
                     .catch(err => {

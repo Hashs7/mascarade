@@ -51,6 +51,7 @@
 <script>
     import {ROUTE_STUDENT_LOGIN} from "../utils/constant";
     import {api} from "../utils/API";
+    import {routePath} from "../router/routes";
 
     export default {
         name: 'StudentLogin',
@@ -88,7 +89,7 @@
                             studentId: res.data.studentId,
                             sessionId: res.data.sessionId
                         });
-                        this.$router.push('/student/first')
+                        this.$router.push(routePath.STUDENT_HOME)
                     })
                     .catch((err) => {
                         // todo show response msg

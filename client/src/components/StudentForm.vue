@@ -112,6 +112,7 @@
 <script>
     import {api} from "../utils/API";
     import {ROUTE_STUDENT_SIGNUP} from "../utils/constant";
+    import {routePath} from "../router/routes";
 
     export default {
         name: 'StudentForm',
@@ -185,7 +186,7 @@
                             sessionId: res.data.sessionId
                         });
                         setTimeout(() => {
-                            this.$router.push('/student/tuto')
+                            this.$router.push(routePath.STUDENT_TUTO)
                         }, 2000)
                     })
                     .catch(err => {
