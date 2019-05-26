@@ -26,15 +26,15 @@
                 background-color: #0d47a1;
             }
         }
-    }
-    .Message-content {
-        display: inline-block;
-        padding: 8px 12px;
-        border-radius: 30px 30px 30px 0;
-        background-color: #00e676;
-    }
-    .Message-time {
-        margin-top: 2px;
-        display: block;
+        &-content {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 30px 30px 30px 0;
+            background-color: #00e676;
+        }
+        &-time {
+            margin-top: 2px;
+            display: block;
+        }
     }
 </style>
