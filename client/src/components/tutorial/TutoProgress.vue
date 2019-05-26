@@ -33,6 +33,8 @@
 </template>
 
 <script>
+    import {routePath} from "../../router/routes";
+
     export default {
         name: "TutoProgress",
         data: () => ({
@@ -61,7 +63,7 @@
                 if(this.step < 3) {
                     this.step++;
                 } else {
-                    this.$router.push('/student/exp')
+                    this.$router.push(routePath.STUDENT_HOME)
                 }
             },
             previousStep() {

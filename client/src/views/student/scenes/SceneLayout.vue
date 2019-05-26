@@ -11,7 +11,6 @@
             <button @click="emitEvent">Envoyer un poke</button>
             <Charity />
             <Charity />
-            <Charity />
         </div>
     </div>
 </template>
