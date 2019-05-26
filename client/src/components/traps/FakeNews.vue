@@ -11,9 +11,8 @@
     import ButtonContainer from '@/components/traps/post/ButtonContainer';
     export default {
         name: "FakeNews",
-        components: { Content, Informations, ButtonContainer },
+        components: { Content, Informations, ButtonContainer},
         data: () => ({
-          
         }),
     }
 </script>
