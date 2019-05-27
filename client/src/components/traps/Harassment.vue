@@ -4,7 +4,7 @@
         <Informations name="Publié par Dylan" like="23" comment="82" date="Il y a 5 heures" />
         <Comment name="Bryan Philipo" date="Il y a 2h" description="Trop moche c'est quoi cette photo !"/>
         <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Grave je préférais être morte qu’avoir ta tête !"/>
-        <ButtonContainer title_1="Commenter" title_2="Signaler" />
+        <ButtonContainer titleFirst="Commenter" titleSecond="Signaler" />
     </div>
 </template>
 
