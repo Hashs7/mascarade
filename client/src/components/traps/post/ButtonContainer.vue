@@ -1,10 +1,10 @@
 <template>
     <div class="Button-container">
         <div class="Button-group">
-            <button class="Button-share" type="button" id="show-modal" @click="showModal()">{{titleFirst}}</button>
+            <button class="Button-share" type="button" id="show-modal" @click="showModal">{{titleFirst}}</button>
             <button class="Button-report" type="button">{{titleSecond}}</button>
             <modal v-show="isModalVisible"
-                   @close="closeModal()"
+                   @close="closeModal"
                    title="Notifications"
                    description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
                    question="L’information est-elle correcte ?"

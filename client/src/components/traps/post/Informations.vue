@@ -44,7 +44,7 @@
       }
       &-title {
         font-weight: bold;
-        font-size: 1rem;
+        font-size: 1.4rem;
         margin-bottom: 0;
         margin-left: 1rem;
       }
