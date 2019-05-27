@@ -1,9 +1,9 @@
 <template>
     <div class="achievements">
         <div class="general-achievements">
-            <span class="score">{{points}} points</span>
-            <span class="share">{{shares}} partages</span>
-            <span class="report">{{reports}} signalements</span>
+            <span class="score">{{points}} point{{isPlurial('points')}}</span>
+            <span class="share">{{shares}} partage{{isPlurial('shares')}}</span>
+            <span class="report">{{reports}} signalement{{isPlurial('reports')}}</span>
         </div>
         <div class="progress">
 
@@ -23,6 +23,9 @@
             },
             reports() {
                 return this.$store.state.score.reports;
+            },
+            isPlurial() {
+                return type => this.$store.state.score[type] !== 0 ? 's' : null;
             }
         }
     }
