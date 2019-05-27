@@ -22,5 +22,7 @@
         background-color: #fff;
         background-color: #fff;
         padding: 2rem;
+        border: 1px solid grey;
+        margin-top: 2rem;
     }
 </style>

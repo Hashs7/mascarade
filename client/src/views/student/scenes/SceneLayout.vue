@@ -12,6 +12,7 @@
             <Charity />
             <Charity />
             <Charity />
+            <Harassment />
             <FakeNews />
         </div>
     </div>
@@ -22,13 +23,14 @@
     import {BASE_API_URL} from "../../../utils/constant";
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
-    import FakeNews from '@/components/traps/FakeNews'
+    import FakeNews from '@/components/traps/FakeNews';
+    import Harassment from '@/components/traps/Harassment';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
     import StudentNavigation from '@/components/StudentNavigation';
 
     export default {
         name: "SceneLayout",
-        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews },
+        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment },
         data: () => ({
             counter: 0,
             socket: null,
