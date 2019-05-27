@@ -1,9 +1,9 @@
 <template>
     <div class="achievements">
         <div class="general-achievements">
-            <span class="score">0 points</span>
-            <span class="share">0 partages</span>
-            <span class="report">0 signalements</span>
+            <span class="score">{{points}} point{{isPlurial('points')}}</span>
+            <span class="share">{{shares}} partage{{isPlurial('shares')}}</span>
+            <span class="report">{{reports}} signalement{{isPlurial('reports')}}</span>
         </div>
         <div class="progress">
 
@@ -13,7 +13,21 @@
 
 <script>
     export default {
-        name: "StudentAchievement"
+        name: "StudentAchievement",
+        computed: {
+            points() {
+                return this.$store.state.score.points;
+            },
+            shares() {
+                return this.$store.state.score.shares;
+            },
+            reports() {
+                return this.$store.state.score.reports;
+            },
+            isPlurial() {
+                return type => this.$store.state.score[type] !== 0 ? 's' : null;
+            }
+        }
     }
 </script>
 

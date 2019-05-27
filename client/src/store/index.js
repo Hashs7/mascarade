@@ -5,6 +5,7 @@ import state from './state';
 import mutations from './mutations';
 import actions from './actions';
 import messages from './modules/messages'
+import score from './modules/score'
 
 Vue.use(Vuex);
 
@@ -13,7 +14,8 @@ export default new Vuex.Store({
     mutations,
     actions,
     modules: {
-        messages
+        messages,
+        score
     },
     // plugins: [createPersistedState({ storage: window.sessionStorage })]
 });

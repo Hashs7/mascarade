@@ -16,6 +16,8 @@
 
                 <!--Route temporaire-->
                 <router-link to="student/login">Login as student</router-link>
+                <br>
+                <router-link to="student/tuto">Go to experience</router-link>
             </div>
         </v-content>
     </div>

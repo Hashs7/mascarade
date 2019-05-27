@@ -10,12 +10,17 @@
             "description",
             "question",
             "buttonFirst",
+            "buttonFirstAction",
             "buttonSecond"
         ],
         methods: {
             close() {
                 this.$emit('close');
             },
+            firstButton() {
+                this.buttonFirstAction();
+                this.close();
+            }
         },
     };
 </script>
@@ -62,7 +67,7 @@
                     <button
                             type="button"
                             class="btn-green"
-                            @click="close"
+                            @click="firstButton"
                             aria-label="Close modal"
                     >
                         {{buttonFirst}}
