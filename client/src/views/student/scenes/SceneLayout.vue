@@ -10,9 +10,9 @@
             <p>Compteur : {{ counter }}</p>
             <button @click="emitEvent">Envoyer un poke</button>
             <Charity />
-            <Charity />
-            <Charity />
             <FakeNews />
+            <Charity />
+            <Charity />
         </div>
     </div>
 </template>

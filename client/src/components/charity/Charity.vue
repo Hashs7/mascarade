@@ -47,6 +47,7 @@
             },
             shareCharity() {
                 console.log('add charity to db and +1 share');
+                this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
             }
         }
     }
