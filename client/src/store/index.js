@@ -4,6 +4,7 @@ import createPersistedState from 'vuex-persistedstate'
 import state from './state';
 import mutations from './mutations';
 import actions from './actions';
+import messages from './modules/messages'
 
 Vue.use(Vuex);
 
@@ -11,5 +12,8 @@ export default new Vuex.Store({
     state,
     mutations,
     actions,
-    plugins: [createPersistedState({ storage: window.sessionStorage })]
+    modules: {
+        messages
+    },
+    // plugins: [createPersistedState({ storage: window.sessionStorage })]
 });
