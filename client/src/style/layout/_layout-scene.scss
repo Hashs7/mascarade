@@ -1,0 +1,11 @@
+.student-achievement {
+  position: fixed;
+  z-index: 10;
+  width: $achievement-width;
+  height: 100%;
+}
+
+.layout-content {
+  margin-left: 400px;
+  padding: $nav-height 16px 16px 16px;
+}

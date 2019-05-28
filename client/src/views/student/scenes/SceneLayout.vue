@@ -64,14 +64,5 @@
 </script>
 
 <style scoped lang="scss">
-    .student-achievement {
-        position: fixed;
-        z-index: 10;
-        width: 400px;
-        height: 100%;
-    }
-    .layout-content {
-        margin-left: 400px;
-        padding: 16px;
-    }
+
 </style>

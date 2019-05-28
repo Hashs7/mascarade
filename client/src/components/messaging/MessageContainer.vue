@@ -3,8 +3,10 @@
         <div class="contacts">
             <Contact v-for="(contact, i) in contacts"
                      :key="i"
+                     :id="contact.id"
+                     :selected="contact.selected"
                      :name="contact.author"
-                     :lastAnswer="contact.lastAnswer"/>
+                     :lastAnswer="contact.lastAnswer" />
         </div>
         <div class="chatbox">
             <div class="contact-info">
@@ -14,7 +16,7 @@
             <div class="chatbox-content">
                 <Message v-for="(msg, i) in getCurrentConversation" :key="i" :txt="msg.txt" :time="msg.time" :msgType="msg.type"/>
             </div>
-            <div class="chatbox-answer" v-if="$store.state.messages.showAnswers">
+            <div class="chatbox-answer" v-if="$store.state.messages.conversations[getSelectedContact].showAnswers">
                 <span class="chatbox-help-msg">Choisis ta réponse</span>
                 <button
                         class="answer outline"
@@ -73,7 +75,8 @@
                     setTimeout(() => {
                         this.addMessage({id: 0, answer: content, type});
                         if(msgArray.length - 1 === i) {
-                            setTimeout(() => this.$store.state.messages.showAnswers = true, 1000);
+                            const currentId = this.getSelectedContact;
+                            setTimeout(() => this.$store.state.messages.conversations[currentId].showAnswers = true, 1000);
                         }
                     }, delay);
                 });

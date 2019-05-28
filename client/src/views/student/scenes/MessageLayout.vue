@@ -29,23 +29,6 @@
 </script>
 
 <style scoped lang="scss">
-    .student-achievement {
-        position: fixed;
-        z-index: 10;
-        width: 400px;
-        height: 100%;
-    }
-    .layout-content {
-        margin-left: 400px;
-        padding: 16px;
-    }
-    .nav-scenes {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        height: 30px;
-        border-bottom: 1px solid gray;
-    }
     .item {
         margin: 0 8px;
         &:last-child {

@@ -3,6 +3,15 @@ const conversationExample = {
     selected: true,
     author: 'Michel',
     lastAnswer: null,
+    showAnswers: false,
+    responses: []
+};
+const conversationExample2 = {
+    id: 1,
+    selected: false,
+    author: 'André',
+    lastAnswer: null,
+    showAnswers: false,
     responses: []
 };
 
@@ -15,8 +24,7 @@ const getTime = () => {
 };
 
 const state = {
-    conversations: [conversationExample],
-    showAnswers: false
+    conversations: [conversationExample, conversationExample2],
 };
 
 const getters = {
@@ -69,6 +77,7 @@ const mutations = {
             type,
             time: getTime()
         };
+        console.log();
 
         state.conversations[id].responses.push(response);
         state.conversations[id].lastAnswer = lastAnswer;
@@ -86,7 +95,8 @@ const mutations = {
         })
     },
     selectConversation(state, {id}) {
-
+        state.conversations.map(conv => conv.selected = false);
+        state.conversations[id].selected = true;
     }
 
     /*[type.MUTATE_ADD_TASK]: (state, {title, groupId}) => {

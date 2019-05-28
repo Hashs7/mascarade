@@ -25,7 +25,7 @@
                 return this.$store.state.score.reports;
             },
             isPlurial() {
-                return type => this.$store.state.score[type] !== 0 ? 's' : null;
+                return type => this.$store.state.score[type] > 1 ? 's' : null;
             }
         }
     }

@@ -18,13 +18,19 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .nav-scenes {
+        position: fixed;
+        top: 0;
+        left: $achievement-width;
+        right: 0;
+        background-color: $white;
         display: flex;
         justify-content: flex-end;
-        width: 100%;
-        height: 30px;
+        align-items: center;
+        height: $nav-height;
         border-bottom: 1px solid gray;
+        padding-right: 20px;
     }
     .item {
         margin: 0 8px;
