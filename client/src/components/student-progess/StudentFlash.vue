@@ -24,22 +24,26 @@
         sockets: {
             sendFlash: function({receiver, amount}) {
                 if(receiver !== this.$store.state.studentId) return;
-
                 console.log('flash receive');
-                this.$store.state.flash.currentFlash += amount;
+                this.$store.state.flash.currentFlash = amount;
+            },
+            newConnection: function() {
+                this.getStudents();
             }
         },
         methods: {
             sendFlashTo(id) {
                 const studentId = this.$store.state.studentId;
-                this.$socket.emit('sendFlash', {receiver: id, amount: 1});
                 this.$store.dispatch('sendFlash', {sender: studentId, receiver: id});
+            },
+            getStudents() {
+                const sessionId = this.$store.state.sessionId;
+                const studentId = this.$store.state.studentId;
+                this.$store.dispatch('initFlash', {sessionId, studentId});
             }
         },
         mounted() {
-            const sessionId = this.$store.state.sessionId;
-            const studentId = this.$store.state.studentId;
-            this.$store.dispatch('initFlash', {sessionId, studentId});
+            this.getStudents();
         }
     }
 </script>

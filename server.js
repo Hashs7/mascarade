@@ -17,6 +17,10 @@ mongoose
                 return io.emit('poke', data)
             });
 
+            socket.on('newConnection', (student) => {
+                return io.emit('newConnection', student)
+            });
+
             socket.on('sendFlash', (data) => {
                 console.log(data, 'data flash');
                 return io.emit('sendFlash', data)

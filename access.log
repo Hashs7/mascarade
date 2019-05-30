@@ -2312,3 +2312,6 @@
 [0mGET /session/all [32m201 [0m79.393 ms - 1106[0m
 [0mGET /auth/teacher/is-auth [32m200 [0m0.318 ms - 11[0m
 [0mGET /session/all [32m201 [0m76.321 ms - 1106[0m
+[0mGET /session/student/5cefee716da70189bd709b1f [32m201 [0m90.920 ms - 1103[0m
+[0mGET /session/student/undefined [31m500 [0m5.375 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m14.326 ms - 99[0m

@@ -63,7 +63,7 @@ exports.signup = (req, res, next) => {
             return session.save();
         })
         .then(result => {
-            io.getIO().emit('student-connection', {
+            io.getIO().emit('studentConnection', {
                 student: {
                     _id: idStudent,
                     firstname,
@@ -104,7 +104,7 @@ exports.login = (req, res, next) => {
             if (!isEqual) {
                 logError('Mauvais mot de passe', 401);
             }
-            io.getIO().emit('student-connection', {
+            io.getIO().emit('studentConnection', {
                 student: {
                     firstname: loadedStudent.firstname,
                     surname: loadedStudent.surname,
