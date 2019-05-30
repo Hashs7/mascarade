@@ -9,7 +9,6 @@ import Tutorial from '../views/student/scenes/Tutorial.vue';
 import FakeNewsScene from '../views/student/scenes/FakeNewsScene.vue';
 import SceneLayout from '../views/student/scenes/SceneLayout.vue';
 import MessageLayout from '../views/student/scenes/MessageLayout.vue';
-
 import {tokenIsValid} from "../utils/API";
 import {getTokenState} from "../utils/methods";
 
@@ -18,7 +17,7 @@ async function redirectIfNotAuth (to, from, next) {
     if (token !== null) {
         tokenIsValid(token)
             .then(_ => next())
-            .catch(_ => next('/'))
+            .catch(_ => next({ path: '/' }))
     } else {
         next('/')
     }

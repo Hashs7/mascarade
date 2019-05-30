@@ -17,5 +17,5 @@ export default new Vuex.Store({
         messages,
         score
     },
-    // plugins: [createPersistedState({ storage: window.sessionStorage })]
+    plugins: [createPersistedState({ storage: window.sessionStorage })]
 });

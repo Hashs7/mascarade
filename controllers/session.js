@@ -66,4 +66,10 @@ exports.getSessions = (req, res, next) => {
                 sessions: teacher.sessions
             });
         })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
 };
