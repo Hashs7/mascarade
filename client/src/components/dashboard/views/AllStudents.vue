@@ -1,6 +1,6 @@
 <template>
     <div v-if="currentSessions.length">
-        <StudentModal />
+<!--        <StudentModal />-->
 
         <v-tabs
                 v-model="tabIndex"
@@ -20,20 +20,23 @@
                 <v-container grid-list-lg>
 
                     <v-tab-item
-                            v-for="(session, i) in currentSessions"
-                            :key="i"
-                            :value="'tab-' + i"
+                            v-for="(session, j) in currentSessions"
+                            :key="j"
+                            :value="'tab-' + j"
                     >
                         <v-layout row wrap>
                             <v-flex
-                                    v-for="student in session.students"
-                                    :key="n"
+                                    v-for="(student, l) in session.students"
+                                    :key="l"
                                     md4
                             >
                                 <StudentCard
                                         :id="student.id"
                                         :firstname="student.firstname"
                                         :surname="student.surname"
+                                        :points="student.achievements.points"
+                                        :shares="student.achievements.shares"
+                                        :reports="student.achievements.reports"
                                 />
 
                             </v-flex>
@@ -57,6 +60,7 @@
             StudentModal
         },
         data: () => ({
+            tabIndex: 'tab-0'
         }),
         mounted() {
             if (!this.$store.state.sessions.length) return;
@@ -64,6 +68,7 @@
         },
         computed: {
             currentSessions() {
+                console.log(this.$store.state.sessions);
                 return this.$store.state.sessions
             },
         }

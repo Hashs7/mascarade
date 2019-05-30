@@ -6,6 +6,7 @@ const Student            = require('../models/Student');
 
 exports.sendFlash = (req, res, next) => {
     let flashId;
+    let flashTotal;
     const {studentFromId, studentToId} = req.body;
 
     Student.findById(studentFromId)
@@ -28,10 +29,8 @@ exports.sendFlash = (req, res, next) => {
             console.log('studentToIndex', studentToIndex);
 
             if(studentToIndex !== -1) {
-                console.log('update student');
                 flash.studentsTo[studentToIndex].number += 1;
             } else {
-                console.log('push new');
                 flash.studentsTo.push({
                     number: 1,
                     student: studentToId
@@ -47,22 +46,22 @@ exports.sendFlash = (req, res, next) => {
             console.log('studentFromIndex', studentFromIndex);
 
             if(studentFromIndex !== -1) {
-                console.log('update');
                 flash.total += 1;
                 flash.studentsFrom[studentFromIndex].number += 1;
             } else {
-                console.log('psuh new');
                 flash.total = 1;
                 flash.studentsFrom.push({
                     number: 1,
                     student: studentFromId
                 })
             }
+            flashTotal = flash.total;
             return Flash.updateOne({_id: flash._id}, flash)
         })
         .then(result => {
             res.status(201).json({
-                message: 'Le flash a été envoyé'
+                message: 'Le flash a été envoyé',
+                amount: flashTotal
             });
         })
         .catch(err => {

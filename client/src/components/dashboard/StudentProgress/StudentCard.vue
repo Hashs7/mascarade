@@ -8,13 +8,13 @@
 
             <div class="layout-points">
                 <span class="subheading mr-2">Points</span>
-                <span class="subheading mr-2">100</span>
+                <span class="subheading mr-2">{{points}}</span>
                 <span class="mr-2">·</span>
                 <span class="subheading mr-2">Partages</span>
-                <span class="subheading mr-2">256</span>
+                <span class="subheading mr-2">{{shares}}</span>
                 <span class="mr-2">·</span>
                 <span class="subheading mr-2">Signalements</span>
-                <span class="subheading mr-2">45</span>
+                <span class="subheading mr-2">{{reports}}</span>
             </div>
 
             <span class="subheading mr-2">Avancement global</span>
@@ -30,7 +30,7 @@
 <script>
     export default {
         name: "StudentCard",
-        props: ['points', 'shares',' reports', 'progress', 'firstname', 'surname', 'id'],
+        props: ['points', 'shares','reports', 'progress', 'firstname', 'surname', 'id'],
         data: () => ({
             valueDeterminate: 10
         }),

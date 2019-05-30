@@ -36,14 +36,16 @@
         components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment, StudentFlash },
         data: () => ({
             counter: 0,
-            socket: null,
         }),
-        mounted() {
-            this.socket = openSocket(BASE_API_URL);
-            this.socket.on('poke', data =>  {
+        sockets: {
+            connect: function () {
+                console.log('socket connected')
+            },
+            poke: function (data) {
                 console.log(data);
-            });
-
+            }
+        },
+        mounted() {
             window.addEventListener('visibilitychange', () => {
                 switch(document.visibilityState) {
                     case 'hidden':
@@ -55,10 +57,9 @@
         },
         methods: {
             emitEvent() {
-                console.log(this.socket);
                 this.counter +=5;
                 console.log();
-                this.socket.emit('poke', {
+                this.$socket.emit('poke', {
                     counter: this.counter,
                     studentId: this.$store.state.studentId,
                     sessionId: this.$store.state.sessionId

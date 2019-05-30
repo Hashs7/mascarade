@@ -11,8 +11,6 @@
 </template>
 
 <script>
-    import {getStudentSession} from "../../utils/API";
-
     export default {
         name: "StudentFlash",
         computed: {
@@ -23,9 +21,18 @@
                 return this.$store.state.flash.currentFlash
             }
         },
+        sockets: {
+            sendFlash: function({receiver, amount}) {
+                if(receiver !== this.$store.state.studentId) return;
+
+                console.log('flash receive');
+                this.$store.state.flash.currentFlash += amount;
+            }
+        },
         methods: {
             sendFlashTo(id) {
                 const studentId = this.$store.state.studentId;
+                this.$socket.emit('sendFlash', {receiver: id, amount: 1});
                 this.$store.dispatch('sendFlash', {sender: studentId, receiver: id});
             }
         },

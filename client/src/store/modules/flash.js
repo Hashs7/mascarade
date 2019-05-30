@@ -13,6 +13,7 @@ const actions = {
     initFlash({commit}, {sessionId, studentId}) {
         getStudentSession(sessionId)
             .then(res => {
+
                 commit('initFlash', {
                     session: res.data.session,
                     studentId
@@ -23,7 +24,10 @@ const actions = {
     sendFlash({commit}, {sender, receiver}) {
         sendFlash(sender, receiver)
             .then(res => {
-                commit('sendFlash', res);
+                console.log('did work');
+                // console.log(rootState.socket);
+                // rootState.socket.emit('flash', res.data.amount);
+                // commit('SOCKET_sendflash', res.data.amount);
             })
             .catch(err => console.log(err))
     }
