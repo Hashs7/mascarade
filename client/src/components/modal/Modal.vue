@@ -105,7 +105,7 @@
         overflow-x: auto;
         display: flex;
         flex-direction: column;
-        width: 30rem;
+        width: 40rem;
     }
 
     .modal-header,
