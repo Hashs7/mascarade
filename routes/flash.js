@@ -7,13 +7,6 @@ const router = express.Router();
 
 router.put(
     '/send',
-    /*isAuth,
-    [
-        body('className')
-            .trim()
-            .not()
-            .isEmpty()
-    ],*/
     flashController.sendFlash
 );
 

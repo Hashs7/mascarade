@@ -16,6 +16,7 @@
             <Harassment />
             <FakeNews />
         </div>
+        <StudentFlash />
     </div>
 </template>
 
@@ -27,11 +28,12 @@
     import FakeNews from '@/components/traps/FakeNews';
     import Harassment from '@/components/traps/Harassment';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
+    import StudentFlash from '@/components/student-progess/StudentFlash';
     import StudentNavigation from '@/components/StudentNavigation';
 
     export default {
         name: "SceneLayout",
-        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment },
+        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment, StudentFlash },
         data: () => ({
             counter: 0,
             socket: null,

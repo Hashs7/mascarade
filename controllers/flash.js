@@ -19,38 +19,46 @@ exports.sendFlash = (req, res, next) => {
         })*/
         .then(student => {
             flashId = student.flash;
-            return Flash.findById(flashId);
+            return Flash.findById(flashId).lean();
         })
         .then(flash => {
-            const studentToIndex = flash.studentsTo.findIndex(student => student._id === studentToId);
+            console.log('studentToId', studentToId);
+
+            const studentToIndex = flash.studentsTo.findIndex(el => el.student.toString() === studentToId);
             console.log('studentToIndex', studentToIndex);
 
             if(studentToIndex !== -1) {
+                console.log('update student');
                 flash.studentsTo[studentToIndex].number += 1;
             } else {
+                console.log('push new');
                 flash.studentsTo.push({
                     number: 1,
                     student: studentToId
                 })
             }
-            return flash.save()
+            return Flash.updateOne({_id: flash._id}, flash)
         })
         .then(result => {
-            return Flash.findOne({student: studentToId});
+            return Flash.findOne({student: studentToId}).lean();
         })
         .then(flash => {
-            const studentFromIndex = flash.studentsFrom.findIndex(student => student._id === req.studentFromId);
+            const studentFromIndex = flash.studentsFrom.findIndex(el => el.student.toString() === studentFromId);
+            console.log('studentFromIndex', studentFromIndex);
+
             if(studentFromIndex !== -1) {
+                console.log('update');
                 flash.total += 1;
-                flash.studentsTo[studentFromIndex].number += 1;
+                flash.studentsFrom[studentFromIndex].number += 1;
             } else {
+                console.log('psuh new');
                 flash.total = 1;
-                flash.studentsTo.push({
+                flash.studentsFrom.push({
                     number: 1,
                     student: studentFromId
                 })
             }
-            return flash.save()
+            return Flash.updateOne({_id: flash._id}, flash)
         })
         .then(result => {
             res.status(201).json({

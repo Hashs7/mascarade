@@ -7,5 +7,15 @@
 
 .layout-content {
   margin-left: 400px;
+  margin-right: 300px;
   padding: $nav-height 16px 16px 16px;
+}
+
+.flash-container {
+  top: $nav-height;
+  right: 0;
+  position: fixed;
+  z-index: 10;
+  width: 300px;
+  height: 100%;
 }
