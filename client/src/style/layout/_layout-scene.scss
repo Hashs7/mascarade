@@ -1,0 +1,19 @@
+.student-achievement {
+  position: fixed;
+  z-index: 10;
+  width: $achievement-width;
+  height: 100%;
+}
+
+.layout-content {
+  margin-left: 400px;
+  padding: 2rem 1.6rem 1.6rem 1.6rem;
+}
+
+.flash-container {
+  width: 200px;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 1rem;
+}

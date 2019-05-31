@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import TeacherLogin from '@/components/TeacherLogin';
+    import TeacherLogin from '@/components/authentification/TeacherLogin';
 
     export default {
         name: 'TeacherLoginView',

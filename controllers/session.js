@@ -66,4 +66,56 @@ exports.getSessions = (req, res, next) => {
                 sessions: teacher.sessions
             });
         })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
+};
+
+exports.getSessionById = (req, res, next) => {
+    const {sessionId} = req.params;
+
+    Session.findById(sessionId)
+        .populate({
+            path: 'students',
+            model: 'Student'
+        })
+        .then(session => {
+            console.log('current session', session);
+            res.status(201).json({
+                session: session
+            });
+        })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
+    /*Teacher.findById(req.teacherId)
+        .populate({
+            path: 'sessions',
+            populate: {
+                path: 'students',
+                model: 'Student'
+            }
+        })
+        /!*.exec((err, sessions) => {
+            sessions.
+            TODO don't return password and email
+        })*!/
+        .then(teacher => {
+            console.log(teacher);
+            res.status(201).json({
+                sessions: teacher.sessions
+            });
+        })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });*/
 };

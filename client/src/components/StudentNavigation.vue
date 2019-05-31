@@ -35,15 +35,19 @@
             border-bottom: 1px solid gray;
             padding-bottom: 2rem;
         }
+        &-right {
+            a, span {
+                margin-left: 1rem;
+            }
+        }
         &-stories {
             display: flex;
         }
-    }
-   
-    .item {
-        margin: 0 8px;
-        &:last-child {
-            margin-right: 0;
+        .item {
+            margin: 0 8px;
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 </style>

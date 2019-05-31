@@ -1,5 +1,11 @@
 import axios from 'axios';
-import {BASE_API_URL, ROUTE_TEACHER_ALL_SESSION, ROUTE_TEACHER_IS_AUTH} from "./constant";
+import {
+    BASE_API_URL,
+    ROUTE_STUDENT_FLASH_SEND,
+    ROUTE_STUDENT_SESSION,
+    ROUTE_TEACHER_ALL_SESSION,
+    ROUTE_TEACHER_IS_AUTH
+} from "./constant";
 import {getTokenState} from "./methods";
 
 export const api = axios.create({
@@ -19,7 +25,7 @@ export const tokenIsValid = (token) => {
     return api(options)
 };
 
-export const getSession = async () => {
+export const getSessions = async () => {
     const token = await getTokenState();
 
     const options = {
@@ -29,6 +35,35 @@ export const getSession = async () => {
             Authorization: 'Bearer ' + token
         },
         url: ROUTE_TEACHER_ALL_SESSION
+    };
+
+    return api(options)
+};
+
+export const getStudentSession = async (sessionId) => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        url: ROUTE_STUDENT_SESSION + sessionId
+    };
+
+    return api(options)
+};
+
+
+export const sendFlash = async (senderId, receiverId) => {
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        url: ROUTE_STUDENT_FLASH_SEND,
+        data: {
+            studentFromId: senderId,
+            studentToId: receiverId
+        }
     };
 
     return api(options)

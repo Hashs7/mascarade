@@ -8,10 +8,10 @@
         <v-content>
             <Navigation />
             <div v-if="viewId === 'board'" class="content board">
-                <Home></Home>
+                <Home />
             </div>
             <div v-else-if="viewId === 'student'" class="content student">
-                <p>Elèves</p>
+                <AllStudents />
             </div>
             <div v-else-if="viewId === 'message'" class="content message">
                 <p>Message</p>
@@ -30,13 +30,15 @@
     import Navigation from '@/components/dashboard/Navigation';
     import TableStudent from '@/components/dashboard/TableStudent';
     import Home from '@/components/dashboard/views/home';
+    import AllStudents from '@/components/dashboard/views/AllStudents';
 
     export default {
         name: 'TeacherDashboard',
         components: {
             TableStudent,
             Navigation,
-            Home
+            Home,
+            AllStudents
         },
         data: () => ({
             valid: true,

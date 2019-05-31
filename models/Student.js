@@ -22,13 +22,23 @@ const studentSchema = new Schema({
         type: String,
         required: true
     },
-    scene: {
-        type: Number,
-        required: false
-    },
     roomId: {
         type: String,
-        required: false
+        required: true
+    },
+    progress: {
+        type: Number,
+        required: true
+    },
+    achievements: {
+        points: Number,
+        shares: Number,
+        reports: Number
+    },
+    flash: {
+        required: false,
+        type: Schema.Types.ObjectId,
+        ref: 'Flash',
     }
 });
 

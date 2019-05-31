@@ -5,17 +5,24 @@
         </div>
         <div class="layout-content">
             <StudentNavigation />
-
-            <p>Super tu es à la première scène</p>
-            <p>Compteur : {{ counter }}</p>
-            <button @click="emitEvent">Envoyer un poke</button>
-            <Charity />
-            <FakeNews />
-            <Charity />
-            <Charity />
-            <Harassment />
-            <FakeNews />
+            <div class="layout-main">
+                <div class="layout-traps">
+                    <p>Super tu es à la première scène</p>
+                    <p>Compteur : {{ counter }}</p>
+                    <button @click="emitEvent">Envoyer un poke</button>
+                    <Charity />
+                    <FakeNews />
+                    <Charity />
+                    <Charity />
+                    <Harassment />
+                    <FakeNews />
+                </div>
+                <div class="layout-flash">
+                    <StudentFlash />
+                </div>
+            </div>
         </div>
+       
     </div>
 </template>
 
@@ -27,21 +34,24 @@
     import FakeNews from '@/components/traps/FakeNews';
     import Harassment from '@/components/traps/Harassment';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
+    import StudentFlash from '@/components/student-progess/StudentFlash';
     import StudentNavigation from '@/components/StudentNavigation';
 
     export default {
         name: "SceneLayout",
-        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment },
+        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment, StudentFlash },
         data: () => ({
             counter: 0,
-            socket: null,
         }),
-        mounted() {
-            this.socket = openSocket(BASE_API_URL);
-            this.socket.on('poke', data =>  {
+        sockets: {
+            connect: function () {
+                console.log('socket connected')
+            },
+            poke: function (data) {
                 console.log(data);
-            });
-
+            }
+        },
+        mounted() {
             window.addEventListener('visibilitychange', () => {
                 switch(document.visibilityState) {
                     case 'hidden':
@@ -53,10 +63,9 @@
         },
         methods: {
             emitEvent() {
-                console.log(this.socket);
                 this.counter +=5;
                 console.log();
-                this.socket.emit('poke', {
+                this.$socket.emit('poke', {
                     counter: this.counter,
                     studentId: this.$store.state.studentId,
                     sessionId: this.$store.state.sessionId
@@ -67,14 +76,7 @@
 </script>
 
 <style scoped lang="scss">
-    .student-achievement {
-        position: fixed;
-        z-index: 10;
-        width: 400px;
-        height: 100%;
-    }
-    .layout-content {
-        margin-left: 400px;
-        padding: 16px;
+    .layout-main{
+        display: flex;
     }
 </style>

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-    import {getSession} from "../../utils/API";
+    import {getSessions} from "../../utils/API";
     import TableStudent from '@/components/dashboard/TableStudent';
 
     export default {
@@ -59,7 +59,7 @@
         mounted() {
             // if(this.$store.state.sessions !== null) return;
 
-            getSession()
+            getSessions()
                 .then(res => {
                     console.log('initSessions', res.data.sessions);
                     this.$store.commit('initSessions', res.data.sessions);

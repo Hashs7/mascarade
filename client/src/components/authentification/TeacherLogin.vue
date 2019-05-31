@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div @keyup.enter="validate">
         <v-card>
             <v-card-title primary-title>
                 <div>
@@ -58,9 +58,9 @@
 </template>
 
 <script>
-    import {ROUTE_TEACHER_LOGIN} from "../utils/constant";
-    import {api} from "../utils/API";
-    import {routePath} from "../router/routes";
+    import {ROUTE_TEACHER_LOGIN} from "../../utils/constant";
+    import {api} from "../../utils/API";
+    import {routePath} from "../../router/routes";
 
     export default {
         name: 'TeacherLogin',

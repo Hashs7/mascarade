@@ -4,6 +4,7 @@ const jwt                = require('jsonwebtoken');
 const {logError}         = require('../utils');
 const io                 = require('../socket');
 const Student            = require('../models/Student');
+const Flash            = require('../models/Flash');
 const Session            = require('../models/Session');
 
 exports.signup = (req, res, next) => {
@@ -16,6 +17,7 @@ exports.signup = (req, res, next) => {
     const roomId = req.query.room;
     let newStudent;
     let idStudent;
+    let studentDoc;
 
     bcrypt
         .hash(password, 12)
@@ -26,12 +28,34 @@ exports.signup = (req, res, next) => {
                 firstname: firstname,
                 surname: surname,
                 gender: gender,
-                scene: 0
+                roomId: roomId,
+                progress: 0,
+                achievements: {
+                    points: 0,
+                    shares: 0,
+                    reports: 0
+                },
+                flash: null
             });
             return newStudent.save();
         })
         .then(student => {
             idStudent = student._id;
+            studentDoc = student;
+
+            const flash = new Flash({
+                student: idStudent,
+                total: 0,
+                studentsFrom: [],
+                studentsTo: []
+            });
+            return flash.save();
+        })
+        .then(flash => {
+            studentDoc.flash = flash;
+            return studentDoc.save()
+        })
+        .then(student => {
             return Session.findOne({shortId: roomId});
         })
         .then(session => {
@@ -39,14 +63,12 @@ exports.signup = (req, res, next) => {
             return session.save();
         })
         .then(result => {
-            console.log(result);
             io.getIO().emit('student-connection', {
                 student: {
                     _id: idStudent,
                     firstname,
                     surname,
                     gender,
-                    scene: 0
                 },
                 sessionId: result._id
             });
