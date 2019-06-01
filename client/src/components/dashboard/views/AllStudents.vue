@@ -66,6 +66,12 @@
             if (!this.$store.state.sessions.length) return;
             console.log('get seession');
         },
+        sockets: {
+            updateAchievement({studentId, sessionId, achievType, amount}) {
+                console.log('update Achiev');
+                this.$store.commit('updateStudentAchievement', {studentId, sessionId, achievType, amount});
+            }
+        },
         computed: {
             currentSessions() {
                 console.log(this.$store.state.sessions);

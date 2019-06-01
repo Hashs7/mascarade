@@ -1,3 +1,5 @@
+import {updateAchievement} from "../../utils/API";
+
 const state = {
     points: 0,
     shares: 0,
@@ -8,9 +10,12 @@ const getters = {
 };
 
 const actions = {
-    updateAchievement({commit}, {type, amount}) {
-        //TODO update in BO
-        commit('updateAchievement', {type, amount})
+    updateAchievement({commit, rootState}, {type, amount}) {
+        updateAchievement(rootState.studentId, rootState.sessionId, type, amount)
+            .then(res => {
+                commit('updateAchievement', {type, amount})
+            })
+            .catch(err => console.log(err))
     }
 };
 

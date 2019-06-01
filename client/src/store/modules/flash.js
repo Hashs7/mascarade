@@ -13,7 +13,6 @@ const actions = {
     initFlash({commit}, {sessionId, studentId}) {
         getStudentSession(sessionId)
             .then(res => {
-
                 commit('initFlash', {
                     session: res.data.session,
                     studentId
