@@ -5,18 +5,24 @@
         </div>
         <div class="layout-content">
             <StudentNavigation />
-
-            <p>Super tu es à la première scène</p>
-            <p>Compteur : {{ counter }}</p>
-            <button @click="emitEvent">Envoyer un poke</button>
-            <Charity />
-            <FakeNews />
-            <Charity />
-            <Charity />
-            <Harassment />
-            <FakeNews />
+            <div class="layout-main">
+                <div class="layout-traps">
+                    <p>Super tu es à la première scène</p>
+                    <p>Compteur : {{ counter }}</p>
+                    <button @click="emitEvent">Envoyer un poke</button>
+                    <Charity />
+                    <FakeNews />
+                    <Charity />
+                    <Charity />
+                    <Harassment />
+                    <FakeNews />
+                </div>
+                <div class="layout-flash">
+                    <StudentFlash />
+                </div>
+            </div>
         </div>
-        <StudentFlash />
+       
     </div>
 </template>
 
@@ -70,5 +76,7 @@
 </script>
 
 <style scoped lang="scss">
-
+    .layout-main{
+        display: flex;
+    }
 </style>
