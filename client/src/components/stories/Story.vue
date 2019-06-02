@@ -1,17 +1,14 @@
 <template>
     <div class="Stories-container">
-        <div class="Story" id="show-modal" @click="showModal"  
-                v-for="(img, i) in images"
-                 :style="`background-image: url(${img.src})`"
-                 ></div>
-          <modal v-show="isModalVisible"
-                  @close="closeModal"
-                  title="Publié par Thomas Paratle"
-                  description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
-                  question="L’information est-elle correcte ?"
-                  buttonFirst="Oui"
-                  :buttonFirstAction="updateShare"
-                  buttonSecond="Non"/>
+        <div class="Story" id="show-modal" @click="showModal" :style="`background-image: url(${src})`"></div>
+        <modal v-show="isModalVisible"
+                @close="closeModal"
+                title="Publié par Thomas Paratle"
+                description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
+                question="L’information est-elle correcte ?"
+                buttonFirst="Oui"
+                :buttonFirstAction="updateShare"
+                buttonSecond="Non"/>
     </div>
 </template>
 <script>
@@ -21,16 +18,8 @@
         components: {Modal},
         data: () => ({
             isModalVisible: false,
-            images: [{
-                src: 'https://picsum.photos/300/400',
-            },{
-                src: 'https://picsum.photos/500/300',
-            },{
-                src: '',
-            },{
-                src: '',
-            }]
         }),
+        props: ['src'],
         methods: {
             showModal() {
                 this.isModalVisible = true;

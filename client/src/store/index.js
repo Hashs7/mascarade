@@ -7,6 +7,7 @@ import actions from './actions';
 import messages from './modules/messages'
 import score from './modules/score'
 import flash from './modules/flash'
+//import story from './modules/story'
 
 Vue.use(Vuex);
 
@@ -17,7 +18,8 @@ export default new Vuex.Store({
     modules: {
         messages,
         score,
-        flash
+        flash,
+        //story
     },
     plugins: [createPersistedState({ storage: window.sessionStorage })]
 });

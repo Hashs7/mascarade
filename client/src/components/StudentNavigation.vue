@@ -1,7 +1,10 @@
 <template>
     <nav class="nav-scenes">
         <div class="nav-stories">
-            <Story />
+            <Story 
+                v-for="(img, i) in stories"
+                :src="img.src"
+                :style="`background-image: url(${src})`"/>
         </div>
         <div class="nav-right">
             <router-link class="item home" to="/student/exp">Accueil</router-link>
@@ -13,15 +16,25 @@
 
 <script>
     import Story from '@/components/stories/Story';
+    import {initStory} from '../components/stories/stories';
+    //import {mapGetters, mapMutations} from "vuex";
     export default {
         name: "StudentNavigation",
-        components: { Story },
+        components: { Story, initStory },
         methods: {
             changeRoute(route) {
                 if(this.$route.path === route) return;
                 this.$router.push(route)
             }
-        }
+        },
+        computed: {
+            /*...mapGetters([
+                'getStory',
+            ]),*/
+            stories() {
+                return initStory.stories;
+            }
+        },
     }
 </script>
 
