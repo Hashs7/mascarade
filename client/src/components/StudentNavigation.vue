@@ -1,10 +1,13 @@
 <template>
     <nav class="nav-scenes">
         <div class="nav-stories">
-            <Story 
-                v-for="(img, i) in stories"
+            <Story
+                v-for="(img, i) in stories" 
                 :src="img.src"
+                :name="img.name"
+                :description="img.description"
                 :style="`background-image: url(${src})`"/>
+           
         </div>
         <div class="nav-right">
             <router-link class="item home" to="/student/exp">Accueil</router-link>
@@ -15,13 +18,23 @@
 </template>
 
 <script>
+    import ModalStory from '@/components/modal/ModalStory';
     import Story from '@/components/stories/Story';
     import {initStory} from '../components/stories/stories';
     //import {mapGetters, mapMutations} from "vuex";
     export default {
         name: "StudentNavigation",
         components: { Story, initStory },
+        data: () => ({
+            isModalVisible: false,
+        }),
         methods: {
+            showModal() {
+                this.isModalVisible = true;
+            },
+            closeModal() {
+                this.isModalVisible = false;
+            },
             changeRoute(route) {
                 if(this.$route.path === route) return;
                 this.$router.push(route)
