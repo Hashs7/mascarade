@@ -52,12 +52,13 @@
                         id="modalDescription"
                 >
                    <slot name="image">
-                        <img :src="{src}">
+                        <img v-bind:src="src">
                     </slot>
                     <slot name="body">
                         {{description}}
                     </slot>
                 </section>
+                  
             </div>
         </div>
     </transition>
@@ -85,6 +86,13 @@
         width: 40rem;
     }
 
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      img {
+        max-width: 35rem;
+      }
+    }
     .modal-header,
     .modal-footer,
     .button-footer {
