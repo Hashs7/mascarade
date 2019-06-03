@@ -22,12 +22,14 @@
             }
         },
         sockets: {
-            sendFlash: function({receiver, amount}) {
+            sendFlash({receiver, amount}) {
+                console.log(receiver, amount);
                 if(receiver !== this.$store.state.studentId) return;
                 console.log('flash receive');
                 this.$store.state.flash.currentFlash = amount;
             },
-            newConnection: function() {
+            newConnection() {
+                console.log('new connection');
                 this.getStudents();
             }
         },

@@ -60,7 +60,8 @@ exports.sendFlash = (req, res, next) => {
             return Flash.updateOne({_id: flash._id}, flash)
         })
         .then(result => {
-            io.getIO().emit('flash', {
+            console.log();
+            io.getIO().emit('sendFlash', {
                 receiver: studentToId,
                 amount: flashTotal
             });

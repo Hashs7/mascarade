@@ -63,7 +63,7 @@ exports.signup = (req, res, next) => {
             return session.save();
         })
         .then(result => {
-            io.getIO().emit('studentConnection', {
+            io.getIO().emit('newConnection', {
                 student: {
                     _id: idStudent,
                     firstname,
