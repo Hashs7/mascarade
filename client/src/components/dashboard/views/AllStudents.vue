@@ -1,6 +1,6 @@
 <template>
     <div v-if="currentSessions.length">
-<!--        <StudentModal />-->
+        <StudentModal />
 
         <v-tabs
                 v-model="tabIndex"

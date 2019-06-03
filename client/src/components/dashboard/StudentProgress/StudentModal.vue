@@ -1,6 +1,6 @@
 <template>
     <v-dialog
-            v-model="dialog"
+            v-model="modalVisible"
             fullscreen
             hide-overlay
             transition="dialog-bottom-transition"
@@ -8,29 +8,14 @@
     >
         <v-card tile>
             <v-toolbar card dark color="primary">
-                <v-btn icon dark @click="dialog = false">
-                    <v-icon>close</v-icon>
-                </v-btn>
+
                 <v-toolbar-title>Settings</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-toolbar-items>
-                    <v-btn dark flat @click="dialog = false">Save</v-btn>
-                </v-toolbar-items>
-                <v-menu bottom right offset-y>
-                    <template v-slot:activator="{ on }">
-                        <v-btn dark icon v-on="on">
-                            <v-icon>more_vert</v-icon>
-                        </v-btn>
-                    </template>
-                    <v-list>
-                        <v-list-tile v-for="(item, i) in items" :key="i" @click="">
-                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                        </v-list-tile>
-                    </v-list>
-                </v-menu>
+                <v-btn icon dark @click="closeModal">
+                    <v-icon>close</v-icon>
+                </v-btn>
             </v-toolbar>
             <v-card-text>
-                <v-btn color="primary" dark @click="dialog2 = !dialog2">Open Dialog 2</v-btn>
                 <v-tooltip right>
                     <template v-slot:activator="{ on }">
                         <v-btn v-on="on">Tool Tip Activator</v-btn>
@@ -53,7 +38,7 @@
                     </v-list-tile>
                 </v-list>
                 <v-divider></v-divider>
-                <v-list three-line subheader>
+                <!--<v-list three-line subheader>
                     <v-subheader>General</v-subheader>
                     <v-list-tile avatar>
                         <v-list-tile-action>
@@ -82,7 +67,7 @@
                             <v-list-tile-sub-title>Automatically add home screen widgets</v-list-tile-sub-title>
                         </v-list-tile-content>
                     </v-list-tile>
-                </v-list>
+                </v-list>-->
             </v-card-text>
 
             <div style="flex: 1 1 auto;"></div>
@@ -94,7 +79,18 @@
     // TODO connect to store
 
     export default {
-        name: "StudentModal"
+        name: "StudentModal",
+        computed: {
+            modalVisible() {
+                console.log(this.$store.state.modalProgress);
+                return this.$store.state.modalProgress.isVisible;
+            }
+        },
+        methods: {
+            closeModal() {
+                this.$store.commit('toggleModal', false)
+            }
+        }
     }
 </script>
 
