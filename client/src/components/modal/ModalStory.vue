@@ -17,6 +17,9 @@
             firstButton() {
                 this.buttonFirstAction();
                 this.close();
+            },
+            closeDelay() {
+              setTimeout(this.close(), 50);
             }
         },
     };
@@ -35,7 +38,7 @@
                         id="modalTitle"
                 >
                     <slot name="header">
-                        {{name}}
+                        Publié par {{name}}
 
                         <button
                                 type="button"

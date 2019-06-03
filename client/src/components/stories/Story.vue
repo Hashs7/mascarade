@@ -1,6 +1,6 @@
 <template>
     <div class="Stories-container">
-        <div class="Story" id="modalStory" @click="showModal" :style="`background-image: url(${src})`"></div>
+        <div class="Story" id="modalStory"  @click="showModal" :style="`background-image: url(${src})`"></div>
         <modalStory    
             v-show="isModalVisible"
             @close="closeModal"
@@ -23,6 +23,7 @@
         methods: {
             showModal() {
                 this.isModalVisible = true;
+                setTimeout(this.closeModal, 8000);
             },
             closeModal() {
                 this.isModalVisible = false;
