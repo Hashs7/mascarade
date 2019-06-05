@@ -5,12 +5,15 @@
                  v-for="(img, i) in images"
                  :style="`background-image: url(${img.src})`"
                  :class="{selected: img.selected}"
-                 @click="selectImg(i)">
+                 :title="img.title"
+                 @click="selectImg(i)"
+                 >
+                <div class="charity-titleImage">{{img.title}}</div>
                 <div class="indicator">Sélectionné</div>
             </div>
         </div>
-        <label class="charity-title" for="title">Rejoins notre cause !</label>
-        <textarea class="student-response" name="title" placeholder="Ajoute une description"></textarea>
+        <textarea class="student-response charity-title" name="title" for="title" placeholder="Ajoute un titre"></textarea>
+        <textarea class="student-response" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
         <p>800 millions  de personnes dans le monde ne mangent pas à leur faim, soit 1 personne sur 10. Vous pouvez participer à notre cause en partageant cet article.</p>
         <button @click.prevent="shareCharity">Partager</button>
     </div>
@@ -22,21 +25,27 @@
         data: () => ({
             images: [{
                 src: 'https://picsum.photos/200/300',
+                title: 'Faim dans le monde',
                 selected: false
             },{
                 src: 'https://picsum.photos/200/300',
+                title: 'Violences',
                 selected: false
             },{
                 src: 'https://picsum.photos/200/300',
+                title: "Guerre",
                 selected: false
             },{
                 src: 'https://picsum.photos/200/300',
+                title: "Racisme",
                 selected: false
             },{
                 src: 'https://picsum.photos/200/300',
+                title: "Homophobie",
                 selected: true
             },{
                 src: 'https://picsum.photos/200/300',
+                title: "Pollution",
                 selected: false
             }]
         }),
@@ -61,6 +70,11 @@
     .charity-title {
         display: block;
     }
+    .charity-titleImage {
+        opacity: 0;
+        background-color: $grey--dark;
+        color : $white;
+    }
     .img-container {
         display: flex;
         flex-wrap: wrap;
@@ -76,6 +90,17 @@
         &.selected .indicator{
             opacity: 1;
             background-color: red;
+           
+        }
+        &.selected {
+            .charity-titleImage {
+                display: none;
+            }
+        }
+        &:hover {
+            .charity-titleImage {
+                opacity: 1;
+            }
         }
     }
     .indicator {
