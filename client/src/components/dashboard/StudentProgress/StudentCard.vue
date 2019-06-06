@@ -36,7 +36,8 @@
         }),
         methods: {
             showProfile() {
-                // TODO open modal
+                // todo pass student datas
+                this.$store.commit('toggleModal')
             }
         }
     }

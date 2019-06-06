@@ -17,10 +17,6 @@ mongoose
                 return io.emit('poke', data)
             });
 
-            socket.on('sendFlash', (data) => {
-                console.log(data, 'data flash');
-                return io.emit('sendFlash', data)
-            });
             socket.on('disconnect', () => io.emit('disconnected'));
         })
     })

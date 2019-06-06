@@ -40,4 +40,6 @@ router.put(
 
 router.post('/login', authController.login);
 
+router.put('/achievement', authController.updateAchievement);
+
 module.exports = router;

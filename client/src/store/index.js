@@ -7,6 +7,7 @@ import actions from './actions';
 import messages from './modules/messages'
 import score from './modules/score'
 import flash from './modules/flash'
+import modalProgress from './modules/modalProgress'
 
 Vue.use(Vuex);
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
         messages,
         score,
         flash,
+        modalProgress
     },
     plugins: [createPersistedState({ storage: window.sessionStorage })]
 });

@@ -1,7 +1,8 @@
 const {validationResult} = require('express-validator/check');
 const {logError}         = require('../utils');
-const Flash            = require('../models/Flash');
+const Flash              = require('../models/Flash');
 const Student            = require('../models/Student');
+const io                 = require('../socket');
 
 
 exports.sendFlash = (req, res, next) => {
@@ -28,7 +29,7 @@ exports.sendFlash = (req, res, next) => {
             const studentToIndex = flash.studentsTo.findIndex(el => el.student.toString() === studentToId);
             console.log('studentToIndex', studentToIndex);
 
-            if(studentToIndex !== -1) {
+            if (studentToIndex !== -1) {
                 flash.studentsTo[studentToIndex].number += 1;
             } else {
                 flash.studentsTo.push({
@@ -45,7 +46,7 @@ exports.sendFlash = (req, res, next) => {
             const studentFromIndex = flash.studentsFrom.findIndex(el => el.student.toString() === studentFromId);
             console.log('studentFromIndex', studentFromIndex);
 
-            if(studentFromIndex !== -1) {
+            if (studentFromIndex !== -1) {
                 flash.total += 1;
                 flash.studentsFrom[studentFromIndex].number += 1;
             } else {
@@ -59,6 +60,11 @@ exports.sendFlash = (req, res, next) => {
             return Flash.updateOne({_id: flash._id}, flash)
         })
         .then(result => {
+            console.log();
+            io.getIO().emit('sendFlash', {
+                receiver: studentToId,
+                amount: flashTotal
+            });
             res.status(201).json({
                 message: 'Le flash a été envoyé',
                 amount: flashTotal
