@@ -1,39 +1,29 @@
 <template>
     <div class="Stories-container">
-        <div class="Story" id="show-modal" @click="showModal"  
-                v-for="(img, i) in images"
-                 :style="`background-image: url(${img.src})`"
-                 ></div>
-          <modal v-show="isModalVisible"
-                  @close="closeModal"
-                  title="Publié par Thomas Paratle"
-                  description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
-                  question="L’information est-elle correcte ?"
-                  buttonFirst="Oui"
-                  :buttonFirstAction="updateShare"
-                  buttonSecond="Non"/>
+        <div class="Story" id="modalStory"  @click="showModal" :style="`background-image: url(${src})`"></div>
+        <modalStory    
+            v-show="isModalVisible"
+            @close="closeModal"
+            :name=name
+            :description=description
+            :src=src
+            />
     </div>
 </template>
 <script>
-    import Modal from '@/components/modal/Modal';
+    import ModalStory from '@/components/modal/ModalStory';
+    import {initStory} from '../stories/stories';
     export default {
         name: "Story",
-        components: {Modal},
+        components: {ModalStory, initStory},
         data: () => ({
             isModalVisible: false,
-            images: [{
-                src: 'https://picsum.photos/300/400',
-            },{
-                src: 'https://picsum.photos/500/300',
-            },{
-                src: '',
-            },{
-                src: '',
-            }]
         }),
+        props: ['src', 'name', 'description'],
         methods: {
             showModal() {
                 this.isModalVisible = true;
+                setTimeout(this.closeModal, 8000);
             },
             closeModal() {
                 this.isModalVisible = false;
@@ -43,6 +33,14 @@
             },
             updateShare() {
                 this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
+            }
+        },
+         computed: {
+            /*...mapGetters([
+                'getStory',
+            ]),*/
+            stories() {
+                return initStory.stories;
             }
         },
     }
