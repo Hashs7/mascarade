@@ -21,7 +21,7 @@
     import ModalStory from '@/components/modal/ModalStory';
     import Story from '@/components/stories/Story';
     import {initStory} from '../components/stories/stories';
-    //import {mapGetters, mapMutations} from "vuex";
+    import {mapMutations} from "vuex";
     export default {
         name: "StudentNavigation",
         components: { Story, initStory },
@@ -41,11 +41,8 @@
             }
         },
         computed: {
-            /*...mapGetters([
-                'getStory',
-            ]),*/
             stories() {
-                return initStory.stories;
+                return this.$store.state.stories.allStories;
             }
         },
     }

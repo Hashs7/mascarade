@@ -8,6 +8,7 @@
             :description=description
             :src=src
             />
+        <!--<button @click="newStory">Ajouter une story</button>-->
     </div>
 </template>
 <script>
@@ -33,12 +34,12 @@
             },
             updateShare() {
                 this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
+            },
+            newStory() {
+                this.$store.commit('addStory', {src : '', name : "Testtest", description: 'fbdbfdbsi', delay:2000});
             }
         },
          computed: {
-            /*...mapGetters([
-                'getStory',
-            ]),*/
             stories() {
                 return initStory.stories;
             }
