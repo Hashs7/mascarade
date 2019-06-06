@@ -19,9 +19,6 @@
 </template>
 
 <script>
-    import openSocket from 'socket.io-client';
-    import {BASE_API_URL} from "../../utils/constant";
-
     export default {
         name: "StudentTable",
         props: ['session'],
@@ -36,15 +33,15 @@
                 ]
             }
         },
-        mounted() {
-            const socket = openSocket(BASE_API_URL);
-            socket.on('poke', (data) => {
+        socket: {
+            poke: function(data) {
                 this.$store.commit('updateStudentScene', data);
-            });
-            socket.on('student-connection', ({ student, sessionId }) => {
+
+            },
+            studentConnection: function({ student, sessionId }) {
                 this.$store.commit('addStudent', {student, sessionId});
-            })
-        }
+            }
+        },
     }
 </script>
 

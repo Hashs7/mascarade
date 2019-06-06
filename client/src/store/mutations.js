@@ -45,6 +45,19 @@ export default {
             scene: counter
         });
     },
+    updateStudentAchievement(state, { amount, achievType, studentId, sessionId }) {
+        const indexSession = state.sessions.findIndex(el => el._id === sessionId);
+        if(isNull(indexSession)) return;
+
+        const indexStudent = state.sessions[indexSession].students.findIndex(el => el._id === studentId);
+        if(isNull(indexStudent)) return;
+
+        state.sessions[indexSession].students[indexStudent].achievements[achievType] = amount;
+        /*Vue.set(state.sessions[indexSession].students[indexStudent].achievements, achievType,  {
+            ...student,
+            scene: counter
+        });*/
+    },
     updateIndex(state, index) {
         state.tabIndex = index;
     },

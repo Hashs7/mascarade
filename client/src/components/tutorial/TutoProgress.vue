@@ -70,7 +70,7 @@
                 if(this.step === 1) return;
                 this.step--;
             }
-        }
+        },
     }
 </script>
 

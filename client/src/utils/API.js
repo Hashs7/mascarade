@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-    BASE_API_URL,
+    BASE_API_URL, ROUTE_STUDENT_ACHIEVEMENT,
     ROUTE_STUDENT_FLASH_SEND,
     ROUTE_STUDENT_SESSION,
     ROUTE_TEACHER_ALL_SESSION,
@@ -63,6 +63,24 @@ export const sendFlash = async (senderId, receiverId) => {
         data: {
             studentFromId: senderId,
             studentToId: receiverId
+        }
+    };
+
+    return api(options)
+};
+
+export const updateAchievement = async (studentId, sessionId, achievType, amount) => {
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        url: ROUTE_STUDENT_ACHIEVEMENT,
+        data: {
+            studentId: studentId,
+            sessionId: sessionId,
+            achievType: achievType,
+            amount: amount
         }
     };
 

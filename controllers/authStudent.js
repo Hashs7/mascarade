@@ -63,7 +63,7 @@ exports.signup = (req, res, next) => {
             return session.save();
         })
         .then(result => {
-            io.getIO().emit('student-connection', {
+            io.getIO().emit('newConnection', {
                 student: {
                     _id: idStudent,
                     firstname,
@@ -104,7 +104,7 @@ exports.login = (req, res, next) => {
             if (!isEqual) {
                 logError('Mauvais mot de passe', 401);
             }
-            io.getIO().emit('student-connection', {
+            io.getIO().emit('studentConnection', {
                 student: {
                     firstname: loadedStudent.firstname,
                     surname: loadedStudent.surname,
@@ -127,6 +127,44 @@ exports.login = (req, res, next) => {
                 token: token,
                 studentId: loadedStudent._id.toString(),
                 // sessionId: loadedStudent.sessionId
+            });
+        })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
+};
+
+exports.updateAchievement = (req, res, next) => {
+    const { studentId, sessionId, achievType, amount } = req.body;
+    const type = ['points', 'shares', 'reports'];
+
+    let realAmount;
+
+    Student.findById(studentId)
+        .populate()
+        .then(student => {
+            if(!type.includes(achievType)) {
+                logError("le type n'est pas correct", 401);
+            }
+            student.achievements[achievType] += amount;
+            realAmount = student.achievements[achievType];
+            return student.save()
+        })
+        .then(result => {
+            const payload = {
+                studentId: studentId,
+                sessionId: sessionId,
+                achievType: achievType,
+                amount: realAmount
+            };
+            io.getIO().emit('updateAchievement', payload);
+            console.log('emit io', payload);
+            res.status(201).json({
+                message: 'Achievement a été mis à jour',
+                payload
             });
         })
         .catch(err => {
