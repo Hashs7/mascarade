@@ -54,9 +54,9 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            width: 100%;
-            border-bottom: 1px solid gray;
+            width: 87rem;
             padding-bottom: 2rem;
+            margin: auto;
         }
         &-right {
             a, span {

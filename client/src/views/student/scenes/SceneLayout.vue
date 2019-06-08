@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="Layout-container">
         <div class="student-achievement">
             <StudentAchievement />
         </div>
@@ -7,9 +7,9 @@
             <StudentNavigation />
             <div class="layout-main">
                 <div class="layout-traps">
-                    <p>Super tu es à la première scène</p>
+                    <!--<p>Super tu es à la première scène</p>
                     <p>Compteur : {{ counter }}</p>
-                    <button @click="emitEvent">Envoyer un poke</button>
+                    <button @click="emitEvent">Envoyer un poke</button>-->
                     <Charity />
                     <FakeNews />
                     <Charity />
@@ -76,7 +76,5 @@
 </script>
 
 <style scoped lang="scss">
-    .layout-main{
-        display: flex;
-    }
+    
 </style>

@@ -1,13 +1,31 @@
 .student-achievement {
-  position: fixed;
-  z-index: 10;
-  width: $achievement-width;
-  height: 100%;
+  flex-basis: 20%;
+  max-width: 20%;
+  
+  .achievements {
+    background-color: $black;
+  }
+}
+
+.Layout-container {
+  display: flex;
+}
+
+.layout-traps {
+  width: 60rem;
+}
+
+.layout-main{
+  display: flex;
+  width: 87rem;
+  margin: auto;
+  justify-content: space-between;
 }
 
 .layout-content {
-  margin-left: 400px;
   padding: 2rem 1.6rem 1.6rem 1.6rem;
+  flex-basis: 80%;
+  max-width: 80%;
 }
 
 .flash-container {
@@ -16,4 +34,8 @@
   padding-left: 1rem;
   padding-right: 1rem;
   margin-top: 1rem;
+}
+
+.theme--light.application{
+  background-color: $grey--dark !important;
 }
