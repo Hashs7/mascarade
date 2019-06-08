@@ -10,9 +10,9 @@
            
         </div>
         <div class="nav-right">
-            <router-link class="item home" to="/student/exp">Accueil</router-link>
-            <router-link class="item msg" to="/student/messages">Message</router-link>
-            <span class="item help">Aide</span>
+            <router-link class="item home" to="/student/exp"><img src="@/assets/home.svg"></router-link>
+            <router-link class="item msg" to="/student/messages"><img src="@/assets/message.svg"></router-link>
+            <span class="item help"><img src="@/assets/help.svg"></span>
         </div>
     </nav>
 </template>
@@ -61,6 +61,12 @@
         &-right {
             a, span {
                 margin-left: 1rem;
+            }
+            .item {
+                img {
+                    width: 3rem;
+                    margin-left: 1rem;
+                }
             }
         }
         &-stories {

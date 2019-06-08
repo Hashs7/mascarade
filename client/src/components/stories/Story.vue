@@ -54,11 +54,10 @@
         }
     }
     .Story {
-        border: 2px solid grey;
+        box-shadow: 0px 0px 20px $yellow;
         border-radius: 100%;
-        width: 6rem;
-        height: 6rem;
-        //background-image: url('../../assets/logo.png');
+        width: 7rem;
+        height: 7rem;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;

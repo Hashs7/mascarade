@@ -1,9 +1,16 @@
 <template>
     <div class="achievements">
-        <div class="general-achievements">
-            <span class="score">{{points}} point{{isPlurial('points')}}</span>
-            <span class="share">{{shares}} partage{{isPlurial('shares')}}</span>
-            <span class="report">{{reports}} signalement{{isPlurial('reports')}}</span>
+        <div class="achievements-container">
+            <img src="@/assets/logo.svg">
+            <ul class="achievements-title">
+                <li>Sarah</li>
+                <li>dupont</li>
+            </ul>
+            <ul class="achievements-datas">
+                <li class="score">{{points}} point{{isPlurial('points')}}</li>
+                <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
+                <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
+            </ul>
         </div>
         <div class="progress">
 
@@ -35,13 +42,41 @@
     .achievements {
         width: 100%;
         height: 100%;
-        background-color: #43425D;
+        background-color: $black;
         color: white;
-    }
-    .general-achievements {
-        text-align: center;
-        span {
-            display: block;
+        &-container {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            img {
+                padding-top: 5rem;
+                padding-left: 4rem;
+                text-align: center;
+            }
+            ul {
+                display: block;
+                padding-left: 5rem;
+            }
+        }
+        &-title {
+            margin-top: 11rem;
+            margin-bottom: 20rem;
+            color: $white;
+            font-size: 2.6rem;
+            line-height: 3.1rem;
+            li:last-child {
+                text-transform: uppercase;
+            }
+        }
+        &-datas {
+            font-size: 1.6rem;
+            line-height: 2.7rem;
+            font-weight: bold;
+            li {
+                border-bottom: 1px solid white;
+                width: 11.5rem;
+                margin-bottom: 2.2rem;
+            }
         }
     }
 </style>
