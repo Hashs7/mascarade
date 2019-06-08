@@ -1,7 +1,6 @@
 <template>
     <div class="Comment-container">
         <div class="Comment-header">
-            <img class="Comment-image" src="../../../assets/logo.png"/>
             <p class="Comment-name">{{name}}</p>
             <p class="Comment-date">{{date}}</p>
         </div>
@@ -30,10 +29,7 @@
       &-container {
         display: flex;
         flex-direction: column;
-        border: 2px solid lightgray;
-        border-radius: 0.5rem;
-        padding: 1rem 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
       &-header {
         display: flex;
@@ -44,9 +40,11 @@
         font-size: 1.4rem;
         margin:0;
         margin-right: 1rem;
+        color: $yellow;
       }
       &-date {
         margin: 0;
+        font-size: 1rem;
       }
       &-description {
         margin-bottom: 0;

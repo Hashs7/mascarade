@@ -37,6 +37,7 @@
       &-description {
         font-size: 1.4rem;
         line-height: 2.5rem;
+        margin-bottom: 0;
       }
       &-separate {
         margin-top: 2rem;

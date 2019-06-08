@@ -13,21 +13,11 @@
             </div>
         </div>
         <div class="charity-content">
-            <textarea class="student-response charity-title" name="title" for="title" placeholder="Ajoute un titre"></textarea>
-            <textarea class="student-response" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
-            <p>800 millions  de personnes dans le monde ne mangent pas à leur faim, soit 1 personne sur 10. Vous pouvez participer à notre cause en partageant cet article.</p>
-           
+            <textarea class="student-response charity-title" name="title" for="title" placeholder="Ajoute un titre ..."></textarea>
+            <textarea class="student-response charity-description" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
             <div class="Button-container">
                 <div class="Button-group">
-                <button class="Button-share"  @click.prevent="shareCharity">Partager</button>
-                <modal v-show="isModalVisible"
-                        @close="closeModal"
-                        title="Notifications"
-                        description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
-                        question="L’information est-elle correcte ?"
-                        buttonFirst="Oui"
-                        :buttonFirstAction="updateShare"
-                        buttonSecond="Non"/>
+                <button class="Button-share" @click.prevent="shareCharity">Partager</button>
                 </div>
             </div>
         </div>
@@ -83,8 +73,14 @@
             margin: 50px 0;
             border: 1.5px solid $white;
         }
-        &-title {
+        &-title, &-description {
             display: block;
+            color: $yellow;
+            box-shadow: 0px 0px 20px $yellow;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
         }
         &-titleImage {
             opacity: 0;
@@ -93,6 +89,7 @@
         }
         &-content {
             padding: 0 7rem 3.8rem 7rem;
+            margin-top: 3rem;
         }
     }
     .img-container {
@@ -140,10 +137,6 @@
         margin-top: 2rem;  
         display: flex;
         justify-content: flex-end;
-      }
-
-      &-share {
-          margin-right: 1rem;
       }
 
       &-share, &-report {
