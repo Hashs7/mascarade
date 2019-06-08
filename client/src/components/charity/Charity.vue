@@ -9,7 +9,7 @@
                  @click="selectImg(i)"
                  >
                 <div class="charity-titleImage">{{img.title}}</div>
-                <div class="indicator">Sélectionné</div>
+                <div class="indicator"></div>
             </div>
         </div>
         <div class="charity-content">
@@ -86,6 +86,11 @@
             opacity: 0;
             background-color: $grey--dark;
             color : $white;
+            border-radius: 1.2rem;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         &-content {
             padding: 0 7rem 3.8rem 7rem;
@@ -96,18 +101,22 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        padding: 1rem;
     }
     .img-select {
         cursor: pointer;
-        width: calc(100% / 3);
+        width: 18rem;
         height: 120px;
-        border: 3px solid #43425D;
+        border: 1px solid grey;
+        border-radius: 1.2rem;
         background-size: cover;
         background-position: center;
+        margin-bottom: 1.4rem;
         &.selected .indicator{
             opacity: 1;
-            background-color: red;
-           
+            box-shadow: 0px 0px 20px $yellow;
+            border-radius: 1.2rem;   
+            height: 100%;
         }
         &.selected {
             .charity-titleImage {
@@ -116,14 +125,14 @@
         }
         &:hover {
             .charity-titleImage {
-                opacity: 1;
+                opacity: 0.8;
             }
         }
     }
     .indicator {
         opacity: 0;
-        width: 100%;
-        height: 100%;
+        //width: 100%;
+        //height: 100%;
         text-align: center;
     }
 
