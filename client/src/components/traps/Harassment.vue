@@ -2,7 +2,7 @@
     <div class="Harassment-container">
         <img class="Harassment-image" src="@/assets/logo.png"/>
         <div class="Harassment-group">
-            <Informations name="Publié par Dylan" like="23" comment="82" date="Il y a 5 heures" />
+            <!--<Informations name="Publié par Dylan" like="23" comment="82" date="Il y a 5 heures" />-->
             <Comment name="Bryan Philipo" date="Il y a 2h" description="Trop moche c'est quoi cette photo !"/>
             <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Grave je préférerai être morte qu’avoir ta tête !"/>
             <div class="Button-container">
@@ -46,7 +46,9 @@
     }
     .Button {
       &-container {
-          margin-top: 2rem;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
       }
 
       &-share {

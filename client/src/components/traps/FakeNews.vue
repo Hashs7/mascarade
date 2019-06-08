@@ -1,21 +1,21 @@
 <template>
     <div class="FakeNews-container">
-        <Content title="Au programme des 6e le chinois !" description="Le ministère de l’éducation nationale et de la jeunesse souhaite ajouter une nouvelle langue au programme scolaire des élèves de 6ème : le chinois !"/>
+        <Content title="La nasa envisage de faire exploser la lune…" description="Le ministère de l’éducation nationale et de la jeunesse souhaite ajouter une nouvelle langue au programme scolaire des élèves de 6ème : le chinois !"/>
         <div class="FakeNews-group">
-            <Informations name="Publié par Mr Chafoin" like="12" comment="15" date="Il y a 3 heures" />
+            <!--<Informations name="Publié par Mr Chafoin" like="12" comment="15" date="Il y a 3 heures" /-->
             <div class="Button-container">
-            <div class="Button-group">
-            <button class="Button-share" type="button" id="show-modal" @click="showModal">Partager</button>
-            <button class="Button-report" type="button" @click="updateReport">Signaler</button>
-            <modal v-show="isModalVisible"
-                    @close="closeModal"
-                    title="Notifications"
-                    description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
-                    question="L’information est-elle correcte ?"
-                    buttonFirst="Oui"
-                    :buttonFirstAction="updateShare"
-                    buttonSecond="Non"/>
-            </div>
+                <div class="Button-group">
+                <button class="Button-share" type="button" id="show-modal" @click="showModal">Partager</button>
+                <button class="Button-report" type="button" @click="updateReport">Signaler</button>
+                <modal v-show="isModalVisible"
+                        @close="closeModal"
+                        title="Notifications"
+                        description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
+                        question="L’information est-elle correcte ?"
+                        buttonFirst="Oui"
+                        :buttonFirstAction="updateShare"
+                        buttonSecond="Non"/>
+                </div>
             </div>
         </div>
     </div>
@@ -48,16 +48,20 @@
 </script>
 
 <style scoped lang="scss">
-    .FakeNews-container {
-        border: 1.5px solid $white;
-        margin-top: 2rem;
-    }
-    .FakeNews-group {
-        padding: 0 7rem 3.8rem 7rem;
+    .FakeNews {
+        &-container {
+            border: 1.5px solid $white;
+            margin-top: 2rem;
+        }
+        &-group {
+            padding: 0 7rem 3.8rem 7rem;
+        }
     }
     .Button {
       &-container {
-          margin-top: 2rem;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
       }
 
       &-share {

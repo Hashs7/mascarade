@@ -16,7 +16,20 @@
             <textarea class="student-response charity-title" name="title" for="title" placeholder="Ajoute un titre"></textarea>
             <textarea class="student-response" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
             <p>800 millions  de personnes dans le monde ne mangent pas à leur faim, soit 1 personne sur 10. Vous pouvez participer à notre cause en partageant cet article.</p>
-            <button @click.prevent="shareCharity">Partager</button>
+           
+            <div class="Button-container">
+                <div class="Button-group">
+                <button class="Button-share"  @click.prevent="shareCharity">Partager</button>
+                <modal v-show="isModalVisible"
+                        @close="closeModal"
+                        title="Notifications"
+                        description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
+                        question="L’information est-elle correcte ?"
+                        buttonFirst="Oui"
+                        :buttonFirstAction="updateShare"
+                        buttonSecond="Non"/>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -121,5 +134,24 @@
         max-width: 100%;
         min-width: 100%;
         min-height: 40px;
+    }
+    .Button {
+      &-container {
+        margin-top: 2rem;  
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      &-share {
+          margin-right: 1rem;
+      }
+
+      &-share, &-report {
+        box-shadow: 0px 0px 20px $yellow;
+        border-radius: 0.6rem;
+        padding: 1rem 1.3rem;
+        color: $yellow;
+        font-size: 1.4rem;
+      }
     }
 </style>
