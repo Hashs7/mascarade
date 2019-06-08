@@ -12,10 +12,12 @@
                 <div class="indicator">Sélectionné</div>
             </div>
         </div>
-        <textarea class="student-response charity-title" name="title" for="title" placeholder="Ajoute un titre"></textarea>
-        <textarea class="student-response" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
-        <p>800 millions  de personnes dans le monde ne mangent pas à leur faim, soit 1 personne sur 10. Vous pouvez participer à notre cause en partageant cet article.</p>
-        <button @click.prevent="shareCharity">Partager</button>
+        <div class="charity-content">
+            <textarea class="student-response charity-title" name="title" for="title" placeholder="Ajoute un titre"></textarea>
+            <textarea class="student-response" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
+            <p>800 millions  de personnes dans le monde ne mangent pas à leur faim, soit 1 personne sur 10. Vous pouvez participer à notre cause en partageant cet article.</p>
+            <button @click.prevent="shareCharity">Partager</button>
+        </div>
     </div>
 </template>
 
@@ -63,17 +65,22 @@
 </script>
 
 <style scoped lang="scss">
-    .charity-container {
-        margin: 50px 0;
-        border: 1px solid gray;
-    }
-    .charity-title {
-        display: block;
-    }
-    .charity-titleImage {
-        opacity: 0;
-        background-color: $grey--dark;
-        color : $white;
+    .charity {
+        &-container {
+            margin: 50px 0;
+            border: 1.5px solid $white;
+        }
+        &-title {
+            display: block;
+        }
+        &-titleImage {
+            opacity: 0;
+            background-color: $grey--dark;
+            color : $white;
+        }
+        &-content {
+            padding: 0 7rem 3.8rem 7rem;
+        }
     }
     .img-container {
         display: flex;

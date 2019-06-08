@@ -1,9 +1,11 @@
 <template>
     <div class="Content-container">
-        <div class="Content-group">
+        <div class="Content-header">
             <img class="Content-image" src="../../../assets/logo.png"/>
-            <p class="Content-title">{{title}}</p>
-            <p class="Content-description">{{description}}</p>
+        </div>
+        <div class="Content-group">
+          <p class="Content-title">{{title}}</p>
+          <p class="Content-description">{{description}}</p>
         </div>
     </div>
 
@@ -26,6 +28,9 @@
       &-title {
         font-weight: bold;
         font-size: 1.6rem;
+      }
+      &-group {
+        padding: 0 7rem 3.8rem 7rem;
       }
     }
      
