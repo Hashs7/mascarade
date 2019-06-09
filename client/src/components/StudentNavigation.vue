@@ -10,9 +10,9 @@
                 :style="`background-image: url(${src})`"/>
         </div>
         <div class="nav-right">
-            <router-link class="item home" to="/student/exp">Accueil</router-link>
-            <router-link class="item msg" to="/student/messages">Message</router-link>
-            <span class="item help">Aide</span>
+            <router-link class="item home" to="/student/exp"><img src="@/assets/home.svg"></router-link>
+            <router-link class="item msg" to="/student/messages"><img src="@/assets/message.svg"></router-link>
+            <span class="item help"><img src="@/assets/help.svg"></span>
         </div>
     </nav>
 </template>
@@ -20,7 +20,7 @@
 <script>
     import Story from '@/components/stories/Story';
     import {initStory} from '../components/stories/stories';
-
+    import {mapMutations} from "vuex";
     export default {
         name: "StudentNavigation",
         components: { Story, initStory },
@@ -41,7 +41,7 @@
         },
         computed: {
             stories() {
-                return initStory.stories;
+                return this.$store.state.stories.allStories;
             }
         },
     }
@@ -53,13 +53,19 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            width: 100%;
-            border-bottom: 1px solid gray;
+            width: 87rem;
             padding-bottom: 2rem;
+            margin: auto;
         }
         &-right {
             a, span {
                 margin-left: 1rem;
+            }
+            .item {
+                img {
+                    width: 3rem;
+                    margin-left: 1rem;
+                }
             }
         }
         &-stories {

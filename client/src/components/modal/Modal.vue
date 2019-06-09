@@ -33,6 +33,10 @@
                  aria-labelledby="modalTitle"
                  aria-describedby="modalDescription"
             >
+            <div class="modal-image">
+                <img src="../../assets/notification.svg">
+            </div>
+            <div class="modal-content">
                 <header
                         class="modal-header"
                         id="modalTitle"
@@ -82,6 +86,7 @@
                     </button>
                 </div>
             </div>
+            </div>
         </div>
     </transition>
 </template>
@@ -93,44 +98,55 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.8);
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     .modal {
-        background: #FFFFFF;
-        box-shadow: 2px 2px 20px 1px;
+        background: $grey--dark;
+        border-radius: 0.8rem;
         overflow-x: auto;
         display: flex;
-        flex-direction: column;
-        width: 40rem;
+        flex-direction: initial;
+        width: 46rem;
+        &-image {
+            width: 7rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
     }
 
     .modal-header,
     .modal-footer,
     .button-footer {
-        padding: 15px;
+        padding: 1.5rem;
         display: flex;
         font-weight: 500;
     }
 
     .button-footer {
-        padding: 0px 0px 15px 15px;
+        padding: 0px 0px 2.8rem 1.5rem;
     }
 
     .modal-header {
         justify-content: space-between;
+        font-size: 1.4rem;
+        padding-top: 3.5rem;
     }
 
     .modal-footer {
         font-weight: 500;
+        font-size: 1.4rem;
     }
 
     .modal-body {
         position: relative;
-        padding: 0px 15px;
+        padding: 0px 15px;   
+        font-size: 1.4rem;
+        line-height: 2.5rem;
     }
 
     .btn-close {
@@ -143,11 +159,11 @@
     }
 
     .btn-green {
-        color: cornflowerblue;
-        background: white;
-        border: 2px solid cornflowerblue;
-        border-radius: 2px;
-        padding: 0.2rem 0.6rem;
+        box-shadow: 0px 0px 2rem $yellow;
+        border-radius: 0.6rem;
+        padding: 0.8rem 1.8rem;
+        color: $yellow;
+        font-size: 1.4rem;
 
         &:first-child {
             margin-right: 1rem;

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="90" viewBox="0 0 90 90">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: rgba(255,255,255,0.1);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #282433;
+        font-size: 20px;
+        font-family: SourceSansPro-Black, Source Sans Pro;
+        font-weight: 800;
+      }
+
+      .cls-4 {
+        filter: url(#elipse);
+      }
+
+      .cls-5 {
+        filter: url(#liseret);
+      }
+    </style>
+    <filter id="liseret" x="0" y="0" width="90" height="90" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#fff82a"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="elipse" x="16" y="16" width="58" height="58" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-color="#fff82a"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Groupe_7" data-name="Groupe 7" transform="translate(-651 -133)">
+    <g id="Groupe_6" data-name="Groupe 6">
+      <g id="Groupe_5" data-name="Groupe 5">
+        <g id="_" data-name="!" transform="translate(5)">
+          <g class="cls-5" transform="matrix(1, 0, 0, 1, 646, 133)">
+            <circle id="liseret-2" data-name="liseret" class="cls-1" cx="15" cy="15" r="15" transform="translate(30 30)"/>
+          </g>
+          <g id="Groupe_4" data-name="Groupe 4">
+            <g class="cls-4" transform="matrix(1, 0, 0, 1, 646, 133)">
+              <circle id="elipse-2" data-name="elipse" class="cls-2" cx="14" cy="14" r="14" transform="translate(31 31)"/>
+            </g>
+            <text id="_2" data-name="!" class="cls-3" transform="translate(683 165)"><tspan x="4.4" y="20">!</tspan></text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
