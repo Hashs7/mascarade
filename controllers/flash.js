@@ -12,22 +12,12 @@ exports.sendFlash = (req, res, next) => {
 
     Student.findById(studentFromId)
         .populate()
-        /*.populate({
-            path: 'sessions',
-            populate: {
-                path: 'students',
-                model: 'Student'
-            }
-        })*/
         .then(student => {
             flashId = student.flash;
             return Flash.findById(flashId).lean();
         })
         .then(flash => {
-            console.log('studentToId', studentToId);
-
             const studentToIndex = flash.studentsTo.findIndex(el => el.student.toString() === studentToId);
-            console.log('studentToIndex', studentToIndex);
 
             if (studentToIndex !== -1) {
                 flash.studentsTo[studentToIndex].number += 1;
@@ -44,23 +34,22 @@ exports.sendFlash = (req, res, next) => {
         })
         .then(flash => {
             const studentFromIndex = flash.studentsFrom.findIndex(el => el.student.toString() === studentFromId);
-            console.log('studentFromIndex', studentFromIndex);
 
             if (studentFromIndex !== -1) {
                 flash.total += 1;
                 flash.studentsFrom[studentFromIndex].number += 1;
             } else {
-                flash.total = 1;
+                flash.total += 1;
                 flash.studentsFrom.push({
                     number: 1,
                     student: studentFromId
                 })
             }
+
             flashTotal = flash.total;
             return Flash.updateOne({_id: flash._id}, flash)
         })
         .then(result => {
-            console.log();
             io.getIO().emit('sendFlash', {
                 receiver: studentToId,
                 amount: flashTotal

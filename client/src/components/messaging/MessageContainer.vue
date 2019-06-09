@@ -10,13 +10,13 @@
         </div>
         <div class="chatbox">
             <div class="contact-info">
-                <span class="contact-name">Doc Seven</span>
+                <span class="contact-name">{{getSelectedContact.author}}</span>
                 <span class="current-time">25 juin 2019</span>
             </div>
             <div class="chatbox-content">
                 <Message v-for="(msg, i) in getCurrentConversation" :key="i" :txt="msg.txt" :time="msg.time" :msgType="msg.type"/>
             </div>
-            <div class="chatbox-answer" v-if="$store.state.messages.conversations[getSelectedContact].showAnswers">
+            <div class="chatbox-answer" v-if="$store.state.messages.conversations[getSelectedContact.id].showAnswers">
                 <span class="chatbox-help-msg">Choisis ta réponse</span>
                 <button class="answer outline"
                         v-for="res in responses"
@@ -32,7 +32,7 @@
     import Message from '@/components/messaging/Message';
     import Contact from '@/components/messaging/Contact';
     import {dialogRes, initMsg} from './dialogs';
-    import {mapGetters, mapMutations} from "vuex";
+    import {mapActions, mapGetters, mapMutations} from "vuex";
 
     export default {
         name: "MessageContainer",
@@ -43,6 +43,7 @@
             showAnswers: false
         }),
         mounted() {
+            console.log(this.getCurrentConversation, 'selected');
             this.initChat();
         },
         computed: {
@@ -57,8 +58,10 @@
         },
         methods: {
             ...mapMutations([
-                'addMessage',
                 'addContact'
+            ]),
+            ...mapActions([
+                'addMessage',
             ]),
             initChat() {
                 if(this.getCurrentConversation.length) return;
@@ -70,17 +73,16 @@
                     setTimeout(() => {
                         this.addMessage({id: 0, answer: content, type});
                         if(msgArray.stranger.length - 1 === i) {
-                            const currentId = this.getSelectedContact;
+                            const currentId = this.getSelectedContact.id;
                             console.log('passed', currentId);
                             setTimeout(() => this.$store.state.messages.conversations[currentId].showAnswers = true, 1000);
                         }
                     }, delay);
                 });
-                console.log(this.getSelectedContact, this.$store.state.messages.conversations[this.getSelectedContact]);
                 this.responses = msgArray.responses;
             },
             studentResponse(answer, repIndex) {
-                const id = this.getSelectedContact;
+                const id = this.getSelectedContact.id;
                 this.$store.state.messages.conversations[id].showAnswers = false;
 
                 if(repIndex === 'stop') {
@@ -92,16 +94,8 @@
                     return;
                 }
 
-                this.addMessage({id, answer, type: 'student'});
-                console.log('dialog', dialogRes);
+                this.addMessage({repIndex, id, answer, type: 'student'});
                 this.addGroupMessage(dialogRes[repIndex]);
-            },
-            getTime() {
-                const time = new Date();
-                let min = time.getMinutes();
-                if (min < 10) { min = '0' + min }
-
-                return time.getHours() + ':' + min;
             }
         }
     }
@@ -109,13 +103,13 @@
 
 <style scoped lang="scss">
     .message-container {
-        max-width: 730px;
+        max-width: 1000px;
         margin: 0 auto;
         display: flex;
         border: 1px solid gray;
     }
     .contacts {
-        width: 220px;
+        width: 350px;
         background-color: $primary;
     }
     .chatbox {

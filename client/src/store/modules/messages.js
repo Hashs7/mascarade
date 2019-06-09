@@ -15,7 +15,7 @@ const conversationExample2 = {
     responses: []
 };
 
-const getTime = () => {
+export const getTime = () => {
     const time = new Date();
     let min = time.getMinutes();
     if (min < 10) { min = '0' + min }
@@ -34,8 +34,7 @@ const getters = {
         })
     ),
     getSelectedContact: state => {
-        const current = state.conversations.find(conv => conv.selected);
-        return current.id;
+        return state.conversations.find(conv => conv.selected);
     },
     getCurrentConversation: state => {
         const current = state.conversations.find(conv => conv.selected);
@@ -61,6 +60,11 @@ const actions = {
             commit(type.MUTATE_TOGGLE_TASK_EDIT, {id})
         }
     }*/
+
+    addMessage({commit, rootState}, {repIndex, id, answer, type}) {
+        // Call api to update res on msg send => repIndex
+        commit('addMessage', {id, answer, type})
+    }
 };
 
 const mutations = {
@@ -71,12 +75,13 @@ const mutations = {
             state.showAnswers = false;
         }
 
+        lastAnswer = answer.length > 25 ? answer.slice(0,  25) + '...' : answer;
+
         const response = {
             txt: answer,
             type,
             time: getTime()
         };
-        console.log();
 
         state.conversations[id].responses.push(response);
         state.conversations[id].lastAnswer = lastAnswer;

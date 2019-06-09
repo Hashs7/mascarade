@@ -1,7 +1,7 @@
 <template>
     <div class="achievements">
         <div class="achievements-container">
-            <img src="@/assets/logo.svg">
+            <Logo />
             <ul class="achievements-title">
                 <li>Sarah</li>
                 <li>dupont</li>
@@ -19,8 +19,10 @@
 </template>
 
 <script>
+    import Logo from '@/assets/logo.svg';
     export default {
         name: "StudentAchievement",
+        components: { Logo },
         computed: {
             points() {
                 return this.$store.state.score.points;

@@ -6,24 +6,30 @@
                 :key="i"
                 :src="img.src"
                 :name="img.name"
-                :description="img.description"
-                :style="`background-image: url(${src})`"/>
+                :description="img.description"/>
         </div>
         <div class="nav-right">
-            <router-link class="item home" to="/student/exp"><img src="@/assets/home.svg"></router-link>
-            <router-link class="item msg" to="/student/messages"><img src="@/assets/message.svg"></router-link>
-            <span class="item help"><img src="@/assets/help.svg"></span>
+            <router-link class="item home" to="/student/exp">
+                <Home />
+            </router-link>
+            <router-link class="item msg" to="/student/messages">
+                <Msg />
+            </router-link>
+            <span class="item help">
+                <Help />
+            </span>
         </div>
     </nav>
 </template>
 
 <script>
+    import Home from '@/assets/home.svg';
+    import Msg from '@/assets/message.svg';
+    import Help from '@/assets/help.svg';
     import Story from '@/components/stories/Story';
-    import {initStory} from '../components/stories/stories';
-    import {mapMutations} from "vuex";
     export default {
         name: "StudentNavigation",
-        components: { Story, initStory },
+        components: { Story, Home, Msg, Help },
         data: () => ({
             isModalVisible: false,
         }),
@@ -72,7 +78,11 @@
             display: flex;
         }
         .item {
+            display: inline-block;
             margin: 0 8px;
+            svg {
+                display: inline-block;
+            }
             &:last-child {
                 margin-right: 0;
             }

@@ -6,7 +6,7 @@
             @close="closeModal"
             :name=name
             :description=description
-            :src=src
+            :src="src"
             />
         <!--<button @click="newStory">Ajouter une story</button>-->
     </div>

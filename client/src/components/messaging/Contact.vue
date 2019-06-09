@@ -52,6 +52,7 @@
         vertical-align: middle;
     }
     .contact-info {
+        width: calc(100% - 50px);
         display: inline-block;
         vertical-align: middle;
     }
