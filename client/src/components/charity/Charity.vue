@@ -12,15 +12,15 @@
                 <div class="indicator"></div>
             </div>
         </div>
-        <div class="charity-content">
-            <textarea class="student-response charity-title" name="title" for="title" placeholder="Ajoute un titre ..."></textarea>
+        <form  class="charity-content" action="">
+            <input type="text" class="student-response charity-title" name="title" placeholder="Ajoute un titre">
             <textarea class="student-response charity-description" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
             <div class="Button-container">
                 <div class="Button-group">
-                <button class="Button-share" @click.prevent="shareCharity">Partager</button>
+                <button class="Button-share" type="submit" @click.prevent="shareCharity">Partager</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </template>
 
@@ -96,6 +96,7 @@
             padding: 0 7rem 3.8rem 7rem;
             margin-top: 3rem;
         }
+
     }
     .img-container {
         display: flex;
@@ -104,6 +105,7 @@
         padding: 1rem;
     }
     .img-select {
+        position: relative;
         cursor: pointer;
         width: 18rem;
         height: 120px;

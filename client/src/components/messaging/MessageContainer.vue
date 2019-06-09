@@ -18,16 +18,10 @@
             </div>
             <div class="chatbox-answer" v-if="$store.state.messages.conversations[getSelectedContact].showAnswers">
                 <span class="chatbox-help-msg">Choisis ta réponse</span>
-                <button
-                        class="answer outline"
-                        @click="studentResponse('Cool, merci du bon plan !', 1)">
-                    Cool, merci du bon plan !
-                </button>
-                <button
-                        class="answer outline"
-                        @click="studentResponse('Non merci', 2)">
-                    Non merci
-                </button>
+                <button class="answer outline"
+                        v-for="res in responses"
+                        @click="studentResponse(res.content, res.repIndex)">
+                {{res.content}}</button>
                 <button class="answer">Ignorer ce message</button>
             </div>
         </div>
@@ -45,10 +39,10 @@
         components: { Message, Contact },
         data: () => ({
             messages: [],
+            responses: [],
             showAnswers: false
         }),
         mounted() {
-            console.log(this.$store.state);
             this.initChat();
         },
         computed: {
@@ -71,18 +65,22 @@
                 this.addGroupMessage(initMsg('Sarah'));
             },
             addGroupMessage(msgArray) {
-                msgArray.forEach(({content, delay, type}, i) => {
+                msgArray.stranger.forEach(({content, delay, type}, i) => {
                     setTimeout(() => {
                         this.addMessage({id: 0, answer: content, type});
-                        if(msgArray.length - 1 === i) {
+                        if(msgArray.stranger.length - 1 === i) {
                             const currentId = this.getSelectedContact;
+                            console.log('passed', currentId);
                             setTimeout(() => this.$store.state.messages.conversations[currentId].showAnswers = true, 1000);
                         }
                     }, delay);
                 });
+                console.log(this.getSelectedContact, this.$store.state.messages.conversations[this.getSelectedContact]);
+                this.responses = msgArray.responses;
             },
             studentResponse(answer, repIndex) {
                 const id = this.getSelectedContact;
+                this.$store.state.messages.conversations[id].showAnswers = false;
                 this.addMessage({id, answer, type: 'student'});
                 console.log(repIndex);
             },

@@ -2,12 +2,12 @@
     <nav class="nav-scenes">
         <div class="nav-stories">
             <Story
-                v-for="(img, i) in stories" 
+                v-for="(img, i) in stories"
+                :key="i"
                 :src="img.src"
                 :name="img.name"
                 :description="img.description"
                 :style="`background-image: url(${src})`"/>
-           
         </div>
         <div class="nav-right">
             <router-link class="item home" to="/student/exp"><img src="@/assets/home.svg"></router-link>
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-    import ModalStory from '@/components/modal/ModalStory';
     import Story from '@/components/stories/Story';
     import {initStory} from '../components/stories/stories';
     import {mapMutations} from "vuex";

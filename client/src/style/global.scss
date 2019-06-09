@@ -30,11 +30,11 @@ a {
 	text-decoration: none;
 }
 
-textarea::-webkit-input-placeholder {
+textarea::-webkit-input-placeholder,  ::-webkit-input-placeholder  {
 	color: $yellow;
 }
 
-textarea:-moz-placeholder { /* Firefox 18- */
+textarea:-moz-placeholder, :-ms-input-placeholder { /* Firefox 18- */
 	color: $yellow;  
 }
 
