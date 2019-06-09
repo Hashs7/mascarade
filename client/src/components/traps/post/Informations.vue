@@ -2,19 +2,19 @@
     <div class="Informations-container">
         <div class="Informations-group">
             <div class="Informations-content">
-              <img class="Informations-image" src="../../../assets/logo.png"/>
+              <img class="Informations-image" src="../../../assets/img/logo.png"/>
               <p class="Informations-title">{{name}}</p>
             </div>
             <div class="Informations-content">
-              <img class="Informations-image" src="../../../assets/logo.png"/>
+              <img class="Informations-image" src="../../../assets/img/logo.png"/>
               <p class="Informations-title">{{like}}</p>
             </div>
             <div class="Informations-content">
-              <img class="Informations-image" src="../../../assets/logo.png"/>
+              <img class="Informations-image" src="../../../assets/img/logo.png"/>
               <p class="Informations-title">{{comment}}</p>
             </div>
             <div class="Informations-content">
-              <img class="Informations-image" src="../../../assets/logo.png"/>
+              <img class="Informations-image" src="../../../assets/img/logo.png"/>
               <p class="Informations-title">{{date}}</p>
             </div> 
         </div>

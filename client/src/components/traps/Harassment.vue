@@ -1,6 +1,6 @@
 <template>
     <div class="Harassment-container">
-        <img class="Harassment-image" src="@/assets/harassment.jpg"/>
+        <img class="Harassment-image" :src="harassment"/>
         <div class="Harassment-group">
             <h2 class="Harassment-title"> Holidays in Miami 🌈🌴</h2>
             <div class="Harassment-separate"></div>
@@ -20,10 +20,13 @@
 <script>
     import Informations from '@/components/traps/post/Informations';
     import Comment from '@/components/traps/post/Comment';
+    import Harassment from '@/assets/img/harassment.jpg';
+
     export default {
         name: "Harassment",
         components: { Informations, Comment},
         data: () => ({
+            harassment: Harassment
         }),
         methods: {
             updateReport() {

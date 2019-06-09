@@ -25,31 +25,38 @@
 </template>
 
 <script>
+    import Pollution from '@/assets/img/charity/pollution.jpg'
+    import Homophobie from '@/assets/img/charity/homophobie.jpg'
+    import Racism from '@/assets/img/charity/racism.jpg'
+    import Starvation from '@/assets/img/charity/starvation.jpg'
+    import Violences from '@/assets/img/charity/violences.jpg'
+    import War from '@/assets/img/charity/war.jpg'
+
     export default {
         name: "Charity",
         data: () => ({
             images: [{
-                src: 'https://picsum.photos/200/300',
+                src: Starvation,
                 title: 'Faim dans le monde',
                 selected: false
             },{
-                src: 'https://picsum.photos/200/300',
+                src: Violences,
                 title: 'Violences',
                 selected: false
             },{
-                src: 'https://picsum.photos/200/300',
+                src: War,
                 title: "Guerre",
                 selected: false
             },{
-                src: 'https://picsum.photos/200/300',
+                src: Racism,
                 title: "Racisme",
                 selected: false
             },{
-                src: 'https://picsum.photos/200/300',
+                src: Homophobie,
                 title: "Homophobie",
                 selected: true
             },{
-                src: 'https://picsum.photos/200/300',
+                src: Pollution,
                 title: "Pollution",
                 selected: false
             }]

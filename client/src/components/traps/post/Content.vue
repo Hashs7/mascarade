@@ -1,7 +1,7 @@
 <template>
     <div class="Content-container">
         <div class="Content-header">
-            <img class="Content-image" src="../../../assets/fakenews.jpg"/>
+            <img class="Content-image" :src="fakeNews"/>
         </div>
         <div class="Content-group">
           <p class="Content-title">{{title}}</p>
@@ -9,13 +9,15 @@
           <p class="Content-description">{{description}}</p>
         </div>
     </div>
-
 </template>
 
 <script>
+    import FakeNews from "@/assets/img/fakenews.jpg";
+
     export default {
         name: "Content",
         data: () => ({
+            fakeNews: FakeNews
         }),
         props: [
           "title",
