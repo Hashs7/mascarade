@@ -9,13 +9,17 @@
                  @click="selectImg(i)"
                  >
                 <div class="charity-titleImage">{{img.title}}</div>
-                <div class="indicator">Sélectionné</div>
+                <div class="indicator"></div>
             </div>
         </div>
-        <form action="">
+        <form  class="charity-content" action="">
             <input type="text" class="student-response charity-title" name="title" placeholder="Ajoute un titre">
-            <textarea class="student-response" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
-            <button type="submit" @click.prevent="shareCharity">Partager</button>
+            <textarea class="student-response charity-description" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
+            <div class="Button-container">
+                <div class="Button-group">
+                <button class="Button-share" type="submit" @click.prevent="shareCharity">Partager</button>
+                </div>
+            </div>
         </form>
     </div>
 </template>
@@ -64,38 +68,57 @@
 </script>
 
 <style scoped lang="scss">
-    .charity-container {
-        margin: 50px 0;
-        border: 1px solid gray;
-    }
-    .charity-title {
-        display: block;
-    }
-    .charity-titleImage {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        opacity: 0;
-        background-color: $grey--dark;
-        color : $white;
+    .charity {
+        &-container {
+            margin: 50px 0;
+            border: 1.5px solid $white;
+        }
+        &-title, &-description {
+            display: block;
+            color: $yellow;
+            box-shadow: 0px 0px 20px $yellow;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+        }
+        &-titleImage {
+            opacity: 0;
+            background-color: $grey--dark;
+            color : $white;
+            border-radius: 1.2rem;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &-content {
+            padding: 0 7rem 3.8rem 7rem;
+            margin-top: 3rem;
+        }
+
     }
     .img-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        padding: 1rem;
     }
     .img-select {
         position: relative;
         cursor: pointer;
-        width: calc(100% / 3);
+        width: 18rem;
         height: 120px;
-        border: 3px solid #43425D;
+        border: 1px solid grey;
+        border-radius: 1.2rem;
         background-size: cover;
         background-position: center;
+        margin-bottom: 1.4rem;
         &.selected .indicator{
             opacity: 1;
-            background-color: red;
+            box-shadow: 0px 0px 20px $yellow;
+            border-radius: 1.2rem;   
+            height: 100%;
         }
         &.selected {
             .charity-titleImage {
@@ -104,14 +127,12 @@
         }
         &:hover {
             .charity-titleImage {
-                opacity: 1;
+                opacity: 0.8;
             }
         }
     }
     .indicator {
         opacity: 0;
-        width: 100%;
-        height: 100%;
         text-align: center;
     }
 
@@ -119,5 +140,20 @@
         max-width: 100%;
         min-width: 100%;
         min-height: 40px;
+    }
+    .Button {
+      &-container {
+        margin-top: 2rem;  
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      &-share, &-report {
+        box-shadow: 0px 0px 20px $yellow;
+        border-radius: 0.6rem;
+        padding: 1rem 1.3rem;
+        color: $yellow;
+        font-size: 1.4rem;
+      }
     }
 </style>

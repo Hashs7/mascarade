@@ -1,10 +1,15 @@
 @import './layout/layout-scene';
 
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/AvenirLTStd-Medium.otf") format("otf");
+}
 
 body {
   width: 100vw;
   height: 100vh;
-  font-size: 1.6rem;
+	font-size: 1.6rem;
+	font-family: "Avenir";
 }
 html {
 	font-size: 62.5%;
@@ -15,4 +20,28 @@ html {
 }
 * {
     box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+textarea::-webkit-input-placeholder,  ::-webkit-input-placeholder  {
+	color: $yellow;
+}
+
+textarea:-moz-placeholder, :-ms-input-placeholder { /* Firefox 18- */
+	color: $yellow;  
+}
+
+textarea::-moz-placeholder {  /* Firefox 19+ */
+	color: $yellow;  
+}
+
+textarea:-ms-input-placeholder {
+	color: $yellow;  
 }
