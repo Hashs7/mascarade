@@ -2654,3 +2654,5 @@
 [0mGET /auth/teacher/is-auth [32m200 [0m7.747 ms - 11[0m
 [0mGET /session/student/5cf10fb2938cb10004aee15e [32m201 [0m146.615 ms - 2386[0m
 [0mGET /session/all [32m201 [0m88.577 ms - 3482[0m
+[0mGET /__webpack_hmr/client [33m404 [0m3.600 ms - 159[0m
+[0mGET /__webpack_hmr/client [33m404 [0m0.641 ms - 159[0m

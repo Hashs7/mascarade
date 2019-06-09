@@ -39,7 +39,6 @@ const getters = {
     },
     getCurrentConversation: state => {
         const current = state.conversations.find(conv => conv.selected);
-        console.log(current, state.conversations, 'current conv');
         return current.responses;
     }
 };

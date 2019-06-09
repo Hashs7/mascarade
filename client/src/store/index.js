@@ -21,5 +21,5 @@ export default new Vuex.Store({
         flash,
         modalProgress
     },
-    plugins: [createPersistedState({ storage: window.sessionStorage })]
+    // plugins: [createPersistedState({ storage: window.sessionStorage })]
 });

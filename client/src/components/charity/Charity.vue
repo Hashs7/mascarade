@@ -12,10 +12,11 @@
                 <div class="indicator">Sélectionné</div>
             </div>
         </div>
-        <textarea class="student-response charity-title" name="title" for="title" placeholder="Ajoute un titre"></textarea>
-        <textarea class="student-response" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
-        <p>800 millions  de personnes dans le monde ne mangent pas à leur faim, soit 1 personne sur 10. Vous pouvez participer à notre cause en partageant cet article.</p>
-        <button @click.prevent="shareCharity">Partager</button>
+        <form action="">
+            <input type="text" class="student-response charity-title" name="title" placeholder="Ajoute un titre">
+            <textarea class="student-response" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
+            <button type="submit" @click.prevent="shareCharity">Partager</button>
+        </form>
     </div>
 </template>
 
@@ -71,6 +72,10 @@
         display: block;
     }
     .charity-titleImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
         opacity: 0;
         background-color: $grey--dark;
         color : $white;
@@ -81,6 +86,7 @@
         justify-content: space-between;
     }
     .img-select {
+        position: relative;
         cursor: pointer;
         width: calc(100% / 3);
         height: 120px;
@@ -90,7 +96,6 @@
         &.selected .indicator{
             opacity: 1;
             background-color: red;
-           
         }
         &.selected {
             .charity-titleImage {
