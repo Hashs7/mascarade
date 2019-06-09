@@ -31,7 +31,7 @@
 <script>
     import Message from '@/components/messaging/Message';
     import Contact from '@/components/messaging/Contact';
-    import {initMsg} from './dialogs';
+    import {dialogRes, initMsg} from './dialogs';
     import {mapGetters, mapMutations} from "vuex";
 
     export default {
@@ -65,6 +65,7 @@
                 this.addGroupMessage(initMsg('Sarah'));
             },
             addGroupMessage(msgArray) {
+                console.log('msgarr', msgArray);
                 msgArray.stranger.forEach(({content, delay, type}, i) => {
                     setTimeout(() => {
                         this.addMessage({id: 0, answer: content, type});
@@ -81,8 +82,19 @@
             studentResponse(answer, repIndex) {
                 const id = this.getSelectedContact;
                 this.$store.state.messages.conversations[id].showAnswers = false;
+
+                if(repIndex === 'stop') {
+                    console.log(repIndex);
+                    return;
+                }
+                if(repIndex === 'report') {
+                    console.log(repIndex);
+                    return;
+                }
+
                 this.addMessage({id, answer, type: 'student'});
-                console.log(repIndex);
+                console.log('dialog', dialogRes);
+                this.addGroupMessage(dialogRes[repIndex]);
             },
             getTime() {
                 const time = new Date();
