@@ -9,68 +9,35 @@
         <v-card tile>
             <v-toolbar card dark color="primary">
 
-                <v-toolbar-title>Settings</v-toolbar-title>
+                <v-toolbar-title>{{name}}</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-btn icon dark @click="closeModal">
                     <v-icon>close</v-icon>
                 </v-btn>
             </v-toolbar>
             <v-card-text>
-                <v-tooltip right>
-                    <template v-slot:activator="{ on }">
-                        <v-btn v-on="on">Tool Tip Activator</v-btn>
-                    </template>
-                    Tool Tip
-                </v-tooltip>
                 <v-list three-line subheader>
-                    <v-subheader>User Controls</v-subheader>
-                    <v-list-tile avatar>
+                    <v-subheader>Données globales sur l'élève</v-subheader>
+                    <v-list-tile>
                         <v-list-tile-content>
-                            <v-list-tile-title>Content filtering</v-list-tile-title>
-                            <v-list-tile-sub-title>Set the content filtering level to restrict apps that can be downloaded</v-list-tile-sub-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                    <v-list-tile avatar>
-                        <v-list-tile-content>
-                            <v-list-tile-title>Password</v-list-tile-title>
-                            <v-list-tile-sub-title>Require password for purchase or use password to restrict purchase</v-list-tile-sub-title>
+                            <v-list-tile-title>Scores</v-list-tile-title>
+                            <v-list-tile-sub-title>Points: {{achievements.points}} - Partages: {{achievements.shares}} - Signalements: {{achievements.reports}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
-                <v-divider></v-divider>
-                <!--<v-list three-line subheader>
-                    <v-subheader>General</v-subheader>
-                    <v-list-tile avatar>
-                        <v-list-tile-action>
-                            <v-checkbox v-model="notifications"></v-checkbox>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title>Notifications</v-list-tile-title>
-                            <v-list-tile-sub-title>Notify me about updates to apps or games that I downloaded</v-list-tile-sub-title>
+                <v-list three-line subheader>
+                    <v-subheader>Réponses de l'élève</v-subheader>
+                    <v-list-tile>
+                        <v-list-tile-content v-if="charity.type">
+                            <v-list-tile-title>Cause partagée : {{charity.type}}</v-list-tile-title>
+                            <v-list-tile-sub-title>{{charity.title}}</v-list-tile-sub-title>
+                            <v-list-tile-sub-title>{{charity.description}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                     </v-list-tile>
-                    <v-list-tile avatar>
-                        <v-list-tile-action>
-                            <v-checkbox v-model="sound"></v-checkbox>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title>Sound</v-list-tile-title>
-                            <v-list-tile-sub-title>Auto-update apps at any time. Data charges may apply</v-list-tile-sub-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                    <v-list-tile avatar>
-                        <v-list-tile-action>
-                            <v-checkbox v-model="widgets"></v-checkbox>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title>Auto-add widgets</v-list-tile-title>
-                            <v-list-tile-sub-title>Automatically add home screen widgets</v-list-tile-sub-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </v-list>-->
-            </v-card-text>
 
-            <div style="flex: 1 1 auto;"></div>
+                </v-list>
+                <v-divider></v-divider>
+            </v-card-text>
         </v-card>
     </v-dialog>
 </template>
@@ -84,7 +51,20 @@
             modalVisible() {
                 console.log(this.$store.state.modalProgress);
                 return this.$store.state.modalProgress.isVisible;
+            },
+            currentStudent() {
+                return this.$store.state.modalProgress.currentStudent;
+            },
+            name() {
+                return this.currentStudent.firstname + ' ' + this.currentStudent.surname;
+            },
+            charity() {
+                return this.currentStudent.charity;
+            },
+            achievements() {
+                return this.currentStudent.achievements;
             }
+
         },
         methods: {
             closeModal() {

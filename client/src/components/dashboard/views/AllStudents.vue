@@ -31,7 +31,7 @@
                                     md4
                             >
                                 <StudentCard
-                                        :id="student.id"
+                                        :id="student._id"
                                         :firstname="student.firstname"
                                         :surname="student.surname"
                                         :points="student.achievements.points"
@@ -59,22 +59,21 @@
             StudentCard,
             StudentModal
         },
-        data: () => ({
-            tabIndex: 'tab-0'
-        }),
         mounted() {
             if (!this.$store.state.sessions.length) return;
-            console.log('get seession');
+            console.log('TODO get seession');
         },
         sockets: {
             updateAchievement({studentId, sessionId, achievType, amount}) {
-                console.log('update Achiev');
                 this.$store.commit('updateStudentAchievement', {studentId, sessionId, achievType, amount});
             }
         },
         computed: {
+            tabIndex: {
+                get() { return this.$store.state.tabIndex },
+                set(value){ this.$store.commit("updateIndex", value );}
+            },
             currentSessions() {
-                console.log(this.$store.state.sessions);
                 return this.$store.state.sessions
             },
         }

@@ -37,26 +37,32 @@
         data: () => ({
             images: [{
                 src: Starvation,
+                type: 'starvation',
                 title: 'Faim dans le monde',
                 selected: false
             },{
                 src: Violences,
+                type: 'violences',
                 title: 'Violences',
                 selected: false
             },{
                 src: War,
+                type: 'war',
                 title: "Guerre",
                 selected: false
             },{
                 src: Racism,
+                type: 'racism',
                 title: "Racisme",
                 selected: false
             },{
                 src: Homophobie,
+                type: 'homophobie',
                 title: "Homophobie",
                 selected: true
             },{
                 src: Pollution,
+                type: 'pollution',
                 title: "Pollution",
                 selected: false
             }]

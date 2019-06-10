@@ -42,4 +42,6 @@ router.post('/login', authController.login);
 
 router.put('/achievement', authController.updateAchievement);
 
+router.put('/charity', authController.updateCharity);
+
 module.exports = router;

@@ -35,6 +35,11 @@ exports.signup = (req, res, next) => {
                     shares: 0,
                     reports: 0
                 },
+                charity: {
+                    type: null,
+                    title: null,
+                    description: null
+                },
                 flash: null
             });
             return newStudent.save();
@@ -69,6 +74,17 @@ exports.signup = (req, res, next) => {
                     firstname,
                     surname,
                     gender,
+                    progress: 0,
+                    achievements: {
+                        points: 0,
+                        shares: 0,
+                        reports: 0
+                    },
+                    charity: {
+                        type: null,
+                        title: null,
+                        description: null
+                    }
                 },
                 sessionId: result._id
             });
@@ -164,6 +180,45 @@ exports.updateAchievement = (req, res, next) => {
             console.log('emit io', payload);
             res.status(201).json({
                 message: 'Achievement a été mis à jour',
+                payload
+            });
+        })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
+};
+
+exports.updateCharity = (req, res, next) => {
+    const { studentId, sessionId, charityType, title, description } = req.body;
+    const type = ['starvation', 'violences', 'war', 'racism', 'homophobie', 'pollution'];
+
+    Student.findById(studentId)
+        .populate()
+        .then(student => {
+            if(!type.includes(charityType)) {
+                logError("le type n'est pas correct", 401);
+            }
+
+            student.charity.type = charityType;
+            student.charity.title = title;
+            student.charity.description = description;
+            return student.save()
+        })
+        .then(result => {
+            const payload = {
+                studentId: studentId,
+                sessionId: sessionId,
+                charityType,
+                title,
+                description
+            };
+
+            io.getIO().emit('updateCharity', payload);
+            res.status(201).json({
+                message: 'Charity a été mis à jour',
                 payload
             });
         })

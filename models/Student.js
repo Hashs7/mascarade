@@ -35,6 +35,23 @@ const studentSchema = new Schema({
         shares: Number,
         reports: Number
     },
+    charity: {
+        type: {
+            type: String,
+            required: false
+        },
+        title: {
+            type: String,
+            required: false
+        },
+        description: {
+            type: String,
+            required: false
+        }
+    },
+    harassment: {
+        action: String
+    },
     flash: {
         required: false,
         type: Schema.Types.ObjectId,

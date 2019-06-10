@@ -36,8 +36,7 @@
         }),
         methods: {
             showProfile() {
-                // todo pass student datas
-                this.$store.commit('toggleModal')
+                this.$store.dispatch('updateInfo', this.id);
             }
         }
     }

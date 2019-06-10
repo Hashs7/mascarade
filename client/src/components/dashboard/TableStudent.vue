@@ -33,12 +33,12 @@
                 ]
             }
         },
-        socket: {
+        sockets: {
             poke: function(data) {
                 this.$store.commit('updateStudentScene', data);
 
             },
-            studentConnection: function({ student, sessionId }) {
+            newConnection: function({ student, sessionId }) {
                 this.$store.commit('addStudent', {student, sessionId});
             }
         },
