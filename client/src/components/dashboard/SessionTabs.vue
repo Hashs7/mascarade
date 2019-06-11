@@ -21,7 +21,7 @@
                         :value="'tab-' + i"
                 >
                     <p>Lien de partage de la session: {{ linkSignup + session.shortId }}</p>
-                    <TableStudent :session="session"/>
+<!--                    <TableStudent :session="session"/>-->
                 </v-tab-item>
             </v-tabs-items>
         </v-tabs>

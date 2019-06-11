@@ -2780,3 +2780,17 @@
 [0mGET /session/all [32m201 [0m126.434 ms - 1306[0m
 [0mGET /auth/teacher/is-auth [32m200 [0m0.394 ms - 11[0m
 [0mGET /session/all [32m201 [0m123.242 ms - 1306[0m
+[0mGET /session/student/undefined [31m500 [0m14.380 ms - 99[0m
+[0mPOST /auth/teacher/login [32m200 [0m458.586 ms - 1803[0m
+[0mGET /auth/teacher/is-auth [36m304 [0m1.994 ms - -[0m
+[0mGET /session/all [32m201 [0m97.094 ms - 1522[0m
+[0mGET /session/all [32m201 [0m90.427 ms - 1522[0m
+[0mPOST /auth/teacher/login [32m200 [0m377.585 ms - 1803[0m
+[0mGET /auth/teacher/is-auth [36m304 [0m0.325 ms - -[0m
+[0mGET /session/all [32m201 [0m95.321 ms - 1522[0m
+[0mPUT /session/new [32m201 [0m124.526 ms - 187[0m
+[0mGET /session/all [32m201 [0m106.080 ms - 1660[0m
+[0mGET /session/all [32m201 [0m100.110 ms - 1660[0m
+[0mGET /session/student/undefined [31m500 [0m8.576 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m2.473 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m2.636 ms - 99[0m

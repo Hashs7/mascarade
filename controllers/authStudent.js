@@ -30,6 +30,9 @@ exports.signup = (req, res, next) => {
                 gender: gender,
                 roomId: roomId,
                 progress: 0,
+                harassment: {
+                    action: null
+                },
                 achievements: {
                     points: 0,
                     shares: 0,

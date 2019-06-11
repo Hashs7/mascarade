@@ -49,8 +49,33 @@ const studentSchema = new Schema({
             required: false
         }
     },
+    dialog: {
+        celebrity: {
+            conversation: {
+                type: Array,
+                required: false
+            },
+            state: {
+                type: String,
+                required: false
+            }
+        },
+        hacker: {
+            conversation: {
+                type: Array,
+                required: false
+            },
+            state: {
+                type: String,
+                required: false
+            }
+        }
+    },
     harassment: {
-        action: String
+        action: {
+            type: String,
+            required: false
+        }
     },
     flash: {
         required: false,

@@ -1,42 +1,44 @@
 .student-achievement {
-  flex-basis: 20%;
-  max-width: 20%;
-  
-  .achievements {
-    background-color: $black;
-  }
+    flex-basis: 20%;
+    max-width: 20%;
+
+    .achievements {
+        background-color: $black;
+    }
 }
 
 .Layout-container {
-  display: flex;
+    display: flex;
+    background-color: $grey--dark;
+    min-height: 100vh;
 }
 
 .layout-traps {
-  width: 60rem;
+    width: 60rem;
 }
 
-.layout-main{
-  display: flex;
-  width: 87rem;
-  margin: auto;
-  justify-content: space-between;
+.layout-main {
+    display: flex;
+    width: 87rem;
+    margin: auto;
+    justify-content: space-between;
 }
 
 .layout-content {
-  padding: 2rem 1.6rem 1.6rem 1.6rem;
-  flex-basis: 80%;
-  max-width: 80%;
+    padding: 2rem 1.6rem 1.6rem 1.6rem;
+    flex-basis: 80%;
+    max-width: 80%;
 }
 
 .flash-container {
-  width: 200px;
-  height: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-top: 1rem;
+    width: 200px;
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 1rem;
 }
 
-.theme--light.application{
-  background-color: $grey--dark !important;
-  color: $white !important;
+.theme--light.application {
+    //background-color: $grey--dark !important;
+    //color: $white !important;
 }

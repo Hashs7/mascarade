@@ -5,8 +5,6 @@ import TeacherLogin from '../views/teacher/TeacherLoginView.vue';
 import StudentSignup from '../views/student/StudentSignupView.vue';
 import StudentLogin from '../views/student/StudentLoginView.vue';
 import Tutorial from '../views/student/scenes/Tutorial.vue';
-
-import FakeNewsScene from '../views/student/scenes/FakeNewsScene.vue';
 import SceneLayout from '../views/student/scenes/SceneLayout.vue';
 import MessageLayout from '../views/student/scenes/MessageLayout.vue';
 import {tokenIsValid} from "../utils/API";
@@ -95,15 +93,6 @@ export default [
         }
     },
     {
-        path: '/student/fakenews',
-        name: 'FakeNewsScene',
-        component: FakeNewsScene,
-        meta: {
-            title: 'Scène fake news',
-        }
-    },
-    {
-        path: '/student/tuto',
         path: routePath.STUDENT_TUTO,
         name: 'Tutorial',
         component: Tutorial,

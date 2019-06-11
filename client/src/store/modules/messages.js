@@ -6,6 +6,7 @@ const conversationExample = {
     showAnswers: false,
     responses: []
 };
+
 const conversationExample2 = {
     id: 1,
     selected: false,
@@ -43,26 +44,11 @@ const getters = {
 };
 
 const actions = {
-    /**
-     * clear all completed tasks by group
-     * @param commit
-     */
-/*    [type.CLEAR_COMPLETED_TASK]: ({ commit }, { groupId }) => {
-        commit(type.MUTATE_CLEAR_COMPLETED_TASK, { groupId })
-    },
-    /!**
-     *
-     * @param commit
-     * @param id
-     *!/
-    [type.TOGGLE_EDIT_TASK]: ({commit}, { id }) => {
-        if (id) {
-            commit(type.MUTATE_TOGGLE_TASK_EDIT, {id})
-        }
-    }*/
-
     addMessage({commit, rootState}, {repIndex, id, answer, type}) {
-        // Call api to update res on msg send => repIndex
+        if(type === 'student') {
+            //TODO Call api
+
+        }
         commit('addMessage', {id, answer, type})
     }
 };

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="Layout-container">
         <div class="student-achievement">
             <StudentAchievement />
         </div>
@@ -29,6 +29,9 @@
 </script>
 
 <style scoped lang="scss">
+    .layout-containter {
+        background-color: $grey--dark;
+    }
     .item {
         margin: 0 8px;
         &:last-child {

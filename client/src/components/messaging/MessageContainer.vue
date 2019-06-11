@@ -18,11 +18,11 @@
             </div>
             <div class="chatbox-answer" v-if="$store.state.messages.conversations[getSelectedContact.id].showAnswers">
                 <span class="chatbox-help-msg">Choisis ta réponse</span>
-                <button class="answer outline"
-                        v-for="res in responses"
-                        @click="studentResponse(res.content, res.repIndex)">
-                {{res.content}}</button>
-                <button class="answer">Ignorer ce message</button>
+                <v-btn color="info"
+                       v-for="(res, i) in responses"
+                       :key="i"
+                       @click="studentResponse(res.content, res.repIndex)">{{res.content}}</v-btn>
+                <v-btn class="answer">Ignorer ce message</v-btn>
             </div>
         </div>
     </div>
@@ -68,7 +68,6 @@
                 this.addGroupMessage(initMsg('Sarah'));
             },
             addGroupMessage(msgArray) {
-                console.log('msgarr', msgArray);
                 msgArray.stranger.forEach(({content, delay, type}, i) => {
                     setTimeout(() => {
                         this.addMessage({id: 0, answer: content, type});
