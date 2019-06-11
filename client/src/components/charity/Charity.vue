@@ -13,8 +13,17 @@
             </div>
         </div>
         <form  class="charity-content" action="">
-            <input type="text" class="student-response charity-title" name="title" placeholder="Ajoute un titre">
-            <textarea class="student-response charity-description" name="description" placeholder="Ajoute une description (minimum 50 mots)"></textarea>
+            <input
+                    v-model="title"
+                    type="text"
+                    class="student-response charity-title"
+                    name="title"
+                    placeholder="Ajoute un titre">
+            <textarea
+                    v-model="description"
+                    class="student-response charity-description"
+                    name="description"
+                    placeholder="Ajoute une description (minimum 50 mots)"></textarea>
             <div class="Button-container">
                 <div class="Button-group">
                 <button class="Button-share" type="submit" @click.prevent="shareCharity">Partager</button>
@@ -31,10 +40,13 @@
     import Starvation from '@/assets/img/charity/starvation.jpg'
     import Violences from '@/assets/img/charity/violences.jpg'
     import War from '@/assets/img/charity/war.jpg'
+    import {updateCharity} from "../../utils/API";
 
     export default {
         name: "Charity",
         data: () => ({
+            title: null,
+            description: null,
             images: [{
                 src: Starvation,
                 type: 'starvation',
@@ -74,6 +86,10 @@
             },
             shareCharity() {
                 console.log('add charity to db and +1 share');
+                const {studentId, sessionId} = this.$store.state;
+                const charity = this.images.find(el => el.selected);
+                console.log(charity, this.title, this.description, 'desc');
+                updateCharity(studentId,sessionId, charity.type, this.title, this.description);
                 this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
             }
         }

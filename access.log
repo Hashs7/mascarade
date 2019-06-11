@@ -2794,3 +2794,17 @@
 [0mGET /session/student/undefined [31m500 [0m8.576 ms - 99[0m
 [0mGET /session/student/undefined [31m500 [0m2.473 ms - 99[0m
 [0mGET /session/student/undefined [31m500 [0m2.636 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m14.437 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m22.976 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m20.841 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m4.075 ms - 99[0m
+[0mPUT /auth/student/charity [31m500 [0m53.785 ms - 52[0m
+[0mPUT /auth/student/achievement [31m500 [0m234.103 ms - 57[0m
+[0mPUT /auth/student/charity [31m500 [0m35.990 ms - 52[0m
+[0mPUT /auth/student/achievement [31m500 [0m37.330 ms - 57[0m
+[0mPUT /auth/student/charity [31m500 [0m33.943 ms - 52[0m
+[0mPUT /auth/student/achievement [31m500 [0m33.309 ms - 57[0m
+[0mPUT /auth/student/achievement [31m500 [0m30.351 ms - 57[0m
+[0mPUT /auth/student/charity [31m500 [0m31.987 ms - 52[0m
+[0mPUT /auth/student/achievement [31m500 [0m29.512 ms - 57[0m
+[0mPUT /auth/student/charity [31m500 [0m33.332 ms - 52[0m
