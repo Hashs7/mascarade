@@ -33,6 +33,9 @@ exports.signup = (req, res, next) => {
                 harassment: {
                     action: null
                 },
+                fakeNews: {
+                    action: null
+                },
                 achievements: {
                     points: 0,
                     shares: 0,
@@ -78,6 +81,12 @@ exports.signup = (req, res, next) => {
                     surname,
                     gender,
                     progress: 0,
+                    harassment: {
+                        action: null
+                    },
+                    fakeNews: {
+                        action: null
+                    },
                     achievements: {
                         points: 0,
                         shares: 0,

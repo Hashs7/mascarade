@@ -77,6 +77,12 @@ const studentSchema = new Schema({
             required: false
         }
     },
+    fakeNews: {
+        action: {
+            type: String,
+            required: false
+        }
+    },
     flash: {
         required: false,
         type: Schema.Types.ObjectId,

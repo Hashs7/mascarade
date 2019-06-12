@@ -26,7 +26,7 @@
                     placeholder="Ajoute une description (minimum 50 mots)"></textarea>
             <div class="Button-container">
                 <div class="Button-group">
-                <button class="Button-share" type="submit" @click.prevent="shareCharity">Partager</button>
+                    <button class="Button-share" type="submit" @click.prevent="shareCharity">Partager</button>
                 </div>
             </div>
         </form>
@@ -85,12 +85,15 @@
                 this.images[index].selected = true;
             },
             shareCharity() {
-                console.log('add charity to db and +1 share');
                 const {studentId, sessionId} = this.$store.state;
                 const charity = this.images.find(el => el.selected);
-                console.log(charity, this.title, this.description, 'desc');
-                updateCharity(studentId,sessionId, charity.type, this.title, this.description);
-                this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
+
+                //TODO validatation champs non vide
+                updateCharity(studentId,sessionId, charity.type, this.title, this.description)
+                    .then(res => {
+                        this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
+                    })
+                    .catch(err => console.log(err));
             }
         }
     }
