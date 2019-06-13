@@ -12,6 +12,7 @@
                 <div class="indicator"></div>
             </div>
         </div>
+        <p class="charity-published">Ton article vient d'être publié</p>
         <form  class="charity-content" action="">
             <input
                     v-model="title"
@@ -85,6 +86,7 @@
                 this.images[index].selected = true;
             },
             shareCharity() {
+
                 const {studentId, sessionId} = this.$store.state;
                 const charity = this.images.find(el => el.selected);
 
@@ -94,6 +96,8 @@
                         this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
                     })
                     .catch(err => console.log(err));
+                /*var published = document.body.querySelector('.charity-published');
+                published.classList.toggle("visible");*/
             }
         }
     }
@@ -127,6 +131,14 @@
         &-content {
             padding: 0 7rem 3.8rem 7rem;
             margin-top: 3rem;
+        }
+        &-published {
+            display: none;
+            font-size: 1.4rem;
+            &.visible {
+                display: flex;
+                justify-content: center;
+            }
         }
 
     }

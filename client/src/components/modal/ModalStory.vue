@@ -32,6 +32,7 @@
                  role="dialog"
                  aria-labelledby="modalTitle"
                  aria-describedby="modalDescription"
+                 :style="`background-image: url(${src})`"
             >
                 <header
                         class="modal-header"
@@ -54,9 +55,6 @@
                         class="modal-body"
                         id="modalDescription"
                 >
-                   <slot name="image">
-                        <img v-bind:src="src">
-                    </slot>
                     <slot name="body">
                         {{description}}
                     </slot>
@@ -82,17 +80,22 @@
     }
 
     .modalStory {
-        background: #FFFFFF;
-        box-shadow: 2px 2px 20px 1px;
+        background-repeat: no-repeat;
         overflow-x: auto;
         display: flex;
         flex-direction: column;
-        width: 40rem;
+        width: 30rem;
+        height: 50rem;
+        border-radius: 2rem;
     }
 
     .modal-body {
-      display: flex;
-      flex-direction: column;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 40rem;
+        text-align: center;
       img {
         max-width: 35rem;
       }

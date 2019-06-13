@@ -45,3 +45,12 @@ textarea::-moz-placeholder {  /* Firefox 19+ */
 textarea:-ms-input-placeholder {
 	color: $yellow;  
 }
+
+/*::-webkit-scrollbar {
+	background-color: $grey--dark;
+} 
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2); 
+}
+*/

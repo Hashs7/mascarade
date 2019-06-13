@@ -34,35 +34,44 @@
 
 <style scoped lang="scss">
     .contact-container {
-        position: relative;
+        display: flex;
+        align-items: center;
         border: 1px solid black;
         cursor: pointer;
-        background-color: rgba(255, 170, 170, .5);
+        background-color: $black;
         transition: background-color .2s ease;
+        &:first-child {
+            border-top-left-radius: 0.5rem;
+        }
         &.active {
-            background-color: rgba(255, 170, 170, 1);
+            background-color: rgba(252, 237, 24, 0.904);
         }
         &:hover:not(.active) {
-            background-color: rgba(255, 170, 170, .8);
+            background-color: rgba(241, 243, 128, 0.8);
         }
     }
     .contact-img {
         display: inline-block;
-        width: 50px;
+        width: 3.2rem;
         vertical-align: middle;
+        border-radius: 100%;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     .contact-info {
-        width: calc(100% - 50px);
-        display: inline-block;
+        width: calc(100% - 5rem);
+        display: flex;
+        flex-direction: column;
         vertical-align: middle;
     }
     .name {
-        display: block;
         font-weight: bold;
+        font-size: 1.4rem;
     }
     .date {
-        position: absolute;
-        top: 10px;
-        right: 10px;
+        font-size: 1.2rem;
+    }
+    .last-answer {
+        font-size: 1.2rem;
     }
 </style>
