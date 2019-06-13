@@ -1,5 +1,5 @@
 <template>
-    <nav class="nav-scenes">
+    <div class="nav-scenes">
         <div class="nav-stories">
             <Story
                 v-for="(img, i) in stories"
@@ -9,17 +9,23 @@
                 :description="img.description"/>
         </div>
         <div class="nav-right">
-            <router-link class="item home" to="/student/exp">
-                <Home />
-            </router-link>
-            <router-link class="item msg" to="/student/messages">
-                <Msg />
-            </router-link>
-            <span class="item help">
-                <Help />
-            </span>
+            <div class="nav-link">
+                <router-link class="item home" to="/student/exp">
+                    <Home />
+                </router-link>
+            </div>
+            <div class="nav-link">
+                <router-link class="item msg" to="/student/messages">
+                    <Msg />
+                </router-link>
+            </div>
+            <div class="nav-link">
+                <span class="item help">
+                    <Help />
+                </span>
+            </div>
         </div>
-    </nav>
+    </div>
 </template>
 
 <script>
@@ -57,18 +63,25 @@
     .nav {
         &-scenes {
             display: flex;
+            width: 87rem;
             justify-content: space-between;
             align-items: flex-end;
-            width: 87rem;
             padding-bottom: 2rem;
+            padding-top: 2rem;
+            padding-right: 4rem;
             margin: auto;
+            background: $grey--dark;
+            position: fixed;
+            z-index: 5;
+            top: 0;
         }
         &-right {
+            display: flex;
             a, span {
                 margin-left: 1rem;
             }
             .item {
-                img {
+                svg {
                     width: 3rem;
                     margin-left: 1rem;
                 }

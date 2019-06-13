@@ -50,9 +50,9 @@
             display: flex;
             flex-direction: column;
             position: fixed;
-            img {
-                padding-top: 5rem;
-                padding-left: 4rem;
+            svg {
+                margin-top: 5rem;
+                margin-left: 3rem;
                 text-align: center;
             }
             ul {
@@ -61,8 +61,8 @@
             }
         }
         &-title {
-            margin-top: 11rem;
-            margin-bottom: 20rem;
+            margin-top: 10rem;
+            margin-bottom: 19rem;
             color: $white;
             font-size: 2.6rem;
             line-height: 3.1rem;

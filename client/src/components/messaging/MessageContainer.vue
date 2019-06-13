@@ -16,13 +16,16 @@
             <div class="chatbox-content">
                 <Message v-for="(msg, i) in getCurrentConversation" :key="i" :txt="msg.txt" :time="msg.time" :msgType="msg.type"/>
             </div>
-            <div class="chatbox-answer" v-if="$store.state.messages.conversations[getSelectedContact.id].showAnswers">
+            <div class="chatbox-group">
                 <span class="chatbox-help-msg">Choisis ta réponse</span>
-                <v-btn color="info"
-                       v-for="(res, i) in responses"
-                       :key="i"
-                       @click="studentResponse(res.content, res.repIndex)">{{res.content}}</v-btn>
-                <v-btn class="answer">Ignorer ce message</v-btn>
+                <div class="chatbox-separate"></div>
+            </div>
+            <div class="chatbox-answer" v-if="$store.state.messages.conversations[getSelectedContact.id].showAnswers">
+                <button class="answer outline"
+                        v-for="res in responses"
+                        @click="studentResponse(res.content, res.repIndex)">
+                {{res.content}}</button>
+                <button class="answer">Ignorer ce message</button>
             </div>
         </div>
     </div>
@@ -105,35 +108,67 @@
         max-width: 1000px;
         margin: 0 auto;
         display: flex;
-        border: 1px solid gray;
+        border-radius: 0.5rem;
+        height: 48rem;
     }
     .contacts {
-        width: 350px;
-        background-color: $primary;
+        width: 35rem;
+        background-color: $black;
+        border-top-left-radius: 0.5rem;
     }
     .chatbox {
         padding: 16px;
         flex-grow: 1;
-        background-color: rgba(0, 172, 193, 0.18);
+        background-color: $black;
+        border-top-right-radius: 0.5rem;
+        overflow-y: scroll;
+        width: 100%;
+        &-answer {
+            display: flex;
+        }
+        &::-webkit-scrollbar {
+            background-color: $black;
+        } 
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(17, 17, 17, 0.6); 
+         
+        }
     }
     .contact-info {
-        border-bottom: 1px solid gray;
+        border-bottom: 1px solid $grey--dark;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.4rem;
+        padding-bottom: 2rem;
+        padding-top: 1rem;
     }
     .chatbox-content {
         padding: 16px 0;
     }
 
-    .chatbox-help-msg {
-        display: block;
+    .chatbox-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.4rem;
+    }
+
+    .chatbox-separate {
+        height: .1rem;
+        width: 6rem;
+        background: $white;
+        margin-top: 0.9rem;
+        margin-bottom: 2.2rem;
     }
 
     .answer {
         margin: 0 4px;
-        padding: 8px 16px;
-        background-color: white;
-        &.outline {
-            border: 1px solid blue;
-        }
+        padding: 0.6rem 1.4rem;
+        color: $yellow;
+        box-shadow: 0px 0px 20px $yellow;
+        border-radius: 1rem;
+        font-size: 1.3rem;
     }
 
 </style>

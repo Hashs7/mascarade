@@ -17,25 +17,27 @@
     width: 60rem;
 }
 
-.layout-main {
-    display: flex;
-    width: 87rem;
-    margin: auto;
-    justify-content: space-between;
+.layout-main{
+  display: flex;
+  width: 87rem;
+  margin: auto;
+  justify-content: space-between;
+  margin-top: 10rem;
 }
 
 .layout-content {
-    padding: 2rem 1.6rem 1.6rem 1.6rem;
-    flex-basis: 80%;
-    max-width: 80%;
+  padding: 2rem 1.6rem 1.6rem 1.6rem;
+  max-width: 80%; 
+  width: 87rem;
+  margin: auto;
+  margin-bottom: 4rem;
 }
 
 .flash-container {
-    width: 200px;
-    height: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-top: 1rem;
+  width: 18rem;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .theme--light.application {

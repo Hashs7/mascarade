@@ -1,6 +1,8 @@
 <script>
+    import Notification from '@/assets/notification.svg';
     export default {
         name: 'modal',
+        components: { Notification },
         template: '#modal',
         data: () => ({
             isModalVisible: false,
@@ -34,7 +36,7 @@
                  aria-describedby="modalDescription"
             >
             <div class="modal-image">
-                <img src="../../assets/notification.svg">
+                <Notification />
             </div>
             <div class="modal-content">
                 <header
