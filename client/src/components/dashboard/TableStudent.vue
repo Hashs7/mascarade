@@ -38,9 +38,6 @@
                 this.$store.commit('updateStudentScene', data);
 
             },
-            newConnection: function({ student, sessionId }) {
-                this.$store.commit('addStudent', {student, sessionId});
-            }
         },
     }
 </script>

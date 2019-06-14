@@ -41,6 +41,16 @@ exports.signup = (req, res, next) => {
                     shares: 0,
                     reports: 0
                 },
+                dialog: {
+                    celebrity: {
+                        conversation: [],
+                        state: null
+                    },
+                    hacker: {
+                        conversation: [],
+                        state: null
+                    }
+                },
                 charity: {
                     type: null,
                     title: null,
@@ -92,11 +102,16 @@ exports.signup = (req, res, next) => {
                         shares: 0,
                         reports: 0
                     },
-                    charity: {
-                        type: null,
-                        title: null,
-                        description: null
-                    }
+                    dialog: {
+                        celebrity: {
+                            conversation: [],
+                            state: null
+                        },
+                        hacker: {
+                            conversation: [],
+                            state: null
+                        }
+                    },
                 },
                 sessionId: result._id
             });
@@ -231,6 +246,81 @@ exports.updateCharity = (req, res, next) => {
             io.getIO().emit('updateCharity', payload);
             res.status(201).json({
                 message: 'Charity a été mis à jour',
+                payload
+            });
+        })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
+};
+
+exports.updateDialog = (req, res, next) => {
+    const { studentId, sessionId, dialogType, response, state } = req.body;
+    const type = ['celebrity', 'hacker'];
+    let conversation;
+
+    Student.findById(studentId)
+        .populate()
+        .then(student => {
+            if(!type.includes(dialogType)) {
+                logError("le type n'est pas correct", 401);
+            }
+
+            student.dialog[dialogType].conversation.push(response);
+            student.dialog[dialogType].state = state;
+            conversation = student.dialog[dialogType];
+            return student.save()
+        })
+        .then(result => {
+            const payload = {
+                studentId: studentId,
+                sessionId: sessionId,
+                dialogType,
+                conversation
+            };
+
+            io.getIO().emit('updateDialog', payload);
+            res.status(201).json({
+                message: 'La conversation a été mis à jour',
+                payload
+            });
+        })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
+};
+
+exports.updateScene = (req, res, next) => {
+    const { studentId, sessionId, sceneType, action } = req.body;
+    const type = ['harassment', 'fakeNews'];
+
+    Student.findById(studentId)
+        .populate()
+        .then(student => {
+            if(!type.includes(sceneType)) {
+                logError("le type n'est pas correct", 401);
+            }
+
+            student[sceneType].action = action;
+            return student.save()
+        })
+        .then(result => {
+            const payload = {
+                studentId: studentId,
+                sessionId: sessionId,
+                sceneType,
+                action
+            };
+
+            io.getIO().emit('updateDialog', payload);
+            res.status(201).json({
+                message: 'La scène a été mis à jour',
                 payload
             });
         })

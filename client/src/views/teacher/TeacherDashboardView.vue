@@ -46,6 +46,11 @@
             className: '',
             linkToShare: ''
         }),
+        sockets: {
+            newConnection({ student, sessionId }) {
+                this.$store.commit('addStudent', {student, sessionId});
+            }
+        },
         computed: {
             viewId() {
                 return this.$store.state.dashboardView;

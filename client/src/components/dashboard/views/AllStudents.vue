@@ -25,6 +25,8 @@
                             :value="'tab-' + j"
                     >
                         <v-layout row wrap>
+                            <h2 v-if="!session.students.length">Aucun élève n'est inscrit à cette session</h2>
+
                             <v-flex
                                     v-for="(student, l) in session.students"
                                     :key="l"
@@ -38,7 +40,6 @@
                                         :shares="student.achievements.shares"
                                         :reports="student.achievements.reports"
                                 />
-
                             </v-flex>
                         </v-layout>
 

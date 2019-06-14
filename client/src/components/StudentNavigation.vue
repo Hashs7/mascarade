@@ -21,7 +21,14 @@
             </div>
             <div class="nav-link">
                 <span class="item help">
-                    <Help />
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on }">
+                        <button v-on="on">
+                            <Help />
+                        </button>
+                      </template>
+                      <span>Demander de l'aide à l'intervenant</span>
+                    </v-tooltip>
                 </span>
             </div>
         </div>

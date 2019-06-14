@@ -1,7 +1,5 @@
 <template>
     <div>
-        <p>Bienvenue sur le dashboard</p>
-
         <NewSession />
         <SessionTabs />
     </div>

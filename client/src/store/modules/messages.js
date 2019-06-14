@@ -1,6 +1,9 @@
+import {updateDialog} from "../../utils/API";
+
 const conversationExample = {
     id: 0,
     selected: true,
+    type: 'celebrity',
     author: 'Michel',
     lastAnswer: null,
     showAnswers: false,
@@ -11,6 +14,7 @@ const conversationExample2 = {
     id: 1,
     selected: false,
     author: 'André',
+    type: 'hacker',
     lastAnswer: null,
     showAnswers: false,
     responses: []
@@ -44,11 +48,13 @@ const getters = {
 };
 
 const actions = {
-    addMessage({commit, rootState}, {repIndex, id, answer, type}) {
+    addMessage({commit, rootState, state}, {repIndex, id, answer, type}) {
         if(type === 'student') {
-            //TODO Call api
-
+            const contact = state.conversations.find(conv => conv.selected);
+            updateDialog(rootState.studentId, rootState.sessionId, contact.type, answer, repIndex);
         }
+
+        if(repIndex === 'stop' || repIndex === 'report') return;
         commit('addMessage', {id, answer, type})
     }
 };

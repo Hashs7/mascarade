@@ -6,10 +6,12 @@
     >
         <v-text-field
                 v-model="className"
+                class="field-class"
                 label="Nom de la classe"
                 required
         ></v-text-field>
         <v-btn
+                class="validate"
                 :disabled="!valid"
                 color="success"
                 @click="validate"
@@ -38,5 +40,12 @@
 </script>
 
 <style scoped>
-
+    .field-class {
+        max-width: 200px;
+        display: inline-block;
+    }
+    .validate {
+        margin-left: 20px;
+        display: inline-block;
+    }
 </style>

@@ -43,9 +43,11 @@
                 this.isModalVisible = false;
             },
             updateReport() {
+                this.$store.dispatch('updateScene', {sceneType: 'fakeNews', action: 'reports'});
                 this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1})
             },
             updateShare() {
+                this.$store.dispatch('updateScene', {sceneType: 'fakeNews', action: 'shares'});
                 this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
             }
         },

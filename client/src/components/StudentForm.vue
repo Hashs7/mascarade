@@ -183,7 +183,9 @@
 
                         this.$store.commit('initStudent', {
                             studentId: res.data.studentId,
-                            sessionId: res.data.sessionId
+                            sessionId: res.data.sessionId,
+                            firstname: this.firstname,
+                            surname: this.surname
                         });
                         setTimeout(() => {
                             this.$router.push(routePath.STUDENT_TUTO)

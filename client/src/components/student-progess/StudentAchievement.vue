@@ -3,8 +3,8 @@
         <div class="achievements-container">
             <Logo />
             <ul class="achievements-title">
-                <li>Sarah</li>
-                <li>dupont</li>
+                <li>{{$store.state.firstname}}</li>
+                <li>{{$store.state.surname}}</li>
             </ul>
             <ul class="achievements-datas">
                 <li class="score">{{points}} point{{isPlurial('points')}}</li>

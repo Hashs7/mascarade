@@ -43,14 +43,6 @@
         data: () => ({
             counter: 0,
         }),
-        sockets: {
-            connect: function () {
-                console.log('socket connected')
-            },
-            poke: function (data) {
-                console.log(data);
-            }
-        },
         mounted() {
             window.addEventListener('visibilitychange', () => {
                 switch(document.visibilityState) {

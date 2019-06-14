@@ -86,17 +86,9 @@
             studentResponse(answer, repIndex) {
                 const id = this.getSelectedContact.id;
                 this.$store.state.messages.conversations[id].showAnswers = false;
-
-                if(repIndex === 'stop') {
-                    console.log(repIndex);
-                    return;
-                }
-                if(repIndex === 'report') {
-                    console.log(repIndex);
-                    return;
-                }
-
                 this.addMessage({repIndex, id, answer, type: 'student'});
+
+                if(repIndex === 'stop' || repIndex === 'report') return;
                 this.addGroupMessage(dialogRes[repIndex]);
             }
         }

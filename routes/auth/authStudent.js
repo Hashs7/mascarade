@@ -44,4 +44,8 @@ router.put('/achievement', authController.updateAchievement);
 
 router.put('/charity', authController.updateCharity);
 
+router.put('/dialog', authController.updateDialog);
+
+router.put('/scene', authController.updateScene);
+
 module.exports = router;

@@ -9,9 +9,18 @@
             <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Grave je préférerai être morte qu’avoir ta tête !"/>
             <div class="Button-container">
             <div class="Button-group">
-                <button class="Button-share" type="button">J'avoue trop moche !</button>
-                <button class="Button-share" type="button">Cool cette photo !</button>
-                <button class="Button-report" type="button" @click="updateReport">Signaler</button>
+                <button
+                        class="Button-share"
+                        type="button"
+                        @click="updateShare('negative')">J'avoue trop moche !</button>
+                <button
+                        class="Button-share"
+                        type="button"
+                        @click="updateShare('positive')">Cool cette photo !</button>
+                <button
+                        class="Button-report"
+                        type="button"
+                        @click="updateReport">Signaler</button>
             </div>
             </div>
         </div>
@@ -31,10 +40,16 @@
         }),
         methods: {
             updateReport() {
+                this.$store.dispatch('updateScene', {sceneType: 'harassment', action: 'reports'})
                 this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1})
             },
-            updateShare() {
-                this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
+            updateShare(type) {
+                this.$store.dispatch('updateScene', {sceneType: 'harassment', action: type})
+                let pointAmount = 1;
+                if(type === 'negative') {
+                    pointAmount = -1;
+                }
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: pointAmount})
             }
         },
     }

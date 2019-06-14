@@ -1,5 +1,6 @@
 import Vue from "vue";
 import {isNull} from "../utils/methods";
+import {updateScene} from "../utils/API";
 
 export default {
     initSessions(state, sessions) {
@@ -17,9 +18,11 @@ export default {
         state.teacherName = name;
         state.dashboardView = "board";
     },
-    initStudent(state, {studentId, sessionId}) {
+    initStudent(state, {studentId, sessionId, firstname, surname}) {
         state.studentId = studentId;
         state.sessionId = sessionId;
+        state.firstname = firstname;
+        state.surname = surname;
     },
     addSession(state, newSession) {
         state.sessions.push(newSession);
@@ -61,6 +64,7 @@ export default {
     updateIndex(state, index) {
         state.tabIndex = index;
     },
+
     updateDashboardView(state, index) {
         state.dashboardView = index;
     }

@@ -1,7 +1,7 @@
 const state = {
     isVisible: false,
     currentStudent: {
-        id: 5454454,
+        id: 1,
         firstname: '',
         surname: '',
         achievements: {

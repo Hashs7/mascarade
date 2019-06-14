@@ -1,17 +1,20 @@
 import axios from 'axios';
 import {
-    BASE_API_URL, ROUTE_STUDENT_ACHIEVEMENT, ROUTE_STUDENT_CHARITY,
-    ROUTE_STUDENT_FLASH_SEND,
+    BASE_API_URL, ROUTE_STUDENT_ACHIEVEMENT, ROUTE_STUDENT_CHARITY, ROUTE_STUDENT_DIALOG,
+    ROUTE_STUDENT_FLASH_SEND, ROUTE_STUDENT_SCENE,
     ROUTE_STUDENT_SESSION,
     ROUTE_TEACHER_ALL_SESSION,
     ROUTE_TEACHER_IS_AUTH
 } from "./constant";
 import {getTokenState} from "./methods";
 
-export const api = axios.create({
-    baseURL: BASE_API_URL
-});
+export const api = axios.create({ baseURL: BASE_API_URL });
 
+/**
+ *
+ * @param token
+ * @returns {AxiosPromise}
+ */
 export const tokenIsValid = (token) => {
     const options = {
         method: 'GET',
@@ -25,6 +28,10 @@ export const tokenIsValid = (token) => {
     return api(options)
 };
 
+/**
+ *
+ * @returns {Promise<AxiosPromise>}
+ */
 export const getSessions = async () => {
     const token = await getTokenState();
 
@@ -40,6 +47,11 @@ export const getSessions = async () => {
     return api(options)
 };
 
+/**
+ *
+ * @param sessionId
+ * @returns {Promise<AxiosPromise>}
+ */
 export const getStudentSession = async (sessionId) => {
     const options = {
         method: 'GET',
@@ -52,7 +64,12 @@ export const getStudentSession = async (sessionId) => {
     return api(options)
 };
 
-
+/**
+ *
+ * @param senderId
+ * @param receiverId
+ * @returns {Promise<AxiosPromise>}
+ */
 export const sendFlash = async (senderId, receiverId) => {
     const options = {
         method: 'PUT',
@@ -69,6 +86,14 @@ export const sendFlash = async (senderId, receiverId) => {
     return api(options)
 };
 
+/**
+ *
+ * @param studentId
+ * @param sessionId
+ * @param achievType
+ * @param amount
+ * @returns {Promise<AxiosPromise>}
+ */
 export const updateAchievement = async (studentId, sessionId, achievType, amount) => {
     const options = {
         method: 'PUT',
@@ -87,6 +112,15 @@ export const updateAchievement = async (studentId, sessionId, achievType, amount
     return api(options)
 };
 
+/**
+ *
+ * @param studentId
+ * @param sessionId
+ * @param charityType
+ * @param title
+ * @param description
+ * @returns {Promise<AxiosPromise>}
+ */
 export const updateCharity = async (studentId, sessionId, charityType, title, description) => {
     const options = {
         method: 'PUT',
@@ -100,6 +134,61 @@ export const updateCharity = async (studentId, sessionId, charityType, title, de
             charityType,
             title,
             description
+        }
+    };
+
+    return api(options)
+};
+
+/**
+ *
+ * @param studentId
+ * @param sessionId
+ * @param dialogType
+ * @param response
+ * @param dialogState
+ * @returns {Promise<AxiosPromise>}
+ */
+export const updateDialog = async (studentId, sessionId, dialogType, response, dialogState) => {
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        url: ROUTE_STUDENT_DIALOG,
+        data: {
+            studentId,
+            sessionId,
+            dialogType,
+            response,
+            state: dialogState
+        }
+    };
+
+    return api(options)
+};
+
+/**
+ *
+ * @param studentId
+ * @param sessionId
+ * @param sceneType
+ * @param action
+ * @returns {Promise<AxiosPromise>}
+ */
+export const updateScene = async (studentId, sessionId, sceneType, action) => {
+    console.log(sceneType, 'sceneTy');
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        url: ROUTE_STUDENT_SCENE,
+        data: {
+            studentId,
+            sessionId,
+            sceneType,
+            action
         }
     };
 
