@@ -318,7 +318,7 @@ exports.updateScene = (req, res, next) => {
                 action
             };
 
-            io.getIO().emit('updateDialog', payload);
+            io.getIO().emit('updateScene', payload);
             res.status(201).json({
                 message: 'La scène a été mis à jour',
                 payload
