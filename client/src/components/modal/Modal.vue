@@ -100,19 +100,20 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(255, 255, 255, 0.6);
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     .modal {
-        background: $grey--dark;
+        background: $blue;
         border-radius: 0.8rem;
         overflow-x: auto;
         display: flex;
         flex-direction: initial;
         width: 46rem;
+        color: $white;
         &-image {
             width: 7rem;
             display: flex;
@@ -156,13 +157,13 @@
         font-size: 20px;
         cursor: pointer;
         font-weight: bold;
-        color: lightgray;
+        color: $white;
         background: transparent;
     }
 
     .btn-green {
-        box-shadow: 0px 0px 2rem $violet;
-        border-radius: 0.6rem;
+        border: 1px solid $violet;
+        border-radius: 2.1rem;
         padding: 0.8rem 1.8rem;
         color: $violet;
         font-size: 1.4rem;
