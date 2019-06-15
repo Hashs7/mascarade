@@ -105,13 +105,13 @@
     }
     .contacts {
         width: 35rem;
-        background-color: $black;
+        background-color: $grey--light;
         border-top-left-radius: 0.5rem;
     }
     .chatbox {
         padding: 16px;
         flex-grow: 1;
-        background-color: $black;
+        background-color: $grey--light;
         border-top-right-radius: 0.5rem;
         overflow-y: scroll;
         width: 100%;
@@ -119,12 +119,11 @@
             display: flex;
         }
         &::-webkit-scrollbar {
-            background-color: $black;
+            background-color: $grey--light;
         } 
 
         &::-webkit-scrollbar-thumb {
-            background-color: rgba(17, 17, 17, 0.6); 
-         
+            background-color: $light--blue;
         }
     }
     .contact-info {
@@ -144,12 +143,13 @@
         flex-direction: column;
         align-items: center;
         font-size: 1.4rem;
+        color: $violet;
     }
 
     .chatbox-separate {
         height: .1rem;
         width: 6rem;
-        background: $white;
+        background: $violet;
         margin-top: 0.9rem;
         margin-bottom: 2.2rem;
     }
@@ -157,9 +157,9 @@
     .answer {
         margin: 0 4px;
         padding: 0.6rem 1.4rem;
-        color: $yellow;
-        box-shadow: 0px 0px 20px $yellow;
-        border-radius: 1rem;
+        color: $violet;
+        border: 1px solid $violet;
+        border-radius: 2.1rem;
         font-size: 1.3rem;
     }
 

@@ -57,14 +57,14 @@
 <style scoped lang="scss">
     .FakeNews {
         &-container {
-            border: 1.5px solid $white;
+            border: 1.5px solid $blue;
             margin-top: 2rem;
         }
         &-group {
             padding: 0 7rem 3.8rem 7rem;
         }
         &-link {
-            color: $yellow;
+            color: $violet;
             font-size: 1.2rem;
             margin: 0;
         }
@@ -81,10 +81,10 @@
       }
 
       &-share, &-report {
-        box-shadow: 0px 0px 20px $yellow;
-        border-radius: 0.6rem;
+        border: 1px solid $violet;
+        border-radius: 2.1rem;
         padding: 1rem 1.3rem;
-        color: $yellow;
+        color: $violet;
         font-size: 1.4rem;
       }
     }

@@ -44,7 +44,7 @@
     .achievements {
         width: 100%;
         height: 100%;
-        background-color: $black;
+        background:linear-gradient(#4E00FF, #04CBFF, #00D7FF);
         color: white;
         &-container {
             display: flex;

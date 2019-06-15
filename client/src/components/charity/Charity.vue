@@ -107,12 +107,12 @@
     .charity {
         &-container {
             margin: 50px 0;
-            border: 1.5px solid $white;
+            border: 1.5px solid $blue;
         }
         &-title, &-description {
             display: block;
-            color: $yellow;
-            box-shadow: 0px 0px 20px $yellow;
+            color: $violet;
+            border: 1px solid $violet;
             border-radius: 1rem;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -160,7 +160,7 @@
         margin-bottom: 1.4rem;
         &.selected .indicator{
             opacity: 1;
-            box-shadow: 0px 0px 20px $yellow;
+            box-shadow: 0px 0px 20px $violet;
             border-radius: 1.2rem;   
             height: 100%;
         }
@@ -193,10 +193,10 @@
       }
 
       &-share, &-report {
-        box-shadow: 0px 0px 20px $yellow;
-        border-radius: 0.6rem;
+        border: 1px solid $violet;
+        border-radius: 2.1rem;
         padding: 1rem 1.3rem;
-        color: $yellow;
+        color: $violet;
         font-size: 1.4rem;
       }
     }

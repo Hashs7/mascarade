@@ -56,7 +56,7 @@
         }
     }
     .Story {
-        box-shadow: 0px 0px 20px $yellow;
+        border: 1px solid $violet;
         border-radius: 100%;
         width: 6rem;
         height: 6rem;

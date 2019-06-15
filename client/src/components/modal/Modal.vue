@@ -161,10 +161,10 @@
     }
 
     .btn-green {
-        box-shadow: 0px 0px 2rem $yellow;
+        box-shadow: 0px 0px 2rem $violet;
         border-radius: 0.6rem;
         padding: 0.8rem 1.8rem;
-        color: $yellow;
+        color: $violet;
         font-size: 1.4rem;
 
         &:first-child {

@@ -43,7 +43,7 @@
 <style scoped lang="scss">
 .slider {
   &__container {
-    border: 1.5px solid $white;
+    border: 1.5px solid $blue;
     .VueCarousel-dot-container {
       margin: 0;
     }

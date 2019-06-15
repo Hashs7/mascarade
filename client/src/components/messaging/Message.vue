@@ -23,16 +23,17 @@
 
             .Message-content {
                 border-radius: 3rem 3rem 0 3rem;
-                background-color: $black;
-                box-shadow: 0px 0px 20px $yellow;
+                background-color: $light--blue;
                 font-size: 1.4rem;
+                color: $black;
             }
         }
         &-content {
             display: inline-block;
             padding: 0.8rem 1.2rem;
             border-radius: 3rem 3rem 3rem 0;
-            background-color: $grey--dark;
+            background-color: $blue;
+            color: $white;
             font-size: 1.4rem;
         }
         &-time {

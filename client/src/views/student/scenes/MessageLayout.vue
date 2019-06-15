@@ -29,8 +29,8 @@
 </script>
 
 <style scoped lang="scss">
-    .layout-containter {
-        background-color: $grey--dark;
+    .layout-container {
+        background-color: $grey--light;
     }
     .item {
         margin: 0 8px;

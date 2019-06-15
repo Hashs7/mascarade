@@ -58,7 +58,7 @@
 <style scoped lang="scss">
     .Harassment {
         &-container {
-            border: 1.5px solid $white;
+            border: 1.5px solid $blue;
             margin: 50px 0;
         }
         &-group {
@@ -94,9 +94,9 @@
       }
 
       &-share, &-report { 
-        box-shadow: 0px 0px 20px $yellow;
-        border-radius: 0.6rem;
-        color: $yellow;
+        border: 1px solid $violet;
+        border-radius: 2.1rem;
+        color: $violet;
         font-size: 1.4rem;
         padding: 1rem 1.3rem;
       }

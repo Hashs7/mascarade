@@ -46,7 +46,7 @@
         &-separate {
             margin-top: 2rem;
             margin-bottom: 2rem;
-            background: $white;
+            background: $black;
             height: 2px;
             width: 3rem;
         }
