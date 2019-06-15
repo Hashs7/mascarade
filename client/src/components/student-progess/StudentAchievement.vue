@@ -78,6 +78,12 @@
                 border-bottom: 1px solid white;
                 width: 11.5rem;
                 margin-bottom: 2.2rem;
+                &:after { 
+                    content: "\26AC";
+                    position: absolute;
+                    right: 2.7rem;
+                    margin-top: 1.3rem;
+                }  
             }
         }
     }
