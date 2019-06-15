@@ -279,7 +279,8 @@ exports.updateDialog = (req, res, next) => {
                 studentId: studentId,
                 sessionId: sessionId,
                 dialogType,
-                conversation
+                conversation,
+                state
             };
 
             io.getIO().emit('updateDialog', payload);
