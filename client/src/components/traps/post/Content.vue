@@ -2,6 +2,7 @@
     <div class="Content-container">
         <div class="Content-header">
             <img class="Content-image" alt="" :src="fakeNews"/>
+            <Informations name="Le monde" date="Il y a 3 heures"/>
         </div>
         <div class="Content-group">
             <p class="Content-title">{{title}}</p>
@@ -13,9 +14,11 @@
 
 <script>
     import FakeNews from "@/assets/img/fakenews.jpg";
+    import Informations from '@/components/traps/post/Informations';
 
     export default {
         name: "Content",
+        components: { Informations},
         data: () => ({
             fakeNews: FakeNews
         }),
@@ -33,7 +36,7 @@
             font-size: 2rem;
             line-height: 2.8rem;
             text-transform: uppercase;
-            margin-top: 4.8rem;
+            margin-top: 1.3rem;
             max-width: 85%;
         }
 
@@ -58,6 +61,8 @@
         &-header {
             img {
                 width: 100%;
+                border-bottom: 1.5px solid $blue;
+                height: 28rem;
             }
         }
     }

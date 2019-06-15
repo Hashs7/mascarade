@@ -1,9 +1,8 @@
 <template>
     <div class="FakeNews-container">
-        <Content title="La nasa envisage de faire exploser la lune…" description="Edgar Phillips-Garret est l’homme qui se cache derrière cette idée folle d’envoyer sur la Lune une sonde équipé d’une charge explosive suffisamment forte pour définitivement la faire disparaître. "/>
+        <Content title="La nasa envisage de faire exploser la lune…" description="Edgar Phillips-Garret est l’homme qui se cache derrière cette idée folle d’envoyer sur la Lune une sonde équipé d’une charge explosive suffisamment forte pour définitivement la faire disparaître. "/>    
         <div class="FakeNews-group">
-            <!--<Informations name="Publié par Mr Chafoin" like="12" comment="15" date="Il y a 3 heures" /-->
-            <a class="FakeNews-link"
+           <a class="FakeNews-link"
                target="_blank"
                rel="nofollow noopener"
                href="http://www.legorafi.fr/2019/02/11/la-nasa-envisage-de-faire-exploser-la-lune-pour-en-etudier-les-consequences/"
