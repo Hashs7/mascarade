@@ -14,9 +14,11 @@
 <script>
     import ModalStory from '@/components/modal/ModalStory';
     import {initStory} from '../stories/stories';
+    import Story from '@/components/stories/Story';
+    import {mapMutations} from "vuex";
     export default {
         name: "Story",
-        components: {ModalStory, initStory},
+        components: {ModalStory, initStory, Story},
         data: () => ({
             isModalVisible: false,
         }),
@@ -41,7 +43,7 @@
         },
          computed: {
             stories() {
-                return initStory.stories;
+                return this.$store.state.stories.allStories;
             }
         },
     }
