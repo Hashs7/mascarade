@@ -65,8 +65,18 @@
             console.log('TODO get seession');
         },
         sockets: {
-            updateAchievement({studentId, sessionId, achievType, amount}) {
-                this.$store.commit('updateStudentAchievement', {studentId, sessionId, achievType, amount});
+            updateAchievement(data) {
+                this.$store.commit('updateStudentAchievement', data);
+            },
+            updateCharity(data) {
+                this.$store.commit('updateStudentCharity', data);
+            },
+            updateDialog(data) {
+                console.log('trigger dialog');
+                this.$store.commit('updateStudentDialog', data);
+            },
+            updateScene(data) {
+                this.$store.commit('updateBOScene', data);
             }
         },
         computed: {

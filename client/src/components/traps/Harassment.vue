@@ -7,17 +7,19 @@
             <div class="Harassment-separate"></div>
             <Comment name="Bryan Philipo" date="Il y a 2h" description="Trop moche c'est quoi cette photo !"/>
             <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Grave je préférerai être morte qu’avoir ta tête !"/>
+            <Comment
+                    v-if="response.desc"
+                    :name="response.name"
+                    :date="response.date"
+                    :description="response.desc"/>
             <div class="Button-container">
             <div class="Button-group">
                 <button
+                        v-for="(res,i) in choices"
+                        :key="i"
                         class="Button-share"
                         type="button"
-                        @click="updateShare('negative')">J'avoue trop moche !
-                        <span></span><span></span><span></span><span></span></button>
-                <button
-                        class="Button-share"
-                        type="button"
-                        @click="updateShare('positive')">Cool cette photo !
+                        @click="updateShare(res.type, res.answer)">{{res.answer}}</button>
                         <span></span><span></span><span></span><span></span></button>
                 <button
                         class="Button-report"
@@ -34,25 +36,41 @@
     import Informations from '@/components/traps/post/Informations';
     import Comment from '@/components/traps/post/Comment';
     import Harassment from '@/assets/img/harassment.jpg';
+    import {getTime} from "../../store/modules/messages";
 
     export default {
         name: "Harassment",
-        components: { Informations, Comment},
+        components: { Informations, Comment },
         data: () => ({
-            harassment: Harassment
+            harassment: Harassment,
+            response: {
+                name: null,
+                date: null,
+                desc: null
+            },
+            choices: [{
+                type: "negative",
+                answer: "J'avoue trop moche !"
+            },{
+                type: "positive",
+                answer: "Cool cette photo !"
+            }]
         }),
         methods: {
             updateReport() {
-                this.$store.dispatch('updateScene', {sceneType: 'harassment', action: 'reports'})
-                this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1})
+                this.$store.dispatch('updateScene', {sceneType: 'harassment', action: 'reports'});
+                this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1});
             },
-            updateShare(type) {
-                this.$store.dispatch('updateScene', {sceneType: 'harassment', action: type})
-                let pointAmount = 1;
-                if(type === 'negative') {
-                    pointAmount = -1;
-                }
-                this.$store.dispatch('updateAchievement', {type: 'points', amount: pointAmount})
+            updateShare(type, msg) {
+                const {firstname, surname} = this.$store.state;
+                this.response = {
+                    name: firstname + ' ' + surname,
+                    date: "à l'instant",
+                    desc: msg
+                };
+                let pointAmount = type === 'negative' ? -1 : 1;
+                this.$store.dispatch('updateScene', {sceneType: 'harassment', action: msg});
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: pointAmount});
             }
         },
     }

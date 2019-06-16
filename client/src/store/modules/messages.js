@@ -94,17 +94,6 @@ const mutations = {
         state.conversations.map(conv => conv.selected = false);
         state.conversations[id].selected = true;
     }
-
-    /*[type.MUTATE_ADD_TASK]: (state, {title, groupId}) => {
-        state.items.push({
-            id: uuidv1(),
-            title: title,
-            completed: false,
-            edited: false,
-            group: groupId,
-            position: (state.items.filter((task) => task.group === groupId).length + 1)
-        })
-    },*/
 };
 
 export default {

@@ -1,12 +1,13 @@
-import Home from '../views/Home.vue';
-import TeacherDashboard from '../views/teacher/TeacherDashboardView.vue';
-import TeacherSignup from '../views/teacher/TeacherSignupView.vue';
-import TeacherLogin from '../views/teacher/TeacherLoginView.vue';
-import StudentSignup from '../views/student/StudentSignupView.vue';
-import StudentLogin from '../views/student/StudentLoginView.vue';
-import Tutorial from '../views/student/scenes/Tutorial.vue';
-import SceneLayout from '../views/student/scenes/SceneLayout.vue';
-import MessageLayout from '../views/student/scenes/MessageLayout.vue';
+import Home from '../views/Home';
+import TeacherDashboard from '../views/teacher/TeacherDashboardView';
+import TeacherSignup from '../views/teacher/TeacherSignupView';
+import TeacherLogin from '../views/teacher/TeacherLoginView';
+import StudentSignup from '../views/student/StudentSignupView';
+import StudentLogin from '../views/student/StudentLoginView';
+import Tutorial from '../views/student/scenes/Tutorial';
+import SceneLayout from '../views/student/scenes/SceneLayout';
+import MessageLayout from '../views/student/scenes/MessageLayout';
+import StudentSummary from '../views/student/StudentSummary';
 import {tokenIsValid} from "../utils/API";
 import {getTokenState} from "../utils/methods";
 
@@ -31,6 +32,7 @@ export const routePath = {
     STUDENT_TUTO: '/student/tuto',
     STUDENT_HOME: '/student/exp',
     STUDENT_MSG: '/student/messages',
+    STUDENT_SUMMARY: '/student/bilan',
 };
 
 export default [
@@ -108,4 +110,12 @@ export default [
             title: 'Mascarade - Messages',
         }
     },
+    {
+        path: routePath.STUDENT_SUMMARY,
+        name: 'Bilan',
+        component: StudentSummary,
+        meta: {
+            title: 'Mascarade - Bilan',
+        }
+    }
 ]

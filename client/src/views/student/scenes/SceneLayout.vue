@@ -13,6 +13,9 @@
                     <Slider />
                     <Charity />
                     <FakeNews />
+                    <Slider />
+                    <Charity />
+                    <QuizzContainer />
                     <Harassment />
                     <FakeNews />
                 </div>
@@ -26,11 +29,11 @@
 </template>
 
 <script>
-    import openSocket from 'socket.io-client';
-    import {BASE_API_URL} from "../../../utils/constant";
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
+    import QuizzContainer from '@/components/traps/quizz/QuizzContainer';
     import FakeNews from '@/components/traps/FakeNews';
+    import Slider from '@/components/traps/Slider';
     import Harassment from '@/components/traps/Harassment';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
     import StudentFlash from '@/components/student-progess/StudentFlash';
@@ -39,7 +42,11 @@
 
     export default {
         name: "SceneLayout",
-        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment, StudentFlash, Slider },
+        components: {
+            MessageContainer, StudentAchievement, Charity,
+            StudentNavigation, FakeNews, Harassment, StudentFlash,
+            Slider, QuizzContainer
+        },
         data: () => ({
             counter: 0,
         }),

@@ -279,7 +279,8 @@ exports.updateDialog = (req, res, next) => {
                 studentId: studentId,
                 sessionId: sessionId,
                 dialogType,
-                conversation
+                conversation,
+                state
             };
 
             io.getIO().emit('updateDialog', payload);
@@ -318,7 +319,7 @@ exports.updateScene = (req, res, next) => {
                 action
             };
 
-            io.getIO().emit('updateDialog', payload);
+            io.getIO().emit('updateScene', payload);
             res.status(201).json({
                 message: 'La scène a été mis à jour',
                 payload
