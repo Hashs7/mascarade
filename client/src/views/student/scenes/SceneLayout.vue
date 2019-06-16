@@ -14,7 +14,7 @@
                     <FakeNews />
                     <Slider />
                     <Charity />
-                    <Charity />
+                    <QuizzContainer />
                     <Harassment />
                     <FakeNews />
                 </div>
@@ -30,6 +30,7 @@
 <script>
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
+    import QuizzContainer from '@/components/traps/quizz/QuizzContainer';
     import FakeNews from '@/components/traps/FakeNews';
     import Slider from '@/components/traps/Slider';
     import Harassment from '@/components/traps/Harassment';
@@ -39,7 +40,11 @@
 
     export default {
         name: "SceneLayout",
-        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment, StudentFlash, Slider },
+        components: {
+            MessageContainer, StudentAchievement, Charity,
+            StudentNavigation, FakeNews, Harassment, StudentFlash,
+            Slider, QuizzContainer
+        },
         data: () => ({
             counter: 0,
         }),
