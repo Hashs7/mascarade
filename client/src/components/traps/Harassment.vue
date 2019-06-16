@@ -12,15 +12,18 @@
                 <button
                         class="Button-share"
                         type="button"
-                        @click="updateShare('negative')">J'avoue trop moche !</button>
+                        @click="updateShare('negative')">J'avoue trop moche !
+                        <span></span><span></span><span></span><span></span></button>
                 <button
                         class="Button-share"
                         type="button"
-                        @click="updateShare('positive')">Cool cette photo !</button>
+                        @click="updateShare('positive')">Cool cette photo !
+                        <span></span><span></span><span></span><span></span></button>
                 <button
                         class="Button-report"
                         type="button"
-                        @click="updateReport">Signaler</button>
+                        @click="updateReport">Signaler
+                        <span></span><span></span><span></span><span></span></button>
             </div>
             </div>
         </div>
@@ -99,6 +102,40 @@
         color: $violet;
         font-size: 1.4rem;
         padding: 1rem 1.3rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: 0.5s;
+        &:hover {
+            color: $white;
+        }
+        span {
+            position: absolute;
+            width: 25%;
+            height: 100%;
+            background-color: $violet;
+            transform: translateY(150%);
+            border-radius: 50%;
+            left: calc((var(--n) - 1) * 25%);
+            transition: 0.4s;
+            transition-delay: calc((var(--n) - 1) * 0.1s);
+            z-index: -1;
+        }
+        &:hover span {
+            transform: translateY(0) scale(2.8);
+        }
+        span:nth-child(1) {
+            --n: 1;
+        }
+        span:nth-child(2) {
+            --n: 2;
+        }
+        span:nth-child(3) {
+            --n: 3;
+        }
+        span:nth-child(4) {
+            --n: 4;
+        }
       }
     }
 </style>

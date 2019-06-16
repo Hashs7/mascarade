@@ -161,6 +161,12 @@
         border: 1px solid $violet;
         border-radius: 2.1rem;
         font-size: 1.3rem;
+        &:hover {
+            transition: ease 0.2s;
+            background: $violet;
+            color: $white;
+            //transform: scale(1.05);
+        }
     }
 
 </style>

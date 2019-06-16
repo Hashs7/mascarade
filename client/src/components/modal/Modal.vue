@@ -168,6 +168,12 @@
         padding: 0.8rem 1.8rem;
         color: $violet;
         font-size: 1.4rem;
+        &:hover {
+            transition: ease 0.2s;
+            background: $violet;
+            color: $white;
+            //transform: scale(1.05);
+        }
 
         &:first-child {
             margin-right: 1rem;

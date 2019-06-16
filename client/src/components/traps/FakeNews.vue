@@ -66,6 +66,25 @@
             color: $violet;
             font-size: 1.2rem;
             margin: 0;
+            position: relative;
+            text-decoration: none;
+            padding-bottom: 0.2rem;
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                transition: transform .5s ease;
+            }
+            &:before {
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background: $violet;
+                transform:  scaleX(0);
+            }
+            &:hover:before {
+                transform:  scaleX(1);
+            }
         }
     }
     .Button {
@@ -85,6 +104,12 @@
         padding: 1rem 1.3rem;
         color: $violet;
         font-size: 1.4rem;
+        &:hover {
+            transition: ease 0.2s;
+            background: $violet;
+            color: $white;
+            //transform: scale(1.05);
+        }
       }
     }
     .Informations-group {
