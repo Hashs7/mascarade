@@ -1,6 +1,6 @@
 <template>
     <div class="flash-container">
-        <span class="title">Flash ton ami</span>
+        <span class="flash-title">Flash ton ami</span>
         <span class="flash-current">Tu as reçu {{currentFlash}} flash</span>
 
         <div class="flash-contact" v-if="students" v-for="(student, i) in students" :key="i">
@@ -50,8 +50,15 @@
     }
 </script>
 
-<style scoped>
-    .title {
-        display: block;
+<style scoped lang="scss">
+    .flash {
+        &-title {
+            display: block;
+            color: $violet;
+            font-weight: bold;
+        }
+        &-current {
+            font-size: 1.4rem;
+        }
     }
 </style>

@@ -77,7 +77,7 @@
             padding-top: 2rem;
             padding-right: 4rem;
             margin: auto;
-            background: $grey--dark;
+            background: $white;
             position: fixed;
             z-index: 5;
             top: 0;

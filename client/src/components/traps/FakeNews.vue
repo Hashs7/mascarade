@@ -1,9 +1,8 @@
 <template>
     <div class="FakeNews-container">
-        <Content title="La nasa envisage de faire exploser la lune…" description="Edgar Phillips-Garret est l’homme qui se cache derrière cette idée folle d’envoyer sur la Lune une sonde équipé d’une charge explosive suffisamment forte pour définitivement la faire disparaître. "/>
+        <Content title="La nasa envisage de faire exploser la lune…" description="Edgar Phillips-Garret est l’homme qui se cache derrière cette idée folle d’envoyer sur la Lune une sonde équipé d’une charge explosive suffisamment forte pour définitivement la faire disparaître. "/>    
         <div class="FakeNews-group">
-            <!--<Informations name="Publié par Mr Chafoin" like="12" comment="15" date="Il y a 3 heures" /-->
-            <a class="FakeNews-link"
+           <a class="FakeNews-link"
                target="_blank"
                rel="nofollow noopener"
                href="http://www.legorafi.fr/2019/02/11/la-nasa-envisage-de-faire-exploser-la-lune-pour-en-etudier-les-consequences/"
@@ -57,16 +56,35 @@
 <style scoped lang="scss">
     .FakeNews {
         &-container {
-            border: 1.5px solid $white;
+            border: 1.5px solid $blue;
             margin-top: 2rem;
         }
         &-group {
             padding: 0 7rem 3.8rem 7rem;
         }
         &-link {
-            color: $yellow;
+            color: $violet;
             font-size: 1.2rem;
             margin: 0;
+            position: relative;
+            text-decoration: none;
+            padding-bottom: 0.2rem;
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                transition: transform .5s ease;
+            }
+            &:before {
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background: $violet;
+                transform:  scaleX(0);
+            }
+            &:hover:before {
+                transform:  scaleX(1);
+            }
         }
     }
     .Button {
@@ -81,11 +99,17 @@
       }
 
       &-share, &-report {
-        box-shadow: 0px 0px 20px $yellow;
-        border-radius: 0.6rem;
+        border: 1px solid $violet;
+        border-radius: 2.1rem;
         padding: 1rem 1.3rem;
-        color: $yellow;
+        color: $violet;
         font-size: 1.4rem;
+        &:hover {
+            transition: ease 0.2s;
+            background: $violet;
+            color: $white;
+            //transform: scale(1.05);
+        }
       }
     }
     .Informations-group {

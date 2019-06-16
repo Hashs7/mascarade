@@ -36,18 +36,19 @@
     .contact-container {
         display: flex;
         align-items: center;
-        border: 1px solid black;
         cursor: pointer;
-        background-color: $black;
+        background-color: $grey--light;
         transition: background-color .2s ease;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
         &:first-child {
             border-top-left-radius: 0.5rem;
         }
         &.active {
-            background-color: rgba(252, 237, 24, 0.904);
+            background-color: $blue;
         }
         &:hover:not(.active) {
-            background-color: rgba(241, 243, 128, 0.8);
+            background-color: $light--blue;
         }
     }
     .contact-img {

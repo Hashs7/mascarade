@@ -10,6 +10,7 @@
                     <!--<p>Super tu es à la première scène</p>
                     <p>Compteur : {{ counter }}</p>
                     <button @click="emitEvent">Envoyer un poke</button>-->
+                    <Slider />
                     <Charity />
                     <FakeNews />
                     <Slider />
@@ -37,6 +38,7 @@
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
     import StudentFlash from '@/components/student-progess/StudentFlash';
     import StudentNavigation from '@/components/StudentNavigation';
+    import Slider from '@/components/traps/Slider';
 
     export default {
         name: "SceneLayout",

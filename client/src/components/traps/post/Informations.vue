@@ -2,21 +2,9 @@
     <div class="Informations-container">
         <div class="Informations-group">
             <div class="Informations-content">
-              <img class="Informations-image" src="../../../assets/img/logo.png"/>
-              <p class="Informations-title">{{name}}</p>
+              <p class="Informations-title">Publié par <span>{{name}}</span></p>
+              <p class="Informations-date">{{date}}</p>
             </div>
-            <div class="Informations-content">
-              <img class="Informations-image" src="../../../assets/img/logo.png"/>
-              <p class="Informations-title">{{like}}</p>
-            </div>
-            <div class="Informations-content">
-              <img class="Informations-image" src="../../../assets/img/logo.png"/>
-              <p class="Informations-title">{{comment}}</p>
-            </div>
-            <div class="Informations-content">
-              <img class="Informations-image" src="../../../assets/img/logo.png"/>
-              <p class="Informations-title">{{date}}</p>
-            </div> 
         </div>
     </div>
 </template>
@@ -29,8 +17,6 @@
         }),
         props: [
           "name",
-          "like",
-          "comment",
           "date",
         ]
     }
@@ -38,23 +24,34 @@
 
 <style scoped lang="scss">
     .Informations {
-      &-group {
-        display: flex;
-        justify-content: space-between;
+      &-container {
+        padding: 0 7rem 0 7rem;
+        position: relative;
+        bottom: 3.5rem;
       }
       &-title {
-        font-weight: bold;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         margin-bottom: 0;
-        margin-left: 1rem;
+        span {
+          font-weight: bold;
+        }
       }
-      &-image {
-        width: 3rem;
-        height: 3rem;
+      &-date {
+        font-size: 1rem;
+        margin-bottom: 0;
       }
-      &-content {
+      &-group {
         display: flex;
+        flex-direction: column;
+        border: 1px solid $blue;
+        border-radius: 2.6rem;
+        padding: 1rem 1.3rem;
+        color: $blue;
+        width: 24.4rem;
+        height: 5.2rem;
+        justify-content: center;
         align-items: center;
+        background: $white;
       }
     }
      

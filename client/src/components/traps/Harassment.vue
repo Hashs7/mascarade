@@ -1,10 +1,10 @@
 <template>
     <div class="Harassment-container">
         <img class="Harassment-image" :src="harassment"/>
+        <Informations name="Nathalie Bou" date="Il y a 4 jours"/>
         <div class="Harassment-group">
             <h2 class="Harassment-title"> Holidays in Miami 🌈🌴</h2>
             <div class="Harassment-separate"></div>
-            <!--<Informations name="Publié par Dylan" like="23" comment="82" date="Il y a 5 heures" />-->
             <Comment name="Bryan Philipo" date="Il y a 2h" description="Trop moche c'est quoi cette photo !"/>
             <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Grave je préférerai être morte qu’avoir ta tête !"/>
             <Comment
@@ -20,10 +20,12 @@
                         class="Button-share"
                         type="button"
                         @click="updateShare(res.type, res.answer)">{{res.answer}}</button>
+                        <span></span><span></span><span></span><span></span></button>
                 <button
                         class="Button-report"
                         type="button"
-                        @click="updateReport">Signaler</button>
+                        @click="updateReport">Signaler
+                        <span></span><span></span><span></span><span></span></button>
             </div>
             </div>
         </div>
@@ -77,8 +79,8 @@
 <style scoped lang="scss">
     .Harassment {
         &-container {
-            border: 1.5px solid $white;
-            margin: 50px 0;
+            border: 1.5px solid $blue;
+            margin: 5rem 0;
         }
         &-group {
             padding: 0 7rem 3.8rem 7rem;
@@ -89,7 +91,7 @@
         &-title {
             font-size: 1.6rem;
             margin-bottom: 2rem;
-            margin-top: 4.8rem;
+            margin-top: 1.8rem;
         }
         &-separate {
             height: 1px;
@@ -97,9 +99,6 @@
             width: 46rem;
             margin-bottom: 1.7rem;
         }
-    }
-    .Informations-container {
-      margin-bottom: 1rem;
     }
     .Button {
       &-container {
@@ -113,11 +112,45 @@
       }
 
       &-share, &-report { 
-        box-shadow: 0px 0px 20px $yellow;
-        border-radius: 0.6rem;
-        color: $yellow;
+        border: 1px solid $violet;
+        border-radius: 2.1rem;
+        color: $violet;
         font-size: 1.4rem;
         padding: 1rem 1.3rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: 0.5s;
+        &:hover {
+            color: $white;
+        }
+        span {
+            position: absolute;
+            width: 25%;
+            height: 100%;
+            background-color: $violet;
+            transform: translateY(150%);
+            border-radius: 50%;
+            left: calc((var(--n) - 1) * 25%);
+            transition: 0.4s;
+            transition-delay: calc((var(--n) - 1) * 0.1s);
+            z-index: -1;
+        }
+        &:hover span {
+            transform: translateY(0) scale(2.8);
+        }
+        span:nth-child(1) {
+            --n: 1;
+        }
+        span:nth-child(2) {
+            --n: 2;
+        }
+        span:nth-child(3) {
+            --n: 3;
+        }
+        span:nth-child(4) {
+            --n: 4;
+        }
       }
     }
 </style>
