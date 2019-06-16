@@ -12,6 +12,7 @@
                     <button @click="emitEvent">Envoyer un poke</button>-->
                     <Charity />
                     <FakeNews />
+                    <Slider />
                     <Charity />
                     <Charity />
                     <Harassment />
@@ -27,11 +28,10 @@
 </template>
 
 <script>
-    import openSocket from 'socket.io-client';
-    import {BASE_API_URL} from "../../../utils/constant";
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
     import FakeNews from '@/components/traps/FakeNews';
+    import Slider from '@/components/traps/Slider';
     import Harassment from '@/components/traps/Harassment';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
     import StudentFlash from '@/components/student-progess/StudentFlash';
@@ -39,7 +39,7 @@
 
     export default {
         name: "SceneLayout",
-        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment, StudentFlash },
+        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation, FakeNews, Harassment, StudentFlash, Slider },
         data: () => ({
             counter: 0,
         }),
