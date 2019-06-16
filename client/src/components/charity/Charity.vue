@@ -120,7 +120,7 @@
         }
         &-titleImage {
             opacity: 0;
-            background-color: $grey--dark;
+            background-color: $violet;
             color : $white;
             border-radius: 1.2rem;
             height: 100%;
@@ -153,16 +153,18 @@
         cursor: pointer;
         width: 18rem;
         height: 120px;
-        border: 1px solid grey;
+        border: 1px solid $violet;
         border-radius: 1.2rem;
         background-size: cover;
         background-position: center;
         margin-bottom: 1.4rem;
         &.selected .indicator{
             opacity: 1;
-            box-shadow: 0px 0px 20px $violet;
             border-radius: 1.2rem;   
             height: 100%;
+            border: 2px solid $violet;
+            margin: -0.6rem;
+            padding: 6.3rem;
         }
         &.selected {
             .charity-titleImage {
