@@ -12,9 +12,9 @@ mongoose
         io.on('connection', socket => {
             console.log('Client connected');
 
-            socket.on('poke', (data) => {
+            socket.on('newStory', (data) => {
                 console.log(data, 'data');
-                return io.emit('poke', data)
+                return io.emit('newStory', data)
             });
 
             socket.on('disconnect', () => io.emit('disconnected'));

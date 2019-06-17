@@ -1,0 +1,23 @@
+.Button {
+    &-container {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &-share {
+        margin-right: 1rem;
+    }
+
+    &-share, &-report {
+        border: 1px solid $violet;
+        border-radius: 2.1rem;
+        padding: 1rem 1.3rem;
+        color: $violet;
+        font-size: 1.4rem;
+        &:hover {
+            color: $white;
+            transition: color .2s ease;
+        }
+    }
+}

@@ -8,7 +8,6 @@ import actions from './actions';
 import messages from './modules/messages'
 import score from './modules/score'
 import flash from './modules/flash'
-
 import stories from './modules/stories'
 import modalProgress from './modules/modalProgress'
 
@@ -26,5 +25,5 @@ export default new Vuex.Store({
         stories,
         modalProgress
     },
-    //plugins: [createPersistedState({ storage: window.sessionStorage })]
+    plugins: [createPersistedState({ storage: window.sessionStorage })]
 });

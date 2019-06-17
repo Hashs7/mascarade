@@ -46,9 +46,12 @@
             StudentNavigation, FakeNews, Harassment, StudentFlash,
             Slider, QuizzContainer
         },
-        data: () => ({
-            counter: 0,
-        }),
+        sockets: {
+            newStory(data) {
+                console.log('newStory');
+                this.$store.commit('addStory', data);
+            }
+        },
         mounted() {
             window.addEventListener('visibilitychange', () => {
                 switch(document.visibilityState) {
@@ -59,17 +62,6 @@
                 }
             })
         },
-        methods: {
-            emitEvent() {
-                this.counter +=5;
-                console.log();
-                this.$socket.emit('poke', {
-                    counter: this.counter,
-                    studentId: this.$store.state.studentId,
-                    sessionId: this.$store.state.sessionId
-                });
-            }
-        }
     }
 </script>
 

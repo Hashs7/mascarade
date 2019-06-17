@@ -1,9 +1,5 @@
 @import './layout/layout-scene';
-
-@font-face {
-  font-family: "Avenir";
-  src: url("../assets/fonts/AvenirLTStd-Medium.otf") format("otf");
-}
+@import './_button';
 
 body {
   width: 100vw;

@@ -40,14 +40,7 @@
     export default {
         name: "MessageContainer",
         components: { Message, Contact },
-        data: () => ({
-            messages: [],
-            forceComputed: 0
-        }),
         mounted() {
-            this.triggerComputed();
-            console.log(this.forceComputed);
-            // this.$recompute('showAnswer');
             this.initChat();
         },
         computed: {
@@ -63,8 +56,6 @@
                 return this.$store.state.messages.conversations[this.getSelectedContact.id].answers;
             },
             showAnswer() {
-                console.log('showAnswer');
-                this.forceComputed;
                 return this.$store.state.messages.conversations[this.getSelectedContact.id].showAnswers
             }
         },
@@ -75,12 +66,9 @@
             ...mapActions([
                 'addMessage',
             ]),
-            triggerComputed() {
-                this.forceComputed += 1;
-            },
             initChat() {
                 if(this.getCurrentConversation.length) return;
-                this.addGroupMessage(initMsg('Sarah'));
+                this.addGroupMessage(initMsg(this.$store.state.firstname));
             },
             addGroupMessage(msgArray) {
                 msgArray.stranger.forEach(({content, delay, type}, i) => {

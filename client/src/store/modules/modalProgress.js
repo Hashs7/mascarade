@@ -17,9 +17,6 @@ const state = {
     }
 };
 
-const getters = {
-};
-
 const actions = {
     updateInfo({commit, rootState}, studentId) {
         const sessionIndex = rootState.tabIndex.replace('tab-', '');
@@ -48,6 +45,5 @@ const mutations = {
 export default {
     state,
     mutations,
-    actions,
-    getters
+    actions
 }
