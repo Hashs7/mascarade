@@ -26,6 +26,30 @@ a {
 	text-decoration: none;
 }
 
+button:focus {
+	outline: none !important;
+}
+
+.VueCarousel-pagination--bottom-overlay {
+	bottom: 2rem !important;
+}
+
+.VueCarousel-dot {
+	position: relative;
+}
+.VueCarousel-dot--active {
+	&:after {
+		position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 5px;
+    left: 5px;
+		content: "";
+		border-radius: 100%;
+		border: 2px solid $violet;
+	}
+}
+
 textarea::-webkit-input-placeholder,  ::-webkit-input-placeholder  {
 	color: $violet;
 }
@@ -42,11 +66,30 @@ textarea:-ms-input-placeholder {
 	color: $violet;  
 }
 
-/*::-webkit-scrollbar {
-	background-color: $grey--dark;
-} 
-
-::-webkit-scrollbar-thumb {
-	background-color: rgba(0, 0, 0, 0.2); 
+input[type=radio]:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: $white;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid $violet;
 }
-*/
+
+input[type=radio]:checked:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: $violet;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid $violet;
+}

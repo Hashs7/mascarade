@@ -61,7 +61,6 @@
         &-header {
             img {
                 width: 100%;
-                border-bottom: 1.5px solid $blue;
                 height: 28rem;
             }
         }

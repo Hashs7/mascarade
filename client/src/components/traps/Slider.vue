@@ -3,8 +3,9 @@
         <carousel class="slider__carousel"
                   :per-page="1"
                   :mouse-drag="true"
-                  paginationColor="black"
-                  paginationActiveColor="blue"
+                  paginationColor="#B3EEFF"
+                  paginationActiveColor="#4E00FF"
+                  paginationPosition="bottom-overlay"
                   @page-change="changeSlide">
             <slide class="slider__slide">
                 <img class="slider__image" :src="harassment"/>
@@ -52,7 +53,6 @@
 <style scoped lang="scss">
     .slider {
         &__container {
-            border: 1.5px solid $blue;
 
             .VueCarousel-dot-container {
                 margin: 0;
@@ -66,6 +66,19 @@
                     z-index: 5 !important;
                 }
             }
+        }
+        &__group {
+          padding: 0 7rem 3.8rem 7rem;
+        }
+        &__separate {
+          height: 1px;
+          background: grey;
+          width: 46rem;
+          margin-bottom: 1.7rem;
+        }
+        &__title {
+          margin-bottom: 2rem;
+          margin-top: 1.8rem;
         }
     }
 </style>

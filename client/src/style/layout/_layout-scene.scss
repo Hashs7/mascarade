@@ -1,14 +1,10 @@
 .student-achievement {
-    flex-basis: 20%;
-    max-width: 20%;
-
     .achievements {
         background-color: $black;
     }
 }
 
 .Layout-container {
-    display: flex;
     background-color: $white;
     min-height: 100vh;
 }
@@ -22,7 +18,7 @@
   width: 87rem;
   margin: auto;
   justify-content: space-between;
-  margin-top: 10rem;
+  margin-top: 2rem;
 }
 
 .layout-content {
@@ -30,7 +26,6 @@
   max-width: 80%; 
   width: 87rem;
   margin: auto;
-  margin-bottom: 4rem;
 }
 
 .flash-container {

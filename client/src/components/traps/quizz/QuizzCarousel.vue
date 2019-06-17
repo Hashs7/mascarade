@@ -5,12 +5,12 @@
         </div>
         <carousel :per-page="1"
                   :mouse-drag="false"
-                  paginationColor="black"
-                  paginationActiveColor="white">
+                  paginationColor="#B3EEFF"
+                  paginationActiveColor="#4E00FF">
 
-            <slide v-for="(slide, i) in slides" :key="i">
-                <h3>{{slide.label}}</h3>
-                <ul>
+            <slide class="quizz__slide" v-for="(slide, i) in slides" :key="i">
+                <h3 class="quizz__listTitle">{{slide.label}}</h3>
+                <ul class="quizz__list">
                     <li v-for="(res, j) in slide.responses" :key="j">
                         <input type="radio" :id="sub(res)+j" :name="slide.label" :value="res">
                         <label :for="sub(res)+j">{{res}}</label>
@@ -47,7 +47,7 @@
                 responses: ['Un chanteur', 'Un rappeur', 'Un DJ', 'Un mannequin']
             },{
                 label: "Sur les réseaux sociaux, tu es plutôt...",
-                responses: ['Toujours présent', 'Très discret', 'Tu postes de temps en temps', 'Un(e) roi/reine']
+                responses: ['Toujours debout', 'Toujours la banane', 'Tu postes de temps en temps', 'Un(e) roi/reine']
             }]
         }),
         methods: {
@@ -58,6 +58,26 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+    .quizz {
+        &__list {
+            color: $violet;
+            li {
+                input {
+                    margin-right: 1rem;
+                }
+            }
+        }
+        &__listTitle {
+            font-weight: normal;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+        &__slide {
+            padding: 0 7rem 3.8rem 7rem;
+        }
+    }
+    .slider__image {
+        width: 100%;
+    }
 </style>
