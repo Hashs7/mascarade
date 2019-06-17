@@ -4,7 +4,7 @@
                   :per-page="1"
                   :mouse-drag="true"
                   paginationColor="black"
-                  paginationActiveColor="white"
+                  paginationActiveColor="blue"
                   @page-change="changeSlide">
             <slide class="slider__slide">
                 <img class="slider__image" :src="harassment"/>
@@ -50,18 +50,22 @@
 </script>
 
 <style scoped lang="scss">
-.slider {
-  &__container {
-    border: 1.5px solid $blue;
-    .VueCarousel-dot-container {
-      margin: 0;
-    }
-  }
-  &__carousel {
-    &.VueCarousel {
-        .VueCarousel-pagination{
-        margin-top: -6rem !important;
-        z-index: 5 !important;
-      }
+    .slider {
+        &__container {
+            border: 1.5px solid $blue;
+
+            .VueCarousel-dot-container {
+                margin: 0;
+            }
+        }
+
+        &__carousel {
+            &.VueCarousel {
+                .VueCarousel-pagination {
+                    margin-top: -6rem !important;
+                    z-index: 5 !important;
+                }
+            }
+        }
     }
 </style>

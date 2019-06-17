@@ -33,7 +33,6 @@
     import Charity from '@/components/charity/Charity';
     import QuizzContainer from '@/components/traps/quizz/QuizzContainer';
     import FakeNews from '@/components/traps/FakeNews';
-    import Slider from '@/components/traps/Slider';
     import Harassment from '@/components/traps/Harassment';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
     import StudentFlash from '@/components/student-progess/StudentFlash';

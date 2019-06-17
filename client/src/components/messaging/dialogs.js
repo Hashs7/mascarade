@@ -1,31 +1,31 @@
-export const initMsg = (name) => {
-    return {
-        stranger: [{
-            content: `Coucou ${name} !`,
-            delay: 500,
-            type: 'stranger'
-        },{
-            content: "Tu veux participer pour gagner un iphone 8 gratuitement ?",
-            delay: 1500,
-            type: 'stranger'
-        },{
-            content: "C’est un concours pour mes fans !",
-            delay: 2500,
-            type: 'stranger'
-        }],
-        responses: [{
-            content: "Oh oui j’aimerais trop",
-            repIndex: 0,
-            type: 'student'
-        },{
-            content: "Comment je peux savoir que c’est vraiment Cyprien ?",
-            repIndex: 1,
-            type: 'student'
-        }]
-    };
-};
+export const initMsg = (name) => ({
+    convId: 0,
+    stranger: [{
+        content: `Coucou ${name} !`,
+        delay: 500,
+        type: 'stranger'
+    },{
+        content: "Tu veux participer pour gagner un iphone 8 gratuitement ?",
+        delay: 1500,
+        type: 'stranger'
+    },{
+        content: "C’est un concours pour mes fans !",
+        delay: 2500,
+        type: 'stranger'
+    }],
+    responses: [{
+        content: "Oh oui j’aimerais trop",
+        repIndex: 0,
+        type: 'student'
+    },{
+        content: "Comment je peux savoir que c’est vraiment Cyprien ?",
+        repIndex: 1,
+        type: 'student'
+    }]
+});
 
 const repIndex0 = {
+    convId: 0,
     stranger: [{
         content: `D’accord tu vas devoir me suivre étape par étape pour que tu puisses recevoir ton iphone 48h après ta participation`,
         delay: 500,
@@ -47,6 +47,7 @@ const repIndex0 = {
 };
 
 const repIndex1 = {
+    convId: 0,
     stranger: [{
         content: `C’est mon deuxième compte je l’ai créé spécialement pour les cadeaux pour mes fans et c’est moi qui choisi les participants`,
         delay: 800,
@@ -64,6 +65,7 @@ const repIndex1 = {
 };
 
 const repIndex2 = {
+    convId: 0,
     stranger: [{
         content: `Très bon choix maintenant pour confirmer ta participation le système te demander un code reçu gratuitement par téléphone`,
         delay: 800,
@@ -85,6 +87,7 @@ const repIndex2 = {
 };
 
 const repIndex3 = {
+    convId: 0,
     stranger: [{
         content: `Parce qu’il y a beaucoup de fans qui participent`,
         delay: 800,
@@ -98,6 +101,7 @@ const repIndex3 = {
 };
 
 const repIndex4 = {
+    convId: 0,
     stranger: [{
         content: `photo floue`,
         delay: 800,

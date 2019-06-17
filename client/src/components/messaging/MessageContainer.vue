@@ -20,7 +20,7 @@
                 <span class="chatbox-help-msg">Choisis ta réponse</span>
                 <div class="chatbox-separate"></div>
             </div>
-            <div class="chatbox-answer" v-if="$store.state.messages.conversations[getSelectedContact.id].showAnswers">
+            <div class="chatbox-answer" v-if="showAnswer">
                 <button class="answer outline"
                         v-for="res in responses"
                         @click="studentResponse(res.content, res.repIndex)">
@@ -42,11 +42,12 @@
         components: { Message, Contact },
         data: () => ({
             messages: [],
-            responses: [],
-            showAnswers: false
+            forceComputed: 0
         }),
         mounted() {
-            console.log(this.getCurrentConversation, 'selected');
+            this.triggerComputed();
+            console.log(this.forceComputed);
+            // this.$recompute('showAnswer');
             this.initChat();
         },
         computed: {
@@ -57,6 +58,14 @@
             ]),
             contacts() {
                 return this.$store.state.messages.conversations;
+            },
+            responses() {
+                return this.$store.state.messages.conversations[this.getSelectedContact.id].answers;
+            },
+            showAnswer() {
+                console.log('showAnswer');
+                this.forceComputed;
+                return this.$store.state.messages.conversations[this.getSelectedContact.id].showAnswers
             }
         },
         methods: {
@@ -66,6 +75,9 @@
             ...mapActions([
                 'addMessage',
             ]),
+            triggerComputed() {
+                this.forceComputed += 1;
+            },
             initChat() {
                 if(this.getCurrentConversation.length) return;
                 this.addGroupMessage(initMsg('Sarah'));
@@ -75,13 +87,12 @@
                     setTimeout(() => {
                         this.addMessage({id: 0, answer: content, type});
                         if(msgArray.stranger.length - 1 === i) {
-                            const currentId = this.getSelectedContact.id;
-                            console.log('passed', currentId);
+                            const currentId = msgArray.convId;
                             setTimeout(() => this.$store.state.messages.conversations[currentId].showAnswers = true, 1000);
                         }
                     }, delay);
                 });
-                this.responses = msgArray.responses;
+                this.$store.state.messages.conversations[this.getSelectedContact.id].answers = msgArray.responses;
             },
             studentResponse(answer, repIndex) {
                 const id = this.getSelectedContact.id;
@@ -168,5 +179,4 @@
             //transform: scale(1.05);
         }
     }
-
 </style>

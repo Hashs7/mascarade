@@ -7,6 +7,7 @@ const conversationExample = {
     author: 'Michel',
     lastAnswer: null,
     showAnswers: false,
+    answers: [],
     responses: []
 };
 
@@ -17,6 +18,7 @@ const conversationExample2 = {
     type: 'hacker',
     lastAnswer: null,
     showAnswers: false,
+    answers: [],
     responses: []
 };
 
