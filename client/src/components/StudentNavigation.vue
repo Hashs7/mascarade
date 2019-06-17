@@ -70,17 +70,11 @@
     .nav {
         &-scenes {
             display: flex;
-            width: 87rem;
             justify-content: space-between;
             align-items: flex-end;
             padding-bottom: 2rem;
-            padding-top: 2rem;
-            padding-right: 4rem;
             margin: auto;
             background: $white;
-            position: fixed;
-            z-index: 5;
-            top: 0;
         }
         &-right {
             display: flex;

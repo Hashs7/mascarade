@@ -7,9 +7,6 @@
             <StudentNavigation />
             <div class="layout-main">
                 <div class="layout-traps">
-                    <!--<p>Super tu es à la première scène</p>
-                    <p>Compteur : {{ counter }}</p>
-                    <button @click="emitEvent">Envoyer un poke</button>-->
                     <Slider />
                     <Charity />
                     <FakeNews />
