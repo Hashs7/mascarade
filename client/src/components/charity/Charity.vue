@@ -107,7 +107,6 @@
     .charity {
         &-container {
             margin: 50px 0;
-            border: 1.5px solid $blue;
         }
         &-title, &-description {
             display: block;
@@ -122,7 +121,7 @@
             opacity: 0;
             background-color: $violet;
             color : $white;
-            border-radius: 1.2rem;
+            border-radius: 1.05rem;
             height: 100%;
             display: flex;
             justify-content: center;
@@ -160,7 +159,7 @@
         margin-bottom: 1.4rem;
         &.selected .indicator{
             opacity: 1;
-            border-radius: 1.2rem;   
+            border-radius: 1.5rem;   
             height: 100%;
             border: 2px solid $violet;
             margin: -0.6rem;

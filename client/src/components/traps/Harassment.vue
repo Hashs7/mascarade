@@ -19,8 +19,9 @@
                         :key="i"
                         class="Button-share"
                         type="button"
-                        @click="updateShare(res.type, res.answer)">{{res.answer}}</button>
+                        @click="updateShare(res.type, res.answer)">{{res.answer}}
                         <span></span><span></span><span></span><span></span></button>
+                        
                 <button
                         class="Button-report"
                         type="button"
@@ -79,7 +80,6 @@
 <style scoped lang="scss">
     .Harassment {
         &-container {
-            border: 1.5px solid $blue;
             margin: 5rem 0;
         }
         &-group {

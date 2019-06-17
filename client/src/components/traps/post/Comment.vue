@@ -40,7 +40,7 @@
         font-size: 1.4rem;
         margin:0;
         margin-right: 1rem;
-        color: $blue;
+        color: $violet;
       }
       &-date {
         margin: 0;

@@ -43,15 +43,14 @@
       &-group {
         display: flex;
         flex-direction: column;
-        border: 1px solid $blue;
         border-radius: 2.6rem;
         padding: 1rem 1.3rem;
-        color: $blue;
+        color: $white;
         width: 24.4rem;
         height: 5.2rem;
         justify-content: center;
         align-items: center;
-        background: $white;
+        background: $violet;
       }
     }
      
