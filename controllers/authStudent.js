@@ -29,6 +29,8 @@ exports.signup = (req, res, next) => {
                 surname: surname,
                 gender: gender,
                 roomId: roomId,
+                quizz: [],
+                slider: 0,
                 progress: 0,
                 harassment: {
                     action: null
@@ -91,6 +93,8 @@ exports.signup = (req, res, next) => {
                     surname,
                     gender,
                     progress: 0,
+                    quizz: [],
+                    slider: 0,
                     harassment: {
                         action: null
                     },
@@ -320,6 +324,36 @@ exports.updateScene = (req, res, next) => {
             };
 
             io.getIO().emit('updateScene', payload);
+            res.status(201).json({
+                message: 'La scène a été mis à jour',
+                payload
+            });
+        })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
+};
+
+exports.updateQuizz = (req, res, next) => {
+    const { studentId, sessionId, responses } = req.body;
+
+    Student.findById(studentId)
+        .populate()
+        .then(student => {
+            student.quizz = responses;
+            return student.save()
+        })
+        .then(result => {
+            const payload = {
+                studentId: studentId,
+                sessionId: sessionId,
+                responses
+            };
+
+            io.getIO().emit('updateQuizz', payload);
             res.status(201).json({
                 message: 'La scène a été mis à jour',
                 payload

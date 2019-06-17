@@ -26,6 +26,14 @@ const studentSchema = new Schema({
         type: String,
         required: true
     },
+    quizz: {
+        type: Array,
+        required: true
+    },
+    slider: {
+        type: Number,
+        required: true
+    },
     progress: {
         type: Number,
         required: true
