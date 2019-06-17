@@ -30,6 +30,30 @@ a {
 	text-decoration: none;
 }
 
+button:focus {
+	outline: none !important;
+}
+
+.VueCarousel-pagination--bottom-overlay {
+	bottom: 2rem !important;
+}
+
+.VueCarousel-dot {
+	position: relative;
+}
+.VueCarousel-dot--active {
+	&:after {
+		position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 5px;
+    left: 5px;
+		content: "";
+		border-radius: 100%;
+		border: 2px solid $violet;
+	}
+}
+
 textarea::-webkit-input-placeholder,  ::-webkit-input-placeholder  {
 	color: $violet;
 }
