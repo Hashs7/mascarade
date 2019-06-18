@@ -1,15 +1,20 @@
 <template>
     <div class="quizz__container">
         <div class="play-container">
-            <div v-if="isIntro" class="start">
+            <div v-if="quizzState==='intro'" class="start">
                 <p class="quizz__title">Quelle star es-tu ?</p>
                 <RippleButton :clickAction="startQuizz" name="JOUER"></RippleButton>
             </div>
-            <div v-else class="carousel">
-                <QuizzCarousel />
+            <div v-else-if="quizzState==='response'" class="carousel">
+                <QuizzCarousel @isLast="showButton" />
+                <button v-if="buttonVisible" @click="endQuizz"> Valider</button>
+            </div>
+            <div v-else class="start">
+                <p class="quizz__title">Fin</p>
+                <RippleButton :clickAction="startQuizz" name="JOUER"></RippleButton>
             </div>
         </div>
-        <div v-if="isIntro" class="quizz__description">
+        <div v-if="quizzState==='intro'" class="quizz__description">
             <p>Avec ce rapide quizz, découvre le profil de la star que tu pourrais incarner !</p>
             <p>Réponds à plusieurs questions avant de voir le résultat.</p>
         </div>
@@ -24,11 +29,19 @@
         name: "QuizzContainer",
         components: { QuizzCarousel, RippleButton },
         data: () => ({
-            isIntro: true
+            quizzState: "intro",
+            buttonVisible: false
         }),
         methods: {
             startQuizz() {
-                this.isIntro = false;
+                this.quizzState = "response";
+            },
+            endQuizz() {
+                this.quizzState = "end";
+            }, 
+            showButton(show) {
+                this.buttonVisible = show;
+                console.log("show", show);
             }
         }
     }

@@ -6,7 +6,8 @@
         <carousel :per-page="1"
                   :mouse-drag="false"
                   paginationColor="#B3EEFF"
-                  paginationActiveColor="#4E00FF">
+                  paginationActiveColor="#4E00FF"
+                  @page-change="slideChange">
 
             <slide class="quizz__slide" v-for="(slide, i) in slides" :key="i">
                 <h3 class="quizz__listTitle">{{slide.label}}</h3>
@@ -31,6 +32,7 @@
 <script>
     import { Carousel, Slide } from 'vue-carousel';
     import {updateQuizz} from "../../../utils/API";
+import { clone } from '@babel/types';
 
     //TODO ajouter les controles
     export default {
@@ -73,6 +75,11 @@
                     const clearRes = responses.filter(el => el.length > 0);
                     updateQuizz(studentId, sessionId, clearRes);
                 }, 10);
+            },
+            slideChange(i) {
+                console.log(i);
+                console.log(this.slides.length -1);
+                this.slides.length -1 === i ? this.$emit("isLast", true) : this.$emit("isLast", false); 
             }
         }
     }
