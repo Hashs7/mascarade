@@ -8,30 +8,6 @@
                 :name="img.name"
                 :description="img.description"/>
         </div>
-        <div class="nav-right">
-            <div class="nav-link">
-                <router-link class="item home" to="/student/exp">
-                    <Home />
-                </router-link>
-            </div>
-            <div class="nav-link">
-                <router-link class="item msg" to="/student/messages">
-                    <Msg />
-                </router-link>
-            </div>
-            <div class="nav-link">
-                <span class="item help">
-                    <v-tooltip bottom>
-                      <template v-slot:activator="{ on }">
-                        <button v-on="on">
-                            <Help />
-                        </button>
-                      </template>
-                      <span>Demander de l'aide à l'intervenant</span>
-                    </v-tooltip>
-                </span>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -70,7 +46,7 @@
     .nav {
         &-scenes {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: flex-end;
             padding-bottom: 2rem;
             margin: auto;
