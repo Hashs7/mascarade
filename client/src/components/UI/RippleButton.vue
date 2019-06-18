@@ -31,6 +31,9 @@
 
     export default {
         props: ['name', 'clickAction'],
+        mounted() {
+            console.log( this.clickAction, this.name);
+        },
         methods: {
             rippleIn(event, timing = .5) {
                 const tl         = new TimelineMax();

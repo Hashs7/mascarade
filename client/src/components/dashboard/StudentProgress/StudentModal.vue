@@ -54,7 +54,9 @@
                     <v-list-tile v-if="quizz.length">
                         <v-list-tile-content>
                             <v-list-tile-title>Réponses au quizz</v-list-tile-title>
-                            <v-list-tile-sub-title v-for="(rep, i) in quizz" :key="i">{{rep}}</v-list-tile-sub-title>
+                            <v-list-tile-sub-title>
+                                <span v-for="(rep, i) in quizz" :key="i" class="quizz-res">{{rep}}</span>
+                            </v-list-tile-sub-title>
                         </v-list-tile-content>
                     </v-list-tile>
 
@@ -120,6 +122,17 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.quizz-res {
+    &:last-child {
+        &:after {
+            content: '';
+        }
+    }
+    &:after {
+        display: inline-block;
+        content: '|';
+        margin: 0 6px;
+    }
+}
 </style>

@@ -15,12 +15,11 @@
             <div class="Button-container">
             <div class="Button-group">
                 <RippleButton
-                    v-for="(res,i) in choices"
+                    v-for="(res, i) in choices"
                     :key="i"
-                    :clickAction="updateShare(res.type, res.answer)"
-                    :name=res.answer>
-                </RippleButton>
-                        
+                    :clickAction="() => updateShare(res.type, res.answer)"
+                    :name="res.answer" />
+
                 <RippleButton
                     :clickAction="updateReport"
                     name="Signaler">
