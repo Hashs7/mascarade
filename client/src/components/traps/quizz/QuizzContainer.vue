@@ -7,11 +7,11 @@
             </div>
             <div v-else-if="quizzState==='response'" class="carousel">
                 <QuizzCarousel @isLast="showButton" />
-                <button v-if="buttonVisible" @click="endQuizz"> Valider</button>
+                <RippleButton v-if="buttonVisible" :clickAction="endQuizz" name="Valider"></RippleButton>
             </div>
             <div v-else class="start">
                 <p class="quizz__listTitle">Pour connaître ton résultat nous avons besoin :</p>
-                <form action="" method="get" class="form">
+                <form action="" method="get" class="form" autocomplete="off">
                     <div class="form__field">
                         <label for="email">Ton adresse </label>
                         <input type="text" name="name" id="email" required>
@@ -102,6 +102,11 @@
             input {
                 border: 1px solid $violet;
                 border-radius: 1.3rem;
+                padding-left: 1.2rem;
+                font-size: 1.2rem;
+                padding-top : 0.5rem;
+                padding-bottom: 0.5rem;
+                outline: none;
             }
         }
     }
@@ -112,5 +117,13 @@
     }
     .info {
         margin-top: 60px;
+    }
+    .carousel {
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            position : relative;
+            bottom: 8.5rem;
+        }
     }
 </style>
