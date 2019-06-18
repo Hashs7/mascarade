@@ -14,19 +14,17 @@
                     :description="response.desc"/>
             <div class="Button-container">
             <div class="Button-group">
-                <button
-                        v-for="(res,i) in choices"
-                        :key="i"
-                        class="Button-share"
-                        type="button"
-                        @click="updateShare(res.type, res.answer)">{{res.answer}}
-                        <span></span><span></span><span></span><span></span></button>
+                <RippleButton
+                    v-for="(res,i) in choices"
+                    :key="i"
+                    @click="updateShare(res.type, res.answer)"
+                    :name=res.answer>
+                </RippleButton>
                         
-                <button
-                        class="Button-report"
-                        type="button"
-                        @click="updateReport">Signaler
-                        <span></span><span></span><span></span><span></span></button>
+                <RippleButton
+                    @click="updateReport"
+                    name="Signaler">
+                </RippleButton>
             </div>
             </div>
         </div>
@@ -38,10 +36,11 @@
     import Comment from '@/components/traps/post/Comment';
     import Harassment from '@/assets/img/harassment.jpg';
     import {getTime} from "../../store/modules/messages";
+    import RippleButton from '@/components/UI/RippleButton';
 
     export default {
         name: "Harassment",
-        components: { Informations, Comment },
+        components: { Informations, Comment, RippleButton },
         data: () => ({
             harassment: Harassment,
             response: {
@@ -109,48 +108,6 @@
 
       &-share {
           margin-right: 1rem;
-      }
-
-      &-share, &-report { 
-        border: 1px solid $violet;
-        border-radius: 2.1rem;
-        color: $violet;
-        font-size: 1.4rem;
-        padding: 1rem 1.3rem;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-        transition: 0.5s;
-        &:hover {
-            color: $white;
-        }
-        span {
-            position: absolute;
-            width: 25%;
-            height: 100%;
-            background-color: $violet;
-            transform: translateY(150%);
-            border-radius: 50%;
-            left: calc((var(--n) - 1) * 25%);
-            transition: 0.4s;
-            transition-delay: calc((var(--n) - 1) * 0.1s);
-            z-index: -1;
-        }
-        &:hover span {
-            transform: translateY(0) scale(2.8);
-        }
-        span:nth-child(1) {
-            --n: 1;
-        }
-        span:nth-child(2) {
-            --n: 2;
-        }
-        span:nth-child(3) {
-            --n: 3;
-        }
-        span:nth-child(4) {
-            --n: 4;
-        }
       }
     }
 </style>

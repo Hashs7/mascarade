@@ -86,7 +86,7 @@
         justify-content: space-around;
         position: fixed;
         top: 0;
-        z-index: 3;
+        z-index: 35;
         left: 0;
         right: 0;
         &-container {

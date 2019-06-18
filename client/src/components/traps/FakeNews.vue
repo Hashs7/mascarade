@@ -10,16 +10,16 @@
             >Lire la suite</a>
             <div class="Button-container">
                 <div class="Button-group">
-                    <RippleButton id="show-modal" @click="showModal" name="Partager"></RippleButton>
-                    <RippleButton @click="updateReport" name="Signaler"></RippleButton>
+                    <RippleButton id="show-modal" :clickAction="showModal" name="Partager"></RippleButton>
+                    <RippleButton :clickAction="updateReport" name="Signaler"></RippleButton>
                     <modal v-show="isModalVisible"
-                           @close="closeModal"
-                           title="Notifications"
-                           description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
-                           question="L’information est-elle correcte ?"
-                           buttonFirst="Oui"
-                           :buttonFirstAction="updateShare"
-                           buttonSecond="Non"/>
+                        @close="closeModal"
+                        title="Notifications"
+                        description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
+                        question="L’information est-elle correcte ?"
+                        buttonFirst="Oui"
+                        :buttonFirstAction="updateShare"
+                        buttonSecond="Non"/>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 <template>
     <div class="btn-container">
         <button ref="rippleBtn"
+                @click="clickAction"
                 class="Button-share btn btn-ripple btn--tamaya"
                 :data-text="name"
                 data-hover="none"
@@ -29,7 +30,7 @@
     import { TimelineMax } from 'gsap';
 
     export default {
-        props: ['name'],
+        props: ['name', 'clickAction'],
         methods: {
             rippleIn(event, timing = .5) {
                 const tl         = new TimelineMax();

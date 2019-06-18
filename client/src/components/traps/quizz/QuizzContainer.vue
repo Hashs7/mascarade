@@ -3,7 +3,7 @@
         <div class="play-container">
             <div v-if="isIntro" class="start">
                 <p class="quizz__title">Quelle star es-tu ?</p>
-                <button @click="startQuizz" class="quizz__button">JOUER</button>
+                <RippleButton @click="startQuizz" name="JOUER"></RippleButton>
             </div>
             <div v-else class="carousel">
                 <QuizzCarousel />
@@ -18,12 +18,11 @@
 
 <script>
     import QuizzCarousel from '@/components/traps/quizz/QuizzCarousel';
+    import RippleButton from '@/components/UI/RippleButton';
 
     export default {
         name: "QuizzContainer",
-        components: {
-            QuizzCarousel
-        },
+        components: { QuizzCarousel, RippleButton },
         data: () => ({
             isIntro: true
         }),
@@ -44,18 +43,6 @@
         &__title {
             text-transform: uppercase;
             font-size: 3rem;
-        }
-        &__button {
-            border: 1px solid $violet;
-            border-radius: 2.1rem;
-            color: $violet;
-            font-size: 1.4rem;
-            padding: 1rem 1.3rem;
-            font-weight: bold;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            transition: 0.5s;
         }
         &__description {
             line-height: 1.5rem;
