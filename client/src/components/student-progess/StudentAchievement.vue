@@ -84,6 +84,11 @@
         color: white;
         display: flex;
         justify-content: space-around;
+        position: fixed;
+        top: 0;
+        z-index: 35;
+        left: 0;
+        right: 0;
         &-container {
             display: flex;
             align-items: center;    
@@ -99,7 +104,7 @@
         &-group {
             display: flex;
             margin: auto;
-            width: 1200px;
+            max-width: 1200px;
             justify-content: space-between;
         }
         &-title {

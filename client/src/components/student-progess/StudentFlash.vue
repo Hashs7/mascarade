@@ -52,6 +52,12 @@
 
 <style scoped lang="scss">
     .flash {
+        &-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+        }
         &-title {
             display: block;
             color: $violet;

@@ -15,27 +15,18 @@
 
 .layout-main{
   display: flex;
-  width: 87rem;
-  margin: auto;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 2rem;
 }
 
 .layout-content {
-  padding: 2rem 1.6rem 1.6rem 1.6rem;
-  max-width: 80%; 
-  width: 87rem;
+  width: 600px;
   margin: auto;
+  position: relative;
+  margin-top: 9rem;
 }
 
 .flash-container {
-  width: 18rem;
-  height: 100%;
-  padding-left: 1rem;
+  padding-left: 2rem;
   padding-right: 1rem;
-}
-
-.theme--light.application {
-    //background-color: $grey--dark !important;
-    //color: $white !important;
 }

@@ -4,6 +4,9 @@
             <StudentAchievement />
         </div>
         <div class="layout-content">
+            <div class="layout-flash">
+                <StudentFlash />
+            </div>
             <StudentNavigation />
             <div class="layout-main">
                 <div class="layout-traps">
@@ -15,9 +18,6 @@
                     <QuizzContainer />
                     <Harassment />
                     <FakeNews />
-                </div>
-                <div class="layout-flash">
-                    <StudentFlash />
                 </div>
             </div>
         </div>

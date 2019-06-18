@@ -27,7 +27,7 @@
                     placeholder="Ajoute une description (minimum 50 mots)"></textarea>
             <div class="Button-container">
                 <div class="Button-group">
-                    <button class="Button-share" type="submit" @click.prevent="shareCharity">Partager</button>
+                    <RippleButton :clickAction="shareCharity" name="Partager"></RippleButton>
                 </div>
             </div>
         </form>
@@ -42,9 +42,11 @@
     import Violences from '@/assets/img/charity/violences.jpg'
     import War from '@/assets/img/charity/war.jpg'
     import {updateCharity} from "../../utils/API";
+    import RippleButton from '@/components/UI/RippleButton';
 
     export default {
         name: "Charity",
+        components: { RippleButton },
         data: () => ({
             title: null,
             description: null,
@@ -191,20 +193,6 @@
         margin-top: 2rem;  
         display: flex;
         justify-content: flex-end;
-      }
-
-      &-share, &-report {
-        border: 1px solid $violet;
-        border-radius: 2.1rem;
-        padding: 1rem 1.3rem;
-        color: $violet;
-        font-size: 1.4rem;
-        &:hover {
-            transition: ease 0.2s;
-            background: $violet;
-            color: $white;
-            //transform: scale(1.05);
-        }
       }
     }
 </style>

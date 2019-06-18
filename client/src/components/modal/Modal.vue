@@ -1,8 +1,10 @@
 <script>
     import Notification from '@/assets/notification.svg';
+    import RippleButton from '@/components/UI/RippleButton';
+
     export default {
         name: 'modal',
-        components: { Notification },
+        components: { Notification, RippleButton },
         template: '#modal',
         data: () => ({
             isModalVisible: false,
@@ -70,22 +72,20 @@
                     </slot>
                 </footer>
                 <div class="button-footer">
-                    <button
-                            type="button"
-                            class="btn-green"
-                            @click="firstButton"
+                    <RippleButton
+                            :clickAction="firstButton"
                             aria-label="Close modal"
+                            :name=buttonFirst
                     >
                         {{buttonFirst}}
-                    </button>
-                    <button
-                            type="button"
-                            class="btn-green"
-                            @click="close"
+                    </RippleButton>
+                    <RippleButton
+                            :clickAction="close"
                             aria-label="Close modal"
+                            :name=buttonSecond
                     >
                         {{buttonSecond}}
-                    </button>
+                    </RippleButton>
                 </div>
             </div>
             </div>
@@ -101,7 +101,7 @@
         left: 0;
         right: 0;
         background-color: rgba(255, 255, 255, 0.6);
-        z-index: 9;
+        z-index: 40;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -178,5 +178,8 @@
         &:first-child {
             margin-right: 1rem;
         }
+    }
+    .btn-ripple {
+        background: transparent;
     }
 </style>
