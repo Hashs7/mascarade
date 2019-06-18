@@ -93,7 +93,7 @@
     </transition>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
     .modal-backdrop {
         position: fixed;
         top: 0;
@@ -179,7 +179,9 @@
             margin-right: 1rem;
         }
     }
-    .btn-ripple {
-        background: transparent;
+    .Button-share {
+        &.btn-ripple {
+            background: transparent !important;
+        }
     }
 </style>

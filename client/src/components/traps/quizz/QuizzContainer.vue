@@ -10,8 +10,24 @@
                 <button v-if="buttonVisible" @click="endQuizz"> Valider</button>
             </div>
             <div v-else class="start">
-                <p class="quizz__title">Fin</p>
-                <RippleButton :clickAction="startQuizz" name="JOUER"></RippleButton>
+                <p class="quizz__listTitle">Pour connaître ton résultat nous avons besoin :</p>
+                <form action="" method="get" class="form">
+                    <div class="form__field">
+                        <label for="email">Ton adresse </label>
+                        <input type="text" name="name" id="email" required>
+                    </div>
+                    <div class="form__field">
+                        <label for="tel">Ton numéro de téléphone </label>
+                        <input type="email" name="tel" id="tel" required>
+                    </div>
+                    <div class="form__field">
+                        <label for="date">Ta date de naissance</label>
+                        <input type="text" name="date" id="date" required>
+                    </div>
+                    <div class="form__field">
+                        <RippleButton :clickAction="startQuizz" name="Envoyer"></RippleButton>
+                    </div>
+                </form>
             </div>
         </div>
         <div v-if="quizzState==='intro'" class="quizz__description">
@@ -57,11 +73,36 @@
             text-transform: uppercase;
             font-size: 3rem;
         }
+        &__listTitle {
+            font-weight: normal;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
         &__description {
             line-height: 1.5rem;
             font-size: 1.4rem;
             margin-top: 6rem;
             padding: 0 7rem 3.8rem 7rem;
+        }
+    }
+    .form {
+        &__field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.2rem; 
+            width: 30rem;
+            &:last-child {
+                display: flex;
+                align-items: center;
+                margin-top: 2rem; 
+            }
+            label {
+                color: $violet;
+            }
+            input {
+                border: 1px solid $violet;
+                border-radius: 1.3rem;
+            }
         }
     }
     .start {

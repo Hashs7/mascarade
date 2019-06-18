@@ -116,7 +116,7 @@
             }
         }
         &-datas {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             line-height: 2.7rem;
             font-weight: bold;
             li {
