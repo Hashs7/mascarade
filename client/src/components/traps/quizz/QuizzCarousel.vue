@@ -32,7 +32,6 @@
 <script>
     import { Carousel, Slide } from 'vue-carousel';
     import {updateQuizz} from "../../../utils/API";
-import { clone } from '@babel/types';
 
     //TODO ajouter les controles
     export default {
