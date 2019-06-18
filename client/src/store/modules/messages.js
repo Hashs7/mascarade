@@ -31,7 +31,8 @@ export const getTime = () => {
 };
 
 const state = {
-    conversations: [conversationExample, conversationExample2],
+    hasNotif: true,
+    conversations: [conversationExample, conversationExample2]
 };
 
 const getters = {
@@ -95,6 +96,13 @@ const mutations = {
     selectConversation(state, {id}) {
         state.conversations.map(conv => conv.selected = false);
         state.conversations[id].selected = true;
+    },
+    toggleNotif(state, isActive) {
+        if(isActive) {
+            state.hasNotif = isActive;
+            return
+        }
+        state.hasNotif = !state.hasNotif;
     }
 };
 

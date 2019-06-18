@@ -15,7 +15,7 @@
                     <Home />
                 </router-link>
             </div>
-            <div class="nav-link">
+            <div class="nav-link" :class="{hasNotif: hasNotif}">
                 <router-link class="item msg" to="/student/messages">
                     <Msg />
                 </router-link>
@@ -55,6 +55,9 @@
             reports() {
                 return this.$store.state.score.reports;
             },
+            hasNotif() {
+                return this.$store.state.messages.hasNotif;
+            },
             isPlurial() {
                 return type => this.$store.state.score[type] > 1 ? 's' : null;
             }
@@ -77,7 +80,20 @@
             }
     }
     .nav-link {
+        position: relative;
         margin-top: 1rem;
+
+        &.hasNotif:before {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            display: block;
+            content: '';
+            width: 14px;
+            height: 14px;
+            border-radius: 100%;
+            background-color: $violet;
+        }
     }
     .achievements {
         background:$gradient;

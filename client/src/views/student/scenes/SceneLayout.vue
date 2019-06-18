@@ -11,13 +11,10 @@
             <div class="layout-main">
                 <div class="layout-traps">
                     <Slider />
-                    <Charity />
                     <FakeNews />
-                    <Slider />
                     <Charity />
                     <QuizzContainer />
                     <Harassment />
-                    <FakeNews />
                 </div>
             </div>
         </div>

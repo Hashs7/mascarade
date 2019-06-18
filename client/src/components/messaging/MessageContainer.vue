@@ -42,6 +42,7 @@
         components: { Message, Contact },
         mounted() {
             this.initChat();
+            this.toggleNotif(false);
         },
         computed: {
             ...mapGetters([
@@ -61,7 +62,8 @@
         },
         methods: {
             ...mapMutations([
-                'addContact'
+                'addContact',
+                'toggleNotif'
             ]),
             ...mapActions([
                 'addMessage',
