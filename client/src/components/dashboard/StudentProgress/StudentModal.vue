@@ -85,7 +85,6 @@
         name: "StudentModal",
         computed: {
             modalVisible() {
-                console.log(this.$store.state.modalProgress);
                 return this.$store.state.modalProgress.isVisible;
             },
             currentStudent() {

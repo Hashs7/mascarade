@@ -13,6 +13,21 @@ const state = {
             type: null,
             title: null,
             description: null
+        },
+        harassment: {
+            action: null
+        },
+        fakeNews: {
+            action: null
+        },
+        quizz: [],
+        dialog: {
+            celebrity: {
+                conversation: []
+            },
+            hacker: {
+                conversation: []
+            }
         }
     }
 };
