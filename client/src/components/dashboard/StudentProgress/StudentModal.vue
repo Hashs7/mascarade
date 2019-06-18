@@ -29,30 +29,37 @@
 
                 <v-list three-line subheader>
                     <v-subheader>Réponses de l'élève</v-subheader>
-                    <v-list-tile>
-                        <v-list-tile-content v-if="charity.type">
+                    <v-list-tile v-if="charity.type">
+                        <v-list-tile-content>
                             <v-list-tile-title>Cause partagée : {{charity.type}}</v-list-tile-title>
                             <v-list-tile-sub-title>{{charity.title}}</v-list-tile-sub-title>
                             <v-list-tile-sub-title>{{charity.description}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                     </v-list-tile>
 
-                    <v-list-tile>
-                        <v-list-tile-content v-if="harassment.action">
+                    <v-list-tile v-if="harassment.action">
+                        <v-list-tile-content>
                             <v-list-tile-title>Action à la publication d'harcèlement</v-list-tile-title>
                             <v-list-tile-sub-title>{{harassment.action}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                     </v-list-tile>
 
-                    <v-list-tile>
-                        <v-list-tile-content v-if="fakeNews.action">
+                    <v-list-tile v-if="fakeNews.action">
+                        <v-list-tile-content>
                             <v-list-tile-title>Action à la publication de fake news</v-list-tile-title>
                             <v-list-tile-sub-title>{{fakeNews.action}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                     </v-list-tile>
 
-                    <v-list-tile>
-                        <v-list-tile-content v-if="dialog.celebrity.conversation.length">
+                    <v-list-tile v-if="quizz.length">
+                        <v-list-tile-content>
+                            <v-list-tile-title>Réponses au quizz</v-list-tile-title>
+                            <v-list-tile-sub-title v-for="(rep, i) in quizz" :key="i">{{rep}}</v-list-tile-sub-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+
+                    <v-list-tile v-if="dialog.celebrity.conversation.length">
+                        <v-list-tile-content>
                             <v-list-tile-title>Etat de la conversation 1 : {{dialog.celebrity.state}}</v-list-tile-title>
                             <v-list-tile-sub-title
                                     v-for="(msg, i) in dialog.celebrity.conversation"
@@ -96,6 +103,9 @@
             },
             fakeNews() {
                 return this.currentStudent.fakeNews;
+            },
+            quizz() {
+                return this.currentStudent.quizz;
             },
             achievements() {
                 return this.currentStudent.achievements;

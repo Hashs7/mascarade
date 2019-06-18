@@ -7,11 +7,11 @@
                 dark
                 show-arrows
         >
-            <v-tabs-slider color="blue"></v-tabs-slider>
+            <v-tabs-slider color="primary"></v-tabs-slider>
             <v-tab
-                    v-for="(session, i) in currentSessions"
-                    :key="i"
-                    :href="'#tab-' + i"
+                v-for="(session, i) in currentSessions"
+                :key="i"
+                :href="'#tab-' + i"
             >
                 {{ session.className }}
             </v-tab>
@@ -33,12 +33,12 @@
                                     md4
                             >
                                 <StudentCard
-                                        :id="student._id"
-                                        :firstname="student.firstname"
-                                        :surname="student.surname"
-                                        :points="student.achievements.points"
-                                        :shares="student.achievements.shares"
-                                        :reports="student.achievements.reports"
+                                    :id="student._id"
+                                    :firstname="student.firstname"
+                                    :surname="student.surname"
+                                    :points="student.achievements.points"
+                                    :shares="student.achievements.shares"
+                                    :reports="student.achievements.reports"
                                 />
                             </v-flex>
                         </v-layout>
@@ -77,6 +77,9 @@
             },
             updateScene(data) {
                 this.$store.commit('updateBOScene', data);
+            },
+            updateQuizz(data) {
+                this.$store.commit('updateQuizz', data);
             }
         },
         computed: {

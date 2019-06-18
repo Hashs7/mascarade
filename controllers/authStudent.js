@@ -106,6 +106,11 @@ exports.signup = (req, res, next) => {
                         shares: 0,
                         reports: 0
                     },
+                    charity: {
+                        type: null,
+                        title: null,
+                        description: null
+                    },
                     dialog: {
                         celebrity: {
                             conversation: [],
