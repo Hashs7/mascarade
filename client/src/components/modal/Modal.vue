@@ -73,14 +73,14 @@
                 </footer>
                 <div class="button-footer">
                     <RippleButton
-                            @click="firstButton"
+                            :clickAction="firstButton"
                             aria-label="Close modal"
                             :name=buttonFirst
                     >
                         {{buttonFirst}}
                     </RippleButton>
                     <RippleButton
-                            @click="close"
+                            :clickAction="close"
                             aria-label="Close modal"
                             :name=buttonSecond
                     >

@@ -3,7 +3,7 @@
         <div class="play-container">
             <div v-if="isIntro" class="start">
                 <p class="quizz__title">Quelle star es-tu ?</p>
-                <RippleButton @click="startQuizz" name="JOUER"></RippleButton>
+                <RippleButton :clickAction="startQuizz" name="JOUER"></RippleButton>
             </div>
             <div v-else class="carousel">
                 <QuizzCarousel />

@@ -27,7 +27,7 @@
                     placeholder="Ajoute une description (minimum 50 mots)"></textarea>
             <div class="Button-container">
                 <div class="Button-group">
-                    <RippleButton @click.prevent="shareCharity" name="Partager"></RippleButton>
+                    <RippleButton :clickAction="shareCharity" name="Partager"></RippleButton>
                 </div>
             </div>
         </form>
