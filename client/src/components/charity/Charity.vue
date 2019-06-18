@@ -154,7 +154,6 @@
         cursor: pointer;
         width: 18rem;
         height: 120px;
-        border: 1px solid $violet;
         border-radius: 1.2rem;
         background-size: cover;
         background-position: center;
@@ -164,7 +163,7 @@
             border-radius: 1.5rem;   
             height: 100%;
             border: 2px solid $violet;
-            margin: -0.6rem;
+            margin: -0.5rem;
             padding: 6.3rem;
         }
         &.selected {
