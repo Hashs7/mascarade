@@ -76,6 +76,10 @@ export default {
         const student = findStudent(state, sessionId, studentId);
         student[sceneType].action = action;
     },
+    updateQuizz(state, {studentId, sessionId, responses}) {
+        const student = findStudent(state, sessionId, studentId);
+        student.quizz = responses;
+    },
     updateIndex(state, index) {
         state.tabIndex = index;
     },

@@ -48,4 +48,6 @@ router.put('/dialog', authController.updateDialog);
 
 router.put('/scene', authController.updateScene);
 
+router.put('/quizz', authController.updateQuizz);
+
 module.exports = router;

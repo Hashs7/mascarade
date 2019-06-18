@@ -33,26 +33,6 @@
                                 :value="charityAnswered"
                                 :pourcent="session.students.length ? (charityAnswered/session.students.length) * 100 : 0"
                         />
-                        <ProgressCard
-                                label="Élèves qui ont réagit à la fake news"
-                                :value="charityAnswered"
-                                :pourcent="session.students.length ? (charityAnswered/session.students.length) * 100 : 0"
-                        />
-                        <ProgressCard
-                                label="Élèves qui ont réagit à l'harcèlement"
-                                :value="charityAnswered"
-                                :pourcent="session.students.length ? (charityAnswered/session.students.length) * 100 : 0"
-                        />
-                        <ProgressCard
-                                label="Élèves qui ont vu la dernière story"
-                                :value="charityAnswered"
-                                :pourcent="session.students.length ? (charityAnswered/session.students.length) * 100 : 0"
-                        />
-                        <ProgressCard
-                                label="Nombre de flashs total envoyé"
-                                :value="10"
-                                :pourcent="0"
-                        />
                     </div>
 
 <!--                    <TableStudent :session="session"/>-->
