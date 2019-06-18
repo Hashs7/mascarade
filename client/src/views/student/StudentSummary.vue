@@ -41,12 +41,12 @@
     .summary {
         &__container {
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
             align-items: center;
             height: 100%;
         }
         &__content {
-            max-width: 50rem;
+            position: relative;
             &:after {
                 content: "";
                 background-color: $blue;
@@ -56,12 +56,28 @@
                 position: absolute;
                 border-radius: 0.8rem;
                 transform: rotate(-19deg);
-                
+                top: -18rem;
+            }
+            h1, p {
+                color: $white;
+                position: absolute;
+                z-index: 2;  
+                left: 8rem;
+                top: -8rem;
+            }
+            h1 {
+                width: 20rem;
+            }
+            p {
+                width: 30rem;
+                margin-top: 5rem;
             }
         }
         &__datas {
             color: $blue;
             font-size: 2.2rem;
+            margin-right: 8rem;
+            margin-left: 4rem;
             li {
                 margin-top: 7rem;
                 border-bottom: 1px solid $blue;
@@ -98,17 +114,12 @@
                 right: -16px;
                 top: -14px;
             }
-            &:before {
-                content: "";
-                width: 10rem;
-                height: 2px;
-                background: $violet;
-            }
         }
         &__border {
             width: 10rem;
             height: 3px;
             border-top: 3px dashed $violet;
+            margin-right: 2rem;
         }
     }
 </style>
