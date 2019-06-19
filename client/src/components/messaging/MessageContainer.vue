@@ -103,6 +103,7 @@
         display: flex;
         border-radius: 0.5rem;
         height: 48rem;
+        margin-top: 2rem;
     }
     .contacts {
         width: 35rem;

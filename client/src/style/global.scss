@@ -52,18 +52,22 @@ button:focus, input, textarea {
 
 textarea::-webkit-input-placeholder,  ::-webkit-input-placeholder  {
 	color: $violet;
+	opacity: 0.7;
 }
 
 textarea:-moz-placeholder, :-ms-input-placeholder { /* Firefox 18- */
 	color: $violet;  
+	opacity: 0.7;
 }
 
 textarea::-moz-placeholder {  /* Firefox 19+ */
 	color: $violet;  
+	opacity: 0.7;
 }
 
 textarea:-ms-input-placeholder {
 	color: $violet;  
+	opacity: 0.7;
 }
 
 input[type=radio]:after {

@@ -115,6 +115,7 @@
             ul {
                 display: flex;
                 padding-left: 12rem;
+                padding-right: 9rem;
             }
         }
         &-group {
