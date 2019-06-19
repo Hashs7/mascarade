@@ -32,7 +32,9 @@ cd client && npm install
 ```
 
 ### Démarrer le serveur pour l'API
-Renommer .env.example par .env en renseignant les champs et lancer le server
+Créer une base de donnée MongoDB avec [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
+
+Renommer .env.example par .env en renseignant les champs et lancer le serveur
 ```
 npm start
 ```
@@ -41,7 +43,7 @@ Dans le dossier client
 ```
 npm run serve
 ```
-View the website at: http://localhost:8080
+Voir le site : http://localhost:8080
 
 ### Compiler et minifier le client pour la production
 Dans le dossier client

@@ -280,7 +280,7 @@ exports.updateDialog = (req, res, next) => {
 
             student.dialog[dialogType].conversation.push(response);
             student.dialog[dialogType].state = state;
-            conversation = student.dialog[dialogType];
+            conversation = student.dialog[dialogType].conversation;
             return student.save()
         })
         .then(result => {

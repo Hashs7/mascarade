@@ -1,36 +1,15 @@
 <template>
-    <v-navigation-drawer
-            v-model="drawer"
-            permanent
-    >
-        <v-toolbar flat class="transparent">
-            <v-list class="pa-0">
-                <v-list-tile avatar>
-                    <v-list-tile-content>
-                        <v-list-tile-title>{{ teacherName }}</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </v-list>
-        </v-toolbar>
-
-        <v-list class="pt-0" dense>
-            <v-divider></v-divider>
-
-            <v-list-tile
-                    v-for="item in items"
-                    :key="item.title"
-                    @click="changeView(item.id)"
-            >
-                <v-list-tile-action>
-                    <v-icon>{{ item.icon }}</v-icon>
-                </v-list-tile-action>
-
-                <v-list-tile-content>
-                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                </v-list-tile-content>
-            </v-list-tile>
-        </v-list>
-    </v-navigation-drawer>
+    <div class="nav-container">
+        <button
+                v-for="item in items"
+                :key="item.title"
+                class="nav-btn"
+                :class="{active: $store.state.dashboardView === item.id}"
+                @click="changeView(item.id)"
+        >
+            {{ item.title }}
+        </button>
+    </div>
 </template>
 
 <script>
@@ -42,8 +21,9 @@
             return {
                 drawer: true,
                 items: [
-                    { title: 'Tableau de bord', icon: 'home', id: 'board' },
-                    { title: 'Élèves', icon: 'face', id: 'student' },
+                    { title: 'Accueil', id: 'home' },
+                    { title: 'Tableau de bord', id: 'board' },
+                    { title: 'Élèves', id: 'student' },
                 ],
                 mini: true,
                 right: null,
@@ -59,15 +39,25 @@
             }),
             changeView(item) {
                 this.updateView(item);
-                console.log(item);
             },
 
         }
     }
 </script>
 
-<style>
-    .v-navigation-drawer {
-        display: inline-block;
+<style lang="scss">
+    .nav-container{
+        display: flex;
+    }
+    .nav-btn {
+        margin: 0 24px;
+        padding: 8px 0;
+        border-radius: 5px;
+        width: 186px;
+        background-color: white;
+        color: black;
+        &.active {
+            background-color: #f0f;
+        }
     }
 </style>

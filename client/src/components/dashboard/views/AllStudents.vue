@@ -64,24 +64,6 @@
             if (!this.$store.state.sessions.length) return;
             console.log('TODO get seession');
         },
-        sockets: {
-            updateAchievement(data) {
-                this.$store.commit('updateStudentAchievement', data);
-            },
-            updateCharity(data) {
-                this.$store.commit('updateStudentCharity', data);
-            },
-            updateDialog(data) {
-                console.log('trigger dialog');
-                this.$store.commit('updateStudentDialog', data);
-            },
-            updateScene(data) {
-                this.$store.commit('updateBOScene', data);
-            },
-            updateQuizz(data) {
-                this.$store.commit('updateQuizz', data);
-            }
-        },
         computed: {
             tabIndex: {
                 get() { return this.$store.state.tabIndex },

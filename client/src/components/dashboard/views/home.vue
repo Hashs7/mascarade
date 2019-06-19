@@ -14,7 +14,7 @@
         components: {
             NewSession,
             SessionTabs
-        }
+        },
     }
 </script>
 
