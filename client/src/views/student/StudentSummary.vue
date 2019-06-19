@@ -1,12 +1,13 @@
 <template>
     <div class="summary__container">
         <div class="summary__step">
-            <hr class="summary__border"/><div class="summary__circle"></div>
+            <img class="summary__circle" :src="circle"/>
         </div>
         <ul class="summary__datas">
             <li class="score">{{points}} point{{isPlurial('points')}}</li>
             <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
             <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
+            <li class="flash">{{currentFlash}} flash{{isPlurial('flashs')}}</li>
         </ul>
         <div class="summary__content">
             <h1>85 Wow !</h1>
@@ -16,10 +17,14 @@
 </template>
 
 <script>
+    import Circle from '@/assets/img/circle.png';
     export default {
         name: 'StudentSummary',
         components: {
         },
+        data: () => ({
+            circle: Circle,
+        }),
         computed: {
             points() {
                 return this.$store.state.score.points;
@@ -29,6 +34,9 @@
             },
             reports() {
                 return this.$store.state.score.reports;
+            },
+            currentFlash() {
+                return this.$store.state.flash.currentFlash;
             },
             isPlurial() {
                 return type => this.$store.state.score[type] > 1 ? 's' : null;
@@ -98,22 +106,6 @@
             position: relative;
             display: flex;
             align-items: center;
-        }
-        &__circle {
-            background: $violet;
-            width: 15rem;
-            height: 15rem;
-            border-radius: 100%;
-            &:after {
-                content: "";
-                width: 18rem;
-                height: 18rem;
-                border: 2px solid $violet;
-                position: absolute;
-                border-radius: 100%;
-                right: -16px;
-                top: -14px;
-            }
         }
         &__border {
             width: 10rem;
