@@ -1,6 +1,6 @@
 const state = {
     allStories: [{
-        src: "https://picsum.photos/300/500",
+        src: "https://picsum.photos/350/600",
         name: "Le monde",
         description: "Une future explosion ?",
         delay: 1500,

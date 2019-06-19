@@ -43,6 +43,10 @@
             border: 1px solid $violet;
             padding: 0.5rem 4rem;
             width: 170px;
+            &:hover {
+                background: $light--blue;
+                color: $black;
+            }
             &:first-child {
                 border-top-left-radius: 0.6rem;
                 border-bottom-left-radius: 0.6rem;

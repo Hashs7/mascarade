@@ -74,7 +74,7 @@
     background-color: white;
     margin-top: 14px;
     margin-bottom: 30px;
-    width: 60rem;
+    width: 860px;
     border-radius: 0.6rem;
     .link {
         color: $violet;

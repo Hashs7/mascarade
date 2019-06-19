@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="dashboard-container">
         <header class="app-header">
             <div class="header__container">
                 <div class="header__logo">
@@ -10,7 +10,8 @@
                 </nav>
                 <div class="session__info">
                     <p>{{currentSessions.className}}</p>
-                    <p>Online student {{currentSessions.students.length}}</p>
+                    <p>{{currentSessions.students.length}}</p>
+                    <img class="session__image" :src="connexion"/>
                 </div>
             </div>
         </header>
@@ -41,6 +42,7 @@
     import Board from '@/components/dashboard/views/Board';
     import AllStudents from '@/components/dashboard/views/AllStudents';
     import Logo from '@/assets/logo.svg';
+    import Connexion from '@/assets/img/connexion.png';
     import {mapGetters} from "vuex";
 
     export default {
@@ -55,6 +57,7 @@
             Logo
         },
         data: () => ({
+            connexion: Connexion,
             valid: true,
             sessionCreated: false,
             className: '',
@@ -95,6 +98,9 @@
 </script>
 
 <style lang="scss">
+    .dashboard-container {
+        height: 100%;
+    }
     .header {
         &__container {
             display: flex;
@@ -110,6 +116,9 @@
         display: flex;
         align-items: center;
         background: $gradient;
+    }
+    .v-content {
+        height: 100%;
     }
     .v-content__wrap {
         display: flex;
@@ -127,12 +136,16 @@
             align-items: center;
             p {
                 margin-bottom: 0;
-                font-size: 2rem;
+                font-size: 1.6rem;
                 color: $white;
                 &:first-child {
                     margin-right: 2rem;
                 }
             }
+        }
+        &__image {
+            width: 3rem;
+            margin-left: 0.5rem;
         }
     }
     .content {

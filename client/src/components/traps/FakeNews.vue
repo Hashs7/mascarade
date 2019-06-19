@@ -59,6 +59,7 @@
 <style scoped lang="scss">
     .FakeNews {
         &-container {
+            background: $white;
             margin-top: 2rem;
         }
 
