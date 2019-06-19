@@ -30,6 +30,7 @@
 
 <style scoped>
     .interact-container {
+        min-height: 320px;
         background-color: white;
     }
 </style>
