@@ -205,3 +205,12 @@
 [0mPUT /auth/student/achievement [31m500 [0m38.558 ms - 57[0m
 [0mPUT /auth/student/achievement [31m500 [0m45.644 ms - 57[0m
 [0mGET /session/student/undefined [31m500 [0m9.344 ms - 99[0m
+[0mPUT /auth/student/achievement [31m500 [0m41.476 ms - 57[0m
+[0mPUT /auth/student/achievement [31m500 [0m40.690 ms - 57[0m
+[0mPUT /auth/student/achievement [31m500 [0m39.357 ms - 57[0m
+[0mPUT /auth/student/achievement [31m500 [0m38.817 ms - 57[0m
+[0mPUT /auth/student/achievement [31m500 [0m38.817 ms - 57[0m
+[0mPUT /auth/student/achievement [31m500 [0m83.373 ms - 57[0m
+[0mPUT /auth/student/achievement [31m500 [0m38.649 ms - 57[0m
+[0mGET /session/student/undefined [31m500 [0m15.646 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m22.041 ms - 99[0m

@@ -39,13 +39,11 @@ const state = {
 
 const getters = {
     getContact: state => (
-        state.conversations.map(conv => {
-            return conv.author
-        })
+        state.conversations.map(conv => conv.author)
     ),
-    getSelectedContact: state => {
-        return state.conversations.find(conv => conv.selected);
-    },
+    getSelectedContact: state => (
+        state.conversations.find(conv => conv.selected)
+    ),
     getCurrentConversation: state => {
         const current = state.conversations.find(conv => conv.selected);
         if(isNull(current)) return;
@@ -83,7 +81,6 @@ const actions = {
 };
 
 const mutations = {
-
     addMessage(state, {id, answer, type}) {
         let lastAnswer = answer;
         if(type === 'student') {
@@ -119,15 +116,11 @@ const mutations = {
         state.conversations[id].selected = true;
     },
     toggleNotif(state, isActive) {
-        console.log(isActive, 'notif should');
-        console.log(state.hasNotif, 'notif before state');
-
         if(!isNull(isActive)) {
             state.hasNotif = isActive;
             return;
         }
         state.hasNotif = !state.hasNotif;
-
     }
 };
 
