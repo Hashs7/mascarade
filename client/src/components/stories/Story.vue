@@ -8,7 +8,6 @@
             :description=description
             :src="src"
             />
-        <!--<button @click="newStory">Ajouter une story</button>-->
     </div>
 </template>
 <script>

@@ -45,7 +45,10 @@
             border-top-left-radius: 0.5rem;
         }
         &.active {
-            background-color: $blue;
+            background-color: $violet;
+            .contact-info, .date {
+                color: $white;
+            }
         }
         &:hover:not(.active) {
             background-color: $light--blue;

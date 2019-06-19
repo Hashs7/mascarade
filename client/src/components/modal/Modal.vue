@@ -72,20 +72,20 @@
                     </slot>
                 </footer>
                 <div class="button-footer">
-                    <RippleButton
-                            :clickAction="firstButton"
-                            aria-label="Close modal"
-                            :name=buttonFirst
+                    <button 
+                        class="Button-response"
+                        @click="firstButton"
+                        aria-label="Close modal"
                     >
                         {{buttonFirst}}
-                    </RippleButton>
-                    <RippleButton
-                            :clickAction="close"
-                            aria-label="Close modal"
-                            :name=buttonSecond
+                    </button>
+                    <button
+                        class="Button-response"
+                        @click="close"
+                        aria-label="Close modal"
                     >
                         {{buttonSecond}}
-                    </RippleButton>
+                    </button>
                 </div>
             </div>
             </div>
@@ -93,7 +93,7 @@
     </transition>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     .modal-backdrop {
         position: fixed;
         top: 0;
@@ -108,7 +108,7 @@
     }
 
     .modal {
-        background: $blue;
+        background: $violet;
         border-radius: 0.8rem;
         overflow-x: auto;
         display: flex;
@@ -161,27 +161,19 @@
         color: $white;
         background: transparent;
     }
-
-    .btn-green {
-        border: 1px solid $violet;
+    .Button-response {
+        border: 1px solid $white;
         border-radius: 2.1rem;
-        padding: 0.8rem 1.8rem;
-        color: $violet;
+        padding: 1rem 1.3rem;
+        color: $white;
         font-size: 1.4rem;
-        &:hover {
-            transition: ease 0.2s;
-            background: $violet;
-            color: $white;
-            //transform: scale(1.05);
-        }
-
         &:first-child {
             margin-right: 1rem;
         }
-    }
-    .Button-share {
-        &.btn-ripple {
-            background: transparent !important;
+        &:hover {
+            transition: 0.2s ease;
+            background: $white;
+            color: $violet;
         }
     }
 </style>
