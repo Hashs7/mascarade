@@ -70,7 +70,7 @@ input[type=radio]:after {
 	width: 15px;
 	height: 15px;
 	border-radius: 100%;
-	top: -2px;
+	top: -3px;
 	left: -1px;
 	position: relative;
 	background-color: $white;
@@ -84,7 +84,7 @@ input[type=radio]:checked:after {
 	width: 15px;
 	height: 15px;
 	border-radius: 100%;
-	top: -2px;
+	top: -3px;
 	left: -1px;
 	position: relative;
 	background-color: $violet;

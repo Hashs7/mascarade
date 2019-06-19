@@ -2,6 +2,7 @@
     <div class="quizz__container">
         <div class="play-container">
             <div v-if="quizzState==='intro'" class="start">
+                <img class="quizz__image" :src="quizz"/>
                 <p class="quizz__title">Quelle star es-tu ?</p>
                 <RippleButton :clickAction="startQuizz" name="JOUER"></RippleButton>
             </div>
@@ -9,7 +10,7 @@
                 <QuizzCarousel @isLast="showButton" />
                 <RippleButton v-if="buttonVisible" :clickAction="endQuizz" name="Valider"></RippleButton>
             </div>
-            <div v-else class="start">
+            <div v-else class="start start__form">
                 <p class="quizz__listTitle">Pour connaître ton résultat nous avons besoin :</p>
                 <form action="" method="get" class="form" autocomplete="off">
                     <div class="form__field">
@@ -39,13 +40,15 @@
 
 <script>
     import QuizzCarousel from '@/components/traps/quizz/QuizzCarousel';
+    import Quizz from '@/assets/img/quizz.jpg';
     import RippleButton from '@/components/UI/RippleButton';
 
     export default {
         name: "QuizzContainer",
-        components: { QuizzCarousel, RippleButton },
+        components: { QuizzCarousel, RippleButton, Quizz },
         data: () => ({
             quizzState: "intro",
+            quizz: Quizz,
             buttonVisible: false
         }),
         methods: {
@@ -77,7 +80,7 @@
         }
         &__listTitle {
             font-weight: normal;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             font-size: 2rem;
         }
         &__description {
@@ -85,6 +88,9 @@
             font-size: 1.4rem;
             margin-top: 6rem;
             padding: 0 7rem 3.8rem 7rem;
+        }
+        &__image {
+            width: 100%;
         }
     }
     .form {
@@ -116,16 +122,24 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        &__form {
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            height: 324px;
+        }
     }
     .info {
         margin-top: 60px;
     }
     .carousel {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+        height: 324px;
         .btn-container {
             display: flex;
             justify-content: center;
             position : relative;
-            bottom: 8.5rem;
+            bottom: 12.5rem;
         }
     }
 </style>
