@@ -55,10 +55,9 @@
         }
     }
     .Story {
-        border: 1px solid $violet;
         border-radius: 100%;
-        width: 6rem;
-        height: 6rem;
+        width: 8rem;
+        height: 8rem;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;

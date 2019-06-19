@@ -54,7 +54,7 @@
     .flash {
         &-container {
             position: absolute;
-            top: 0;
+            top: 3rem;
             right: 0;
             transform: translateX(100%);
         }

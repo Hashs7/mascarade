@@ -5,7 +5,7 @@
 }
 
 .Layout-container {
-    background-color: $white;
+    background-color: $grey--background;
     min-height: 100vh;
 }
 
@@ -20,10 +20,11 @@
 }
 
 .layout-content {
-  width: 600px;
+  width: 750px;
   margin: auto;
   position: relative;
-  margin-top: 9rem;
+  margin-top: 7rem;
+  background: $white;
 }
 
 .flash-container {

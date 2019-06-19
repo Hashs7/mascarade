@@ -48,9 +48,11 @@
             display: flex;
             justify-content: flex-start;
             align-items: flex-end;
-            padding-bottom: 2rem;
+            padding-bottom: 1rem;
             margin: auto;
             background: $white;
+            width: 600px;
+            padding-top: 3rem;
         }
         &-right {
             display: flex;
