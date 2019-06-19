@@ -10,14 +10,13 @@
                 label="Nom de la classe"
                 required
         ></v-text-field>
-        <v-btn
+        <button
                 class="validate"
                 :disabled="!valid"
-                color="success"
                 @click="validate"
         >
             Démarrer une session
-        </v-btn>
+        </button>
     </v-form>
 </template>
 
@@ -39,7 +38,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .field-class {
         max-width: 200px;
         display: inline-block;
@@ -47,5 +46,9 @@
     .validate {
         margin-left: 20px;
         display: inline-block;
+        background-color: $violet !important;
+        color: $white;
+        padding: 0.6rem 3rem;
+        border-radius: 0.6rem;
     }
 </style>

@@ -6,18 +6,12 @@
         </div>
         <div>
             <InteractContainer />
-            <ProgressCard
-                    label="Élèves qui ont répondu à la cause"
-                    :value="charityAnswered"
-                    :pourcent="currentSessions.students.length ? (charityAnswered/currentSessions.students.length) * 100 : 0"
-            />
         </div>
     </div>
 </template>
 
 <script>
     import {getSessions} from "../../utils/API";
-    import ProgressCard from '@/components/dashboard/StudentProgress/ProgressCard';
     import TableStudent from '@/components/dashboard/TableStudent';
     import InteractContainer from '@/components/dashboard/interactions/InteractContainer';
     import {mapGetters, mapMutations} from "vuex";
@@ -26,7 +20,6 @@
         name: "SessionTabs",
         components: {
             TableStudent,
-            ProgressCard,
             InteractContainer
         },
         data: () => ({
@@ -79,9 +72,12 @@
 .session-link {
     padding: 8px 16px;
     background-color: white;
-    margin: 16px 0;
+    margin-top: 14px;
+    margin-bottom: 30px;
+    width: 60rem;
+    border-radius: 0.6rem;
     .link {
-        color: #4D01FF;
+        color: $violet;
     }
 }
 </style>

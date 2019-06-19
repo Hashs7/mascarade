@@ -51,6 +51,7 @@
         margin: 32px;
         text-align: center;
         &.active {
+            color: $violet;
             .img-container, .story-active {
                 border-color: $violet;
             }
