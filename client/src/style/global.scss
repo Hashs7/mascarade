@@ -37,11 +37,30 @@ button:focus, input, textarea {
 .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
 	transform: none !important;
 	transform: none !important;
-	color: white !important;
+	color: $white !important;
 	background: $violet !important;
 	border-radius: 100%;
 	width: 3rem;
 	height: 3rem;
+}
+
+.quizz__container {
+	.VueCarousel-navigation-prev {
+		top: 0 !important;
+		background: transparent !important;
+		color: $violet !important;
+		margin-left: 30px !important;
+	}
+	.VueCarousel-navigation-next {
+		background: $white !important;
+		border: 2px solid $violet !important;
+		color: $violet !important;
+		transition: 0.2s ease-in;
+		&:hover {
+			color: $white !important;
+			background: $violet !important;
+		}
+	}
 }
 
 .VueCarousel-navigation-button {
