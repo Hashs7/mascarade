@@ -98,7 +98,7 @@
 
 <style scoped lang="scss">
     .message-container {
-        max-width: 1000px;
+        max-width: 1300px;
         margin: 0 auto;
         display: flex;
         border-radius: 0.5rem;
@@ -118,6 +118,7 @@
         width: 100%;
         &-answer {
             display: flex;
+            justify-content: center;
         }
         &::-webkit-scrollbar {
             background-color: $grey--light;

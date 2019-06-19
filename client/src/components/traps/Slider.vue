@@ -53,7 +53,8 @@
 <style scoped lang="scss">
     .slider {
         &__container {
-
+            background: $white;
+            margin-bottom: 50px;
             .VueCarousel-dot-container {
                 margin: 0;
             }

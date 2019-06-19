@@ -50,7 +50,6 @@
             align-items: flex-end;
             padding-bottom: 1rem;
             margin: auto;
-            background: $white;
             width: 600px;
             padding-top: 3rem;
         }

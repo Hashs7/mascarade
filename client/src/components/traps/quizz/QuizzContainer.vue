@@ -68,10 +68,12 @@
         &__container {
             max-width: 600px;
             margin: 0 auto;
+            background: $white;
         }
         &__title {
             text-transform: uppercase;
             font-size: 3rem;
+            margin-top: 4rem;
         }
         &__listTitle {
             font-weight: normal;
