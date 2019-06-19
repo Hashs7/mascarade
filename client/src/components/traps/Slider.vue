@@ -6,6 +6,7 @@
                   paginationColor="#B3EEFF"
                   paginationActiveColor="#4E00FF"
                   paginationPosition="bottom-overlay"
+                  :navigationEnabled="true"
                   @page-change="changeSlide">
             <slide class="slider__slide">
                 <img class="slider__image" :src="harassment"/>

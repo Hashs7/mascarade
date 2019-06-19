@@ -34,9 +34,32 @@ button:focus, input, textarea {
 	bottom: 2rem !important;
 }
 
+.VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+	transform: none !important;
+	transform: none !important;
+	color: white !important;
+	background: $violet !important;
+	border-radius: 100%;
+	width: 3rem;
+	height: 3rem;
+}
+
+.VueCarousel-navigation-button {
+	padding: 0 !important;
+}
+
+.VueCarousel-navigation-prev {
+	margin-left: 50px;
+}
+
+.VueCarousel-navigation-next {
+	margin-right: 50px;
+}
+
 .VueCarousel-dot {
 	position: relative;
 }
+
 .VueCarousel-dot--active {
 	&:after {
 		position: absolute;
