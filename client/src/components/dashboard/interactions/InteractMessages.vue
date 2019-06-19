@@ -24,21 +24,14 @@
             }
         },
         methods: {
-            sendMsg() {
-                //TODO send msg by socket
-                /*const story = {
-                    src: "https://picsum.photos/300/500",
-                    name: "Le monde",
-                    description: "Une future explosion ?",
-                    delay: 1500,
-                };
-
-                this.$socket.emit('newStory', story)*/
+            sendMsg(type) {
+                console.log('emit newMessage', this.$socket);
+                this.$socket.emit('newMsg', type)
             },
             activeMsg(index) {
                 if (this.getMessages[index].isActive) return;
                 this.getMessages[index].isActive = true;
-                this.sendMsg();
+                this.sendMsg('celebrity');
             }
         }
     }

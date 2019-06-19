@@ -19,9 +19,6 @@ const state = {
 };
 
 const mutations = {
-    addStory(state, story) {
-        state.allStories.push(story);
-    }
 };
 
 export default {

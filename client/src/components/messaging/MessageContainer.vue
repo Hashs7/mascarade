@@ -41,8 +41,13 @@
         name: "MessageContainer",
         components: { Message, Contact },
         mounted() {
-            this.initChat();
             this.toggleNotif(false);
+        },
+        sockets: {
+            newMsg(type) {
+                // TODO Test type
+                this.initChat();
+            }
         },
         computed: {
             ...mapGetters([

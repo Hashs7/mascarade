@@ -125,3 +125,7 @@
 [0mGET /session/student/5d08d6cb5bde465797b1b3be [32m201 [0m245.520 ms - 1473[0m
 [0mGET /auth/teacher/is-auth [32m200 [0m2.411 ms - 11[0m
 [0mGET /session/all [32m201 [0m268.314 ms - 4573[0m
+[0mGET /session/all [32m201 [0m270.412 ms - 4573[0m
+[0mGET /auth/teacher/is-auth [32m200 [0m4.950 ms - 11[0m
+[0mGET /session/student/5d0a440d6b4ece0004115b40 [32m201 [0m735.344 ms - 699[0m
+[0mGET /session/all [32m201 [0m794.680 ms - 6060[0m

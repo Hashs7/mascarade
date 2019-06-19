@@ -1,4 +1,5 @@
 import {updateDialog} from "../../utils/API";
+import {isNull} from "../../utils/methods";
 
 const conversationExample = {
     id: 0,
@@ -31,7 +32,7 @@ export const getTime = () => {
 };
 
 const state = {
-    hasNotif: true,
+    hasNotif: false,
     conversations: [conversationExample, conversationExample2]
 };
 
@@ -98,11 +99,15 @@ const mutations = {
         state.conversations[id].selected = true;
     },
     toggleNotif(state, isActive) {
-        if(isActive) {
+        console.log(isActive, 'notif should');
+        console.log(state.hasNotif, 'notif before state');
+
+        if(!isNull(isActive)) {
             state.hasNotif = isActive;
-            return
+            return;
         }
         state.hasNotif = !state.hasNotif;
+
     }
 };
 
