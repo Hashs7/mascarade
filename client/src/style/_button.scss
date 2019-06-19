@@ -1,15 +1,15 @@
-.Button {
-    &-container {
+.button {
+    &__container {
         margin-top: 2rem;
         display: flex;
         justify-content: flex-end;
     }
 
-    &-share {
+    &__share {
         margin-right: 1rem;
     }
 
-    &-share, &-report {
+    &__share, &__report {
         border: 1px solid $violet;
         border-radius: 2.1rem;
         padding: 1rem 1.3rem;

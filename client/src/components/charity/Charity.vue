@@ -1,28 +1,28 @@
 <template>
-    <div class="charity-container">
-        <div class="img-container">
-            <div class="img-select"
+    <div class="charity__container">
+        <div class="img__container">
+            <div class="img__select"
                  v-for="(img, i) in images"
                  :style="`background-image: url(${img.src})`"
                  :class="{selected: img.selected}"
                  :title="img.title"
                  @click="selectImg(i)"
                  >
-                <div class="charity-titleImage">{{img.title}}</div>
+                <div class="charity__titleImage">{{img.title}}</div>
                 <div class="indicator"></div>
             </div>
         </div>
-        <p class="charity-published">Ton article vient d'être publié</p>
-        <form  class="charity-content" action="" autocomplete="off">
+        <p class="charity__published">Ton article vient d'être publié</p>
+        <form  class="charity__content" action="" autocomplete="off">
             <input
                     v-model="title"
                     type="text"
-                    class="student-response charity-title"
+                    class="student-response charity__title"
                     name="title"
                     placeholder="Ajoute un titre">
             <textarea
                     v-model="description"
-                    class="student-response charity-description"
+                    class="student-response charity__description"
                     name="description"
                     placeholder="Ajoute une description (minimum 50 mots)"></textarea>
             <div class="Button-container">
@@ -107,11 +107,11 @@
 
 <style scoped lang="scss">
     .charity {
-        &-container {
+        &__container {
             margin: 50px 0;
             background: $white;
         }
-        &-title, &-description {
+        &__title, &__description {
             display: block;
             color: $violet;
             border: 1px solid $violet;
@@ -120,7 +120,7 @@
             margin-bottom: 2rem;
             font-size: 1.4rem;
         }
-        &-titleImage {
+        &__titleImage {
             opacity: 0;
             background-color: $violet;
             color : $white;
@@ -130,11 +130,11 @@
             justify-content: center;
             align-items: center;
         }
-        &-content {
+        &__content {
             padding: 0 7rem 3.8rem 7rem;
             margin-top: 3rem;
         }
-        &-published {
+        &__published {
             display: none;
             font-size: 1.4rem;
             &.visible {
@@ -144,13 +144,13 @@
         }
 
     }
-    .img-container {
+    .img__container {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 1rem;
     }
-    .img-select {
+    .img__select {
         position: relative;
         cursor: pointer;
         width: 18rem;
@@ -168,12 +168,12 @@
             padding: 6.3rem;
         }
         &.selected {
-            .charity-titleImage {
+            .charity__titleImage {
                 display: none;
             }
         }
         &:hover {
-            .charity-titleImage {
+            .charity__titleImage {
                 opacity: 0.8;
             }
         }

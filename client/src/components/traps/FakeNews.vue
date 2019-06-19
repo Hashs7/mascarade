@@ -1,15 +1,15 @@
 <template>
-    <div class="FakeNews-container">
+    <div class="fakeNews__container">
         <Content title="La nasa envisage de faire exploser la lune…"
                  description="Edgar Phillips-Garret est l’homme qui se cache derrière cette idée folle d’envoyer sur la Lune une sonde équipé d’une charge explosive suffisamment forte pour définitivement la faire disparaître. "/>
-        <div class="FakeNews-group">
-            <a class="FakeNews-link"
+        <div class="fakeNews__group">
+            <a class="fakeNews__link"
                target="_blank"
                rel="nofollow noopener"
                href="http://www.legorafi.fr/2019/02/11/la-nasa-envisage-de-faire-exploser-la-lune-pour-en-etudier-les-consequences/"
             >Lire la suite</a>
-            <div class="Button-container">
-                <div class="Button-group">
+            <div class="button__container">
+                <div class="button__group">
                     <RippleButton id="show-modal" :clickAction="showModal" name="Partager"></RippleButton>
                     <RippleButton :clickAction="updateReport" name="Signaler"></RippleButton>
                     <modal v-show="isModalVisible"
@@ -57,17 +57,17 @@
 </script>
 
 <style scoped lang="scss">
-    .FakeNews {
-        &-container {
+    .fakeNews {
+        &__container {
             background: $white;
             margin-top: 2rem;
         }
 
-        &-group {
+        &__group {
             padding: 0 7rem 3.8rem 7rem;
         }
 
-        &-link {
+        &__link {
             color: $violet;
             font-size: 1.2rem;
             margin: 0;
@@ -96,7 +96,7 @@
         }
     }
 
-    .Informations-group {
+    .informations__group {
         padding: 0 7rem 3.8rem 7rem;
     }
 </style>

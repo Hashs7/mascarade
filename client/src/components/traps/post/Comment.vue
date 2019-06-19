@@ -1,11 +1,11 @@
 <template>
-    <div class="Comment-container">
-        <div class="Comment-header">
-            <p class="Comment-name">{{name}}</p>
-            <p class="Comment-date">{{date}}</p>
+    <div class="comment__container">
+        <div class="comment__header">
+            <p class="comment__name">{{name}}</p>
+            <p class="comment__date">{{date}}</p>
         </div>
-        <div class="Comment-content">
-          <p class="Comment-description">{{description}} </p>
+        <div class="comment__content">
+          <p class="comment__description">{{description}} </p>
         </div>
     </div>
 
@@ -25,31 +25,31 @@
 </script>
 
 <style scoped lang="scss">
-    .Comment {
-      &-container {
+    .comment {
+      &__container {
         display: flex;
         flex-direction: column;
         margin-bottom: 1.5rem;
       }
-      &-header {
+      &__header {
         display: flex;
         align-items: center;
       }
-      &-name {
+      &__name {
         font-weight: bold;
         font-size: 1.4rem;
         margin:0;
         margin-right: 1rem;
         color: $violet;
       }
-      &-date {
+      &__date {
         margin: 0;
         font-size: 1rem;
       }
-      &-description {
+      &__description {
         margin-bottom: 0;
       }
-      &-image {
+      &__image {
         width: 3rem;
         height: 3rem;
       }

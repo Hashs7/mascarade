@@ -38,9 +38,9 @@
 
     export default {
         name: "Slider",
-        components: {Carousel, Slide, Comment},
+        components: {Carousel, Slide, Comment, Harassment},
         data: () => ({
-            harassment: Harassment
+            harassment: Harassment,
         }),
         methods: {
             changeSlide(i) {
@@ -60,15 +60,6 @@
                 margin: 0;
             }
         }
-
-        &__carousel {
-            &.VueCarousel {
-                .VueCarousel-pagination {
-                    margin-top: -6rem !important;
-                    z-index: 5 !important;
-                }
-            }
-        }
         &__group {
           padding: 0 7rem 3.8rem 7rem;
         }
@@ -81,6 +72,7 @@
         &__title {
           margin-bottom: 2rem;
           margin-top: 1.8rem;
+          font-size: 1.6rem;
         }
     }
 </style>
