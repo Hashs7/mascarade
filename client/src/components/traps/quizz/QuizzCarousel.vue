@@ -7,6 +7,7 @@
                   :mouse-drag="false"
                   paginationColor="#B3EEFF"
                   paginationActiveColor="#4E00FF"
+                  :navigationEnabled="true"
                   @page-change="slideChange">
 
             <slide class="quizz__slide" v-for="(slide, i) in slides" :key="i">

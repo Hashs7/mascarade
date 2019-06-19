@@ -109,6 +109,7 @@
     .charity {
         &-container {
             margin: 50px 0;
+            background: $white;
         }
         &-title, &-description {
             display: block;

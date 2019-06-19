@@ -84,8 +84,8 @@
         overflow-x: auto;
         display: flex;
         flex-direction: column;
-        width: 30rem;
-        height: 50rem;
+        width: 35rem;
+        height: 60rem;
         border-radius: 2rem;
     }
 

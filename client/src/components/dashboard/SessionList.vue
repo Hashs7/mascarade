@@ -45,9 +45,15 @@
         &__container {
             margin-top: 4rem;
         }
+        &:hover {
+            background: $light--blue;
+        }
     }
     .active {
         background-color: $violet;
         color: $white;
+        &:hover {
+            background: $violet;
+        }
     }
 </style>

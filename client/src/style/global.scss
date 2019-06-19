@@ -34,9 +34,51 @@ button:focus, input, textarea {
 	bottom: 2rem !important;
 }
 
+.VueCarousel-navigation-prev, .VueCarousel-navigation-next {
+	transform: none !important;
+	transform: none !important;
+	color: $white !important;
+	background: $violet !important;
+	border-radius: 100%;
+	width: 3rem;
+	height: 3rem;
+}
+
+.quizz__container {
+	.VueCarousel-navigation-prev {
+		top: 0 !important;
+		background: transparent !important;
+		color: $violet !important;
+		margin-left: 30px !important;
+	}
+	.VueCarousel-navigation-next {
+		background: $white !important;
+		border: 2px solid $violet !important;
+		color: $violet !important;
+		transition: 0.2s ease-in;
+		&:hover {
+			color: $white !important;
+			background: $violet !important;
+		}
+	}
+}
+
+.VueCarousel-navigation-button {
+	padding: 0 !important;
+}
+
+.VueCarousel-navigation-prev {
+	margin-left: 50px;
+}
+
+.VueCarousel-navigation-next {
+	margin-right: 50px;
+}
+
 .VueCarousel-dot {
 	position: relative;
 }
+
 .VueCarousel-dot--active {
 	&:after {
 		position: absolute;
@@ -52,25 +94,29 @@ button:focus, input, textarea {
 
 textarea::-webkit-input-placeholder,  ::-webkit-input-placeholder  {
 	color: $violet;
+	opacity: 0.7;
 }
 
 textarea:-moz-placeholder, :-ms-input-placeholder { /* Firefox 18- */
 	color: $violet;  
+	opacity: 0.7;
 }
 
 textarea::-moz-placeholder {  /* Firefox 19+ */
 	color: $violet;  
+	opacity: 0.7;
 }
 
 textarea:-ms-input-placeholder {
 	color: $violet;  
+	opacity: 0.7;
 }
 
 input[type=radio]:after {
 	width: 15px;
 	height: 15px;
 	border-radius: 100%;
-	top: -2px;
+	top: -3px;
 	left: -1px;
 	position: relative;
 	background-color: $white;
@@ -84,7 +130,7 @@ input[type=radio]:checked:after {
 	width: 15px;
 	height: 15px;
 	border-radius: 100%;
-	top: -2px;
+	top: -3px;
 	left: -1px;
 	position: relative;
 	background-color: $violet;
