@@ -1,13 +1,62 @@
 <template>
-    <p>messages</p>
+    <div>
+        <div
+                v-for="(msg, i) in getMessages"
+                class="msg"
+                :class="{active: msg.isActive}"
+                :key="i">
+            <span class="msg-active" @click="activeMsg(i)">{{msg.isActive ? active : disable}}</span>
+            <span class="msg-info">{{msg.info}}</span>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "InteractMessages"
+        name: "InteractMessages",
+        data: () => ({
+            active: 'Activé',
+            disable: 'Désactivé'
+        }),
+        computed: {
+            getMessages() {
+                return this.$store.state.interact.messages;
+            }
+        },
+        methods: {
+            sendMsg() {
+                //TODO send msg by socket
+                /*const story = {
+                    src: "https://picsum.photos/300/500",
+                    name: "Le monde",
+                    description: "Une future explosion ?",
+                    delay: 1500,
+                };
+
+                this.$socket.emit('newStory', story)*/
+            },
+            activeMsg(index) {
+                if (this.getMessages[index].isActive) return;
+                this.getMessages[index].isActive = true;
+                this.sendMsg();
+            }
+        }
     }
 </script>
 
 <style scoped>
-
+    .msg {
+        margin: 16px 0;
+    }
+    .msg-active {
+        text-align: center;
+        display: inline-block;
+        width: 110px;
+        border-radius: 50px;
+        border: 1px solid gray;
+        cursor: pointer;
+    }
+    .msg-info {
+        margin-left: 16px;
+    }
 </style>

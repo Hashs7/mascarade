@@ -4,8 +4,6 @@
             <span>Lien de partage de la session: </span>
             <span class="link">{{ linkSignup + currentSessions.shortId }}</span>
         </div>
-        <v-btn @click="goStudent">Voir le détail par élève</v-btn>
-        <v-btn @click="sendStory">Envoyer une nouvelle story</v-btn>
         <div>
             <InteractContainer />
             <ProgressCard
@@ -54,7 +52,6 @@
                 this.updateView('student')
             },
             sendStory() {
-                console.log('sendStory', this.$socket);
                 const story = {
                     src: "https://picsum.photos/300/500",
                     name: "Le monde",
