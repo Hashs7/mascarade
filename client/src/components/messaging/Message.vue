@@ -23,17 +23,17 @@
 
             .Message-content {
                 border-radius: 3rem 3rem 0 3rem;
-                background-color: $light--blue;
+                background-color: $violet;
                 font-size: 1.4rem;
-                color: $black;
+                color: $white;
             }
         }
         &-content {
             display: inline-block;
-            padding: 0.8rem 1.2rem;
+            padding: 1rem 1.4rem;
             border-radius: 3rem 3rem 3rem 0;
-            background-color: $violet;
-            color: $white;
+            background-color: $light--blue;
+            color: $black;
             font-size: 1.4rem;
         }
         &-time {
