@@ -50,14 +50,15 @@
         display: flex;
     }
     .nav-btn {
-        margin: 0 24px;
+        margin: 0 19px;
         padding: 8px 0;
-        border-radius: 5px;
+        border-radius: 12px;
         width: 186px;
         background-color: white;
         color: black;
+        opacity: 0.4;
         &.active {
-            background-color: #f0f;
+            opacity: 1;
         }
     }
 </style>

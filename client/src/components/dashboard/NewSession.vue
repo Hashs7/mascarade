@@ -13,7 +13,6 @@
         <v-btn
                 class="validate"
                 :disabled="!valid"
-                color="success"
                 @click="validate"
         >
             Démarrer une session
@@ -39,7 +38,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .field-class {
         max-width: 200px;
         display: inline-block;
@@ -47,5 +46,7 @@
     .validate {
         margin-left: 20px;
         display: inline-block;
+        background-color: $violet !important;
+        color: $white;
     }
 </style>

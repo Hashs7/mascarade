@@ -1,22 +1,24 @@
 <template>
     <div>
         <header class="app-header">
-            <div class="logo">
-                <p>logo</p>
-            </div>
-            <nav class="dashboard-nav">
-                <Navigation />
-            </nav>
-            <div class="session-info">
-                <p>{{currentSessions.className}}</p>
-                <p>Online student {{currentSessions.students.length}}</p>
+            <div class="header__container">
+                <div class="header__logo">
+                <Logo />
+                </div>
+                <nav class="dashboard-nav">
+                    <Navigation />
+                </nav>
+                <div class="session__info">
+                    <p>{{currentSessions.className}}</p>
+                    <p>Online student {{currentSessions.students.length}}</p>
+                </div>
             </div>
         </header>
         <v-content>
-            <div class="session-list">
+            <div class="session__list">
                 <SessionList />
             </div>
-            <div class="session-view">
+            <div class="session__view">
                 <div v-if="viewId === 'home'" class="content board">
                     <Home />
                 </div>
@@ -38,6 +40,7 @@
     import Home from '@/components/dashboard/views/home';
     import Board from '@/components/dashboard/views/Board';
     import AllStudents from '@/components/dashboard/views/AllStudents';
+    import Logo from '@/assets/logo.svg';
     import {mapGetters} from "vuex";
 
     export default {
@@ -48,7 +51,8 @@
             SessionList,
             Home,
             Board,
-            AllStudents
+            AllStudents, 
+            Logo
         },
         data: () => ({
             valid: true,
@@ -91,11 +95,21 @@
 </script>
 
 <style lang="scss">
+    .header {
+        &__container {
+            display: flex;
+            max-width: 1200px;
+            margin: auto;
+        }
+        &__logo {
+            margin-right: 4rem;
+        }
+    }
     .app-header {
-        height: 100px;
+        height: 90px;
         display: flex;
         align-items: center;
-        background-color: blue;
+        background: $gradient;
     }
     .v-content {
         height: calc(100vh - 3px)
@@ -103,12 +117,26 @@
     .v-content__wrap {
         display: flex;
     }
-    .session-list {
-        width: 180px;
-        background-color: white;
-    }
-    .session-view {
-        width: calc(100% - 180px);
+    .session {
+        &__list {
+            width: 180px;
+            background-color: white;
+        }
+        &__view {
+            width: calc(100% - 180px);
+        }
+        &__info {
+            display: flex;
+            align-items: center;
+            p {
+                margin-bottom: 0;
+                font-size: 2rem;
+                color: $white;
+                &:first-child {
+                    margin-right: 2rem;
+                }
+            }
+        }
     }
     .content {
         flex-grow: 1;

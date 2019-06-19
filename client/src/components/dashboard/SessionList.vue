@@ -1,5 +1,5 @@
 <template>
-    <div class="session-container">
+    <div class="session__container">
         <div
              v-for="(session, i) in currentSessions"
              class="session"
@@ -36,7 +36,18 @@
 </script>
 
 <style scoped lang="scss">
+    .session {
+        padding: 1.2rem 3rem;
+        margin-left: 3rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        cursor: pointer;
+        &__container {
+            margin-top: 4rem;
+        }
+    }
     .active {
         background-color: $violet;
+        color: $white;
     }
 </style>
