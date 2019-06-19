@@ -51,16 +51,16 @@
                 responses: ['Zootopie' , 'Avenger Endgame', 'Les animaux fantastiques','Batman'],
                 selected: ''
             },{
-                label: "Quand tu es dans la rue, tu veux que les gens...",
-                responses: ['Te remarquent et t’admirent !', 'Te regardent à tout prix, tu aimes choquer et être vu', 'Te trouvent élégant/e', 'Te trouvent discret/e sans pour autant être effacé/e'],
+                label: "Quel profil as tu dans ton groupe de pote ?",
+                responses: ['La/le comique', 'La/le sportif(ve)', 'La/le créatif', 'L\'intello'],
                 selected: ''
             },{
-                label: "Avec qui tu pourrais te mettre en couple ?",
-                responses: ['Un chanteur', 'Un rappeur', 'Un DJ', 'Un mannequin'],
+                label: "Avec qui voudrais tu te marier ?",
+                responses: ['Une/un chanteur(se)', 'Une/un rappeur(se)', 'Une/un DJ', 'Une/un mannequin'],
                 selected: ''
             },{
                 label: "Sur les réseaux sociaux, tu es plutôt...",
-                responses: ['Toujours debout', 'Toujours la banane', 'Tu postes de temps en temps', 'Un(e) roi/reine'],
+                responses: ['Toujours présent(e)', 'Très discret(e)', 'Tu postes de temps en temps', 'Un(e) roi/reine'],
                 selected: ''
             }]
         }),

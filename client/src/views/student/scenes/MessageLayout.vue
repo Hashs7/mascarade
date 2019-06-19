@@ -1,5 +1,5 @@
 <template>
-    <div class="Layout-contain">
+    <div class="layout__contain">
         <div class="student-achievement">
             <StudentAchievement />
         </div>
@@ -29,7 +29,7 @@
 </script>
 
 <style scoped lang="scss">
-    .Layout-contain {
+    .layout__contain {
         background-color: $white;
         min-height: 100%;
         .layout-content {

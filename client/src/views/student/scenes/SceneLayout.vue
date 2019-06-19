@@ -1,5 +1,5 @@
 <template>
-    <div class="Layout-container">
+    <div class="layout__container">
         <div class="student-achievement">
             <StudentAchievement />
         </div>
