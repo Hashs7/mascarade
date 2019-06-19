@@ -1,5 +1,5 @@
 export default {
     sessions: [],
-    tabIndex: null,
+    tabIndex: 'tab-0',
     dashboardView: "board"
 }

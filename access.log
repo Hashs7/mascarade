@@ -1,0 +1,8 @@
+[0mPOST /auth/teacher/login [32m200 [0m577.520 ms - 4291[0m
+[0mGET /auth/teacher/is-auth [36m304 [0m1.687 ms - -[0m
+[0mGET /session/all [32m201 [0m278.452 ms - 4010[0m
+[0mPOST /auth/teacher/login [32m200 [0m701.157 ms - 4291[0m
+[0mGET /auth/teacher/is-auth [36m304 [0m2.099 ms - -[0m
+[0mGET /session/all [32m201 [0m272.394 ms - 4010[0m
+[0mGET /auth/teacher/is-auth [36m304 [0m0.546 ms - -[0m
+[0mGET /session/all [32m201 [0m251.861 ms - 4010[0m

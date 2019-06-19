@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="interact-container">
         <p>Interactions</p>
         <div class="tab-interact">
             <button @click="tab = 'story'">Stories</button>
@@ -29,5 +29,7 @@
 </script>
 
 <style scoped>
-
+    .interact-container {
+        background-color: white;
+    }
 </style>
