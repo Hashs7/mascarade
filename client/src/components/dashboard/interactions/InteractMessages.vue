@@ -5,7 +5,7 @@
                 class="msg"
                 :class="{active: msg.isActive}"
                 :key="i">
-            <span class="msg-active" @click="activeMsg(i)">{{msg.isActive ? active : disable}}</span>
+            <span class="msg-actived" @click="activeMsg(i)">{{msg.isActive ? active : disable}}</span>
             <span class="msg-info">{{msg.info}}</span>
         </div>
     </div>
@@ -44,19 +44,23 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .msg {
-        margin: 16px 0;
+        margin: 50px 0;
     }
-    .msg-active {
+    .msg-actived {
         text-align: center;
         display: inline-block;
         width: 110px;
         border-radius: 50px;
         border: 1px solid gray;
         cursor: pointer;
+        .active &{
+            color: $violet;
+            border-color: $violet;
+        }
     }
     .msg-info {
-        margin-left: 16px;
+        margin-left: 30px;
     }
 </style>

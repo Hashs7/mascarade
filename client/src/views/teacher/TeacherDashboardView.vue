@@ -111,9 +111,6 @@
         align-items: center;
         background: $gradient;
     }
-    .v-content {
-        height: calc(100vh - 3px)
-    }
     .v-content__wrap {
         display: flex;
     }
@@ -140,6 +137,6 @@
     }
     .content {
         flex-grow: 1;
-        padding: 20px;
+        padding: 50px 90px;
     }
 </style>
