@@ -31,6 +31,7 @@
 <style scoped lang="scss">
     .Layout-contain {
         background-color: $white;
+        min-height: 100%;
         .layout-content {
            width: 1000px;
         }

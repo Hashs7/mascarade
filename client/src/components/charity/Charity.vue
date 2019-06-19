@@ -13,7 +13,7 @@
             </div>
         </div>
         <p class="charity-published">Ton article vient d'être publié</p>
-        <form  class="charity-content" action="">
+        <form  class="charity-content" action="" autocomplete="off">
             <input
                     v-model="title"
                     type="text"

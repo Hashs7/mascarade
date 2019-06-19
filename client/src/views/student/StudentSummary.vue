@@ -52,6 +52,7 @@
             justify-content: flex-start;
             align-items: center;
             height: 100%;
+            background: $white;
         }
         &__content {
             position: relative;
@@ -106,12 +107,6 @@
             position: relative;
             display: flex;
             align-items: center;
-        }
-        &__border {
-            width: 10rem;
-            height: 3px;
-            border-top: 3px dashed $violet;
-            margin-right: 2rem;
         }
     }
 </style>
