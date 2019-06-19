@@ -43,12 +43,12 @@
         },
         data: () => ({
             slides: [{
-                label: "Si tu devais être l'égérie d'une marque, ce serait...",
-                responses: ['Chanel', 'Balmain', 'Dior', 'Ta propre marque'],
+                label: "Quelle est ta marque préférée : ",
+                responses: ['Converse', 'Nike', 'Coca cola', 'Adidas'],
                 selected: ''
             },{
-                label: "Tu définis ton style comme...",
-                responses: ['Classique, fidèle à à toi même', 'Très naturel, jogging toute la journée', 'Très décalé', 'Jamais sans maquillage'],
+                label: "Ton film préféré :",
+                responses: ['Zootopie' , 'Avenger Endgame', 'Les animaux fantastiques','Batman'],
                 selected: ''
             },{
                 label: "Quand tu es dans la rue, tu veux que les gens...",

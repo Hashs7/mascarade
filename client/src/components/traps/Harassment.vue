@@ -6,7 +6,8 @@
             <h2 class="Harassment-title"> Holidays in Miami 🌈🌴</h2>
             <div class="Harassment-separate"></div>
             <Comment name="Bryan Philipo" date="Il y a 2h" description="Trop moche c'est quoi cette photo !"/>
-            <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Grave je préférerai être morte qu’avoir ta tête !"/>
+            <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Tu t'es prise pour un mannequin ou quoi ?"/>
+            <Comment name="Ryan Zetyr" date="Il y a 5 jours" description="Grave tu fais trop ta belle !"/>
             <Comment
                     v-if="response.desc"
                     :name="response.name"

@@ -11,7 +11,9 @@
         </ul>
         <div class="summary__content">
             <h1>85 Wow !</h1>
-            <p>Tu es un petit expert des réseaux sociaux ! Tu es extrêmement attentif aux contenus qui te sont présentés. Nous ne pouvons que t'encourager à continuer d'avoir cette démarche positive sur internet :)</p>
+            <p>Tu es un vrai expert des réseaux sociaux ! 
+            Tu as l’oeil partout, on ne peut rien te cacher. 
+            Tel un vrai détective privé tu as décelé tous les pièges, rien ne te résistes. Tu te sers d’internet de la bonne manière, continues comme ça ! :) </p>
         </div>
     </div>
 </template>
