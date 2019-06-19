@@ -32,7 +32,7 @@
             display: inline-block;
             padding: 0.8rem 1.2rem;
             border-radius: 3rem 3rem 3rem 0;
-            background-color: $blue;
+            background-color: $violet;
             color: $white;
             font-size: 1.4rem;
         }

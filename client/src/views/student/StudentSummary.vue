@@ -49,7 +49,7 @@
             position: relative;
             &:after {
                 content: "";
-                background-color: $blue;
+                background-color: $violet;
                 width: 470px;
                 height: 39rem;
                 color: $white;
