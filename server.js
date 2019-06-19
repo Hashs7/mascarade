@@ -13,11 +13,7 @@ mongoose
             console.log('Client connected');
 
             socket.on('newMsg', (data) => io.emit('newMsg', data));
-            socket.on('newStory', (data) => {
-                console.log('emit newstory');
-                return io.emit('newStory', data)
-            });
-
+            socket.on('newStory', (data) => io.emit('newStory', data));
             socket.on('disconnect', () => io.emit('disconnected'));
         })
     })

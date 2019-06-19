@@ -1,20 +1,21 @@
 import {updateDialog} from "../../utils/API";
 import {isNull} from "../../utils/methods";
+import {initMsg} from "../../components/messaging/dialogs";
 
-const conversationExample = {
+const conversationCelebrity = {
     id: 0,
     selected: true,
     type: 'celebrity',
-    author: 'Michel',
+    author: 'Alexandre',
     lastAnswer: null,
     showAnswers: false,
     answers: [],
     responses: []
 };
 
-const conversationExample2 = {
+const conversationHacker = {
     id: 1,
-    selected: false,
+    selected: true,
     author: 'André',
     type: 'hacker',
     lastAnswer: null,
@@ -33,7 +34,7 @@ export const getTime = () => {
 
 const state = {
     hasNotif: false,
-    conversations: [conversationExample, conversationExample2]
+    conversations: []
 };
 
 const getters = {
@@ -47,6 +48,7 @@ const getters = {
     },
     getCurrentConversation: state => {
         const current = state.conversations.find(conv => conv.selected);
+        if(isNull(current)) return;
         return current.responses;
     }
 };
@@ -60,10 +62,28 @@ const actions = {
 
         if(repIndex === 'stop' || repIndex === 'report') return;
         commit('addMessage', {id, answer, type})
-    }
+    },
+    initChat({rootState, dispatch, state}) {
+        state.conversations.push(conversationCelebrity);
+        dispatch('addGroupMessage', initMsg(rootState.firstname));
+    },
+    addGroupMessage({commit, rootState, state}, msgArray) {
+        msgArray.stranger.forEach(({content, delay, type}, i) => {
+            setTimeout(() => {
+                commit('addMessage', ({id: 0, answer: content, type}));
+                if(msgArray.stranger.length - 1 === i) {
+                    const currentId = msgArray.convId;
+                    setTimeout(() => state.conversations[currentId].showAnswers = true, 1000);
+                }
+            }, delay);
+        });
+        const conv = state.conversations.find(conv => conv.selected);
+        state.conversations[conv.id].answers = msgArray.responses;
+    },
 };
 
 const mutations = {
+
     addMessage(state, {id, answer, type}) {
         let lastAnswer = answer;
         if(type === 'student') {

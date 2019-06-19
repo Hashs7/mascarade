@@ -16,9 +16,9 @@
                 <span class="subheading mr-2">Signalements</span>
                 <span class="subheading mr-2">{{reports}}</span>
             </div>
-
+<!--
             <span class="subheading mr-2">Avancement global</span>
-            <v-progress-linear v-model="valueDeterminate"></v-progress-linear>
+            <v-progress-linear v-model="valueDeterminate"></v-progress-linear>-->
         </v-card-text>
 
         <v-card-actions>

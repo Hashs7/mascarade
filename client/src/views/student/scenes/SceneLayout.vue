@@ -32,7 +32,7 @@
     import StudentFlash from '@/components/student-progess/StudentFlash';
     import StudentNavigation from '@/components/StudentNavigation';
     import Slider from '@/components/traps/Slider';
-    import {mapMutations} from "vuex";
+    import {mapActions, mapMutations} from "vuex";
 
     export default {
         name: "SceneLayout",
@@ -47,15 +47,17 @@
                 this.$store.commit('addStory', data);
             },
             newMsg(type) {
-                console.log('newMessage');
                 // TODO Test type
-                // this.initChat();
+                this.initChat();
                 this.toggleNotif(true);
             }
         },
         methods: {
             ...mapMutations([
                 'toggleNotif'
+            ]),
+            ...mapActions([
+                'initChat'
             ]),
         },
         mounted() {

@@ -1,7 +1,8 @@
 <template>
     <div class="message-container">
         <div class="contacts">
-            <Contact v-for="(contact, i) in contacts"
+            <Contact v-if="contacts.length"
+                    v-for="(contact, i) in contacts"
                      :key="i"
                      :id="contact.id"
                      :selected="contact.selected"
@@ -9,23 +10,32 @@
                      :lastAnswer="contact.lastAnswer" />
         </div>
         <div class="chatbox">
-            <div class="contact-info">
+            <div class="contact-info" v-if="getSelectedContact">
                 <span class="contact-name">{{getSelectedContact.author}}</span>
                 <span class="current-time">25 juin 2019</span>
             </div>
             <div class="chatbox-content">
                 <Message v-for="(msg, i) in getCurrentConversation" :key="i" :txt="msg.txt" :time="msg.time" :msgType="msg.type"/>
             </div>
-            <div class="chatbox-group">
-                <span class="chatbox-help-msg">Choisis ta réponse</span>
-                <div class="chatbox-separate"></div>
+
+            <div v-if="contacts.length && showAnswer">
+                <div class="chatbox-group">
+                    <span class="chatbox-help-msg">Choisis ta réponse</span>
+                    <div class="chatbox-separate"></div>
+                </div>
+                <div class="chatbox-answer" >
+
+                    <button class="answer outline"
+                            v-for="res in responses"
+                            @click="studentResponse(res.content, res.repIndex)">
+                        {{res.content}}
+                    </button>
+                    <button class="answer">Ignorer ce message</button>
+                </div>
             </div>
-            <div class="chatbox-answer" v-if="showAnswer">
-                <button class="answer outline"
-                        v-for="res in responses"
-                        @click="studentResponse(res.content, res.repIndex)">
-                {{res.content}}</button>
-                <button class="answer">Ignorer ce message</button>
+
+            <div class="no-conversation" v-if="!contacts.length">
+                <h3>Vous n'avez pas de conversation en cours</h3>
             </div>
         </div>
     </div>
@@ -34,7 +44,7 @@
 <script>
     import Message from '@/components/messaging/Message';
     import Contact from '@/components/messaging/Contact';
-    import {dialogRes, initMsg} from './dialogs';
+    import {dialogRes} from './dialogs';
     import {mapActions, mapGetters, mapMutations} from "vuex";
 
     export default {
@@ -72,8 +82,9 @@
             ]),
             ...mapActions([
                 'addMessage',
+                'initChat',
             ]),
-            initChat() {
+            /*initChat() {
                 if(this.getCurrentConversation.length) return;
                 this.addGroupMessage(initMsg(this.$store.state.firstname));
             },
@@ -88,7 +99,7 @@
                     }, delay);
                 });
                 this.$store.state.messages.conversations[this.getSelectedContact.id].answers = msgArray.responses;
-            },
+            },*/
             studentResponse(answer, repIndex) {
                 const id = this.getSelectedContact.id;
                 this.$store.state.messages.conversations[id].showAnswers = false;
