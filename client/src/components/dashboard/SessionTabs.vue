@@ -72,7 +72,8 @@
 .session-link {
     padding: 8px 16px;
     background-color: white;
-    margin: 16px 0;
+    margin-top: 14px;
+    margin-bottom: 30px;
     width: 60rem;
     border-radius: 0.6rem;
     .link {

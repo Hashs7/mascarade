@@ -137,6 +137,6 @@
     }
     .content {
         flex-grow: 1;
-        padding: 50px 90px;
+        padding: 45px 90px;
     }
 </style>

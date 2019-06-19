@@ -10,13 +10,13 @@
                 label="Nom de la classe"
                 required
         ></v-text-field>
-        <v-btn
+        <button
                 class="validate"
                 :disabled="!valid"
                 @click="validate"
         >
             Démarrer une session
-        </v-btn>
+        </button>
     </v-form>
 </template>
 
@@ -48,5 +48,7 @@
         display: inline-block;
         background-color: $violet !important;
         color: $white;
+        padding: 0.6rem 3rem;
+        border-radius: 0.6rem;
     }
 </style>
