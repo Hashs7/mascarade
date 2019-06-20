@@ -116,9 +116,10 @@
         display: flex;
         align-items: center;
         background: $gradient;
+        position: relative;
     }
     .v-content {
-        height: 100%;
+        //height: 100%;
     }
     .v-content__wrap {
         display: flex;
@@ -126,10 +127,13 @@
     .session {
         &__list {
             width: 180px;
-            background-color: white;
+            background-color: $white;
+            position: fixed;
+            left: 0;
+            height: 100%;
         }
         &__view {
-            width: calc(100% - 180px);
+            width: calc(100% - 250px);
         }
         &__info {
             display: flex;

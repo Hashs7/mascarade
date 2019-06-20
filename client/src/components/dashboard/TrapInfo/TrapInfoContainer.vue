@@ -79,7 +79,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
     .trap-container {
         display: flex;
         flex-wrap: wrap;
@@ -93,6 +93,9 @@
         border-radius: 0.6rem;
         background-color: white;
         box-shadow: 0px 2px 5px -4px rgba(0,0,0,0.75);
+        &:first-child, &:nth-child(5) {
+            margin-left: 0;
+        }
     }
     .trap__number {
         display: block;
