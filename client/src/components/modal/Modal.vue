@@ -1,15 +1,78 @@
+<template>
+    <transition name="fade">
+        <div class="modal-backdrop" v-if="visible">
+            <div class="modal"
+                 role="dialog"
+                 aria-labelledby="modalTitle"
+                 aria-describedby="modalDescription"
+            >
+                <div class="modal-image">
+                    <Notification />
+                </div>
+                <div class="modal-content">
+                    <header
+                            class="modal-header"
+                            id="modalTitle"
+                    >
+                        <slot name="header">
+                            {{title}}
+
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    @click="close"
+                                    aria-label="Close modal"
+                            >
+                                <Cross />
+                            </button>
+                        </slot>
+                    </header>
+                    <section
+                            class="modal-body"
+                            id="modalDescription"
+                    >
+                        <slot name="body">
+                            {{description}}
+                        </slot>
+                    </section>
+                    <footer class="modal-footer">
+                        <slot name="footer">
+                            {{question}}
+                        </slot>
+                    </footer>
+                    <div class="button-footer">
+                        <button
+                                class="Button-response"
+                                @click="firstButton"
+                                aria-label="Close modal"
+                        >
+                            {{buttonFirst}}
+                        </button>
+                        <button
+                                class="Button-response"
+                                @click="close"
+                                aria-label="Close modal"
+                        >
+                            {{buttonSecond}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+</template>
+
 <script>
     import Notification from '@/assets/notification.svg';
     import RippleButton from '@/components/UI/RippleButton';
+    import Cross from '@/assets/cross.svg';
 
     export default {
         name: 'modal',
-        components: { Notification, RippleButton },
+        components: { Notification, RippleButton, Cross },
         template: '#modal',
-        data: () => ({
-            isModalVisible: false,
-        }),
         props: [
+            "visible",
             "title",
             "description",
             "question",
@@ -17,83 +80,49 @@
             "buttonFirstAction",
             "buttonSecond"
         ],
+        watch: {
+            visible: function(isVisible) {
+                //TODO ajuster le css pour ne pas remonter en haut
+                if(isVisible) {
+                    document.body.classList.add('modal-open')
+                } else {
+                    document.body.classList.remove('modal-open')
+                }
+            }
+        },
         methods: {
             close() {
                 this.$emit('close');
             },
             firstButton() {
-                this.buttonFirstAction();
                 this.close();
+                this.buttonFirstAction();
+                this.$emit('firstAction');
             }
         },
     };
 </script>
 
-<template>
-    <transition name="modal-fade">
-        <div class="modal-backdrop">
-            <div class="modal"
-                 role="dialog"
-                 aria-labelledby="modalTitle"
-                 aria-describedby="modalDescription"
-            >
-            <div class="modal-image">
-                <Notification />
-            </div>
-            <div class="modal-content">
-                <header
-                        class="modal-header"
-                        id="modalTitle"
-                >
-                    <slot name="header">
-                        {{title}}
-
-                        <button
-                                type="button"
-                                class="btn-close"
-                                @click="close"
-                                aria-label="Close modal"
-                        >
-                            x
-                        </button>
-                    </slot>
-                </header>
-                <section
-                        class="modal-body"
-                        id="modalDescription"
-                >
-                    <slot name="body">
-                        {{description}}
-                    </slot>
-                </section>
-                <footer class="modal-footer">
-                    <slot name="footer">
-                        {{question}}
-                    </slot>
-                </footer>
-                <div class="button-footer">
-                    <button 
-                        class="Button-response"
-                        @click="firstButton"
-                        aria-label="Close modal"
-                    >
-                        {{buttonFirst}}
-                    </button>
-                    <button
-                        class="Button-response"
-                        @click="close"
-                        aria-label="Close modal"
-                    >
-                        {{buttonSecond}}
-                    </button>
-                </div>
-            </div>
-            </div>
-        </div>
-    </transition>
-</template>
-
 <style scoped lang="scss">
+    .fade-enter-active  {
+        transition: background-color .3s;
+        .modal {
+            transition: transform .3s ease;
+        }
+    }
+    .fade-leave-active {
+        transition: background-color .2s;
+        .modal {
+            transition: transform .2s ease;
+        }
+    }
+    .fade-enter, .fade-leave-to {
+        background-color: rgba(255, 255, 255, 0) !important;
+        .modal {
+            transform: scaleY(0);
+        }
+    }
+    
     .modal-backdrop {
         position: fixed;
         top: 0;
@@ -108,6 +137,7 @@
     }
 
     .modal {
+        position: relative;
         background: $violet;
         border-radius: 0.8rem;
         overflow-x: auto;
@@ -115,6 +145,8 @@
         flex-direction: initial;
         width: 46rem;
         color: $white;
+        transform: scale(1);
+
         &-image {
             width: 7rem;
             display: flex;
@@ -154,8 +186,12 @@
     }
 
     .btn-close {
+        position: absolute;
+        width: 30px;
+        top: 10px;
+        right: 10px;
+        padding: 6px;
         border: none;
-        font-size: 20px;
         cursor: pointer;
         font-weight: bold;
         color: $white;
@@ -164,7 +200,7 @@
     .Button-response {
         border: 1px solid $white;
         border-radius: 2.1rem;
-        padding: 1rem 1.3rem;
+        padding: .6rem 2.2rem;
         color: $white;
         font-size: 1.4rem;
         &:first-child {

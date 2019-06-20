@@ -9,15 +9,17 @@
                href="http://www.legorafi.fr/2019/02/11/la-nasa-envisage-de-faire-exploser-la-lune-pour-en-etudier-les-consequences/"
             >Lire la suite</a>
             <div class="button__container">
-                <div class="button__group">
+                <div class="button__group" v-if="showButtons">
                     <RippleButton id="show-modal" :clickAction="showModal" name="Partager"></RippleButton>
                     <RippleButton :clickAction="updateReport" name="Signaler"></RippleButton>
-                    <modal v-show="isModalVisible"
+                    <modal
+                        :visible="isModalVisible"
                         @close="closeModal"
                         title="Notifications"
                         description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
                         question="L’information est-elle correcte ?"
                         buttonFirst="Oui"
+                       @firstAction="hideBtn"
                         :buttonFirstAction="updateShare"
                         buttonSecond="Non"/>
                 </div>
@@ -36,6 +38,7 @@
         components: {Content, Informations, Modal, RippleButton},
         data: () => ({
             isModalVisible: false,
+            showButtons: true
         }),
         methods: {
             showModal() {
@@ -44,7 +47,11 @@
             closeModal() {
                 this.isModalVisible = false;
             },
+            hideBtn() {
+                this.showButtons = false;
+            },
             updateReport() {
+                this.hideBtn();
                 this.$store.dispatch('updateScene', {sceneType: 'fakeNews', action: 'reports'});
                 this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1})
             },

@@ -57,7 +57,7 @@
     .translate-enter-active, .translate-leave-active {
         transition: transform .5s;
     }
-    .translate-enter, .translate-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    .translate-enter, .translate-leave-to {
         transform: translateY(-100px);
     }
 </style>

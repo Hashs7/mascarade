@@ -5,6 +5,10 @@ body {
     width: 100vw;
     font-size: 1.6rem;
 	font-family: "Avenir";
+    &.modal-open {
+        height: 100vh;
+        overflow: hidden;
+    }
 }
 html {
 	font-size: 62.5%;

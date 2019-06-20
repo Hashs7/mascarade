@@ -42,6 +42,7 @@
     import Home from '@/assets/home.svg';
     import Msg from '@/assets/message.svg';
     import Help from '@/assets/help.svg';
+
     export default {
         name: "StudentAchievement",
         components: { Logo, Home, Msg, Help },

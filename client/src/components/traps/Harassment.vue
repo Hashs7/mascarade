@@ -14,7 +14,7 @@
                     :date="response.date"
                     :description="response.desc"/>
             <div class="button__container">
-            <div class="button__group">
+            <div class="button__group" v-if="!response.name">
                 <RippleButton
                     v-for="(res, i) in choices"
                     :key="i"
