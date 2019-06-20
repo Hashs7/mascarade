@@ -35,6 +35,7 @@
     import StudentNavigation from '@/components/StudentNavigation';
     import Slider from '@/components/traps/Slider';
     import {mapActions, mapMutations} from "vuex";
+    import {routePath} from "../../../router/routes";
 
     export default {
         name: "SceneLayout",
@@ -51,6 +52,9 @@
             newMsg(type) {
                 this.initChat(type);
                 this.toggleNotif(true);
+            },
+            showBilan() {
+                this.$router.push(routePath.STUDENT_SUMMARY);
             }
         },
         methods: {

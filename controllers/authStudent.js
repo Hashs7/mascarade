@@ -7,6 +7,24 @@ const Student            = require('../models/Student');
 const Flash            = require('../models/Flash');
 const Session            = require('../models/Session');
 
+const shouldShowBilan = (student) => {
+    const quizzValid = student.quizz.length === 5;
+    const charityValid = student.charity.type;
+    const harassmentValid = student.harassment.action;
+    const fakeNewsValid = student.fakeNews.action;
+    const dialogCelebrityValid = student.dialog.celebrity.state === 'stop' || student.dialog.celebrity.state === 'report';
+    const dialogHackerValid = student.dialog.hacker.state === 'stop' || student.dialog.hacker.state === 'report';
+
+    console.log('shouldShowBilan', quizzValid, charityValid, harassmentValid, fakeNewsValid, dialogCelebrityValid, dialogHackerValid);
+
+    if(quizzValid && charityValid && harassmentValid && fakeNewsValid && dialogCelebrityValid && dialogHackerValid) {
+        return true
+    } else {
+        return false
+
+    }
+}
+
 exports.signup = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -193,7 +211,7 @@ exports.updateAchievement = (req, res, next) => {
     const { studentId, sessionId, achievType, amount } = req.body;
     const type = ['points', 'shares', 'reports'];
 
-    let realAmount;
+    let realAmount, currentStudent;
 
     Student.findById(studentId)
         .populate()
@@ -201,6 +219,7 @@ exports.updateAchievement = (req, res, next) => {
             if(!type.includes(achievType)) {
                 logError("le type n'est pas correct", 401);
             }
+            currentStudent = student;
             student.achievements[achievType] += amount;
             realAmount = student.achievements[achievType];
             return student.save()
@@ -213,7 +232,11 @@ exports.updateAchievement = (req, res, next) => {
                 amount: realAmount
             };
             io.getIO().emit('updateAchievement', payload);
-            console.log('emit io', payload);
+
+            if(shouldShowBilan(currentStudent)) {
+                io.getIO().emit('showBilan', true);
+            }
+
             res.status(201).json({
                 message: 'Achievement a été mis à jour',
                 payload

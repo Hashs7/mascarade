@@ -23,7 +23,7 @@
 
             window.addEventListener('scroll', () => {
                 this.scrollY = window.scrollY;
-                if( window.scrollY < 10 && this.hasNew) {
+                if(this.hasNew && window.scrollY < 10) {
                     this.$store.state.stories.scrollBtnVisible = false;
                 }
             })

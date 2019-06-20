@@ -16,14 +16,16 @@
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
+    import {routePath} from "../../../router/routes";
 
     export default {
         name: "SceneLayout",
         components: { MessageContainer, StudentAchievement, Charity, StudentNavigation },
         data: () => ({}),
-        mounted() {
-        },
-        methods: {
+        sockets: {
+            showBilan() {
+                this.$router.push(routePath.STUDENT_SUMMARY);
+            }
         }
     }
 </script>
