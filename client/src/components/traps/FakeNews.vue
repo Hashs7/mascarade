@@ -1,7 +1,7 @@
 <template>
     <div class="fakeNews__container">
         <Content title="La nasa envisage de faire exploser la lune…"
-                 description="Edgar Phillips-Garret est l’homme qui se cache derrière cette idée folle d’envoyer sur la Lune une sonde équipé d’une charge explosive suffisamment forte pour définitivement la faire disparaître. "/>
+                 description="Edgar Phillips-Garret est l’homme qui se cache derrière cette idée folle d’envoyer sur la Lune une sonde équipée d’une charge explosive suffisamment forte pour définitivement la faire disparaître. "/>
         <div class="fakeNews__group">
             <a class="fakeNews__link"
                target="_blank"
