@@ -118,9 +118,6 @@
         background: $gradient;
         position: relative;
     }
-    .v-content {
-        //height: 100%;
-    }
     .v-content__wrap {
         display: flex;
     }
@@ -155,5 +152,6 @@
     .content {
         flex-grow: 1;
         padding: 45px 90px;
+        padding-right: 0;
     }
 </style>

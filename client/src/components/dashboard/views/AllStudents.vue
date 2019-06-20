@@ -1,13 +1,13 @@
 <template>
-    <div>
+    <div class="students__container">
         <StudentModal/>
 
-        <div>
+        <div class="students__row"> 
             <h2 v-if="!currentSessions.students.length">Aucun élève n'est inscrit à cette session</h2>
 
             <div
                 v-for="(student, i) in currentSessions.students"
-                :key="i">
+                :key="i" class="students__card">
                 <StudentCard
                         :id="student._id"
                         :firstname="student.firstname"
@@ -45,6 +45,10 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    .students {
+        &__row {
+            display: flex;
+        }
+    }
 </style>
