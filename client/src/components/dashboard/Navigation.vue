@@ -54,11 +54,14 @@
         padding: 8px 0;
         border-radius: 12px;
         width: 186px;
-        background-color: white;
-        color: black;
-        opacity: 0.4;
+        background-color: rgba(255, 255, 255, 0.4);
+        color: $black;
+        transition: 0.2s ease-in;
+        &:hover {
+            background-color: $white;
+        }
         &.active {
-            opacity: 1;
+            background: $white;
         }
     }
 </style>

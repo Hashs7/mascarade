@@ -40,6 +40,7 @@
 <style scoped lang="scss">
     .msg {
         margin: 50px 0;
+        user-select : none;
     }
     .msg-actived {
         text-align: center;
