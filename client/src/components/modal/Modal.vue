@@ -96,6 +96,7 @@
             },
             firstButton() {
                 this.close();
+                document.body.classList.remove('modal-open');
                 this.buttonFirstAction();
                 this.$emit('firstAction');
             }
