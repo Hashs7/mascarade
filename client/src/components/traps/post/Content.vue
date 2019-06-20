@@ -1,13 +1,13 @@
 <template>
-    <div class="Content-container">
-        <div class="Content-header">
-            <img class="Content-image" alt="" :src="fakeNews"/>
+    <div class="content__container">
+        <div class="content__header">
+            <img class="content__image" alt="" :src="fakeNews"/>
             <Informations name="Le monde" date="Il y a 3 heures"/>
         </div>
-        <div class="Content-group">
-            <p class="Content-title">{{title}}</p>
-            <div class="Content-separate"></div>
-            <p class="Content-description">{{description}}</p>
+        <div class="content__group">
+            <p class="content__title">{{title}}</p>
+            <div class="content__separate"></div>
+            <p class="content__description">{{description}}</p>
         </div>
     </div>
 </template>
@@ -30,8 +30,8 @@
 </script>
 
 <style scoped lang="scss">
-    .Content {
-        &-title {
+    .content {
+        &__title {
             font-weight: bold;
             font-size: 2rem;
             line-height: 2.8rem;
@@ -40,13 +40,13 @@
             max-width: 85%;
         }
 
-        &-description {
+        &__description {
             font-size: 1.4rem;
             line-height: 2.5rem;
             margin-bottom: 0;
         }
 
-        &-separate {
+        &__separate {
             margin-top: 2rem;
             margin-bottom: 2rem;
             background: $black;
@@ -54,14 +54,16 @@
             width: 3rem;
         }
 
-        &-group {
+        &__group {
             padding: 0 7rem 0 7rem;
         }
 
-        &-header {
+        &__header {
             img {
                 width: 100%;
                 height: 28rem;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
             }
         }
     }

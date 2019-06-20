@@ -1,6 +1,6 @@
 <template>
-    <div class="Stories-container">
-        <div class="Story" id="modalStory"  @click="showModal" :style="`background-image: url(${src})`"></div>
+    <div class="stories__container">
+        <div class="story" id="modalStory"  @click="showModal" :style="`background-image: url(${src})`"></div>
         <modalStory    
             v-show="isModalVisible"
             @close="closeModal"
@@ -49,12 +49,12 @@
 </script>
 
 <style scoped lang="scss">
-    .Stories {
-        &-container {
+    .stories {
+        &__container {
             display: flex;
         }
     }
-    .Story {
+    .story {
         border-radius: 100%;
         width: 8rem;
         height: 8rem;

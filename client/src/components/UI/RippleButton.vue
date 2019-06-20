@@ -2,7 +2,7 @@
     <div class="btn-container">
         <button ref="rippleBtn"
                 @click.prevent="clickAction"
-                class="Button-share btn btn-ripple btn--tamaya"
+                class="button__share btn btn-ripple btn--tamaya"
                 :data-text="name"
                 data-hover="none"
                 @mouseenter="rippleIn"  @mouseleave="rippleOut"  >
