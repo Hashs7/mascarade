@@ -72,6 +72,7 @@
             max-width: 600px;
             margin: 0 auto;
             background: $white;
+            border-radius: 10px;
         }
         &__title {
             text-transform: uppercase;
@@ -91,6 +92,8 @@
         }
         &__image {
             width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
     }
     .form {

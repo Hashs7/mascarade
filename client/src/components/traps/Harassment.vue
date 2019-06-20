@@ -81,12 +81,15 @@
         &__container {
             margin: 5rem 0;
             background: $white;
+            border-radius: 10px;
         }
         &__group {
             padding: 0 7rem 3.8rem 7rem;
         }
         &__image {
             width: 100%;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
         }
         &__title {
             font-size: 1.6rem;

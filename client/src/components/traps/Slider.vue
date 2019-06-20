@@ -56,6 +56,7 @@
         &__container {
             background: $white;
             margin-bottom: 50px;
+            border-radius: 10px;
             .VueCarousel-dot-container {
                 margin: 0;
             }
@@ -73,6 +74,10 @@
           margin-bottom: 2rem;
           margin-top: 1.8rem;
           font-size: 1.6rem;
+        }
+        &__image {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
     }
 </style>

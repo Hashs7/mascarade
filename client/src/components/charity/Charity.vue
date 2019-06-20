@@ -110,6 +110,7 @@
         &__container {
             margin: 50px 0;
             background: $white;
+            border-radius: 10px;
         }
         &__title, &__description {
             display: block;
@@ -124,7 +125,6 @@
             opacity: 0;
             background-color: $violet;
             color : $white;
-            border-radius: 1.05rem;
             height: 100%;
             display: flex;
             justify-content: center;
@@ -148,24 +148,20 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 1rem;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
     .img__select {
         position: relative;
         cursor: pointer;
-        width: 18rem;
+        width: calc(100% / 3);
         height: 120px;
-        border-radius: 1.2rem;
         background-size: cover;
         background-position: center;
-        margin-bottom: 1.4rem;
         &.selected .indicator{
-            opacity: 1;
-            border-radius: 1.5rem;   
+            opacity: 1;  
             height: 100%;
-            border: 2px solid $violet;
-            margin: -0.5rem;
-            padding: 6.3rem;
+            border: 4px solid $violet;
         }
         &.selected {
             .charity__titleImage {
@@ -175,6 +171,18 @@
         &:hover {
             .charity__titleImage {
                 opacity: 0.8;
+            }
+        }
+        &:first-child {
+            border-top-left-radius: 10px;
+            .indicator, .charity__titleImage {
+                border-top-left-radius: 10px;
+            }
+        }
+        &:nth-child(3) {
+            border-top-right-radius: 10px;
+            .indicator, .charity__titleImage {
+                border-top-right-radius: 10px;
             }
         }
     }

@@ -61,6 +61,7 @@
         &__container {
             background: $white;
             margin-top: 2rem;
+            border-radius: 10px;
         }
 
         &__group {
