@@ -48,17 +48,17 @@ button:focus, input, textarea {
 	.VueCarousel-navigation-prev {
 		top: 0 !important;
 		background: transparent !important;
-		color: $violet !important;
+		color: $white !important;
 		margin-left: 30px !important;
 	}
 	.VueCarousel-navigation-next {
-		background: $white !important;
-		border: 2px solid $violet !important;
-		color: $violet !important;
+		background: transparent !important;
+		border: 2px solid $white !important;
+		color: $white !important;
 		transition: 0.2s ease-in;
 		&:hover {
-			color: $white !important;
-			background: $violet !important;
+			color: $violet !important;
+			background: $white !important;
 		}
 	}
 }
@@ -119,11 +119,11 @@ input[type=radio]:after {
 	top: -3px;
 	left: -1px;
 	position: relative;
-	background-color: $white;
+	background-color: $violet;
 	content: '';
 	display: inline-block;
 	visibility: visible;
-	border: 2px solid $violet;
+	border: 2px solid $white;
 }
 
 input[type=radio]:checked:after {
@@ -133,9 +133,9 @@ input[type=radio]:checked:after {
 	top: -3px;
 	left: -1px;
 	position: relative;
-	background-color: $violet;
+	background-color: $white;
 	content: '';
 	display: inline-block;
 	visibility: visible;
-	border: 2px solid $violet;
+	border: 2px solid $white;
 }
