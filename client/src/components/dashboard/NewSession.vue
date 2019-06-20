@@ -47,7 +47,7 @@
         display: inline-block;
         background-color: $violet !important;
         color: $white;
-        border: 2px solid $violet;
+        border: 1px solid $violet;
         padding: 0.6rem 3rem;
         border-radius: 0.6rem;
         transition: 0.2s ease;
