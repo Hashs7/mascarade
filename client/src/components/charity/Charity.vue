@@ -25,8 +25,8 @@
                     class="student-response charity__description"
                     name="description"
                     placeholder="Ajoute une description (minimum 50 mots)"></textarea>
-            <div class="Button-container">
-                <div class="Button-group">
+            <div class="button__container">
+                <div class="button__group">
                     <RippleButton :clickAction="shareCharity" name="Partager"></RippleButton>
                 </div>
             </div>
@@ -196,8 +196,8 @@
         min-width: 100%;
         min-height: 40px;
     }
-    .Button {
-      &-container {
+    .button {
+      &__container {
         margin-top: 2rem;  
         display: flex;
         justify-content: flex-end;
