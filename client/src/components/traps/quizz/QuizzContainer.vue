@@ -26,7 +26,7 @@
                         <input type="text" name="date" id="date" required>
                     </div>
                     <div class="form__field">
-                        <RippleButton :clickAction="startQuizz" name="Envoyer"></RippleButton>
+                        <RippleButton :clickAction="sendInfo" name="Envoyer"></RippleButton>
                     </div>
                 </form>
             </div>
@@ -61,6 +61,10 @@
             showButton(show) {
                 this.buttonVisible = show;
                 console.log("show", show);
+            },
+            sendInfo() {
+                //Todo tester si la valeur des champs est vide
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: -5});
             }
         }
     }

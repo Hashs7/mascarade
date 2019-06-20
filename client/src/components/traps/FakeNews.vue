@@ -53,11 +53,12 @@
             updateReport() {
                 this.hideBtn();
                 this.$store.dispatch('updateScene', {sceneType: 'fakeNews', action: 'reports'});
-                this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1})
+                this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1});
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: 10});
             },
             updateShare() {
                 this.$store.dispatch('updateScene', {sceneType: 'fakeNews', action: 'shares'});
-                this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
+                this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1});
             }
         },
     }

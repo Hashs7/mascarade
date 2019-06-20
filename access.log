@@ -510,3 +510,12 @@
 [0mPUT /auth/student/achievement [31m500 [0m177.698 ms - 30[0m
 [0mPUT /auth/student/achievement [31m500 [0m155.640 ms - 30[0m
 [0mPUT /auth/student/achievement [32m201 [0m1008.081 ms - 169[0m
+[0mGET /session/student/undefined [31m500 [0m12.895 ms - 99[0m
+[0mPUT /auth/student/quizz [31m500 [0m106.388 ms - 49[0m
+[0mPUT /auth/student/quizz [31m500 [0m32.635 ms - 49[0m
+[0mPUT /auth/student/quizz [31m500 [0m32.918 ms - 49[0m
+[0mPUT /auth/student/quizz [31m500 [0m46.500 ms - 49[0m
+[0mPUT /auth/student/quizz [31m500 [0m52.912 ms - 49[0m
+[0mGET /session/student/undefined [31m500 [0m2.089 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m1.306 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m2.138 ms - 99[0m
