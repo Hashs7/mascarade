@@ -10,7 +10,21 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import VueSocketIO from 'vue-socket.io';
 import {BASE_API_URL} from "./utils/constant";
+import VueScrollTo from 'vue-scrollto';
 
+Vue.use(VueScrollTo, {
+    container: "body",
+    duration: 500,
+    easing: "ease",
+    offset: 0,
+    force: true,
+    cancelable: false,
+    onStart: false,
+    onDone: false,
+    onCancel: false,
+    x: false,
+    y: true
+})
 
 Vue.use(new VueSocketIO({
     debug: true,

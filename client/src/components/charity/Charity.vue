@@ -74,7 +74,7 @@
                 src: Homophobie,
                 type: 'homophobie',
                 title: "Homophobie",
-                selected: true
+                selected: false
             },{
                 src: Pollution,
                 type: 'pollution',

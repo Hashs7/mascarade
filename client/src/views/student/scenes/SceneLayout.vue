@@ -9,6 +9,7 @@
             </div>
             <StudentNavigation />
             <div class="layout-main">
+                <ScrollTop />
                 <div class="layout-traps">
                     <Slider />
                     <FakeNews />
@@ -23,6 +24,7 @@
 </template>
 
 <script>
+    import ScrollTop from '@/components/UI/ScrollTop';
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
     import QuizzContainer from '@/components/traps/quizz/QuizzContainer';
@@ -39,7 +41,7 @@
         components: {
             MessageContainer, StudentAchievement, Charity,
             StudentNavigation, FakeNews, Harassment, StudentFlash,
-            Slider, QuizzContainer
+            Slider, QuizzContainer, ScrollTop
         },
         sockets: {
             newStory(data) {
