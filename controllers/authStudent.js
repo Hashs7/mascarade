@@ -234,7 +234,7 @@ exports.updateAchievement = (req, res, next) => {
             io.getIO().emit('updateAchievement', payload);
 
             if(shouldShowBilan(currentStudent)) {
-                io.getIO().emit('showBilan', true);
+                io.getIO().emit('showBilan', currentStudent._id);
             }
 
             res.status(201).json({

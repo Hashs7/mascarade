@@ -23,7 +23,8 @@
         components: { MessageContainer, StudentAchievement, Charity, StudentNavigation },
         data: () => ({}),
         sockets: {
-            showBilan() {
+            showBilan(studentId) {
+                if(studentId !== this.$store.state.studentId) return;
                 this.$router.push(routePath.STUDENT_SUMMARY);
             }
         }
