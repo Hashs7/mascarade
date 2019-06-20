@@ -1,10 +1,12 @@
 const state = {
-    allStories: [{
-        src: "https://picsum.photos/350/600",
-        name: "Le monde",
-        description: "Une future explosion ?",
-        delay: 1500,
-    }]
+    allStories: []
+};
+
+const storyExample = {
+    src: "https://picsum.photos/350/600",
+    name: "Le monde",
+    description: "Une future explosion ?",
+    delay: 1500
 };
 
 const mutations = {

@@ -1,4 +1,4 @@
-export const initMsg = (name) => ({
+export const initMsgCelebrity = (name) => ({
     convId: 0,
     stranger: [{
         content: `Coucou ${name} !`,
@@ -118,7 +118,7 @@ const repIndex4 = {
     }]
 };
 
-export const dialogRes = [
+export const dialogResCelebrity = [
     repIndex0,
     repIndex1,
     repIndex2,

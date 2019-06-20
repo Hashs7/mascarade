@@ -85,11 +85,13 @@
         flex-wrap: wrap;
     }
     .trap-progress {
-        padding: 8px;
         width: calc(25% - 24px);
-        background-color: white;
-        margin: 12px;
         min-height: 144px;
+        margin: 12px;
+        padding: 8px;
+        border-radius: 0.6rem;
+        background-color: white;
+        box-shadow: 0px 2px 5px -4px rgba(0,0,0,0.75);
     }
     .trap__number {
         display: block;

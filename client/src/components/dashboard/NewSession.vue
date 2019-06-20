@@ -12,8 +12,7 @@
         ></v-text-field>
         <button
                 class="validate"
-                :disabled="!valid"
-                @click="validate"
+                @click.prevent="validate"
         >
             Démarrer une session
         </button>
@@ -31,8 +30,8 @@
         methods: {
             validate() {
                 if (!this.$refs.form.validate()) return;
-
-                this.$store.dispatch('addSession', this.className)
+                this.$store.dispatch('addSession', this.className);
+                this.className = '';
             }
         }
     }

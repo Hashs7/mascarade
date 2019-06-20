@@ -1,19 +1,22 @@
 import {updateDialog} from "../../utils/API";
+import {isNull} from "../../utils/methods";
+import {initMsgCelebrity} from "../../components/messaging/dialogs";
+import {initMsgHacker} from "../../components/messaging/dialogHack";
 
-const conversationExample = {
+const conversationCelebrity = {
     id: 0,
     selected: true,
     type: 'celebrity',
-    author: 'Michel',
+    author: 'Alexandre',
     lastAnswer: null,
     showAnswers: false,
     answers: [],
     responses: []
 };
 
-const conversationExample2 = {
+const conversationHacker = {
     id: 1,
-    selected: false,
+    selected: true,
     author: 'André',
     type: 'hacker',
     lastAnswer: null,
@@ -31,21 +34,20 @@ export const getTime = () => {
 };
 
 const state = {
-    hasNotif: true,
-    conversations: [conversationExample, conversationExample2]
+    hasNotif: false,
+    conversations: []
 };
 
 const getters = {
     getContact: state => (
-        state.conversations.map(conv => {
-            return conv.author
-        })
+        state.conversations.map(conv => conv.author)
     ),
-    getSelectedContact: state => {
-        return state.conversations.find(conv => conv.selected);
-    },
+    getSelectedContact: state => (
+        state.conversations.find(conv => conv.selected)
+    ),
     getCurrentConversation: state => {
         const current = state.conversations.find(conv => conv.selected);
+        if(isNull(current)) return;
         return current.responses;
     }
 };
@@ -59,7 +61,40 @@ const actions = {
 
         if(repIndex === 'stop' || repIndex === 'report') return;
         commit('addMessage', {id, answer, type})
-    }
+    },
+    initChat({rootState, dispatch, state}, type) {
+        if(state.conversations.length) {
+            state.conversations.forEach(conv => conv.selected = false);
+        }
+
+        if(type === 'celebrity') {
+            state.conversations.push(conversationCelebrity);
+            dispatch('addGroupMessage', initMsgCelebrity(rootState.firstname));
+        } else {
+            state.conversations.push(conversationHacker);
+            dispatch('addGroupMessage', initMsgHacker(rootState.firstname));
+        }
+    },
+    addGroupMessage({commit, rootState, state}, msgArray) {
+        const currentId = msgArray.convId;
+        const conv = state.conversations.find(conv => conv.id === currentId);
+
+        console.log(currentId, conv);
+
+
+        msgArray.stranger.forEach(({content, delay, type}, i) => {
+            setTimeout(() => {
+                commit('addMessage', ({id: currentId, answer: content, type}));
+                conv.answers = msgArray.responses;
+
+                if(msgArray.stranger.length - 1 === i) {
+                    console.log(currentId, conv, 'current conv');
+                    setTimeout(() => conv.showAnswers = true, 1000);
+                }
+            }, delay);
+        });
+
+    },
 };
 
 const mutations = {
@@ -77,9 +112,10 @@ const mutations = {
             type,
             time: getTime()
         };
+        const conv = state.conversations.find(conv => conv.id === id)
 
-        state.conversations[id].responses.push(response);
-        state.conversations[id].lastAnswer = lastAnswer;
+        conv.responses.push(response);
+        conv.lastAnswer = lastAnswer;
     },
     addContact(state, {author, msg }) {
         state.conversations.push({
@@ -98,9 +134,9 @@ const mutations = {
         state.conversations[id].selected = true;
     },
     toggleNotif(state, isActive) {
-        if(isActive) {
+        if(!isNull(isActive)) {
             state.hasNotif = isActive;
-            return
+            return;
         }
         state.hasNotif = !state.hasNotif;
     }

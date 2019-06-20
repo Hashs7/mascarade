@@ -32,6 +32,7 @@
     import StudentFlash from '@/components/student-progess/StudentFlash';
     import StudentNavigation from '@/components/StudentNavigation';
     import Slider from '@/components/traps/Slider';
+    import {mapActions, mapMutations} from "vuex";
 
     export default {
         name: "SceneLayout",
@@ -44,7 +45,19 @@
             newStory(data) {
                 console.log('newStory');
                 this.$store.commit('addStory', data);
+            },
+            newMsg(type) {
+                this.initChat(type);
+                this.toggleNotif(true);
             }
+        },
+        methods: {
+            ...mapMutations([
+                'toggleNotif'
+            ]),
+            ...mapActions([
+                'initChat'
+            ]),
         },
         mounted() {
             window.addEventListener('visibilitychange', () => {

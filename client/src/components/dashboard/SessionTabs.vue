@@ -70,6 +70,7 @@
 
 <style scoped lang="scss">
 .session-link {
+    box-shadow: 0px 2px 5px -4px rgba(0,0,0,0.75);
     padding: 8px 16px;
     background-color: white;
     margin-top: 14px;

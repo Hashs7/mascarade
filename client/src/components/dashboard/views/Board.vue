@@ -1,7 +1,7 @@
 <template>
     <div>
         <TrapInfoContainer />
-        <div class="bottom-container">
+        <!--<div class="bottom-container">
             <TrapRecap />
             <SessionTime
                     name="Temps minimal d'une session"
@@ -15,7 +15,7 @@
                     name="Temps moyen d'une session"
                     time="4m5"
                     :timeValue="45"/>
-        </div>
+        </div>-->
     </div>
 </template>
 
