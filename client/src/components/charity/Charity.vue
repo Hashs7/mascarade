@@ -1,32 +1,32 @@
 <template>
-    <div class="charity-container">
-        <div class="img-container">
-            <div class="img-select"
+    <div class="charity__container">
+        <div class="img__container">
+            <div class="img__select"
                  v-for="(img, i) in images"
                  :style="`background-image: url(${img.src})`"
                  :class="{selected: img.selected}"
                  :title="img.title"
                  @click="selectImg(i)"
                  >
-                <div class="charity-titleImage">{{img.title}}</div>
+                <div class="charity__titleImage">{{img.title}}</div>
                 <div class="indicator"></div>
             </div>
         </div>
-        <p class="charity-published">Ton article vient d'être publié</p>
-        <form  class="charity-content" action="">
+        <p class="charity__published">Ton article vient d'être publié</p>
+        <form  class="charity__content" action="" autocomplete="off">
             <input
                     v-model="title"
                     type="text"
-                    class="student-response charity-title"
+                    class="student-response charity__title"
                     name="title"
                     placeholder="Ajoute un titre">
             <textarea
                     v-model="description"
-                    class="student-response charity-description"
+                    class="student-response charity__description"
                     name="description"
                     placeholder="Ajoute une description (minimum 50 mots)"></textarea>
-            <div class="Button-container">
-                <div class="Button-group">
+            <div class="button__container">
+                <div class="button__group">
                     <RippleButton :clickAction="shareCharity" name="Partager"></RippleButton>
                 </div>
             </div>
@@ -107,11 +107,12 @@
 
 <style scoped lang="scss">
     .charity {
-        &-container {
+        &__container {
             margin: 50px 0;
             background: $white;
+            border-radius: 10px;
         }
-        &-title, &-description {
+        &__title, &__description {
             display: block;
             color: $violet;
             border: 1px solid $violet;
@@ -120,21 +121,20 @@
             margin-bottom: 2rem;
             font-size: 1.4rem;
         }
-        &-titleImage {
+        &__titleImage {
             opacity: 0;
             background-color: $violet;
             color : $white;
-            border-radius: 1.05rem;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        &-content {
+        &__content {
             padding: 0 7rem 3.8rem 7rem;
             margin-top: 3rem;
         }
-        &-published {
+        &__published {
             display: none;
             font-size: 1.4rem;
             &.visible {
@@ -144,37 +144,45 @@
         }
 
     }
-    .img-container {
+    .img__container {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 1rem;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
-    .img-select {
+    .img__select {
         position: relative;
         cursor: pointer;
-        width: 18rem;
+        width: calc(100% / 3);
         height: 120px;
-        border-radius: 1.2rem;
         background-size: cover;
         background-position: center;
-        margin-bottom: 1.4rem;
         &.selected .indicator{
-            opacity: 1;
-            border-radius: 1.5rem;   
+            opacity: 1;  
             height: 100%;
-            border: 2px solid $violet;
-            margin: -0.5rem;
-            padding: 6.3rem;
+            border: 4px solid $violet;
         }
         &.selected {
-            .charity-titleImage {
+            .charity__titleImage {
                 display: none;
             }
         }
         &:hover {
-            .charity-titleImage {
+            .charity__titleImage {
                 opacity: 0.8;
+            }
+        }
+        &:first-child {
+            border-top-left-radius: 10px;
+            .indicator, .charity__titleImage {
+                border-top-left-radius: 10px;
+            }
+        }
+        &:nth-child(3) {
+            border-top-right-radius: 10px;
+            .indicator, .charity__titleImage {
+                border-top-right-radius: 10px;
             }
         }
     }
@@ -188,8 +196,8 @@
         min-width: 100%;
         min-height: 40px;
     }
-    .Button {
-      &-container {
+    .button {
+      &__container {
         margin-top: 2rem;  
         display: flex;
         justify-content: flex-end;

@@ -49,12 +49,12 @@ const repIndex0 = {
 const repIndex1 = {
     convId: 0,
     stranger: [{
-        content: `C’est mon deuxième compte je l’ai créé spécialement pour les cadeaux pour mes fans et c’est moi qui choisi les participants`,
+        content: `C’est mon deuxième compte je l’ai créé spécialement pour les cadeaux pour mes fans et c’est moi qui ai choisi les participants`,
         delay: 800,
         type: 'stranger'
     }],
     responses: [{
-        content: "Je suis pas convaincu, pourquoi tu ne le fais pas sur ton compte principal ?",
+        content: "Je ne suis pas convaincu, pourquoi tu ne le fais pas sur ton compte principal ?",
         repIndex: 3,
         type: 'student'
     },{
@@ -67,11 +67,11 @@ const repIndex1 = {
 const repIndex2 = {
     convId: 0,
     stranger: [{
-        content: `Très bon choix maintenant pour confirmer ta participation le système te demander un code reçu gratuitement par téléphone`,
+        content: `Très bon choix maintenant pour confirmer ta participation le système va te demander un code reçu gratuitement par téléphone`,
         delay: 800,
         type: 'stranger'
     },{
-        content: "Voilà appelle ce numéro 08 99 63 28 26 il y a un mec qui va te dire le code d’accès et tu me le dis après. Les prix qu’ils vont te dire c’est 3 euros à chaque appel mais c’est pas vrai, t’inquiètes c’est gratuit ok ?",
+        content: "Voilà appelle ce numéro 08 99 63 28 26 il y a un mec qui va te dire le code d’accès et tu me le dis après. Les prix qu’ils vont te dire c’est 3 euros à chaque appel mais ce n’est pas vrai, t’inquiètes c’est gratuit ok ?",
         delay: 2000,
         type: 'stranger'
     }],

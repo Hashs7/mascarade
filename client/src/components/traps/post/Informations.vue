@@ -1,9 +1,9 @@
 <template>
-    <div class="Informations-container">
-        <div class="Informations-group">
-            <div class="Informations-content">
-              <p class="Informations-title">Publié par <span>{{name}}</span></p>
-              <p class="Informations-date">{{date}}</p>
+    <div class="informations__container">
+        <div class="informations__group">
+            <div class="informations__content">
+              <p class="informations__title">Publié par <span>{{name}}</span></p>
+              <p class="informations__date">{{date}}</p>
             </div>
         </div>
     </div>
@@ -23,24 +23,24 @@
 </script>
 
 <style scoped lang="scss">
-    .Informations {
-      &-container {
+    .informations {
+      &__container {
         padding: 0 7rem 0 7rem;
         position: relative;
         bottom: 3.5rem;
       }
-      &-title {
+      &__title {
         font-size: 1.6rem;
         margin-bottom: 0;
         span {
           font-weight: bold;
         }
       }
-      &-date {
+      &__date {
         font-size: 1rem;
         margin-bottom: 0;
       }
-      &-group {
+      &__group {
         display: flex;
         flex-direction: column;
         border-radius: 2.6rem;

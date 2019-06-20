@@ -1,19 +1,20 @@
 <template>
-    <div class="Harassment-container">
-        <img class="Harassment-image" :src="harassment"/>
+    <div class="harassment__container">
+        <img class="harassment__image" :src="harassment"/>
         <Informations name="Nathalie Bou" date="Il y a 4 jours"/>
-        <div class="Harassment-group">
-            <h2 class="Harassment-title"> Holidays in Miami 🌈🌴</h2>
-            <div class="Harassment-separate"></div>
+        <div class="harassment__group">
+            <h2 class="harassment__title"> Holidays in Miami 🌈🌴</h2>
+            <div class="harassment__separate"></div>
             <Comment name="Bryan Philipo" date="Il y a 2h" description="Trop moche c'est quoi cette photo !"/>
-            <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Grave je préférerai être morte qu’avoir ta tête !"/>
+            <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Tu t'es prise pour un mannequin ou quoi ?"/>
+            <Comment name="Ryan Zetyr" date="Il y a 5 jours" description="Grave tu fais trop ta belle !"/>
             <Comment
                     v-if="response.desc"
                     :name="response.name"
                     :date="response.date"
                     :description="response.desc"/>
-            <div class="Button-container">
-            <div class="Button-group">
+            <div class="button__container">
+            <div class="button__group">
                 <RippleButton
                     v-for="(res, i) in choices"
                     :key="i"
@@ -76,38 +77,37 @@
 </script>
 
 <style scoped lang="scss">
-    .Harassment {
-        &-container {
+    .harassment {
+        &__container {
             margin: 5rem 0;
             background: $white;
+            border-radius: 10px;
         }
-        &-group {
+        &__group {
             padding: 0 7rem 3.8rem 7rem;
         }
-        &-image {
+        &__image {
             width: 100%;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
         }
-        &-title {
+        &__title {
             font-size: 1.6rem;
             margin-bottom: 2rem;
             margin-top: 1.8rem;
         }
-        &-separate {
+        &__separate {
             height: 1px;
             background: grey;
             width: 46rem;
             margin-bottom: 1.7rem;
         }
     }
-    .Button {
-      &-container {
+    .button {
+      &__container {
         margin-top: 2rem;
         display: flex;
         justify-content: flex-end;
-      }
-
-      &-share {
-          margin-right: 1rem;
       }
     }
 </style>

@@ -1,9 +1,9 @@
 <template>
-    <div class="flash-container">
-        <span class="flash-title">Flash ton ami</span>
-        <span class="flash-current">Tu as reçu {{currentFlash}} flash</span>
+    <div class="flash__container">
+        <span class="flash__title">Flash ton ami</span>
+        <span class="flash__current">Tu as reçu {{currentFlash}} flash</span>
 
-        <div class="flash-contact" v-if="students" v-for="(student, i) in students" :key="i">
+        <div class="flash__contact" v-if="students" v-for="(student, i) in students" :key="i">
             <span class="name">{{student.firstname}}</span>
             <v-btn @click="sendFlashTo(student._id)">Flasher</v-btn>
         </div>
@@ -52,18 +52,18 @@
 
 <style scoped lang="scss">
     .flash {
-        &-container {
+        &__container {
             position: absolute;
             top: 3rem;
             right: 0;
             transform: translateX(100%);
         }
-        &-title {
+        &__title {
             display: block;
             color: $violet;
             font-weight: bold;
         }
-        &-current {
+        &__current {
             font-size: 1.4rem;
         }
     }

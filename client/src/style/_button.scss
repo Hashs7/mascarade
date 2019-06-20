@@ -1,18 +1,18 @@
-.Button {
-    &-container {
+.button {
+    &__container {
         margin-top: 2rem;
         display: flex;
         justify-content: flex-end;
     }
 
-    &-share {
+    &__share {
         margin-right: 1rem;
     }
 
-    &-share, &-report {
+    &__share, &__report {
         border: 1px solid $violet;
         border-radius: 2.1rem;
-        padding: .7rem 2.2rem;
+        padding: 1.1rem 1.5rem;
         color: $violet;
         font-size: 1.4rem;
 
