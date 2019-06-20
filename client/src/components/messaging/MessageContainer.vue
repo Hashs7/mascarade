@@ -42,10 +42,12 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters, mapMutations} from "vuex";
     import Message from '@/components/messaging/Message';
     import Contact from '@/components/messaging/Contact';
-    import {dialogRes} from './dialogs';
-    import {mapActions, mapGetters, mapMutations} from "vuex";
+    import {dialogResCelebrity} from './dialogs';
+    import {dialogResHacker} from "./dialogHack";
+    import {isNull} from "../../utils/methods";
 
     export default {
         name: "MessageContainer",
@@ -56,7 +58,7 @@
         sockets: {
             newMsg(type) {
                 // TODO Test type
-                this.initChat();
+                this.initChat(type);
             }
         },
         computed: {
@@ -69,10 +71,12 @@
                 return this.$store.state.messages.conversations;
             },
             responses() {
-                return this.$store.state.messages.conversations[this.getSelectedContact.id].answers;
+                return this.getSelectedContact.answers;
             },
             showAnswer() {
-                return this.$store.state.messages.conversations[this.getSelectedContact.id].showAnswers
+                console.log(this.$store.state.messages.conversations, 'conversations');
+                console.log(this.getSelectedContact.id, 'selected id');
+                return this.getSelectedContact.showAnswers;
             }
         },
         methods: {
@@ -82,6 +86,7 @@
             ]),
             ...mapActions([
                 'addMessage',
+                'addGroupMessage',
                 'initChat',
             ]),
             /*initChat() {
@@ -102,11 +107,15 @@
             },*/
             studentResponse(answer, repIndex) {
                 const id = this.getSelectedContact.id;
-                this.$store.state.messages.conversations[id].showAnswers = false;
+                this.getSelectedContact.showAnswers = false;
                 this.addMessage({repIndex, id, answer, type: 'student'});
 
                 if(repIndex === 'stop' || repIndex === 'report') return;
-                this.addGroupMessage(dialogRes[repIndex]);
+                if(this.getSelectedContact.type === 'celebrity') {
+                    this.addGroupMessage(dialogResCelebrity[repIndex]);
+                } else {
+                    this.addGroupMessage(dialogResHacker[repIndex]);
+                }
             }
         }
     }

@@ -1,4 +1,4 @@
-export const initMsg = (name) => ({
+export const initMsgHacker = (name) => ({
     convId: 1,
     stranger: [{
         content: `Bonjour ${name}, pour la prochaine séance tu dois télécharger et lire ce document`,
@@ -82,7 +82,7 @@ const repIndex2 = {
     }]
 };
 
-export const dialogRes = [
+export const dialogResHacker = [
     repIndex0,
     repIndex1,
     repIndex2

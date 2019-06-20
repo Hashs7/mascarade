@@ -1,6 +1,7 @@
 import {updateDialog} from "../../utils/API";
 import {isNull} from "../../utils/methods";
-import {initMsg} from "../../components/messaging/dialogs";
+import {initMsgCelebrity} from "../../components/messaging/dialogs";
+import {initMsgHacker} from "../../components/messaging/dialogHack";
 
 const conversationCelebrity = {
     id: 0,
@@ -61,22 +62,38 @@ const actions = {
         if(repIndex === 'stop' || repIndex === 'report') return;
         commit('addMessage', {id, answer, type})
     },
-    initChat({rootState, dispatch, state}) {
-        state.conversations.push(conversationCelebrity);
-        dispatch('addGroupMessage', initMsg(rootState.firstname));
+    initChat({rootState, dispatch, state}, type) {
+        if(state.conversations.length) {
+            state.conversations.forEach(conv => conv.selected = false);
+        }
+
+        if(type === 'celebrity') {
+            state.conversations.push(conversationCelebrity);
+            dispatch('addGroupMessage', initMsgCelebrity(rootState.firstname));
+        } else {
+            state.conversations.push(conversationHacker);
+            dispatch('addGroupMessage', initMsgHacker(rootState.firstname));
+        }
     },
     addGroupMessage({commit, rootState, state}, msgArray) {
+        const currentId = msgArray.convId;
+        const conv = state.conversations.find(conv => conv.id === currentId);
+
+        console.log(currentId, conv);
+
+
         msgArray.stranger.forEach(({content, delay, type}, i) => {
             setTimeout(() => {
-                commit('addMessage', ({id: 0, answer: content, type}));
+                commit('addMessage', ({id: currentId, answer: content, type}));
+                conv.answers = msgArray.responses;
+
                 if(msgArray.stranger.length - 1 === i) {
-                    const currentId = msgArray.convId;
-                    setTimeout(() => state.conversations[currentId].showAnswers = true, 1000);
+                    console.log(currentId, conv, 'current conv');
+                    setTimeout(() => conv.showAnswers = true, 1000);
                 }
             }, delay);
         });
-        const conv = state.conversations.find(conv => conv.selected);
-        state.conversations[conv.id].answers = msgArray.responses;
+
     },
 };
 
@@ -95,9 +112,10 @@ const mutations = {
             type,
             time: getTime()
         };
+        const conv = state.conversations.find(conv => conv.id === id)
 
-        state.conversations[id].responses.push(response);
-        state.conversations[id].lastAnswer = lastAnswer;
+        conv.responses.push(response);
+        conv.lastAnswer = lastAnswer;
     },
     addContact(state, {author, msg }) {
         state.conversations.push({

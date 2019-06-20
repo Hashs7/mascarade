@@ -47,8 +47,7 @@
                 this.$store.commit('addStory', data);
             },
             newMsg(type) {
-                // TODO Test type
-                this.initChat();
+                this.initChat(type);
                 this.toggleNotif(true);
             }
         },

@@ -11,10 +11,12 @@ const state = {
     }],
     messages: [{
         info: 'Message 1 : Faux compte qui souhaite arnaquer les élèves',
-        isActive: false
+        isActive: false,
+        type: 'celebrity'
     },{
         info: 'Message 2 : Virus via un fichier à télécharger',
-        isActive: false
+        isActive: false,
+        type: 'hacker'
     }]
 };
 

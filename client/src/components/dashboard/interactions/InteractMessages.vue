@@ -5,7 +5,7 @@
                 class="msg"
                 :class="{active: msg.isActive}"
                 :key="i">
-            <span class="msg-actived" @click="activeMsg(i)">{{msg.isActive ? active : disable}}</span>
+            <span class="msg-actived" @click="activeMsg(i, msg.type)">{{msg.isActive ? active : disable}}</span>
             <span class="msg-info">{{msg.info}}</span>
         </div>
     </div>
@@ -25,13 +25,13 @@
         },
         methods: {
             sendMsg(type) {
-                console.log('emit newMessage', this.$socket);
+                console.log('emit newMessage', type);
                 this.$socket.emit('newMsg', type)
             },
-            activeMsg(index) {
+            activeMsg(index, type) {
                 if (this.getMessages[index].isActive) return;
                 this.getMessages[index].isActive = true;
-                this.sendMsg('celebrity');
+                this.sendMsg(type);
             }
         }
     }
