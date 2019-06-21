@@ -2,7 +2,9 @@
     <div class="achievements">
         <div class="achievements-group">
         <div class="achievements-container">
-            <Logo />
+            <router-link class="item home" to="/student/exp">
+                <Logo />
+            </router-link>
             <ul class="achievements-datas">
                 <li class="score">{{points}} point{{isPlurial('points')}}</li>
                 <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
@@ -10,11 +12,6 @@
             </ul>
         </div>
         <div class="nav-right">
-            <div class="nav-link">
-                <router-link class="item home" to="/student/exp">
-                    <Home />
-                </router-link>
-            </div>
             <div class="nav-link" :class="{hasNotif: hasNotif}">
                 <router-link class="item msg" to="/student/messages">
                     <Msg />
@@ -78,6 +75,11 @@
                     margin-left: 1rem;
                 }
             }
+    }
+    .item {
+        &.home {
+            display: flex;
+        }
     }
     .nav-link {
         position: relative;

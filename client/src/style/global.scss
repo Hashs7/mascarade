@@ -139,3 +139,11 @@ input[type=radio]:checked:after {
 	visibility: visible;
 	border: 2px solid $white;
 }
+
+.quizz__container	{
+	.button__share  {
+		&.btn-ripple {
+				background: transparent !important;
+		}
+	}
+}

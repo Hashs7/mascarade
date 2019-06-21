@@ -131,6 +131,7 @@
             padding-bottom: 1rem;
             height: 324px;
             background: $gradient--diagonal;
+            border-radius: 10px;
         }
     }
     .info {
@@ -154,5 +155,4 @@
             height: 324px;
         }
     }
-
 </style>

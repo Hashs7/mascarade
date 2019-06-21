@@ -53,6 +53,10 @@
             justify-content: center;
             height: 25px;
             transition: 0.2s ease;
+            border-radius: 6px;
+            button {
+                text-transform: uppercase;
+            }
             &:hover {
                 background: $violet;
                 color: $white;
@@ -62,7 +66,7 @@
     .layout-points {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 8px;
+        margin-bottom: 15px;
         span {
             font-size: 10px;
             margin-right: 5px;
