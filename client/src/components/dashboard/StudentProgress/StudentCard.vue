@@ -1,30 +1,29 @@
 <template>
-    <v-card
+    <div
             class="mx-auto"
-            max-width="400"
     >
-        <v-card-text class="card-txt">
-            <span class="title">{{firstname}} {{surname}}</span>
+        <div>
+            <span class="card__title">{{firstname}} {{surname}}</span>
 
             <div class="layout-points">
-                <span class="subheading mr-2">Points</span>
-                <span class="subheading mr-2">{{points}}</span>
-                <span class="mr-2">·</span>
-                <span class="subheading mr-2">Partages</span>
-                <span class="subheading mr-2">{{shares}}</span>
-                <span class="mr-2">·</span>
-                <span class="subheading mr-2">Signalements</span>
-                <span class="subheading mr-2">{{reports}}</span>
+                <span>Points</span>
+                <span>{{points}}</span>
+                <span>·</span>
+                <span>Partages</span>
+                <span>{{shares}}</span>
+                <span>·</span>
+                <span>Signalements</span>
+                <span>{{reports}}</span>
             </div>
 <!--
             <span class="subheading mr-2">Avancement global</span>
             <v-progress-linear v-model="valueDeterminate"></v-progress-linear>-->
-        </v-card-text>
+        </div>
 
-        <v-card-actions>
-            <v-btn flat block @click="showProfile" >Voir le profil</v-btn>
-        </v-card-actions>
-    </v-card>
+        <div class="card__button">
+            <button flat block @click="showProfile" >Voir le profil</button>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -42,17 +41,31 @@
     }
 </script>
 
-<style scoped>
-    .title {
-        display: block;
-        margin-bottom: 8px;
-    }
-    .card-txt {
-        padding-bottom: 0;
+<style scoped lang="scss">
+    .card {
+        &__title {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        &__button {
+            display: flex;
+            justify-content: center;
+            height: 25px;
+            transition: 0.2s ease;
+            &:hover {
+                background: $violet;
+                color: $white;
+            }
+        }
     }
     .layout-points {
         display: flex;
         justify-content: space-between;
         margin-bottom: 8px;
+        span {
+            font-size: 10px;
+            margin-right: 5px;
+        }
     }
 </style>
