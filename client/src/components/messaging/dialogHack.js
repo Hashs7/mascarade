@@ -23,28 +23,6 @@ export const initMsgHacker = (name) => ({
 const repIndex0 = {
     convId: 1,
     stranger: [{
-        content: `D’accord tu vas devoir me suivre étape par étape pour que tu puisses recevoir ton iphone 48h après ta participation`,
-        delay: 500,
-        type: 'stranger'
-    },{
-        content: "Tu es intéressé par quel couleur ?",
-        delay: 1500,
-        type: 'stranger'
-    }],
-    responses: [{
-        content: "Noir",
-        repIndex: 2,
-        type: 'student'
-    },{
-        content: "Argent",
-        repIndex: 2,
-        type: 'student'
-    }]
-};
-
-const repIndex1 = {
-    convId: 1,
-    stranger: [{
         content: 'Tu dois le télécharger sur ton ordinateur pour pouvoir le lire et connaître son contenu',
         delay: 800,
         type: 'stranger'
@@ -60,7 +38,7 @@ const repIndex1 = {
     }]
 };
 
-const repIndex2 = {
+const repIndex1 = {
     convId: 1,
     stranger: [{
         content: `Très bon choix maintenant pour confirmer ta participation le système te demander un code reçu gratuitement par téléphone`,
@@ -84,6 +62,5 @@ const repIndex2 = {
 
 export const dialogResHacker = [
     repIndex0,
-    repIndex1,
-    repIndex2
+    repIndex1
 ];

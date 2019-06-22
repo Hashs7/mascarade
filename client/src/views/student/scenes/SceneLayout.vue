@@ -9,6 +9,7 @@
             </div>
             <StudentNavigation />
             <div class="layout-main">
+                <ScrollTop />
                 <div class="layout-traps">
                     <Slider />
                     <FakeNews />
@@ -23,6 +24,7 @@
 </template>
 
 <script>
+    import ScrollTop from '@/components/UI/ScrollTop';
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
     import QuizzContainer from '@/components/traps/quizz/QuizzContainer';
@@ -33,13 +35,14 @@
     import StudentNavigation from '@/components/StudentNavigation';
     import Slider from '@/components/traps/Slider';
     import {mapActions, mapMutations} from "vuex";
+    import {routePath} from "../../../router/routes";
 
     export default {
         name: "SceneLayout",
         components: {
             MessageContainer, StudentAchievement, Charity,
             StudentNavigation, FakeNews, Harassment, StudentFlash,
-            Slider, QuizzContainer
+            Slider, QuizzContainer, ScrollTop
         },
         sockets: {
             newStory(data) {
@@ -49,6 +52,10 @@
             newMsg(type) {
                 this.initChat(type);
                 this.toggleNotif(true);
+            },
+            showBilan(studentId) {
+                if(studentId !== this.$store.state.studentId) return;
+                this.$router.push(routePath.STUDENT_SUMMARY);
             }
         },
         methods: {

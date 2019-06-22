@@ -41,11 +41,13 @@
         components: {Carousel, Slide, Comment, Harassment},
         data: () => ({
             harassment: Harassment,
+            points: 0
         }),
         methods: {
             changeSlide(i) {
-                //TODO
-                this.$store.dispatch('updateAchievement', {type: 'points', amount: 1})
+                if(this.points >= 4) return;
+                this.points += 1;
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: 5})
             }
         },
     }

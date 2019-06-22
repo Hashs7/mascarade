@@ -14,7 +14,7 @@
                     :date="response.date"
                     :description="response.desc"/>
             <div class="button__container">
-            <div class="button__group">
+            <div class="button__group" v-if="!response.name">
                 <RippleButton
                     v-for="(res, i) in choices"
                     :key="i"
@@ -60,6 +60,7 @@
             updateReport() {
                 this.$store.dispatch('updateScene', {sceneType: 'harassment', action: 'reports'});
                 this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1});
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: 10});
             },
             updateShare(type, msg) {
                 const {firstname, surname} = this.$store.state;
@@ -68,7 +69,7 @@
                     date: "à l'instant",
                     desc: msg
                 };
-                let pointAmount = type === 'negative' ? -1 : 1;
+                let pointAmount = type === 'negative' ? -10 : 5;
                 this.$store.dispatch('updateScene', {sceneType: 'harassment', action: msg});
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: pointAmount});
             }

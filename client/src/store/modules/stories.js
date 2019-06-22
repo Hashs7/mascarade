@@ -1,5 +1,6 @@
 const state = {
-    allStories: []
+    allStories: [],
+    scrollBtnVisible: false
 };
 
 const storyExample = {
@@ -12,6 +13,7 @@ const storyExample = {
 const mutations = {
     addStory(state, story) {
         state.allStories.push(story);
+        state.scrollBtnVisible = true;
     }
 };
 

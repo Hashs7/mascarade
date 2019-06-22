@@ -74,7 +74,7 @@
                 src: Homophobie,
                 type: 'homophobie',
                 title: "Homophobie",
-                selected: true
+                selected: false
             },{
                 src: Pollution,
                 type: 'pollution',
@@ -95,7 +95,8 @@
                 //TODO validatation champs non vide
                 updateCharity(studentId,sessionId, charity.type, this.title, this.description)
                     .then(res => {
-                        this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1})
+                        this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1});
+                        this.$store.dispatch('updateAchievement', {type: 'points', amount: 10});
                     })
                     .catch(err => console.log(err));
                 /*var published = document.body.querySelector('.charity-published');
