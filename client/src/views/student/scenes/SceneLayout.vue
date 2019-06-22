@@ -19,13 +19,19 @@
                 </div>
             </div>
         </div>
-       
+        <modalTuto    
+            v-show="isModalVisible"
+            title="Bienvenue sur Mascarade !"
+            description="Mascarade c'est LE nouveau réseau social du 
+moment ! Story, chat, flash, tout ce qu'il te faut pour rester connecté ! Attention on devient vite accro ;)"
+            />
     </div>
 </template>
 
 <script>
     import ScrollTop from '@/components/UI/ScrollTop';
     import MessageContainer from '@/components/messaging/MessageContainer';
+    import ModalTuto from '@/components/tutorial/ModalTuto';
     import Charity from '@/components/charity/Charity';
     import QuizzContainer from '@/components/traps/quizz/QuizzContainer';
     import FakeNews from '@/components/traps/FakeNews';
@@ -42,8 +48,11 @@
         components: {
             MessageContainer, StudentAchievement, Charity,
             StudentNavigation, FakeNews, Harassment, StudentFlash,
-            Slider, QuizzContainer, ScrollTop
+            Slider, QuizzContainer, ScrollTop, ModalTuto
         },
+        data: () => ({
+            isModalVisible: true,
+        }),
         sockets: {
             newStory(data) {
                 console.log('newStory');
