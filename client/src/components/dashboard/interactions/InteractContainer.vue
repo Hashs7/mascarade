@@ -45,7 +45,7 @@
             padding: 0.5rem 4rem;
             width: 170px;
             &:hover {
-                background: $light--blue;
+                background: $grey--light;
                 color: $black;
             }
             &:first-child {

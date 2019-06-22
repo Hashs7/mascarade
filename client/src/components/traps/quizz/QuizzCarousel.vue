@@ -1,11 +1,11 @@
 <template>
-    <div class="carousel">
+    <div class="carousel__container">
         <div class="controls">
 
         </div>
         <carousel :per-page="1"
                   :mouse-drag="false"
-                  paginationColor="#B3EEFF"
+                  paginationColor="#fff"
                   paginationActiveColor="#4E00FF"
                   :navigationEnabled="true"
                   @page-change="slideChange">
@@ -88,7 +88,7 @@
 <style lang="scss">
     .quizz {
         &__list {
-            color: $violet;
+            color: $white;
             li {
                 input {
                     margin-right: 1rem;
@@ -99,6 +99,7 @@
             font-weight: normal;
             margin-bottom: 3rem;
             font-size: 2rem;
+            color: $white;
         }
         &__slide {
             padding: 0 7rem 3.8rem 7rem;

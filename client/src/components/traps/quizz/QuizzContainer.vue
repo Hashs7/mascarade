@@ -76,7 +76,7 @@
             max-width: 600px;
             margin: 0 auto;
             background: $white;
-            border-radius: 10px;
+            border-radius: 10px; 
         }
         &__title {
             text-transform: uppercase;
@@ -112,15 +112,16 @@
                 margin-top: 2rem; 
             }
             label {
-                color: $violet;
+                color: $white;
             }
             input {
-                border: 1px solid $violet;
+                border: 1px solid $white;
                 border-radius: 1.3rem;
                 padding-left: 1.2rem;
                 font-size: 1.2rem;
                 padding-top : 0.5rem;
                 padding-bottom: 0.5rem;
+                color: $white;
                 outline: none;
             }
         }
@@ -133,6 +134,8 @@
             padding-top: 2rem;
             padding-bottom: 1rem;
             height: 324px;
+            background: $gradient--diagonal;
+            border-radius: 10px;
         }
     }
     .info {
@@ -142,11 +145,18 @@
         padding-top: 2rem;
         padding-bottom: 1rem;
         height: 324px;
+        background: $gradient--diagonal;
+        border-radius: 10px;
         .btn-container {
             display: flex;
             justify-content: center;
             position : relative;
             bottom: 12.5rem;
+        }
+        &__container {
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            height: 324px;
         }
     }
 </style>

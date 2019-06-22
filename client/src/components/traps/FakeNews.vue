@@ -16,7 +16,7 @@
                         :visible="isModalVisible"
                         @close="closeModal"
                         title="Notifications"
-                        description="Renseigne toi sur internet via Google pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
+                        description="Va sur un moteur de recherche te renseigner pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
                         question="L’information est-elle correcte ?"
                         buttonFirst="Oui"
                        @firstAction="hideBtn"

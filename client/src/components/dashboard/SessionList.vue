@@ -42,11 +42,12 @@
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
         cursor: pointer;
+        transition: 0.2s ease;
         &__container {
             margin-top: 4rem;
         }
         &:hover {
-            background: $light--blue;
+            background: $grey--light;
         }
     }
     .active {

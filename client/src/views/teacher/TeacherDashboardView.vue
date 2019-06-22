@@ -116,9 +116,7 @@
         display: flex;
         align-items: center;
         background: $gradient;
-    }
-    .v-content {
-        height: 100%;
+        position: relative;
     }
     .v-content__wrap {
         display: flex;
@@ -126,10 +124,13 @@
     .session {
         &__list {
             width: 180px;
-            background-color: white;
+            background-color: $white;
+            position: fixed;
+            left: 0;
+            height: 100%;
         }
         &__view {
-            width: calc(100% - 180px);
+            width: calc(100% - 250px);
         }
         &__info {
             display: flex;
@@ -151,5 +152,6 @@
     .content {
         flex-grow: 1;
         padding: 45px 90px;
+        padding-right: 0;
     }
 </style>

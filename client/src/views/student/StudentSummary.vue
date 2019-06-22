@@ -1,29 +1,38 @@
 <template>
     <div class="summary__container">
-        <div class="summary__step">
-            <img class="summary__circle" :src="circle"/>
-        </div>
-        <ul class="summary__datas">
-            <li class="score">{{points}} point{{isPlurial('points')}}</li>
-            <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
-            <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
-            <li class="flash">{{currentFlash}} flash{{isPlurial('flashs')}}</li>
-        </ul>
         <div class="summary__content">
-            <h1>85 Wow !</h1>
-            <p>Tu es un vrai expert des réseaux sociaux ! 
-            Tu as l’oeil partout, on ne peut rien te cacher. 
-            Tel un vrai détective privé tu as décelé tous les pièges, rien ne te résistes. Tu te sers d’internet de la bonne manière, continues comme ça ! :) </p>
+            <div class="summary__left">
+                <div class="summary__step">
+                    <img class="summary__circle" :src="circle"/>
+                </div>
+                <div class="summary__score">
+                    <div class="summary__number">
+                        <h1 class="summary__points">{{points}}</h1>
+                        <Points />
+                    </div>
+                    <ul class="summary__datas">
+                        <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
+                        <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
+                        <li class="flash">{{currentFlash}} flash{{isPlurial('flashs')}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="summary__description">
+                <h1>Wow !</h1>
+                <p>Tu es un vrai expert des réseaux sociaux ! 
+                Tu as l’oeil partout, on ne peut rien te cacher. 
+                Tel un vrai détective privé tu as décelé tous les pièges, rien ne te résistes. Tu te sers d’internet de la bonne manière, continues comme ça ! :) </p>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import Circle from '@/assets/img/circle.png';
+    import Points from '@/assets/score.svg';
     export default {
         name: 'StudentSummary',
-        components: {
-        },
+        components: { Points },
         data: () => ({
             circle: Circle,
         }),
@@ -52,46 +61,53 @@
         &__container {
             display: flex;
             justify-content: flex-start;
+            align-items: flex-end;
+            height: 100vh;
+            background: $gradient--background;
+        }
+        &__number {
+            display: flex;
             align-items: center;
-            height: 100%;
-            background: $white;
+            margin-left: 4rem;
+            h1 {
+                margin-right: 20px;
+            }
+        }
+        &__left {
+            display: flex;
+            align-items: flex-end;
         }
         &__content {
-            position: relative;
-            &:after {
-                content: "";
-                background-color: $violet;
-                width: 470px;
-                height: 39rem;
-                color: $white;
-                position: absolute;
-                border-radius: 0.8rem;
-                transform: rotate(-19deg);
-                top: -18rem;
-            }
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 80px;
+        }
+        &__description {
             h1, p {
                 color: $white;
-                position: absolute;
-                z-index: 2;  
-                left: 8rem;
-                top: -8rem;
             }
             h1 {
-                width: 20rem;
+                font-size: 120px;
+                transform: rotate(-14deg);
             }
             p {
                 width: 30rem;
-                margin-top: 5rem;
+                margin-top: 7rem;
             }
         }
+        &__points {
+            color: $white;
+            font-size: 240px;
+            font-weight: bold;
+        }
         &__datas {
-            color: $blue;
+            color: $white;
             font-size: 2.2rem;
-            margin-right: 8rem;
+            margin-right: 16rem;
             margin-left: 4rem;
             li {
                 margin-top: 7rem;
-                border-bottom: 1px solid $blue;
+                border-bottom: 1px solid $white;
                 width: 18rem;
                 position: relative;
                 &:first-child {
@@ -106,9 +122,9 @@
             }
         }
         &__step {
-            position: relative;
             display: flex;
             align-items: center;
+            margin-bottom: 7rem;
         }
     }
 </style>
