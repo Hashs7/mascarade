@@ -1,6 +1,8 @@
 <script>
+    import TutoSlider from '@/components/tutorial/TutoSlider';
     export default {
         name: 'modalTuto',
+        components: { TutoSlider },
         template: '#modalTuto',
         data: () => ({
           isModalVisible: true,
@@ -29,7 +31,7 @@
                  aria-labelledby="modalTitle"
                  aria-describedby="modalDescription"
             >
-                <header
+                <!--<header
                         class="modal-header"
                         id="modalTitle"
                 >
@@ -44,7 +46,8 @@
                     <slot name="body">
                         {{description}}
                     </slot>
-                </section>
+                </section>-->
+                <TutoSlider />
                   
             </div>
         </div>
