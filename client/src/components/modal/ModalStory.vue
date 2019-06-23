@@ -96,6 +96,9 @@
         justify-content: center;
         height: 40rem;
         text-align: center;
+        color: $white;
+        text-transform: uppercase;
+        font-size: 40px;
       img {
         max-width: 35rem;
       }
@@ -114,6 +117,7 @@
 
     .modal-header {
         justify-content: space-between;
+        color: $white;
     }
 
     .modal-footer {

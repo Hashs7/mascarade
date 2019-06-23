@@ -9,16 +9,19 @@
                   :navigationEnabled="true"
                   @page-change="changeSlide">
             <slide class="slider__slide">
-                <img class="slider__image" :src="harassment"/>
+                <img class="slider__image" :src="sliderFirst"/>
             </slide>
             <slide>
-                <img class="slider__image" :src="harassment"/>
+                <img class="slider__image" :src="sliderSecond"/>
             </slide>
             <slide>
-                <img class="slider__image" :src="harassment"/>
+                <img class="slider__image" :src="sliderThree"/>
             </slide>
             <slide>
-                <img class="slider__image" :src="harassment"/>
+                <img class="slider__image" :src="sliderFour"/>
+            </slide>
+            <slide>
+                <img class="slider__image" :src="sliderFive"/>
             </slide>
         </carousel>
         <div class="slider__group">
@@ -34,13 +37,24 @@
 <script>
     import {Carousel, Slide} from 'vue-carousel';
     import Harassment from '@/assets/img/harassment.jpg';
+    import SliderFirst from '@/assets/img/slider/slider_1.jpg';
+    import SliderSecond from '@/assets/img/slider/slider_2.jpg';
+    import SliderThree from '@/assets/img/slider/slider_3.jpg';
+    import SliderFour from '@/assets/img/slider/slider_4.jpg';
+    import SliderFive from '@/assets/img/slider/slider_5.jpg';
     import Comment from '@/components/traps/post/Comment';
 
     export default {
         name: "Slider",
-        components: {Carousel, Slide, Comment, Harassment},
+        components: {Carousel, Slide, Comment, Harassment, SliderFirst,
+        SliderSecond, SliderThree, SliderFour, SliderFive},
         data: () => ({
             harassment: Harassment,
+            sliderFirst: SliderFirst,
+            sliderSecond: SliderSecond,
+            sliderThree: SliderThree,
+            sliderFour: SliderFour,
+            sliderFive: SliderFive,
             points: 0
         }),
         methods: {
