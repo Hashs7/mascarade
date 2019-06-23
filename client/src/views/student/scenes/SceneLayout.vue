@@ -21,9 +21,7 @@
         </div>
         <modalTuto    
             v-show="isModalVisible"
-            title="Bienvenue sur Mascarade !"
-            description="Mascarade c'est LE nouveau réseau social du 
-moment ! Story, chat, flash, tout ce qu'il te faut pour rester connecté ! Attention on devient vite accro ;)"
+            @close="closeModal"
             />
     </div>
 </template>
@@ -74,6 +72,9 @@ moment ! Story, chat, flash, tout ce qu'il te faut pour rester connecté ! Atten
             ...mapActions([
                 'initChat'
             ]),
+            closeModal() {
+                this.isModalVisible = false;
+            },
         },
         mounted() {
             window.addEventListener('visibilitychange', () => {

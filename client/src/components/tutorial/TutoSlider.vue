@@ -8,16 +8,16 @@
 
             <slide class="tutoSlider__slide" v-for="(slide, i) in slides" :key="i">
                <header
-                        class="modal-header"
-                        id="modalTitle"
+                    class="modal-header"
+                    id="modalTitle"
                 >
                     <slot name="header">
                         {{slide.title}}
                     </slot>
                 </header>
                 <section
-                        class="modal-body"
-                        id="modalDescription"
+                    class="modal-body"
+                    id="modalDescription"
                 >
                     <slot name="body">
                        {{slide.description}}
@@ -62,7 +62,7 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     .tutoSlider {
         &__listTitle { 
           justify-content: center;
