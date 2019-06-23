@@ -96,7 +96,7 @@
         font-size: 18px;
         line-height: 35px;
         max-width: 55%;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .modal-header {
@@ -107,7 +107,7 @@
         max-width: 55%;
         font-weight: bold;
         display: flex;
-        padding: 50px 15px 15px 15px;
+        padding: 65px 15px 15px 15px;
     }
 
     .modal-footer {

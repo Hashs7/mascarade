@@ -65,7 +65,7 @@
         flex-direction: column;
         align-items: center;
         width: 750px;
-        height: 510px;
+        height: 520px;
         position: relative;
     }
 
