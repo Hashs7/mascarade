@@ -63,7 +63,8 @@
             justify-content: flex-start;
             align-items: flex-end;
             height: 100vh;
-            background: $gradient--background;
+            background-size: cover;
+            background-image: url('~@/assets/img/summary.png'), $gradient--background;
         }
         &__number {
             display: flex;

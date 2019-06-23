@@ -19,13 +19,17 @@
                 </div>
             </div>
         </div>
-       
+        <modalTuto    
+            v-show="isModalVisible"
+            @close="closeModal"
+            />
     </div>
 </template>
 
 <script>
     import ScrollTop from '@/components/UI/ScrollTop';
     import MessageContainer from '@/components/messaging/MessageContainer';
+    import ModalTuto from '@/components/tutorial/ModalTuto';
     import Charity from '@/components/charity/Charity';
     import QuizzContainer from '@/components/traps/quizz/QuizzContainer';
     import FakeNews from '@/components/traps/FakeNews';
@@ -42,8 +46,11 @@
         components: {
             MessageContainer, StudentAchievement, Charity,
             StudentNavigation, FakeNews, Harassment, StudentFlash,
-            Slider, QuizzContainer, ScrollTop
+            Slider, QuizzContainer, ScrollTop, ModalTuto
         },
+        data: () => ({
+            isModalVisible: true,
+        }),
         sockets: {
             newStory(data) {
                 console.log('newStory');
@@ -65,6 +72,9 @@
             ...mapActions([
                 'initChat'
             ]),
+            closeModal() {
+                this.isModalVisible = false;
+            },
         },
         mounted() {
             window.addEventListener('visibilitychange', () => {

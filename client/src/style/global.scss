@@ -95,6 +95,30 @@ button:focus, input, textarea {
 	}
 }
 
+.modalTuto {
+	.VueCarousel-navigation {
+		display: flex;
+		justify-content: center;
+		max-width: 55%;
+		margin-top: 20px;
+		.VueCarousel-navigation-button {
+			position: inherit;
+		}
+		.VueCarousel-navigation-next {
+			margin-left: 0 !important;
+			margin-right: 15px;
+			background-color: $white !important;
+			color: $violet !important; 
+			&:hover {
+				opacity: 0.9;
+			}
+		}
+		.VueCarousel-navigation-prev, .VueCarousel-navigation--disabled {
+			display: none;
+		}
+	}
+}
+
 textarea::-webkit-input-placeholder,  ::-webkit-input-placeholder  {
 	color: $violet;
 	opacity: 0.7;
