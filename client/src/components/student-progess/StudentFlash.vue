@@ -4,15 +4,17 @@
         <span class="flash__current">Tu as reçu {{currentFlash}} flash</span>
 
         <div class="flash__contact" v-if="students" v-for="(student, i) in students" :key="i">
-            <span class="name">{{student.firstname}}</span>
-            <v-btn @click="sendFlashTo(student._id)">Flasher</v-btn>
+            <Flash @click="sendFlashTo(student._id)" />
+            <span class="flash__name">{{student.firstname}}</span>
         </div>
     </div>
 </template>
 
 <script>
+    import Flash from '@/assets/flash.svg';
     export default {
         name: "StudentFlash",
+        components: { Flash },
         computed: {
             students() {
                 return this.$store.state.flash.studentSession
@@ -54,7 +56,7 @@
     .flash {
         &__container {
             position: absolute;
-            top: 3rem;
+            top: 6rem;
             right: 0;
             transform: translateX(100%);
         }
@@ -64,7 +66,30 @@
             font-weight: bold;
         }
         &__current {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+        }
+        &__contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            &:first-of-type {
+                margin-top: 20px;
+            }
+            svg {
+                width: 18px;
+                cursor: pointer;
+                g {
+                    &:hover {
+                        transition: 0.2s ease;
+                        fill: $blue;
+                    }
+                }
+            }
+        }
+        &__name {
+            color: $blue;
+            font-size: 16px;
+            margin-left: 10px;
         }
     }
 </style>
