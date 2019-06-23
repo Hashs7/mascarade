@@ -37,7 +37,7 @@
 <script>
     import Logo from '@/assets/logo.svg';
     import Home from '@/assets/home.svg';
-    import Msg from '@/assets/message.svg';
+    import Msg from '@/assets/messages.svg';
     import Help from '@/assets/help.svg';
 
     export default {
