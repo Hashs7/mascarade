@@ -6,12 +6,14 @@
                 <Logo />
             </router-link>
             <ul class="achievements-datas">
-                <li class="score">{{points}} point{{isPlurial('points')}}</li>
                 <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
                 <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
             </ul>
         </div>
         <div class="nav-right">
+            <div class="nav-link nav-score">
+                <p class="score item">{{points}}</p><Score />
+            </div>
             <div class="nav-link" :class="{hasNotif: hasNotif}">
                 <router-link class="item msg" to="/student/messages">
                     <Msg />
@@ -39,10 +41,11 @@
     import Home from '@/assets/home.svg';
     import Msg from '@/assets/messages.svg';
     import Help from '@/assets/help.svg';
+    import Score from '@/assets/score_moon.svg';
 
     export default {
         name: "StudentAchievement",
-        components: { Logo, Home, Msg, Help },
+        components: { Logo, Home, Msg, Help, Score },
         computed: {
             points() {
                 return this.$store.state.score.points;
@@ -84,7 +87,7 @@
     }
     .nav-link {
         position: relative;
-        margin-top: 1rem;
+        margin-top: 0.5rem;
 
         &.hasNotif:before {
             position: absolute;
@@ -96,6 +99,17 @@
             height: 14px;
             border-radius: 100%;
             background-color: $violet;
+        }
+    }
+    .nav-score {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.2rem;
+        p {
+            margin-bottom: 0;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
     }
     .achievements {
@@ -117,8 +131,8 @@
             }
             ul {
                 display: flex;
-                padding-left: 12rem;
-                padding-right: 9rem;
+                padding-left: 22rem;
+                padding-right: 16rem;
             }
         }
         &-group {
