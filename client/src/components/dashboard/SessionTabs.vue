@@ -1,7 +1,11 @@
 <template>
     <div v-if="currentSessions">
         <div class="session-link">
-            <span>Lien de partage de la session: </span>
+            <span>Identifiant de la session : </span>
+            <span class="link">{{currentSessions.shortId }}</span>
+        </div>
+        <div class="session-link">
+            <span>Lien de partage de la session : </span>
             <span class="link">{{ linkSignup + currentSessions.shortId }}</span>
         </div>
         <div>

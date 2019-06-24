@@ -46,11 +46,13 @@ export const translationsEn = {
         title: 'Who are we ?',
         dev: {
             label: 'Developers',
-            person: ['Amélie Laurent - Développeuse Front-end', 'Sébastien Hernoux - Développeur Fullstack']
+            amelie: 'Amélie Laurent - Développeuse Front-end',
+            seb: 'Sébastien Hernoux - Développeur Fullstack'
         },
         graph: {
             label: 'Designers',
-            person: ['Florian Weidmann - Designer graphique', 'Lucile Perrin - UX designer']
+            flo: 'Florian Weidmann - Designer graphique',
+            lucile: 'Lucile Perrin - UX designer'
         }
     }
 }
