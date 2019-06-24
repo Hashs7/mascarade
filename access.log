@@ -519,3 +519,15 @@
 [0mGET /session/student/undefined [31m500 [0m2.089 ms - 99[0m
 [0mGET /session/student/undefined [31m500 [0m1.306 ms - 99[0m
 [0mGET /session/student/undefined [31m500 [0m2.138 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m13.187 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m2.918 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m1.855 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m1.590 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m2.295 ms - 99[0m
+[0mPOST /auth/teacher/login [32m200 [0m418.570 ms - 9281[0m
+[0mGET /auth/teacher/is-auth [36m304 [0m1.560 ms - -[0m
+[0mGET /session/all [32m201 [0m111.921 ms - 9000[0m
+[0mGET /session/all [32m201 [0m122.909 ms - 9000[0m
+[0mPOST /auth/teacher/login [32m200 [0m381.610 ms - 9281[0m
+[0mGET /auth/teacher/is-auth [36m304 [0m0.293 ms - -[0m
+[0mGET /session/all [32m201 [0m111.498 ms - 9000[0m

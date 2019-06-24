@@ -1,32 +1,24 @@
 <template>
     <div>
-        <v-toolbar app>
-            <v-toolbar-title class="headline text-uppercase">
-                <span>Home page</span>
-            </v-toolbar-title>
-        </v-toolbar>
-        <v-content>
-            <div class="home-links">
-                <router-link to="teacher/signup">Signup as teacher</router-link>
-                <br>
-                <router-link to="teacher/login">Login as teacher</router-link>
-                <br>
-                <router-link to="student/signup/randomRoomId">Signup as student</router-link>
-                <br>
-
-                <!--Route temporaire-->
-                <router-link to="student/login">Login as student</router-link>
-                <br>
-                <router-link to="student/tuto">Go to experience</router-link>
-            </div>
-        </v-content>
+        <Intro />
+        <KeyPoints />
+        <LandingNav />
+        <Team />
     </div>
 </template>
 
 <script>
-
+    import Intro from '@/components/landing/Intro'
+    import KeyPoints from '@/components/landing/KeyPoints'
+    import LandingNav from '@/components/landing/LandingNav'
+    import Team from '@/components/landing/Team'
     export default {
-        components: {},
+        components: {
+            Intro,
+            KeyPoints,
+            LandingNav,
+            Team
+        },
         mounted() {
             localStorage.clear();
         }

@@ -11,6 +11,16 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import VueSocketIO from 'vue-socket.io';
 import {BASE_API_URL} from "./utils/constant";
 import VueScrollTo from 'vue-scrollto';
+import vuexI18n from 'vuex-i18n';
+import {translationsFr} from "./translations/fr_FR";
+import {translationsEn} from "./translations/en_GB";
+
+Vue.use(vuexI18n.plugin, store);
+
+Vue.i18n.add('fr', translationsFr);
+Vue.i18n.add('en', translationsEn);
+
+Vue.i18n.set('fr');
 
 Vue.use(VueScrollTo, {
     container: "body",
