@@ -136,20 +136,13 @@
             }
         }
         &-datas {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             line-height: 2.7rem;
             font-weight: bold;
             li {
-                border-bottom: 1px solid white;
                 width: 11.5rem;
                 margin-right: 4rem;
                 position: relative;
-                &:after { 
-                    content: "\26AC";
-                    position: absolute;
-                    right: -1.5rem;
-                    margin-top: 1.3rem;
-                }  
             }
         }
     }
