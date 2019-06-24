@@ -10,6 +10,12 @@
                 <QuizzCarousel @isLast="showButton" />
                 <RippleButton v-if="buttonVisible" :clickAction="endQuizz" name="Valider"></RippleButton>
             </div>
+            <div v-else-if="quizzState==='final'" class="quizz__final">
+                <img class="quizz__finalImage" :src="quizzStar"/>
+                <div class="quizz__finalContent">
+                    <p class="quizz__finalTitle">Tu es à <span>80%</span> Robert Downey JR !</p>
+                </div>
+            </div>
             <div v-else class="start start__form">
                 <p class="quizz__listTitle">Pour connaître ton résultat nous avons besoin :</p>
                 <form action="" method="get" class="form" autocomplete="off">
@@ -41,14 +47,16 @@
 <script>
     import QuizzCarousel from '@/components/traps/quizz/QuizzCarousel';
     import Quizz from '@/assets/img/quizz.jpg';
+    import QuizzStar from '@/assets/img/quizz_star.png';
     import RippleButton from '@/components/UI/RippleButton';
 
     export default {
         name: "QuizzContainer",
-        components: { QuizzCarousel, RippleButton, Quizz },
+        components: { QuizzCarousel, RippleButton, Quizz, QuizzStar },
         data: () => ({
             quizzState: "intro",
             quizz: Quizz,
+            quizzStar: QuizzStar,
             buttonVisible: false
         }),
         methods: {
@@ -65,6 +73,7 @@
             sendInfo() {
                 //Todo tester si la valeur des champs est vide
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: -5});
+                this.quizzState = "final";
             }
         }
     }
@@ -98,6 +107,34 @@
             width: 100%;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
+        }
+        &__final {
+            display: flex;
+            background-color: $grey--background;
+        }
+        &__finalContent {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 20px;
+            line-height: 40px;
+            background-image: url('~@/assets/img/quizz_background.png');
+            background-size: contain;
+            background-position: left;
+        }
+        &__finalTitle {
+            font-size: 35px;
+            color: $violet;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            span {
+                font-size: 85px;
+                line-height: 64px;
+            }
+        }
+        &__finalImage {
+            width: 60%;
+            border-radius: 10px;
         }
     }
     .form {

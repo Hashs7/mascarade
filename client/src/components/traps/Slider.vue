@@ -25,10 +25,9 @@
             </slide>
         </carousel>
         <div class="slider__group">
-            <h2 class="slider__title"> Holidays in Miami </h2>
+            <h2 class="slider__title"> Découvre la photo originale </h2>
             <div class="slider__separate"></div>
-            <Comment name="Caroline Miol" date="Il y a 5 minutes" description="Trop de chance "/>
-            <Comment name="Jean Lefert" date="Il y a 2h" description="Trop cool cette photo !"/>
+            <Comment name="Jean Lefert" date="Il y a 2h" description="Trop cool ces photos !"/>
             <Comment name="Pauline Bernard" date="Il y a 3 jours" description="Ah t'es trop belle !"/>
         </div>
     </div>
