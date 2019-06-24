@@ -1,7 +1,7 @@
 <template>
     <v-dialog
             v-model="modalVisible"
-            fullscreen
+            width="600"
             hide-overlay
             transition="dialog-bottom-transition"
             scrollable
@@ -20,8 +20,12 @@
                     <v-subheader>Données globales sur l'élève</v-subheader>
                     <v-list-tile>
                         <v-list-tile-content>
-                            <v-list-tile-title>Scores</v-list-tile-title>
-                            <v-list-tile-sub-title>Points: {{achievements.points}} - Partages: {{achievements.shares}} - Signalements: {{achievements.reports}}</v-list-tile-sub-title>
+                            <h2>Scores</h2>
+                            <div class="students__datas">
+                                <p>Points : {{achievements.points}}</p>
+                                <p>Partages : {{achievements.shares}}</p>
+                                <p>Signalements : {{achievements.reports}}</p>
+                            </div>
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
@@ -72,7 +76,6 @@
                     </v-list-tile>
 
                 </v-list>
-                <v-divider></v-divider>
             </v-card-text>
         </v-card>
     </v-dialog>
@@ -132,6 +135,27 @@
         display: inline-block;
         content: '|';
         margin: 0 6px;
+    }
+}
+.v-dialog__content--active {
+    background-color: rgba(255, 255, 255, 0.8);
+    h2 {
+        font-weight: 400;
+        font-size: 2rem;
+    }
+    .v-card__text{
+        padding: 10px;
+    }
+    .v-divider {
+        margin-bottom: 1rem;
+        margin-top: -1rem;
+    }
+}
+.students__datas {
+    display: flex;
+    justify-content: space-between;
+    p {
+        margin-right: 40px;
     }
 }
 </style>
