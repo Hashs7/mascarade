@@ -22,6 +22,7 @@
             isModalVisible: false,
         }),
         props: ['src', 'name', 'description'],
+
         methods: {
             showModal() {
                 this.isModalVisible = true;

@@ -4,9 +4,15 @@
             v-if="hasNew && scrollY > 50"
             class="new-story button__share"
             v-scroll-to="{
-                el: '.application--wrap',
-                onStart: hideBtn
-            }">
+                 el: '.application--wrap',
+                 duration: 700,
+                 easing: 'ease-in-out',
+                 force: true,
+                 cancelable: true,
+                 onStart: hideBtn,
+                 x: false,
+                 y: true
+             }">
             Afficher la nouvelle story
         </span>
     </transition>

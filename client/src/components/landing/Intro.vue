@@ -12,8 +12,9 @@
         </div>
         <div class="scroll-btn">
             <Mouse v-scroll-to="{
-                el: '.datas'
-            }" />
+                 el: '.datas',
+                 duration: 700,
+             }"/>
         </div>
     </div>
 </template>
@@ -44,8 +45,9 @@
         height: 100vh;
     }
     .scroll-btn {
+        cursor: pointer;
         position: absolute;
-        bottom: 20px;
+        bottom: 45px;
         left: 0;
         right: 0;
         margin: auto;

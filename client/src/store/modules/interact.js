@@ -1,12 +1,12 @@
+import StoryMoon from '@/assets/img/story_moon.jpg';
+import StoryIphone from '@/assets/img/story_iphone.png';
+
 const state = {
     stories: [{
-        img: '',
+        img: StoryMoon,
         isActive: false
     },{
-        img: '',
-        isActive: false
-    },{
-        img: '',
+        img: StoryIphone,
         isActive: false
     }],
     messages: [{

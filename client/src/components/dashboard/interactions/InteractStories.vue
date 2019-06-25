@@ -5,7 +5,7 @@
             class="story"
             :class="{active: story.isActive}"
             :key="i">
-            <div class="img-container"></div>
+            <div class="img-container" :style="'background-image: url('+story.img+')'"></div>
             <span class="name">{{i+1}}</span>
             <span class="story-active" @click="activeStory(i)">{{story.isActive ? active : disable}}</span>
         </div>
@@ -78,11 +78,14 @@
         height: 100px;
         border-radius: 100%;
         border: 3px solid gray;
+        background-position: center;
+        background-size: cover;
     }
     .name {
         display: block;
     }
     .story-active {
+        user-select: none;
         display: block;
         border-radius: 50px;
         border: 1px solid gray;

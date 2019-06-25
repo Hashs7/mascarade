@@ -5,17 +5,18 @@ export const initMsgHacker = (name) => ({
         delay: 500,
         type: 'stranger'
     },{
-        content: "Lien...",
+        content: "https://ctVNl9lcxTesVHX4VGVWdCfsts/edit",
+        link: true,
         delay: 1500,
         type: 'stranger'
     }],
     responses: [{
         content: "Télécharger",
-        repIndex: 0,
+        repIndex: 2,
         type: 'student'
     },{
-        content: "Répondre autre chose...",
-        repIndex: 1,
+        content: "Bonjour, est-ce que je peux le lire directement sans le télécharger",
+        repIndex: 0,
         type: 'student'
     }]
 });
@@ -29,11 +30,11 @@ const repIndex0 = {
     }],
     responses: [{
         content: "Le téléchargement de ce document est-il sécurisé ?",
-        repIndex: 3,
+        repIndex: 1,
         type: 'student'
     },{
         content: "Ok je télécharge",
-        repIndex: 0,
+        repIndex: 2,
         type: 'student'
     }]
 };
@@ -41,12 +42,8 @@ const repIndex0 = {
 const repIndex1 = {
     convId: 1,
     stranger: [{
-        content: `Très bon choix maintenant pour confirmer ta participation le système te demander un code reçu gratuitement par téléphone`,
+        content: "Bravo tu as évité un virus !",
         delay: 800,
-        type: 'stranger'
-    },{
-        content: "Voilà appelle ce numéro 08 99 63 28 26 il y a un mec qui va te dire le code d’accès et tu me le dis après. Les prix qu’ils vont te dire c’est 3 euros à chaque appel mais c’est pas vrai, t’inquiètes c’est gratuit ok ?",
-        delay: 2000,
         type: 'stranger'
     }],
     responses: [{
@@ -60,7 +57,26 @@ const repIndex1 = {
     }]
 };
 
+const repIndex2 = {
+    convId: 1,
+    stranger: [{
+        content: "Attention virus ! Ton compte vient d'être piraté suite au téléchargement",
+        delay: 800,
+        type: 'stranger'
+    },{
+        content: "Certains documents peuvent contenir des virus. Il est important de vérifier la source",
+        delay: 1800,
+        type: 'stranger'
+    },{
+        content: "Et également si le compte à qui tu parles n'a pas été piraté",
+        delay: 2800,
+        type: 'stranger'
+    }],
+    responses: []
+};
+
 export const dialogResHacker = [
     repIndex0,
-    repIndex1
+    repIndex1,
+    repIndex2
 ];

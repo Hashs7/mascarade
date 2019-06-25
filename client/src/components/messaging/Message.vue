@@ -1,6 +1,7 @@
 <template>
     <div class="Message" :class="{student: msgType === 'student'}">
-        <span class="Message-content">{{txt}}</span>
+        <span class="Message-content typeLink" v-if="typeLink">{{txt}}</span>
+        <span class="Message-content" v-else >{{txt}}</span>
         <span class="Message-time">{{time}}</span>
     </div>
 </template>
@@ -8,9 +9,7 @@
 <script>
     export default {
         name: "Message",
-        props: ['txt', 'time', 'msgType', 'link'],
-        mounted() {
-        }
+        props: ['txt', 'time', 'msgType', 'link', 'typeLink'],
     }
 </script>
 
@@ -35,6 +34,9 @@
             background-color: $light--blue;
             color: $black;
             font-size: 1.4rem;
+            &.typeLink:hover {
+                text-decoration: underline;
+            }
         }
         &-time {
             margin-top: 0.2rem;

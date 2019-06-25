@@ -15,7 +15,7 @@
                 <span class="current-time">{{currentDate}} 2019</span>
             </div>
             <div class="chatbox-content">
-                <Message v-for="(msg, i) in getCurrentConversation" :key="i" :txt="msg.txt" :time="msg.time" :msgType="msg.type"/>
+                <Message v-for="(msg, i) in getCurrentConversation" :key="i" :txt="msg.txt" :time="msg.time" :msgType="msg.type" :typeLink="msg.link"/>
             </div>
 
             <div v-if="contacts.length && showAnswer">
@@ -30,7 +30,7 @@
                             @click="studentResponse(res.content, res.repIndex)">
                         {{res.content}}
                     </button>
-                    <button class="answer">Ignorer ce message</button>
+                    <button class="answer" @click="studentResponse('Ignorer', 'stop')">Ignorer ce message</button>
                 </div>
             </div>
 
@@ -93,22 +93,6 @@
                 'addGroupMessage',
                 'initChat',
             ]),
-            /*initChat() {
-                if(this.getCurrentConversation.length) return;
-                this.addGroupMessage(initMsg(this.$store.state.firstname));
-            },
-            addGroupMessage(msgArray) {
-                msgArray.stranger.forEach(({content, delay, type}, i) => {
-                    setTimeout(() => {
-                        this.addMessage({id: 0, answer: content, type});
-                        if(msgArray.stranger.length - 1 === i) {
-                            const currentId = msgArray.convId;
-                            setTimeout(() => this.$store.state.messages.conversations[currentId].showAnswers = true, 1000);
-                        }
-                    }, delay);
-                });
-                this.$store.state.messages.conversations[this.getSelectedContact.id].answers = msgArray.responses;
-            },*/
             studentResponse(answer, repIndex) {
                 const id = this.getSelectedContact.id;
                 this.getSelectedContact.showAnswers = false;
@@ -120,7 +104,7 @@
                 } else {
                     this.addGroupMessage(dialogResHacker[repIndex]);
                 }
-            }
+            },
         }
     }
 </script>

@@ -53,14 +53,14 @@ const getters = {
 };
 
 const actions = {
-    addMessage({commit, rootState, state}, {repIndex, id, answer, type}) {
+    addMessage({commit, rootState, state}, {repIndex, id, answer, type, typeLink}) {
         if(type === 'student') {
             const contact = state.conversations.find(conv => conv.selected);
             updateDialog(rootState.studentId, rootState.sessionId, contact.type, answer, repIndex);
         }
 
-        // if(repIndex === 'stop' || repIndex === 'report') return;
-        commit('addMessage', {id, answer, type})
+        if(repIndex === 'stop') return;
+        commit('addMessage', {id, answer, type, link: typeLink})
     },
     initChat({rootState, dispatch, state}, type) {
         if(state.conversations.length) {
@@ -84,7 +84,7 @@ const actions = {
                 commit('addMessage', ({id: currentId, answer: content, type}));
                 conv.answers = msgArray.responses;
 
-                if(msgArray.stranger.length - 1 === i) {
+                if(msgArray.stranger.length - 1 === i && msgArray.responses.length) {
                     setTimeout(() => conv.showAnswers = true, 1000);
                 }
             }, delay);
@@ -94,7 +94,7 @@ const actions = {
 };
 
 const mutations = {
-    addMessage(state, {id, answer, type}) {
+    addMessage(state, {id, answer, type, link}) {
         let lastAnswer = answer;
         if(type === 'student') {
             lastAnswer = 'Vous : ' + answer;
@@ -106,6 +106,7 @@ const mutations = {
         const response = {
             txt: answer,
             type,
+            link,
             time: getTime()
         };
         const conv = state.conversations.find(conv => conv.id === id)

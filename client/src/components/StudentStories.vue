@@ -22,6 +22,11 @@
         data: () => ({
             isModalVisible: false,
         }),
+        sockets: {
+            newStory(data) {
+                this.$store.commit('addStory', data);
+            },
+        },
         methods: {
             showModal() {
                 this.isModalVisible = true;

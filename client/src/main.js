@@ -6,8 +6,7 @@ import theme from './style/theme';
 import App from './App.vue';
 import {router} from './router';
 import store from './store';
-// import 'roboto-fontface/css/roboto/roboto-fontface.css'
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import VueSocketIO from 'vue-socket.io';
 import {BASE_API_URL} from "./utils/constant";
 import VueScrollTo from 'vue-scrollto';
@@ -25,7 +24,7 @@ Vue.i18n.set('fr');
 Vue.use(VueScrollTo, {
     container: "body",
     duration: 500,
-    easing: "ease",
+    easing: "ease-in-out",
     offset: 0,
     force: true,
     cancelable: false,
@@ -34,7 +33,7 @@ Vue.use(VueScrollTo, {
     onCancel: false,
     x: false,
     y: true
-})
+});
 
 Vue.use(new VueSocketIO({
     debug: true,

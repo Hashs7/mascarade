@@ -49,10 +49,6 @@
             Slider, QuizzContainer, ScrollTop, ModalTuto
         },
         sockets: {
-            newStory(data) {
-                console.log('newStory');
-                this.$store.commit('addStory', data);
-            },
             newMsg(type) {
                 this.initChat(type);
                 this.toggleNotif(true);
