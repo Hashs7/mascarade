@@ -47,8 +47,9 @@
 
             <v-btn
                     :disabled="!valid"
-                    color="success"
+                    color="primary"
                     @click="validate"
+                    class="ml-0"
             >
                 Connexion
             </v-btn>

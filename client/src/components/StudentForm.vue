@@ -100,8 +100,9 @@
 
             <v-btn
                     :disabled="!valid"
-                    color="success"
+                    color="primary"
                     @click="validate"
+                    class="ml-0"
             >
                 S'inscrire
             </v-btn>
