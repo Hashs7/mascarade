@@ -1,9 +1,9 @@
 <template>
     <div class="intro-container">
         <div class="intro__language">
-            <button @click="changeLocale('fr')">FR</button>
+            <button @click="changeLocale('fr')" :class="{active: language === 'fr' }">FR</button>
             <p>/</p>
-            <button @click="changeLocale('en')">EN</button>
+            <button @click="changeLocale('en')" :class="{active: language === 'en' }" >EN</button>
         </div>
         <div class="intro__content">
             <LogoLanding />
@@ -19,8 +19,12 @@
     export default {
         name: "Intro",
         components: { LogoLanding },
+        data: () => ({
+            language: 'fr'
+        }),
         methods: {
             changeLocale(locale) {
+                this.language = locale;
                 this.$i18n.set(locale)
             }
         }
@@ -71,12 +75,34 @@
             button {
                 opacity: 0.6;
                 transition: 0.2s ease;
+                position: relative;
+                text-decoration: none;
+                padding-bottom: 0.2rem;
+
                 &:last-child {
                     margin-right: 50px;
                 }
-                &:hover {
+                &:hover, &.active {
                     opacity: 1;
                     font-weight: bold;
+                }
+                &:before, &:after {
+                    content: '';
+                    position: absolute;
+                    transition: transform .5s ease;
+                }
+
+                &:before {
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: $white;
+                    transform: scaleX(0);
+                }
+
+                &:hover:before {
+                    transform: scaleX(1);
                 }
             }
             p {

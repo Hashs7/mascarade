@@ -54,6 +54,7 @@
     padding-bottom: 10rem;
     padding-top: 5rem;
     margin-top: 5rem;
+    padding-left: 55px;
     &__title {
         font-size: 20px;
         font-weight: 500;
