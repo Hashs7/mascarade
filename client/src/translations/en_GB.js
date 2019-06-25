@@ -1,4 +1,3 @@
-//TODO finir de remplir les textes
 export const translationsEn = {
     header: {
         baseline: "Awakening you !",
@@ -46,13 +45,13 @@ export const translationsEn = {
         title: 'Who are we ?',
         dev: {
             label: 'Developers',
-            amelie: 'Amélie Laurent - Développeuse Front-end',
-            seb: 'Sébastien Hernoux - Développeur Fullstack'
+            amelie: ' - Développeuse Front-end',
+            seb: ' - Développeur Fullstack'
         },
         graph: {
             label: 'Designers',
-            flo: 'Florian Weidmann - Designer graphique',
-            lucile: 'Lucile Perrin - UX designer'
+            flo: '- Designer graphique',
+            lucile: ' - UX designer'
         }
     }
 }

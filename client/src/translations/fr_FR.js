@@ -45,13 +45,13 @@ export const translationsFr = {
         title: 'Qui sommes nous ?',
         dev: {
             label: 'Développeurs',
-            amelie: 'Amélie Laurent - Développeuse Front-end',
-            seb: 'Sébastien Hernoux - Développeur Fullstack'
+            amelie: ' - Développeuse Front-end',
+            seb: ' - Développeur Fullstack'
         },
         graph: {
             label: 'Designers',
-            flo: 'Florian Weidmann - Designer graphique',
-            lucile: 'Lucile Perrin - UX designer'
+            flo: ' - Designer graphique',
+            lucile: ' - UX designer'
         }
     }
 };

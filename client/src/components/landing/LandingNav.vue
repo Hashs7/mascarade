@@ -34,7 +34,7 @@
         &__button {
             background: $gradient;
             border-radius: 2.1rem;
-            padding: 1.2rem 2.2rem;
+            padding: 1.4rem 2rem;
             color: $white;
             font-size: 1.4rem;
             &:first-child {
