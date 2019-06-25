@@ -69,6 +69,7 @@
 <style scoped lang="scss">
     .slider {
         &__container {
+            margin-top: 32px;
             background: $white;
             margin-bottom: 50px;
             border-radius: 10px;

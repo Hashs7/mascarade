@@ -18,6 +18,7 @@ router.put(
 );
 
 router.get('/all', isAuth, sessionController.getSessions);
+
 router.get('/student/:sessionId', sessionController.getSessionById);
 
 

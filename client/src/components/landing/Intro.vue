@@ -1,9 +1,9 @@
 <template>
     <div class="intro-container">
         <div class="intro__language">
-            <button @click="changeLocale('fr')" :class="{active: language === 'fr' }">FR</button>
+            <button @click="changeLocale('fr')" :class="{active: currentLang === 'fr' }">FR</button>
             <p>/</p>
-            <button @click="changeLocale('en')" :class="{active: language === 'en' }" >EN</button>
+            <button @click="changeLocale('en')" :class="{active: currentLang === 'en' }" >EN</button>
         </div>
         <div class="intro__content">
             <LogoLanding />
@@ -20,11 +20,11 @@
         name: "Intro",
         components: { LogoLanding },
         data: () => ({
-            language: 'fr'
+            currentLang: 'fr'
         }),
         methods: {
             changeLocale(locale) {
-                this.language = locale;
+                this.currentLang = locale;
                 this.$i18n.set(locale)
             }
         }
@@ -112,4 +112,5 @@
             }
         }
     }
+    
 </style>

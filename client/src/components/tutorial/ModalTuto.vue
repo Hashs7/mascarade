@@ -1,5 +1,23 @@
+<template>
+    <transition name="modal-fade">
+        <div class="modal-backdrop">
+            <div class="modalTuto"
+                 role="dialog"
+                 aria-labelledby="modalTitle"
+                 aria-describedby="modalDescription"
+            >
+                <TutoSlider @isLast="showButton" />
+                <div class="modal-buttonContainer">
+                    <button class="modal-button" v-if="buttonVisible" @click="close">C'est parti !</button>
+                </div>
+            </div>
+        </div>
+    </transition>
+</template>
+
 <script>
     import TutoSlider from '@/components/tutorial/TutoSlider';
+
     export default {
         name: 'modalTuto',
         components: { TutoSlider },
@@ -14,34 +32,15 @@
         methods: {
             close() {
                 this.$emit('close');
-                console.log('close modal');
             },
             showButton(show) {
                 setTimeout(() => {
                     this.buttonVisible = show
-                }, 1500)
-                console.log("show button play", show);
+                }, 1500);
             },
         },
     };
 </script>
-
-<template>
-    <transition name="modal-fade">
-        <div class="modal-backdrop">
-            <div class="modalTuto"
-                 role="dialog"
-                 aria-labelledby="modalTitle"
-                 aria-describedby="modalDescription"
-            >
-            <TutoSlider @isLast="showButton" />
-            <div class="modal-buttonContainer">
-                <button class="modal-button" v-if="buttonVisible" @click="close">C'est parti !</button>
-            </div>
-            </div>
-        </div>
-    </transition>
-</template>
 
 <style scoped lang="scss">
     .modal-backdrop {
@@ -106,6 +105,7 @@
     }
 
     .modal-button {
+        font-family: "Palanquin", sans-serif;
         color: $violet;
         background: $white;
         border: 1px solid $violet;

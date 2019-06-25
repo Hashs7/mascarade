@@ -83,11 +83,11 @@
         watch: {
             visible: function(isVisible) {
                 //TODO ajuster le css pour ne pas remonter en haut
-                if(isVisible) {
+                /*if(isVisible) {
                     document.body.classList.add('modal-open')
                 } else {
                     document.body.classList.remove('modal-open')
-                }
+                }*/
             }
         },
         methods: {
@@ -96,7 +96,7 @@
             },
             firstButton() {
                 this.close();
-                document.body.classList.remove('modal-open');
+                // document.body.classList.remove('modal-open');
                 this.buttonFirstAction();
                 this.$emit('firstAction');
             }
@@ -198,19 +198,5 @@
         color: $white;
         background: transparent;
     }
-    .Button-response {
-        border: 1px solid $white;
-        border-radius: 2.1rem;
-        padding: .6rem 2.2rem;
-        color: $white;
-        font-size: 1.4rem;
-        &:first-child {
-            margin-right: 1rem;
-        }
-        &:hover {
-            transition: 0.2s ease;
-            background: $white;
-            color: $violet;
-        }
-    }
+
 </style>

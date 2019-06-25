@@ -1,10 +1,12 @@
+@import './_fonts';
+@import './variables';
 @import './layout/layout-scene';
-@import './_button';
+@import './button';
 
 body {
     width: 100vw;
     font-size: 1.6rem;
-	font-family: "Avenir";
+	font-family: $font-avenir;
     &.modal-open {
         height: 100vh;
         overflow: hidden;

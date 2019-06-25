@@ -22,3 +22,19 @@
         }
     }
 }
+
+.Button-response {
+    border: 1px solid $white;
+    border-radius: 2.1rem;
+    padding: .6rem 2.2rem;
+    color: $white;
+    font-size: 1.4rem;
+    &:first-child {
+        margin-right: 1rem;
+    }
+    &:hover {
+        transition: 0.2s ease;
+        background: $white;
+        color: $violet;
+    }
+}

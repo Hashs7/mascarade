@@ -31,9 +31,9 @@ export const routePath = {
     STUDENT_SIGNUP: '/student/signup/:room',
     STUDENT_LOGIN: '/teacher/login',
     STUDENT_TUTO: '/student/tuto',
-    STUDENT_HOME: '/student/exp',
-    STUDENT_MSG: '/student/messages',
-    STUDENT_SUMMARY: '/student/bilan',
+    STUDENT_HOME: '/exp',
+    STUDENT_MSG: '/messages',
+    STUDENT_SUMMARY: '/bilan',
     STUDENT_ENTRY: '/room',
 };
 
