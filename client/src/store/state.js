@@ -1,5 +1,6 @@
 export default {
     sessions: [],
     tabIndex: 'tab-0',
-    dashboardView: "board"
+    dashboardView: "board",
+    isTutorial: true,
 }

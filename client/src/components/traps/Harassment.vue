@@ -1,13 +1,13 @@
 <template>
     <div class="harassment__container">
         <img class="harassment__image" :src="harassment"/>
-        <Informations name="Nathalie Bou" date="Il y a 4 jours"/>
+        <Informations name="Bastien Lartu" date="Il y a 4 jours"/>
         <div class="harassment__group">
-            <h2 class="harassment__title"> Holidays in Miami 🌈🌴</h2>
+            <h2 class="harassment__title"> Holidays in Annecy 🌈🌴</h2>
             <div class="harassment__separate"></div>
             <Comment name="Bryan Philipo" date="Il y a 2h" description="Trop moche c'est quoi cette photo !"/>
-            <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Tu t'es prise pour un mannequin ou quoi ?"/>
-            <Comment name="Ryan Zetyr" date="Il y a 5 jours" description="Grave tu fais trop ta belle !"/>
+            <Comment name="Lucie Bernard" date="Il y a 3 jours" description="Tu t'es pris pour un mannequin ou quoi ?"/>
+            <Comment name="Ryan Zetyr" date="Il y a 5 jours" description="Grave tu te sens plus pisser !"/>
             <Comment
                     v-if="response.desc"
                     :name="response.name"

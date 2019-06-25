@@ -8,7 +8,15 @@
             </div>
             <div v-else-if="quizzState==='response'" class="carousel">
                 <QuizzCarousel @isLast="showButton" />
-                <RippleButton v-if="buttonVisible" :clickAction="endQuizz" name="Valider"></RippleButton>
+                <div class="btn-container">
+                    <button v-if="buttonVisible" @click="endQuizz" class="button__share"> Valider </button>
+                </div>
+            </div>
+            <div v-else-if="quizzState==='final'" class="quizz__final">
+                <img class="quizz__finalImage" :src="quizzStar"/>
+                <div class="quizz__finalContent">
+                    <p class="quizz__finalTitle">Tu es à <span>80%</span> Robert Downey JR !</p>
+                </div>
             </div>
             <div v-else class="start start__form">
                 <p class="quizz__listTitle">Pour connaître ton résultat nous avons besoin :</p>
@@ -26,7 +34,9 @@
                         <input type="text" name="date" id="date" required>
                     </div>
                     <div class="form__field">
-                        <RippleButton :clickAction="sendInfo" name="Envoyer"></RippleButton>
+                        <div class="btn-container">
+                            <button @click="sendInfo" class="button__share"> Envoyer </button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -41,14 +51,16 @@
 <script>
     import QuizzCarousel from '@/components/traps/quizz/QuizzCarousel';
     import Quizz from '@/assets/img/quizz.jpg';
+    import QuizzStar from '@/assets/img/quizz_star.png';
     import RippleButton from '@/components/UI/RippleButton';
 
     export default {
         name: "QuizzContainer",
-        components: { QuizzCarousel, RippleButton, Quizz },
+        components: { QuizzCarousel, RippleButton, Quizz, QuizzStar },
         data: () => ({
             quizzState: "intro",
             quizz: Quizz,
+            quizzStar: QuizzStar,
             buttonVisible: false
         }),
         methods: {
@@ -65,6 +77,7 @@
             sendInfo() {
                 //Todo tester si la valeur des champs est vide
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: -5});
+                this.quizzState = "final";
             }
         }
     }
@@ -77,6 +90,15 @@
             margin: 0 auto;
             background: $white;
             border-radius: 10px; 
+            .button__share {
+                border-color: $white;
+                color: $white;
+                transition: 0.2s ease;
+                &:hover {
+                    background: $white;
+                    color: $violet;
+                }
+            }
         }
         &__title {
             text-transform: uppercase;
@@ -98,6 +120,34 @@
             width: 100%;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
+        }
+        &__final {
+            display: flex;
+            background-color: $grey--background;
+        }
+        &__finalContent {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 20px;
+            line-height: 40px;
+            background-image: url('~@/assets/img/quizz_background.png');
+            background-size: contain;
+            background-position: left;
+        }
+        &__finalTitle {
+            font-size: 35px;
+            color: $violet;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            span {
+                font-size: 85px;
+                line-height: 64px;
+            }
+        }
+        &__finalImage {
+            width: 60%;
+            border-radius: 10px;
         }
     }
     .form {
@@ -152,6 +202,15 @@
             justify-content: center;
             position : relative;
             bottom: 12.5rem;
+            .button__share {
+                border-color: $white;
+                color: $white;
+                transition: 0.2s ease;
+                &:hover {
+                    background: $white;
+                    color: $violet;
+                }
+            }
         }
         &__container {
             padding-top: 2rem;

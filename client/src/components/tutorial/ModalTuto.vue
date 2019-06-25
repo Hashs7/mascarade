@@ -5,8 +5,7 @@
         components: { TutoSlider },
         template: '#modalTuto',
         data: () => ({
-          isModalVisible: true,
-          buttonVisible: false
+            buttonVisible: false
         }),
         props: [
             "title",

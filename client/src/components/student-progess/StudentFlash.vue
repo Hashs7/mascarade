@@ -1,7 +1,7 @@
 <template>
     <div class="flash__container">
         <span class="flash__title">Flash ton ami</span>
-        <span class="flash__current">Tu as reçu {{currentFlash}} flash</span>
+        <span class="flash__current">{{currentFlash}} flash reçus </span>
 
         <div class="flash__contact" v-if="students" v-for="(student, i) in students" :key="i">
             <Flash @click="sendFlashTo(student._id)" />

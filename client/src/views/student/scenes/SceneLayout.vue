@@ -20,7 +20,7 @@
             </div>
         </div>
         <modalTuto    
-            v-show="isModalVisible"
+            v-show="$store.state.isTutorial"
             @close="closeModal"
             />
     </div>
@@ -48,9 +48,6 @@
             StudentNavigation, FakeNews, Harassment, StudentFlash,
             Slider, QuizzContainer, ScrollTop, ModalTuto
         },
-        data: () => ({
-            isModalVisible: true,
-        }),
         sockets: {
             newStory(data) {
                 console.log('newStory');
@@ -73,7 +70,7 @@
                 'initChat'
             ]),
             closeModal() {
-                this.isModalVisible = false;
+                this.$store.state.isTutorial = false;
             },
         },
         mounted() {

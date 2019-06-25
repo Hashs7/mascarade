@@ -12,6 +12,10 @@
                 <div class="indicator"></div>
             </div>
         </div>
+        <div class="content__group">
+            <p class="content__title">Rejoins une cause ! </p>
+            <div class="content__separate"></div>
+        </div>
         <p class="charity__published">Ton article vient d'être publié</p>
         <form  class="charity__content" action="" autocomplete="off">
             <input
@@ -144,6 +148,27 @@
             }
         }
 
+    }
+    .content {
+        &__title {
+            font-weight: bold;
+            font-size: 2rem;
+            line-height: 2.8rem;
+            text-transform: uppercase;
+            margin-top: 1.3rem;
+            max-width: 85%;
+        }
+        &__separate {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            background: $black;
+            height: 2px;
+            width: 3rem;
+        }
+        &__group {
+            padding: 0 7rem 0 7rem;
+            margin-top: 4.5rem;
+        }
     }
     .img__container {
         display: flex;
