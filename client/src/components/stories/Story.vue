@@ -60,7 +60,7 @@
         height: 8rem;
         background-repeat: no-repeat;
         background-position: center;
-        background-size: cover;
+        background-size: 105%;
         cursor: pointer;
         margin-right: 2rem;
     }

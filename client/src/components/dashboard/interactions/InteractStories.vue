@@ -13,11 +13,17 @@
 </template>
 
 <script>
+    import StoryMoon from '@/assets/img/story_moon.jpg';
+    import StoryIphone from '@/assets/img/story_iphone.png';
+
     export default {
         name: "InteractStories",
+        components: { StoryMoon, StoryIphone },
         data: () => ({
             active: 'Activé',
-            disable: 'Désactivé'
+            disable: 'Désactivé',
+            storyMoon: StoryMoon,
+            storyIphone: StoryIphone,
         }),
         computed: {
             getStories() {
@@ -27,9 +33,16 @@
         methods: {
             sendStory() {
                 const story = {
-                    src: "https://picsum.photos/300/500",
+                    src: StoryMoon,
                     name: "Le monde",
                     description: "Une future explosion ?",
+                    delay: 1500,
+                };
+
+                const storySecond = {
+                    src: StoryIphone,
+                    name: "Mcfly",
+                    description: "Tente de gagner ton iphone XR",
                     delay: 1500,
                 };
 

@@ -87,6 +87,7 @@
         width: 35rem;
         height: 60rem;
         border-radius: 2rem;
+        background-size: cover;
     }
 
     .modal-body {
