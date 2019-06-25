@@ -66,6 +66,7 @@
             display: flex;
             justify-content: flex-end;
             padding-top: 20px;
+            padding-bottom: 40px;
             color: $white;
             button {
                 opacity: 0.6;
