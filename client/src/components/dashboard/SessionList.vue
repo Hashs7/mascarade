@@ -1,5 +1,6 @@
 <template>
     <div class="session__container">
+        <NewSession />
         <div
              v-for="(session, i) in currentSessions"
              class="session"
@@ -13,9 +14,13 @@
 
 <script>
     import {mapGetters} from "vuex";
+    import NewSession from '@/components/dashboard/NewSession';
 
     export default {
         name: "SessionList",
+        components: {
+            NewSession
+        },
         computed: {
             ...mapGetters([
                 'charityAnswered',

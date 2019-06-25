@@ -1,6 +1,7 @@
 <template>
     <v-form
             ref="form"
+            class="new-session"
             v-model="valid"
             lazy-validation
     >
@@ -42,18 +43,21 @@
         max-width: 200px;
         display: inline-block;
     }
+    .new-session {
+        text-align: center;
+        margin-bottom: 44px;
+    }
     .validate {
-        margin-left: 20px;
         display: inline-block;
-        background-color: $violet !important;
-        color: $white;
+        background: $white !important;
+        color: $violet;
         border: 1px solid $violet;
         padding: 0.6rem 3rem;
         border-radius: 0.6rem;
         transition: 0.2s ease;
         &:hover {
-            background: $white !important;
-            color: $violet;
+            background-color: $violet !important;
+            color: $white;
         }
     }
 </style>

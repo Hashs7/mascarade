@@ -10,6 +10,7 @@ import MessageLayout from '../views/student/scenes/MessageLayout';
 import StudentSummary from '../views/student/StudentSummary';
 import {tokenIsValid} from "../utils/API";
 import {getTokenState} from "../utils/methods";
+import RoomEntry from "../views/student/RoomEntry";
 
 async function redirectIfNotAuth (to, from, next) {
     const token = await getTokenState();
@@ -33,6 +34,7 @@ export const routePath = {
     STUDENT_HOME: '/student/exp',
     STUDENT_MSG: '/student/messages',
     STUDENT_SUMMARY: '/student/bilan',
+    STUDENT_ENTRY: '/room',
 };
 
 export default [
@@ -67,6 +69,14 @@ export default [
         beforeEnter: redirectIfNotAuth,
         meta: {
             title: 'Dashboard',
+        }
+    },
+    {
+        path: routePath.STUDENT_ENTRY,
+        name: 'RoomEntry',
+        component: RoomEntry,
+        meta: {
+            title: 'Inscription - Élève',
         }
     },
     {

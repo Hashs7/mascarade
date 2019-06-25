@@ -120,17 +120,17 @@
     }
     .v-content__wrap {
         display: flex;
+        height: calc(100vh - 90px);
     }
     .session {
         &__list {
-            width: 180px;
+            width: 260px;
             background-color: $white;
-            position: fixed;
-            left: 0;
             height: 100%;
         }
         &__view {
-            width: calc(100% - 250px);
+            width: calc(100% - 260px);
+            padding: 24px;
         }
         &__info {
             display: flex;
@@ -148,10 +148,5 @@
             width: 3rem;
             margin-left: 0.5rem;
         }
-    }
-    .content {
-        flex-grow: 1;
-        padding: 45px 90px;
-        padding-right: 0;
     }
 </style>
