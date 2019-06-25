@@ -21,7 +21,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 22px;
+        font-size: 25px;
+        font-family: $font-avenir;
+
         &__title {
             margin-top: 3rem;
             max-width: 60%;

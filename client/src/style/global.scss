@@ -3,6 +3,21 @@
 @import './layout/layout-scene';
 @import './button';
 
+.bg-anim {
+    color: white;
+    background: linear-gradient(55deg, #4d02ff, #00d7ff);
+    background-size: 400% 400%;
+    animation: bgAnimate 10s ease infinite;
+}
+
+
+@keyframes bgAnimate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+
 body {
     width: 100vw;
     font-size: 1.6rem;

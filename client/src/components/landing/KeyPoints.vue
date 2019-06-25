@@ -51,9 +51,9 @@
 
 <style scoped lang="scss">
 .keypoints {
+    font-family: $font-avenir;
     padding-bottom: 10rem;
     padding-top: 5rem;
-    margin-top: 5rem;
     padding-left: 55px;
     &__title {
         font-size: 20px;
@@ -61,6 +61,7 @@
     }
     &__subtitle {
         max-width: 35%;
+        font-weight: 300;
     }
     &__item {
         margin-bottom: 30px;
@@ -83,6 +84,7 @@
     }
 }
 .datas {
+    padding-top: 5rem;
     position: relative;
     &__container {
         max-width: 1200px;
@@ -93,13 +95,15 @@
     display: flex;
     margin-bottom: 10rem;
     &__item {
+        font-family: $font-avenir;
         text-align: center;
         width: calc(100% / 4);
         padding-right: 3rem;
     }
     &__data {
+        font-family: $font-palanquin;
         color: $blue;
-        font-size: 30px;
+        font-size: 40px;
     }
 }
 </style>

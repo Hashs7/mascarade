@@ -33,6 +33,7 @@
             margin-left: 160px;
         }
         &__title {
+            font-family: $font-palanquin;
             font-size: 120px;
             line-height: 130px;
             max-width: 40%;
@@ -45,8 +46,10 @@
                 margin-bottom: 3rem;
                 font-size: 30px;
                 font-weight: 500;
+                font-family: $font-palanquin;
             }
             p {
+                font-family: $font-avenir;
                 margin-bottom: 0;
             }
             span {

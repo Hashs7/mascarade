@@ -59,7 +59,7 @@ const actions = {
             updateDialog(rootState.studentId, rootState.sessionId, contact.type, answer, repIndex);
         }
 
-        if(repIndex === 'stop' || repIndex === 'report') return;
+        // if(repIndex === 'stop' || repIndex === 'report') return;
         commit('addMessage', {id, answer, type})
     },
     initChat({rootState, dispatch, state}, type) {
@@ -79,16 +79,12 @@ const actions = {
         const currentId = msgArray.convId;
         const conv = state.conversations.find(conv => conv.id === currentId);
 
-        console.log(currentId, conv);
-
-
         msgArray.stranger.forEach(({content, delay, type}, i) => {
             setTimeout(() => {
                 commit('addMessage', ({id: currentId, answer: content, type}));
                 conv.answers = msgArray.responses;
 
                 if(msgArray.stranger.length - 1 === i) {
-                    console.log(currentId, conv, 'current conv');
                     setTimeout(() => conv.showAnswers = true, 1000);
                 }
             }, delay);

@@ -12,7 +12,7 @@
         <div class="chatbox">
             <div class="contact-info" v-if="getSelectedContact">
                 <span class="contact-name">{{getSelectedContact.author}}</span>
-                <span class="current-time">25 juin 2019</span>
+                <span class="current-time">{{currentDate}} 2019</span>
             </div>
             <div class="chatbox-content">
                 <Message v-for="(msg, i) in getCurrentConversation" :key="i" :txt="msg.txt" :time="msg.time" :msgType="msg.type"/>
@@ -47,17 +47,23 @@
     import Contact from '@/components/messaging/Contact';
     import {dialogResCelebrity} from './dialogs';
     import {dialogResHacker} from "./dialogHack";
-    import {isNull} from "../../utils/methods";
+    import {MONTH} from "../../utils/constant";
+    import dayjs from "dayjs";
 
     export default {
         name: "MessageContainer",
         components: { Message, Contact },
+        data: () => ({
+           currentDate: null
+        }),
         mounted() {
+            const day = dayjs().date();
+            const month = MONTH[dayjs().month()];
+            this.currentDate = day + ' ' + month;
             this.toggleNotif(false);
         },
         sockets: {
             newMsg(type) {
-                // TODO Test type
                 this.initChat(type);
             }
         },
@@ -74,8 +80,6 @@
                 return this.getSelectedContact.answers;
             },
             showAnswer() {
-                console.log(this.$store.state.messages.conversations, 'conversations');
-                console.log(this.getSelectedContact.id, 'selected id');
                 return this.getSelectedContact.showAnswers;
             }
         },
@@ -130,7 +134,7 @@
         margin: 48px auto 0 auto;
         border-radius: 0.5rem;
     }
-    
+
     .no-conversation {
         font-size: 20px;
         position: absolute;

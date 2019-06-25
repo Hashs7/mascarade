@@ -1,5 +1,5 @@
 <template>
-    <div class="intro-container">
+    <div class="intro-container bg-anim">
         <div class="intro__language">
             <button @click="changeLocale('fr')" :class="{active: currentLang === 'fr' }">FR</button>
             <p>/</p>
@@ -10,15 +10,21 @@
             <h1>{{ $t('header.baseline')}}</h1>
             <h2>{{ $t('header.intro')}}</h2>
         </div>
+        <div class="scroll-btn">
+            <Mouse v-scroll-to="{
+                el: '.datas'
+            }" />
+        </div>
     </div>
 </template>
 
 <script>
     import LogoLanding from '@/assets/logo_landing.svg';
+    import Mouse from '@/assets/mouse.svg';
 
     export default {
         name: "Intro",
-        components: { LogoLanding },
+        components: { LogoLanding, Mouse },
         data: () => ({
             currentLang: 'fr'
         }),
@@ -33,45 +39,50 @@
 
 <style scoped lang="scss">
     .intro-container {
+        position: relative;
+        display: flex;
         height: 100vh;
-        color: white;
-        background: linear-gradient(55deg, #4d02ff, #00d7ff);
-        background-size: 400% 400%;
-        animation: bgAnimate 14s ease infinite;
-
-        @keyframes bgAnimate {
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
-        }
+    }
+    .scroll-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 45px;
     }
     .intro {
         &__content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 80vh;
+            text-align: center;
+            margin: auto;
             h1 {
+                font-family: $font-avenir;
+                font-weight: 300;
                 text-transform: uppercase;
-                font-weight: 400;
                 font-size: 40px;
                 margin-top: 28px;
             }
             h2 {
+                font-family: $font-avenir;
                 font-size: 30px;
                 line-height: 40px;
                 text-align: center;
                 max-width: 60%;
                 font-weight: 400;
-                margin-top: 70px;
+                margin: 70px auto 0 auto;
             }
         }
+
         &__language {
+            top: 0;
+            right: 50px;
+            position: fixed;
             display: flex;
             justify-content: flex-end;
             padding-top: 20px;
             padding-bottom: 40px;
             color: $white;
+
             button {
                 opacity: 0.6;
                 transition: 0.2s ease;
@@ -79,9 +90,6 @@
                 text-decoration: none;
                 padding-bottom: 0.2rem;
 
-                &:last-child {
-                    margin-right: 50px;
-                }
                 &:hover, &.active {
                     opacity: 1;
                     font-weight: bold;

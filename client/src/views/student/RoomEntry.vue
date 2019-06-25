@@ -1,5 +1,5 @@
 <template>
-    <div class="room-app">
+    <div class="room-app bg-anim">
         <div class="room-container">
             <h1>Entrez l'identifiant de la session</h1>
             <input type="text" class="room-input" v-model="roomId">
@@ -32,7 +32,7 @@
     .room-app {
         display: flex;
         height: 100%;
-        background-color: $violet;
+        color: $violet;
     }
     .room-container {
         margin: auto;
@@ -45,7 +45,7 @@
         display: block;
         text-align: center;
         width: 150px;
-        margin: 36px auto 16px auto;
+        margin: 56px auto 36px auto;
         font-size: 24px;
         border-bottom: 1px solid $violet;
     }
