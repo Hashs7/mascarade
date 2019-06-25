@@ -1,5 +1,5 @@
 <template>
-    <div class="nav-scenes">
+    <div class="nav-scenes" v-if="stories.length">
         <div class="nav-stories">
             <Story
                 v-for="(img, i) in stories"
@@ -17,7 +17,7 @@
     import Help from '@/assets/help.svg';
     import Story from '@/components/stories/Story';
     export default {
-        name: "StudentNavigation",
+        name: "StudentStories",
         components: { Story, Home, Msg, Help },
         data: () => ({
             isModalVisible: false,

@@ -11,17 +11,13 @@
                     class="modal-header"
                     id="modalTitle"
                 >
-                    <slot name="header">
-                        {{slide.title}}
-                    </slot>
+                    <slot name="header">{{slide.title}}</slot>
                 </header>
                 <section
                     class="modal-body"
                     id="modalDescription"
                 >
-                    <slot name="body">
-                       {{slide.description}}
-                    </slot>
+                    <slot name="body">{{slide.description}}</slot>
                 </section>
             </slide>
         </carousel>
@@ -40,13 +36,13 @@
         data: () => ({
             slides: [{
                 title: "Bienvenue sur Mascarade !",
-                description: "Mascarade c'est LE nouveau réseau social du moment ! Story, chat, flash, tout ce qu'il te faut pour rester connecté ! Attention on devient vite accro ;)",
+                description: "Mascarade c'est LE nouveau réseau social du moment ! Story, chat, flash, tout ce qu'il te faut pour rester connecté ! Attention on devient vite accro 😉",
             },{
                 title: "Comment ça fonctionne ?",
                 description: "Des publications ont déjà été postées, réagis à ces publications pour passer à l'étape suivante. Gagne des points en faisant les bons choix, mais attention tu peux aussi en perdre ! ",
             },{
                 title: "Besoin d'aide ? Pas de panique !",
-                description: "Clique sur le bouton aide en haut à droite de l’écran. L'animateur viendra t'aider :)",
+                description: "Clique sur le bouton aide en haut à droite de l’écran. L'animateur viendra t'aider 😀",
             }]
         }),
         methods: {
@@ -54,9 +50,7 @@
                 return id.slice(0, 8)
             },
             slideChange(i) {
-                console.log(i);
-                console.log(this.slides.length -1);
-                this.slides.length -1 === i ? this.$emit("isLast", true) : this.$emit("isLast", false); 
+                this.slides.length -1 === i ? this.$emit("isLast", true) : null;
             }
         }
     }
@@ -91,7 +85,9 @@
     }
 
    .modal-body {
-        display: flex;
+       font-family: $font-avenir;
+       font-weight: 500;
+       display: flex;
         color: $white;
         font-size: 18px;
         line-height: 35px;
@@ -100,6 +96,7 @@
     }
 
     .modal-header {
+        font-family: $font-palanquin;
         justify-content: center;
         color: $white;
         font-size: 45px;

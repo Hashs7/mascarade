@@ -2,7 +2,7 @@
     <transition name="translate" >
         <span
             v-if="hasNew && scrollY > 50"
-            class="new-story"
+            class="new-story button__share"
             v-scroll-to="{
                 el: '.application--wrap',
                 onStart: hideBtn

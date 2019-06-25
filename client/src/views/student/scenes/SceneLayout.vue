@@ -7,7 +7,7 @@
             <div class="layout-flash">
                 <StudentFlash />
             </div>
-            <StudentNavigation />
+            <StudentStories />
             <div class="layout-main">
                 <ScrollTop />
                 <div class="layout-traps">
@@ -36,7 +36,7 @@
     import Harassment from '@/components/traps/Harassment';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
     import StudentFlash from '@/components/student-progess/StudentFlash';
-    import StudentNavigation from '@/components/StudentNavigation';
+    import StudentStories from '@/components/StudentStories';
     import Slider from '@/components/traps/Slider';
     import {mapActions, mapMutations} from "vuex";
     import {routePath} from "../../../router/routes";
@@ -45,7 +45,7 @@
         name: "SceneLayout",
         components: {
             MessageContainer, StudentAchievement, Charity,
-            StudentNavigation, FakeNews, Harassment, StudentFlash,
+            StudentStories, FakeNews, Harassment, StudentFlash,
             Slider, QuizzContainer, ScrollTop, ModalTuto
         },
         sockets: {

@@ -1,16 +1,25 @@
 <template>
     <div class="intro-container">
         <h1>{{ $t('header.baseline')}}</h1>
-        <button @click="changeLocale('fr')">FR</button>
-        <button @click="changeLocale('en')">EN</button>
+        <button
+            @click="changeLocale('fr')"
+            :class="{active: currentLang === 'fr'}">FR</button>
+        /
+        <button
+            @click="changeLocale('en')"
+            :class="{active: currentLang === 'en'}">EN</button>
     </div>
 </template>
 
 <script>
     export default {
         name: "Intro",
+        data: () => ({
+            currentLang: 'fr'
+        }),
         methods: {
             changeLocale(locale) {
+                this.currentLang = locale;
                 this.$i18n.set(locale)
             }
         }
@@ -30,5 +39,8 @@
             50%{background-position:100% 50%}
             100%{background-position:0% 50%}
         }
+    }
+    .active {
+        border-bottom: 1px solid white;
     }
 </style>

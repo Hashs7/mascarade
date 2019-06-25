@@ -123,13 +123,25 @@
 
 <style scoped lang="scss">
     .message-container {
-        max-width: 1300px;
-        margin: 0 auto;
+        position: relative;
         display: flex;
-        border-radius: 0.5rem;
+        max-width: 1300px;
         height: 48rem;
-        margin-top: 2rem;
+        margin: 48px auto 0 auto;
+        border-radius: 0.5rem;
     }
+    
+    .no-conversation {
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        margin: auto;
+        text-align: center;
+    }
+
     .contacts {
         width: 35rem;
         background-color: $grey--light;

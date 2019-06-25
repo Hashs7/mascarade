@@ -25,20 +25,30 @@
             }
         },
         methods: {
-            sendStory() {
-                const story = {
-                    src: "https://picsum.photos/300/500",
-                    name: "Le monde",
-                    description: "Une future explosion ?",
-                    delay: 1500,
-                };
+            sendStory(index) {
+                let story;
+                if(index === 0) {
+                    story = {
+                        src: "https://picsum.photos/300/500",
+                        name: "Le monde",
+                        description: "Une future explosion ?",
+                        delay: 1500,
+                    };
+                } else {
+                    story = {
+                        src: "https://picsum.photos/300/500",
+                        name: "Le monde",
+                        description: "Une future explosion ?",
+                        delay: 1500,
+                    };
+                }
 
                 this.$socket.emit('newStory', story)
             },
             activeStory(index) {
                 if(this.getStories[index].isActive) return;
                 this.getStories[index].isActive = true;
-                this.sendStory();
+                this.sendStory(index);
             }
         }
     }

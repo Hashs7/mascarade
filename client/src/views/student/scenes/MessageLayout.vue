@@ -4,7 +4,7 @@
             <StudentAchievement />
         </div>
         <div class="layout-content">
-            <StudentNavigation />
+            <StudentStories />
 
             <MessageContainer />
         </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import StudentNavigation from '@/components/StudentNavigation';
+    import StudentStories from '@/components/StudentStories';
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
@@ -20,7 +20,7 @@
 
     export default {
         name: "SceneLayout",
-        components: { MessageContainer, StudentAchievement, Charity, StudentNavigation },
+        components: { MessageContainer, StudentAchievement, Charity, StudentStories },
         data: () => ({}),
         sockets: {
             showBilan(studentId) {

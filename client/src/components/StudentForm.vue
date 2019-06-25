@@ -188,7 +188,7 @@
                             surname: this.surname
                         });
                         setTimeout(() => {
-                            this.$router.push(routePath.STUDENT_TUTO)
+                            this.$router.push(routePath.STUDENT_HOME)
                         }, 2000)
                     })
                     .catch(err => {

@@ -2,7 +2,7 @@
     <div class="achievements">
         <div class="achievements-group">
         <div class="achievements-container">
-            <router-link class="item home" to="/student/exp">
+            <router-link class="item home" to="/exp">
                 <Logo />
             </router-link>
             <ul class="achievements-datas">
@@ -12,10 +12,11 @@
         </div>
         <div class="nav-right">
             <div class="nav-link nav-score">
-                <p class="score item">{{points}}</p><Score />
+                <span class="score item">{{points}}</span>
+                <Score />
             </div>
             <div class="nav-link" :class="{hasNotif: hasNotif}">
-                <router-link class="item msg" to="/student/messages">
+                <router-link class="item msg" to="/messages">
                     <Msg />
                 </router-link>
             </div>
@@ -70,24 +71,29 @@
     .nav-right {
             display: flex;
             align-items: center;
-            a, span {
-                margin-left: 1rem;
+            .nav-link {
+                margin-left: 2rem;
             }
-            .item {
-                svg {
-                    width: 3rem;
-                    margin-left: 1rem;
-                }
+            .item svg {
+                width: 3rem;
+                vertical-align: middle;
             }
     }
     .item {
+        vertical-align: center;
+
         &.home {
             display: flex;
+        }
+        &.score {
+            margin-bottom: 0;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
     }
     .nav-link {
         position: relative;
-        margin-top: 0.5rem;
 
         &.hasNotif:before {
             position: absolute;
@@ -104,13 +110,6 @@
     .nav-score {
         display: flex;
         align-items: center;
-        margin-bottom: 0.2rem;
-        p {
-            margin-bottom: 0;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
     }
     .achievements {
         background:$gradient;

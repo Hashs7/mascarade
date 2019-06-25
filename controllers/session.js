@@ -1,6 +1,4 @@
 const {validationResult} = require('express-validator/check');
-const bcrypt             = require('bcryptjs');
-const jwt                = require('jsonwebtoken');
 const shortid            = require('shortid');
 const {logError}         = require('../utils');
 const Session            = require('../models/Session');
@@ -23,14 +21,14 @@ exports.newSession = (req, res, next) => {
     });
 
     session.save()
-        .then(result => {
+        .then(_ => {
             return Teacher.findById(req.teacherId)
         })
         .then(teacher => {
             teacher.sessions.push(session);
             return teacher.save()
         })
-        .then(result => {
+        .then(_ => {
             res.status(201).json({
                 message: 'La session a été créé',
                 session: session,
@@ -46,8 +44,6 @@ exports.newSession = (req, res, next) => {
 
 
 exports.getSessions = (req, res, next) => {
-    console.log(req.teacherId);
-
     Teacher.findById(req.teacherId)
         .populate({
             path: 'sessions',
@@ -83,7 +79,6 @@ exports.getSessionById = (req, res, next) => {
             model: 'Student'
         })
         .then(session => {
-            console.log('current session', session);
             res.status(201).json({
                 session: session
             });
