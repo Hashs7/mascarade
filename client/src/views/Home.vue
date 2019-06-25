@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="landing">
         <Intro />
         <KeyPoints />
         <LandingNav />
@@ -31,5 +31,8 @@
     }
     .home-links {
         display: block;
+    }
+    .landing {
+        background: white;
     }
 </style>

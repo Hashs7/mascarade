@@ -13,11 +13,17 @@
 </template>
 
 <script>
+    import StoryMoon from '@/assets/img/story_moon.jpg';
+    import StoryIphone from '@/assets/img/story_iphone.png';
+
     export default {
         name: "InteractStories",
+        components: { StoryMoon, StoryIphone },
         data: () => ({
             active: 'Activé',
-            disable: 'Désactivé'
+            disable: 'Désactivé',
+            storyMoon: StoryMoon,
+            storyIphone: StoryIphone,
         }),
         computed: {
             getStories() {
@@ -29,16 +35,16 @@
                 let story;
                 if(index === 0) {
                     story = {
-                        src: "https://picsum.photos/300/500",
+                        src: StoryMoon,
                         name: "Le monde",
                         description: "Une future explosion ?",
                         delay: 1500,
                     };
                 } else {
                     story = {
-                        src: "https://picsum.photos/300/500",
-                        name: "Le monde",
-                        description: "Une future explosion ?",
+                        src: StoryIphone,
+                        name: "Mcfly",
+                        description: "Tente de gagner ton iphone XR",
                         delay: 1500,
                     };
                 }
