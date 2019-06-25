@@ -6,34 +6,34 @@ export const translationsEn = {
     },
     keyPoints: {
         first: {
-            title: "Éduquer plutôt qu’interdire",
-            subTitle: "à la création de la première identité numérique sur les réseaux sociaux"
+            title: "Educate rather than prohibit",
+            subTitle: "to the creation of the first digital identity on social networks"
         },
         second: {
-            title: "Savoir-être et savoir-faire",
-            subTitle: "Apprentissage des comportements à adopter dans l’univers numérique"
+            title: "Self-management and how-how",
+            subTitle: "Learning behaviors to adopt in the digital world"
         },
         third: {
-            title: "Bonnes pratiques",
-            subTitle: "Comprendre les opportunités de ces outils et prévenir des risques et des dangers"
+            title: "Good practices",
+            subTitle: "Understand the opportunities of these tools and prevent risks and dangers"
         }
     },
     stats: {
         first: {
             data: "1/2",
-            label: "des élèves de 6e possèdent un smartphone"
+            label: "6e grade students have a smartphone"
         },
         second: {
             data: "2/3",
-            label: "des élèves de 5e sont inscrits sur un réseau social"
+            label: "5e graders are registered on a social network"
         },
         third: {
             data: "27%",
-            label: "des jeunes français ont déjà été la cible d’insultes ou de propos grossiers sur les réseaux sociaux"
+            label: "Young French people have already been the target of insults or rude comments on social networks"
         },
         fourth: {
             data: "82%",
-            label: "des enfants de 8 à 14 ans sont attentifs aux risques sur Internet"
+            label: "Children aged 8 to 14 are sensitive / attentive to the risks on the internet"
         }
     },
     navigation: {
