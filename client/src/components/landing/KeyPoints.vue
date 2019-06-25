@@ -39,7 +39,7 @@
 </template>
 
 <script>
-    import LogoOpacity from '@/assets/img/landing/logo_background_2.png';
+    import LogoOpacity from '@/assets/img/landing/logo_background.png';
 
     export default {
         name: "KeyPoints",
