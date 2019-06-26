@@ -2,7 +2,7 @@
     <div>
         <v-toolbar app>
             <v-toolbar-title class="headline text-uppercase">
-                <span>Student signup</span>
+                <span>Inscription</span>
             </v-toolbar-title>
         </v-toolbar>
         <v-content>

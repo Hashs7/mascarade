@@ -2,7 +2,7 @@
     <div>
         <v-toolbar app>
             <v-toolbar-title class="headline text-uppercase">
-                <span>Administrateur login</span>
+                <span>Connexion Administrateur</span>
             </v-toolbar-title>
         </v-toolbar>
         <v-content>
