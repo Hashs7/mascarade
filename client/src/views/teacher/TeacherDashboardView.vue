@@ -8,7 +8,7 @@
                 <nav class="dashboard-nav">
                     <Navigation />
                 </nav>
-                <div class="session__info">
+                <div class="session__info" v-if="currentSessions">
                     <p>{{currentSessions.className}}</p>
                     <p>{{currentSessions.students.length}}</p>
                     <img class="session__image" :src="connexion"/>
