@@ -60,7 +60,8 @@
             changeSlide(i) {
                 if(this.points >= 4) return;
                 this.points += 1;
-                this.$store.dispatch('updateAchievement', {type: 'points', amount: 5})
+                this.$store.dispatch('updateSlider', {amount: this.points});
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: 5});
             }
         },
     }

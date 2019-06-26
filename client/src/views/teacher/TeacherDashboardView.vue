@@ -81,6 +81,9 @@
             },
             updateQuizz(data) {
                 this.$store.commit('updateQuizz', data);
+            },
+            updateSlider(data) {
+                this.$store.commit('updateBOSlider', data);
             }
         },
         computed: {

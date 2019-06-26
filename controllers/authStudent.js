@@ -4,24 +4,24 @@ const jwt                = require('jsonwebtoken');
 const {logError}         = require('../utils');
 const io                 = require('../socket');
 const Student            = require('../models/Student');
-const Flash            = require('../models/Flash');
+const Flash              = require('../models/Flash');
 const Session            = require('../models/Session');
 
 const shouldShowBilan = (student) => {
-    const quizzValid = student.quizz.length === 5;
-    const charityValid = student.charity.type;
-    const harassmentValid = student.harassment.action;
-    const fakeNewsValid = student.fakeNews.action;
+    //TODO slider validation
+    const quizzValid           = student.quizz.length === 5;
+    const charityValid         = student.charity.type;
+    const harassmentValid      = student.harassment.action;
+    const fakeNewsValid        = student.fakeNews.action;
     const dialogCelebrityValid = student.dialog.celebrity.state === 'stop' || student.dialog.celebrity.state === 'report';
-    const dialogHackerValid = student.dialog.hacker.state === 'stop' || student.dialog.hacker.state === 'report';
+    const dialogHackerValid    = student.dialog.hacker.state === 'stop' || student.dialog.hacker.state === 'report';
 
     console.log('shouldShowBilan', quizzValid, charityValid, harassmentValid, fakeNewsValid, dialogCelebrityValid, dialogHackerValid);
 
-    if(quizzValid && charityValid && harassmentValid && fakeNewsValid && dialogCelebrityValid && dialogHackerValid) {
-        return true
+    if (quizzValid && charityValid && harassmentValid && fakeNewsValid && dialogCelebrityValid && dialogHackerValid) {
+        return true;
     } else {
-        return false
-
+        return false;
     }
 }
 
@@ -32,7 +32,7 @@ exports.signup = (req, res, next) => {
     }
 
     const {email, firstname, surname, password, gender} = req.body;
-    const roomId = req.query.room;
+    const roomId                                        = req.query.room;
     let newStudent;
     let idStudent;
     let studentDoc;
@@ -81,7 +81,7 @@ exports.signup = (req, res, next) => {
             return newStudent.save();
         })
         .then(student => {
-            idStudent = student._id;
+            idStudent  = student._id;
             studentDoc = student;
 
             const flash = new Flash({
@@ -208,20 +208,20 @@ exports.login = (req, res, next) => {
 };
 
 exports.updateAchievement = (req, res, next) => {
-    const { studentId, sessionId, achievType, amount } = req.body;
-    const type = ['points', 'shares', 'reports'];
+    const {studentId, sessionId, achievType, amount} = req.body;
+    const type                                       = ['points', 'shares', 'reports'];
 
     let realAmount, currentStudent;
 
     Student.findById(studentId)
         .populate()
         .then(student => {
-            if(!type.includes(achievType)) {
+            if (!type.includes(achievType)) {
                 logError("le type n'est pas correct", 401);
             }
             currentStudent = student;
             student.achievements[achievType] += amount;
-            realAmount = student.achievements[achievType];
+            realAmount     = student.achievements[achievType];
             return student.save()
         })
         .then(result => {
@@ -233,7 +233,7 @@ exports.updateAchievement = (req, res, next) => {
             };
             io.getIO().emit('updateAchievement', payload);
 
-            if(shouldShowBilan(currentStudent)) {
+            if (shouldShowBilan(currentStudent)) {
                 io.getIO().emit('showBilan', currentStudent._id);
             }
 
@@ -251,18 +251,18 @@ exports.updateAchievement = (req, res, next) => {
 };
 
 exports.updateCharity = (req, res, next) => {
-    const { studentId, sessionId, charityType, title, description } = req.body;
-    const type = ['starvation', 'violences', 'war', 'racism', 'homophobie', 'pollution'];
+    const {studentId, sessionId, charityType, title, description} = req.body;
+    const type                                                    = ['starvation', 'violences', 'war', 'racism', 'homophobie', 'pollution'];
 
     Student.findById(studentId)
         .populate()
         .then(student => {
-            if(!type.includes(charityType)) {
+            if (!type.includes(charityType)) {
                 logError("le type n'est pas correct", 401);
             }
 
-            student.charity.type = charityType;
-            student.charity.title = title;
+            student.charity.type        = charityType;
+            student.charity.title       = title;
             student.charity.description = description;
             return student.save()
         })
@@ -290,20 +290,20 @@ exports.updateCharity = (req, res, next) => {
 };
 
 exports.updateDialog = (req, res, next) => {
-    const { studentId, sessionId, dialogType, response, state } = req.body;
-    const type = ['celebrity', 'hacker'];
+    const {studentId, sessionId, dialogType, response, state} = req.body;
+    const type                                                = ['celebrity', 'hacker'];
     let conversation;
 
     Student.findById(studentId)
         .populate()
         .then(student => {
-            if(!type.includes(dialogType)) {
+            if (!type.includes(dialogType)) {
                 logError("le type n'est pas correct", 401);
             }
 
             student.dialog[dialogType].conversation.push(response);
             student.dialog[dialogType].state = state;
-            conversation = student.dialog[dialogType].conversation;
+            conversation                     = student.dialog[dialogType].conversation;
             return student.save()
         })
         .then(result => {
@@ -330,13 +330,13 @@ exports.updateDialog = (req, res, next) => {
 };
 
 exports.updateScene = (req, res, next) => {
-    const { studentId, sessionId, sceneType, action } = req.body;
-    const type = ['harassment', 'fakeNews'];
+    const {studentId, sessionId, sceneType, action} = req.body;
+    const type                                      = ['harassment', 'fakeNews'];
 
     Student.findById(studentId)
         .populate()
         .then(student => {
-            if(!type.includes(sceneType)) {
+            if (!type.includes(sceneType)) {
                 logError("le type n'est pas correct", 401);
             }
 
@@ -365,8 +365,38 @@ exports.updateScene = (req, res, next) => {
         });
 };
 
+exports.updateSlider = (req, res, next) => {
+    const {studentId, sessionId, amount} = req.body;
+
+    Student.findById(studentId)
+        .populate()
+        .then(student => {
+            student.slider = amount;
+            return student.save()
+        })
+        .then(_ => {
+            const payload = {
+                studentId: studentId,
+                sessionId: sessionId,
+                slider: amount
+            };
+
+            io.getIO().emit('updateSlider', payload);
+            res.status(201).json({
+                message: 'Le slider a été mis à jour',
+                payload
+            });
+        })
+        .catch(err => {
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
+};
+
 exports.updateQuizz = (req, res, next) => {
-    const { studentId, sessionId, responses } = req.body;
+    const {studentId, sessionId, responses} = req.body;
 
     Student.findById(studentId)
         .populate()

@@ -20,7 +20,7 @@
                     <Msg />
                 </router-link>
             </div>
-            <div class="nav-link">
+            <!--<div class="nav-link">
                 <span class="item help">
                     <v-tooltip bottom>
                       <template v-slot:activator="{ on }">
@@ -31,7 +31,7 @@
                       <span>Demander de l'aide à l'intervenant</span>
                     </v-tooltip>
                 </span>
-            </div>
+            </div>-->
         </div>
         </div>
     </div>

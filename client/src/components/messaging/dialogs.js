@@ -18,7 +18,7 @@ export const initMsgCelebrity = (name) => ({
         repIndex: 0,
         type: 'student'
     },{
-        content: "Comment je peux savoir que c’est vraiment Cyprien ?",
+        content: "Comment je peux savoir que c’est vraiment McFly ?",
         repIndex: 1,
         type: 'student'
     }]
@@ -109,7 +109,7 @@ const repIndex4 = {
     }],
     responses: [{
         content: "C’est pas toi, on voit pas ton visage…",
-        repIndex: 5,
+        repIndex: 'stop',
         type: 'student'
     },{
         content: "Signaler le compte",

@@ -531,3 +531,13 @@
 [0mPOST /auth/teacher/login [32m200 [0m381.610 ms - 9281[0m
 [0mGET /auth/teacher/is-auth [36m304 [0m0.293 ms - -[0m
 [0mGET /session/all [32m201 [0m111.498 ms - 9000[0m
+[0mPOST /auth/teacher/login [32m200 [0m973.865 ms - 11544[0m
+[0mGET /auth/teacher/is-auth [36m304 [0m1.570 ms - -[0m
+[0mGET /session/all [32m201 [0m758.272 ms - 11263[0m
+[0mGET /auth/teacher/is-auth [36m304 [0m0.317 ms - -[0m
+[0mGET /session/all [32m201 [0m86.477 ms - 15[0m
+[0mGET /session/student/undefined [31m500 [0m5.574 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m1.856 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m1.734 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m3.275 ms - 99[0m
+[0mGET /session/student/undefined [31m500 [0m2.303 ms - 99[0m

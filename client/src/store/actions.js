@@ -1,9 +1,15 @@
-import {api, updateScene} from "../utils/API";
+import {api, updateScene, updateSlider} from "../utils/API";
 import {ROUTE_TEACHER_NEW_SESSION} from "../utils/constant";
 
 export default {
     updateScene({commit, state}, {sceneType, action}) {
         updateScene(state.studentId, state.sessionId, sceneType, action)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+
+    },
+    updateSlider({commit, state}, {amount}) {
+        updateSlider(state.studentId, state.sessionId, amount)
             .then(res => console.log(res))
             .catch(err => console.log(err))
 

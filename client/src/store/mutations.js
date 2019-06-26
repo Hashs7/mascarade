@@ -78,6 +78,10 @@ export default {
         const student = findStudent(state, sessionId, studentId);
         student.quizz = responses;
     },
+    updateBOSlider(state, {studentId, sessionId, amount}) {
+        const student = findStudent(state, sessionId, studentId);
+        student.slider = amount;
+    },
     updateIndex(state, index) {
         state.tabIndex = index;
     },

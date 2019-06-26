@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
     BASE_API_URL, ROUTE_STUDENT_ACHIEVEMENT, ROUTE_STUDENT_CHARITY, ROUTE_STUDENT_DIALOG,
     ROUTE_STUDENT_FLASH_SEND, ROUTE_STUDENT_QUIZZ, ROUTE_STUDENT_SCENE,
-    ROUTE_STUDENT_SESSION,
+    ROUTE_STUDENT_SESSION, ROUTE_STUDENT_SLIDER,
     ROUTE_TEACHER_ALL_SESSION,
     ROUTE_TEACHER_IS_AUTH
 } from "./constant";
@@ -188,6 +188,30 @@ export const updateScene = async (studentId, sessionId, sceneType, action) => {
             sessionId,
             sceneType,
             action
+        }
+    };
+
+    return api(options)
+};
+
+/**
+ *
+ * @param studentId
+ * @param sessionId
+ * @param amount
+ * @returns {Promise<AxiosPromise>}
+ */
+export const updateSlider = async (studentId, sessionId, amount) => {
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        url: ROUTE_STUDENT_SLIDER,
+        data: {
+            studentId,
+            sessionId,
+            amount
         }
     };
 

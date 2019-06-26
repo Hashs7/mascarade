@@ -12,7 +12,7 @@ export const initMsgHacker = (name) => ({
     }],
     responses: [{
         content: "Télécharger",
-        repIndex: 2,
+        repIndex: 'stop',
         type: 'student'
     },{
         content: "Bonjour, est-ce que je peux le lire directement sans le télécharger",
@@ -34,7 +34,7 @@ const repIndex0 = {
         type: 'student'
     },{
         content: "Ok je télécharge",
-        repIndex: 2,
+        repIndex: 'stop',
         type: 'student'
     }]
 };
