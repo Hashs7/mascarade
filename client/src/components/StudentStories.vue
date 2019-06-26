@@ -1,7 +1,8 @@
 <template>
     <div class="nav-scenes" v-if="stories.length">
+        <p class="label">Mes stories</p>
+
         <div class="nav-stories">
-            <p>Mes stories</p>
             <Story
                 v-for="(img, i) in stories"
                 :key="i"
@@ -49,11 +50,11 @@
 </script>
 
 <style scoped lang='scss'>
+    .label {
+        display: block;
+    }
     .nav {
         &-scenes {
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-end;
             padding-bottom: 1rem;
             margin: auto;
             width: 600px;

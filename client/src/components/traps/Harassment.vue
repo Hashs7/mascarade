@@ -16,18 +16,19 @@
                     :date="response.date"
                     :description="response.desc"/>
             <div class="button__container">
-            <div class="button__group" v-if="!response.name">
-                <RippleButton
-                    v-for="(res, i) in choices"
-                    :key="i"
-                    :clickAction="() => updateShare(res.type, res.answer)"
-                    :name="res.answer" />
+                <div class="button__group" v-if="!response.name">
+                    <RippleButton
+                            v-for="(res, i) in choices"
+                            :key="i"
+                            :clickAction="() => updateShare(res.type, res.answer)"
+                            :name="res.answer"/>
 
-                <RippleButton
-                    :clickAction="updateReport"
-                    name="Signaler">
-                </RippleButton>
-            </div>
+                    <RippleButton
+                            class="marg-bottom"
+                            :clickAction="updateReport"
+                            name="Signaler les commentaires">
+                    </RippleButton>
+                </div>
             </div>
         </div>
     </div>
@@ -42,7 +43,7 @@
 
     export default {
         name: "Harassment",
-        components: { Informations, Comment, RippleButton, Indicator },
+        components: {Informations, Comment, RippleButton, Indicator},
         data: () => ({
             harassment: Harassment,
             response: {
@@ -53,7 +54,7 @@
             choices: [{
                 type: "negative",
                 answer: "J'avoue trop moche !"
-            },{
+            }, {
                 type: "positive",
                 answer: "Cool cette photo !"
             }]
@@ -82,12 +83,12 @@
             updateShare(type, msg) {
                 this.valideIndicator();
                 const {firstname, surname} = this.$store.state;
-                this.response = {
+                this.response              = {
                     name: firstname + ' ' + surname,
                     date: "à l'instant",
                     desc: msg
                 };
-                let pointAmount = type === 'negative' ? -10 : 5;
+                let pointAmount            = type === 'negative' ? -10 : 5;
                 this.$store.dispatch('updateScene', {sceneType: 'harassment', action: msg});
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: pointAmount});
             }
@@ -103,19 +104,23 @@
             background: $white;
             border-radius: 10px;
         }
+
         &__group {
             padding: 0 7rem 3.8rem 7rem;
         }
+
         &__image {
             width: 100%;
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
         }
+
         &__title {
             font-size: 1.6rem;
             margin-bottom: 2rem;
             margin-top: 1.8rem;
         }
+
         &__separate {
             height: 1px;
             background: grey;
@@ -123,11 +128,21 @@
             margin-bottom: 1.7rem;
         }
     }
+
     .button {
-      &__container {
-        margin-top: 2rem;
-        display: flex;
-        justify-content: flex-end;
-      }
+        &__container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &__group {
+            text-align: center;
+
+        }
+    }
+
+    .marg-bottom {
+        margin-top: 10px;
     }
 </style>

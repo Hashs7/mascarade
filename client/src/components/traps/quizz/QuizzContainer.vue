@@ -65,8 +65,18 @@
             quizz: Quizz,
             quizzStar: QuizzStar,
             buttonVisible: false,
-            isValid: false
         }),
+        computed: {
+            isValid: {
+                get: function () {
+                    return this.$store.state.validTrap.quizz;
+                },
+                set: function (val) {
+                    this.$store.state.validTrap.quizz = val;
+                    this.$store.dispatch('checkValidateAll');
+                }
+            }
+        },
         methods: {
             startQuizz() {
                 this.quizzState = "response";
@@ -76,9 +86,10 @@
             }, 
             showButton(show) {
                 this.buttonVisible = show;
-                console.log("show", show);
             },
             sendInfo() {
+                this.isValid = true;
+
                 //Todo tester si la valeur des champs est vide
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: -5});
                 this.quizzState = "final";
