@@ -39,7 +39,7 @@
                 description: "Mascarade c'est LE nouveau réseau social du moment ! Story, chat, flash, tout ce qu'il te faut pour rester connecté ! Attention on devient vite accro 😉",
             },{
                 title: "Comment ça fonctionne ?",
-                description: "Des publications ont déjà été postées, réagis à ces publications pour passer à l'étape suivante. Gagne des points en faisant les bons choix, mais attention tu peux aussi en perdre ! ",
+                description: "Des publications ont déjà été postées, réagis à ces publications pour passer à l'étape suivante. Ici les points sont des lunes, fais les bons choix pour en gagner !",
             },{
                 title: "Besoin d'aide ? Pas de panique !",
                 description: "Clique sur le bouton aide en haut à droite de l’écran. L'animateur viendra t'aider 😀",

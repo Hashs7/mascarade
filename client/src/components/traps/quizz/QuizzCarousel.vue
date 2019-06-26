@@ -34,7 +34,6 @@
     import { Carousel, Slide } from 'vue-carousel';
     import {updateQuizz} from "../../../utils/API";
 
-    //TODO ajouter les controles
     export default {
         name: "QuizzSlide",
         components: {
@@ -44,18 +43,18 @@
         data: () => ({
             slides: [{
                 label: "Quelle est ta marque préférée : ",
-                responses: ['Converse', 'Nike', 'Coca cola', 'Adidas'],
+                responses: ['Converse', 'Nike', 'New Balance', 'Adidas'],
                 selected: ''
             },{
                 label: "Ton film préféré :",
-                responses: ['Zootopie' , 'Avenger Endgame', 'Les animaux fantastiques','Batman'],
+                responses: ['Zootopie' , 'Avengers Endgame', 'Les animaux fantastiques','Batman'],
                 selected: ''
             },{
                 label: "Quel profil as tu dans ton groupe de pote ?",
                 responses: ['La/le comique', 'La/le sportif(ve)', 'La/le créatif', 'L\'intello'],
                 selected: ''
             },{
-                label: "Avec qui voudrais tu te marier ?",
+                label: "Avec qui voudrais tu vivre ?",
                 responses: ['Une/un chanteur(se)', 'Une/un rappeur(se)', 'Une/un DJ', 'Une/un mannequin'],
                 selected: ''
             },{

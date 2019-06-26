@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="content__group">
-            <p class="content__title">Rejoins une cause ! </p>
+            <p class="content__title">Bats toi pour une cause ! </p>
             <div class="content__separate"></div>
         </div>
         <p class="charity__published">Ton article vient d'être publié</p>
@@ -42,10 +42,10 @@
 
 <script>
     import Pollution from '@/assets/img/charity/pollution.jpg'
-    import Homophobie from '@/assets/img/charity/homophobie.jpg'
-    import Racism from '@/assets/img/charity/racism.jpg'
+    import Animal from '@/assets/img/charity/animal_abuse.jpg'
+    import GlobalWarming from '@/assets/img/charity/global_warming.jpg'
     import Starvation from '@/assets/img/charity/starvation.jpg'
-    import Violences from '@/assets/img/charity/violences.jpg'
+    import Cyberharcelement from '@/assets/img/charity/cyberharcelement.jpg'
     import War from '@/assets/img/charity/war.jpg'
     import {updateCharity} from "../../utils/API";
     import RippleButton from '@/components/UI/RippleButton';
@@ -63,9 +63,9 @@
                 title: 'Faim dans le monde',
                 selected: false
             },{
-                src: Violences,
-                type: 'violences',
-                title: 'Violences',
+                src: Cyberharcelement,
+                type: 'Cyberharcelement',
+                title: 'Cyber harcèlement',
                 selected: false
             },{
                 src: War,
@@ -73,14 +73,14 @@
                 title: "Guerre",
                 selected: false
             },{
-                src: Racism,
-                type: 'racism',
-                title: "Racisme",
+                src: GlobalWarming,
+                type: 'GlobalWarming',
+                title: "Réchauffement climatique",
                 selected: false
             },{
-                src: Homophobie,
-                type: 'homophobie',
-                title: "Homophobie",
+                src: Animal,
+                type: 'animal abuse',
+                title: "Maltraitance animale",
                 selected: false
             },{
                 src: Pollution,
