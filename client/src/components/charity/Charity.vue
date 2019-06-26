@@ -1,5 +1,7 @@
 <template>
     <div class="charity__container">
+        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
+
         <div class="img__container">
             <div class="img__select"
                  v-for="(img, i) in images"
@@ -9,7 +11,7 @@
                  @click="selectImg(i)"
                  >
                 <div class="charity__titleImage">{{img.title}}</div>
-                <div class="indicator"></div>
+                <div class="indicator-img"></div>
             </div>
         </div>
         <div class="content__group">
@@ -47,10 +49,11 @@
     import War from '@/assets/img/charity/war.jpg'
     import {updateCharity} from "../../utils/API";
     import RippleButton from '@/components/UI/RippleButton';
+    import Indicator from '@/components/traps/Indicator';
 
     export default {
         name: "Charity",
-        components: { RippleButton },
+        components: { RippleButton, Indicator },
         data: () => ({
             title: null,
             description: null,
@@ -86,12 +89,24 @@
                 selected: false
             }]
         }),
+        computed: {
+            isValid: {
+                get: function () {
+                    return this.$store.state.validTrap.charity;
+                },
+                set: function (val) {
+                    this.$store.state.validTrap.charity = val;
+                    this.$store.dispatch('checkValidateAll');
+                }
+            }
+        },
         methods: {
             selectImg(index) {
                 this.images.map(img => img.selected = false);
                 this.images[index].selected = true;
             },
             shareCharity() {
+                this.isValid = true;
 
                 const {studentId, sessionId} = this.$store.state;
                 const charity = this.images.find(el => el.selected);
@@ -113,6 +128,7 @@
 <style scoped lang="scss">
     .charity {
         &__container {
+            position: relative;
             margin: 50px 0;
             background: $white;
             border-radius: 10px;
@@ -184,7 +200,7 @@
         height: 120px;
         background-size: cover;
         background-position: center;
-        &.selected .indicator{
+        &.selected .indicator-img{
             opacity: 1;  
             height: 100%;
             border: 4px solid $violet;
@@ -212,7 +228,7 @@
             }
         }
     }
-    .indicator {
+    .indicator-img {
         opacity: 0;
         text-align: center;
     }

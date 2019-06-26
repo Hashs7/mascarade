@@ -11,7 +11,9 @@ exports.newSession = (req, res, next) => {
     }
 
     const {className} = req.body;
-    const shortId = shortid.generate();
+    let shortId = shortid.generate();
+    shortId = shortId.toUpperCase();
+
 
     const session = new Session({
         shortId: shortId,
@@ -71,7 +73,8 @@ exports.getSessions = (req, res, next) => {
 };
 
 exports.getSessionById = (req, res, next) => {
-    const {sessionId} = req.params;
+    let {sessionId} = req.params;
+    sessionId = sessionId.toUpperCase();
 
     Session.findById(sessionId)
         .populate({

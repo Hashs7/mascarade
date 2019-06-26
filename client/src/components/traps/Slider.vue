@@ -1,5 +1,6 @@
 <template>
     <div class="slider__container">
+        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
         <carousel class="slider__carousel"
                   :per-page="1"
                   :mouse-drag="true"
@@ -42,11 +43,12 @@
     import SliderFour from '@/assets/img/slider/slider_4.jpg';
     import SliderFive from '@/assets/img/slider/slider_5.jpg';
     import Comment from '@/components/traps/post/Comment';
+    import Indicator from '@/components/traps/Indicator';
 
     export default {
         name: "Slider",
         components: {Carousel, Slide, Comment, Harassment, SliderFirst,
-        SliderSecond, SliderThree, SliderFour, SliderFive},
+        SliderSecond, SliderThree, SliderFour, SliderFive, Indicator},
         data: () => ({
             harassment: Harassment,
             sliderFirst: SliderFirst,
@@ -54,7 +56,8 @@
             sliderThree: SliderThree,
             sliderFour: SliderFour,
             sliderFive: SliderFive,
-            points: 0
+            points: 0,
+            isValid: false
         }),
         methods: {
             changeSlide(i) {
@@ -70,6 +73,7 @@
 <style scoped lang="scss">
     .slider {
         &__container {
+            position: relative;
             margin-top: 32px;
             background: $white;
             margin-bottom: 50px;

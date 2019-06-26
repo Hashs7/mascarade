@@ -1,5 +1,7 @@
 <template>
     <div class="quizz__container">
+        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
+
         <div class="play-container">
             <div v-if="quizzState==='intro'" class="start">
                 <img class="quizz__image" :src="quizz"/>
@@ -53,15 +55,17 @@
     import Quizz from '@/assets/img/quizz.jpg';
     import QuizzStar from '@/assets/img/quizz_star.png';
     import RippleButton from '@/components/UI/RippleButton';
+    import Indicator from '@/components/traps/Indicator';
 
     export default {
         name: "QuizzContainer",
-        components: { QuizzCarousel, RippleButton, Quizz, QuizzStar },
+        components: { QuizzCarousel, RippleButton, Quizz, QuizzStar, Indicator },
         data: () => ({
             quizzState: "intro",
             quizz: Quizz,
             quizzStar: QuizzStar,
-            buttonVisible: false
+            buttonVisible: false,
+            isValid: false
         }),
         methods: {
             startQuizz() {
@@ -86,6 +90,7 @@
 <style scoped lang="scss">
     .quizz{
         &__container {
+            position: relative;
             max-width: 600px;
             margin: 0 auto;
             background: $white;

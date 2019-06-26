@@ -1,6 +1,7 @@
 <template>
     <div class="nav-scenes" v-if="stories.length">
         <div class="nav-stories">
+            <p>Mes stories</p>
             <Story
                 v-for="(img, i) in stories"
                 :key="i"

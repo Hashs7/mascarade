@@ -19,6 +19,11 @@
         data: () => ({
             roomId: null
         }),
+        watch: {
+            roomId: function (val) {
+                this.roomId = val.toUpperCase();
+            },
+        },
         methods: {
             pushRoom() {
                 const route = 'student/signup/' +  this.roomId;

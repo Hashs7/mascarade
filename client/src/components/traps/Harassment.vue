@@ -1,5 +1,7 @@
 <template>
     <div class="harassment__container">
+        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
+
         <img class="harassment__image" :src="harassment"/>
         <Informations name="Bastien Lartu" date="Il y a 4 jours"/>
         <div class="harassment__group">
@@ -35,12 +37,12 @@
     import Informations from '@/components/traps/post/Informations';
     import Comment from '@/components/traps/post/Comment';
     import Harassment from '@/assets/img/harassment.jpg';
-    import {getTime} from "../../store/modules/messages";
     import RippleButton from '@/components/UI/RippleButton';
+    import Indicator from '@/components/traps/Indicator';
 
     export default {
         name: "Harassment",
-        components: { Informations, Comment, RippleButton },
+        components: { Informations, Comment, RippleButton, Indicator },
         data: () => ({
             harassment: Harassment,
             response: {
@@ -56,13 +58,29 @@
                 answer: "Cool cette photo !"
             }]
         }),
+        computed: {
+            isValid: {
+                get: function () {
+                    return this.$store.state.validTrap.harassment;
+                },
+                set: function (val) {
+                    this.$store.state.validTrap.harassment = val;
+                    this.$store.dispatch('checkValidateAll');
+                }
+            }
+        },
         methods: {
+            valideIndicator() {
+                this.isValid = true;
+            },
             updateReport() {
+                this.valideIndicator();
                 this.$store.dispatch('updateScene', {sceneType: 'harassment', action: 'reports'});
                 this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1});
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: 10});
             },
             updateShare(type, msg) {
+                this.valideIndicator();
                 const {firstname, surname} = this.$store.state;
                 this.response = {
                     name: firstname + ' ' + surname,
@@ -80,6 +98,7 @@
 <style scoped lang="scss">
     .harassment {
         &__container {
+            position: relative;
             margin: 5rem 0;
             background: $white;
             border-radius: 10px;

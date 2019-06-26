@@ -1,38 +1,38 @@
 <template>
     <div class="achievements">
         <div class="achievements-group">
-        <div class="achievements-container">
-            <router-link class="item home" to="/exp">
-                <Logo />
-            </router-link>
-            <ul class="achievements-datas">
-                <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
-                <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
-            </ul>
-        </div>
-        <div class="nav-right">
-            <div class="nav-link nav-score">
-                <span class="score item">{{points}}</span>
-                <Score />
-            </div>
-            <div class="nav-link" :class="{hasNotif: hasNotif}">
-                <router-link class="item msg" to="/messages">
-                    <Msg />
+            <div class="achievements-container">
+                <router-link class="item home" to="/exp">
+                    <Logo/>
                 </router-link>
+                <!--<ul class="achievements-datas">
+                    <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
+                    <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
+                </ul>-->
             </div>
-            <!--<div class="nav-link">
-                <span class="item help">
-                    <v-tooltip bottom>
-                      <template v-slot:activator="{ on }">
-                        <button v-on="on">
-                            <Help />
-                        </button>
-                      </template>
-                      <span>Demander de l'aide à l'intervenant</span>
-                    </v-tooltip>
-                </span>
-            </div>-->
-        </div>
+            <div class="nav-right">
+                <div class="nav-link nav-score">
+                    <span class="score item">{{points}}</span>
+                    <Score/>
+                </div>
+                <div class="nav-link" :class="{hasNotif: hasNotif}">
+                    <router-link class="item msg" to="/messages">
+                        <Msg/>
+                    </router-link>
+                </div>
+                <!--<div class="nav-link">
+                    <span class="item help">
+                        <v-tooltip bottom>
+                          <template v-slot:activator="{ on }">
+                            <button v-on="on">
+                                <Help />
+                            </button>
+                          </template>
+                          <span>Demander de l'aide à l'intervenant</span>
+                        </v-tooltip>
+                    </span>
+                </div>-->
+            </div>
         </div>
     </div>
 </template>
@@ -46,7 +46,7 @@
 
     export default {
         name: "StudentAchievement",
-        components: { Logo, Home, Msg, Help, Score },
+        components: {Logo, Home, Msg, Help, Score},
         computed: {
             points() {
                 return this.$store.state.score.points;
@@ -69,22 +69,27 @@
 
 <style scoped lang="scss">
     .nav-right {
-            display: flex;
-            align-items: center;
-            .nav-link {
-                margin-left: 2rem;
-            }
-            .item svg {
-                width: 3rem;
-                vertical-align: middle;
-            }
+        display: flex;
+        align-items: center;
+
+        .nav-link {
+            margin-left: 2rem;
+        }
+
+        .item svg {
+            width: 3rem;
+            vertical-align: middle;
+        }
     }
+
     .item {
         vertical-align: center;
 
         &.home {
+            cursor: pointer;
             display: flex;
         }
+
         &.score {
             margin-bottom: 0;
             margin-right: 1rem;
@@ -92,6 +97,7 @@
             font-weight: bold;
         }
     }
+
     .nav-link {
         position: relative;
 
@@ -107,12 +113,14 @@
             background-color: $violet;
         }
     }
+
     .nav-score {
         display: flex;
         align-items: center;
     }
+
     .achievements {
-        background:$gradient;
+        background: $gradient;
         color: white;
         display: flex;
         justify-content: space-around;
@@ -121,37 +129,46 @@
         z-index: 35;
         left: 0;
         right: 0;
+
         &-container {
             display: flex;
-            align-items: center;    
+            align-items: center;
             height: 7rem;
+
             svg {
                 text-align: center;
             }
+
             ul {
                 display: flex;
                 padding-left: 22rem;
                 padding-right: 16rem;
             }
         }
+
         &-group {
             display: flex;
             margin: auto;
-            max-width: 1200px;
+            max-width: 900px;
+            width: 100%;
             justify-content: space-between;
         }
+
         &-title {
             color: $white;
             font-size: 2.6rem;
             line-height: 3.1rem;
+
             li:last-child {
                 text-transform: uppercase;
             }
         }
+
         &-datas {
             font-size: 1.5rem;
             line-height: 2.7rem;
             font-weight: bold;
+
             li {
                 width: 11.5rem;
                 margin-right: 4rem;

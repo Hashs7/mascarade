@@ -1,5 +1,7 @@
 <template>
     <div class="fakeNews__container">
+        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
+
         <Content title="La nasa envisage de faire exploser la lune…"
                  description="Edgar Phillips-Garret est l’homme qui se cache derrière cette idée folle d’envoyer sur la Lune une sonde équipée d’une charge explosive suffisamment forte pour définitivement la faire disparaître. "/>
         <div class="fakeNews__group">
@@ -32,14 +34,26 @@
     import RippleButton from '@/components/UI/RippleButton';
     import Informations from '@/components/traps/post/Informations';
     import Modal from '@/components/modal/Modal';
+    import Indicator from '@/components/traps/Indicator';
 
     export default {
         name: "FakeNews",
-        components: {Content, Informations, Modal, RippleButton},
+        components: {Content, Informations, Modal, RippleButton, Indicator},
         data: () => ({
             isModalVisible: false,
             showButtons: true
         }),
+        computed: {
+            isValid: {
+                get: function () {
+                    return this.$store.state.validTrap.fakeNew;
+                },
+                set: function (val) {
+                    this.$store.state.validTrap.fakeNew = val;
+                    this.$store.dispatch('checkValidateAll');
+                }
+            }
+        },
         methods: {
             showModal() {
                 this.isModalVisible = true;
@@ -49,6 +63,7 @@
             },
             hideBtn() {
                 this.showButtons = false;
+                this.isValid = true;
             },
             updateReport() {
                 this.hideBtn();
@@ -67,6 +82,7 @@
 <style scoped lang="scss">
     .fakeNews {
         &__container {
+            position: relative;
             background: $white;
             margin-top: 2rem;
             border-radius: 10px;

@@ -11,6 +11,7 @@ import flash from './modules/flash';
 import stories from './modules/stories';
 import interact from './modules/interact';
 import modalProgress from './modules/modalProgress';
+import validTrap from './modules/validTrap';
 
 Vue.use(Vuex);
 
@@ -25,7 +26,8 @@ export default new Vuex.Store({
         flash,
         stories,
         interact,
-        modalProgress
+        modalProgress,
+        validTrap
     },
     plugins: [createPersistedState({ storage: window.sessionStorage })]
 });

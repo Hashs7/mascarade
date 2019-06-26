@@ -11,6 +11,7 @@
             <div class="layout-main">
                 <ScrollTop />
                 <div class="layout-traps">
+                    <div class="trails" :style="{ backgroundImage: `url('${trails}')` }"></div>
                     <Slider />
                     <FakeNews />
                     <Charity />
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+    import trails from '@/assets/img/trails.png';
     import ScrollTop from '@/components/UI/ScrollTop';
     import MessageContainer from '@/components/messaging/MessageContainer';
     import ModalTuto from '@/components/tutorial/ModalTuto';
@@ -48,6 +50,9 @@
             StudentStories, FakeNews, Harassment, StudentFlash,
             Slider, QuizzContainer, ScrollTop, ModalTuto
         },
+        data: () => ({
+            trails: trails
+        }),
         sockets: {
             newMsg(type) {
                 this.initChat(type);
@@ -83,5 +88,13 @@
 </script>
 
 <style scoped lang="scss">
-
+    .trails {
+        position: absolute;
+        left: -200px;
+        top: 340px;
+        height: calc(100% - 800px);
+        width: 8px;
+        background-size: contain;
+        background-repeat: repeat-y;
+    }
 </style>
