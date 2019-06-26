@@ -79,7 +79,7 @@
         border-radius: 100%;
         border: 3px solid gray;
         background-position: center;
-        background-size: cover;
+        background-size: 105%;
     }
     .name {
         display: block;
