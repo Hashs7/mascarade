@@ -140,6 +140,11 @@
             ],
             checkbox: false
         }),
+        sockets: {
+            newStory(data) {
+                this.$store.commit('addStory', data);
+            },
+        },
         computed: {
             dateFormatted() {
                 return this.formatDate(this.date)

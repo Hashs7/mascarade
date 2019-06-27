@@ -24,7 +24,7 @@
                 <p class="quizz__listTitle">Pour connaître ton résultat nous avons besoin :</p>
                 <form action="" method="get" class="form" autocomplete="off">
                     <div class="form__field">
-                        <label for="email">Ton adresse </label>
+                        <label for="email">Ton adresse postale</label>
                         <input type="text" name="name" id="email" required>
                     </div>
                     <div class="form__field">

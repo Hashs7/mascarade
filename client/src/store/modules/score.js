@@ -25,7 +25,7 @@ const mutations = {
         if(amount > 0) {
             state.increaseScore = '+' + amount;
         } else {
-            state.increaseScore = '-' + amount;
+            state.increaseScore = amount;
         }
         state[type] += amount;
     }

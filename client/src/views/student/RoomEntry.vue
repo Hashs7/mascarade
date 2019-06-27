@@ -19,6 +19,11 @@
         data: () => ({
             roomId: null
         }),
+        sockets: {
+            newStory(data) {
+                this.$store.commit('addStory', data);
+            },
+        },
         watch: {
             roomId: function (val) {
                 this.roomId = val.toUpperCase();
