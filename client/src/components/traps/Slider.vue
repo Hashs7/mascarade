@@ -1,28 +1,40 @@
 <template>
-    <div class="slider__container">
+    <div class="slider__container slider-photos">
         <Indicator :type="isValid ? 'valid' : 'invalid'"/>
         <carousel class="slider__carousel"
                   :per-page="1"
                   :mouse-drag="true"
-                  paginationColor="#B3EEFF"
-                  paginationActiveColor="#4E00FF"
-                  paginationPosition="bottom-overlay"
-                  :navigationEnabled="true"
-                  @page-change="changeSlide">
+                  :paginationEnabled="false"
+                  :navigationEnabled="true">
+            <slide class="slider__slide">
+                <img class="slider__image" :src="sliderThree"/>
+                <div class="validate" v-if="!isValid">
+                    <RippleButton :clickAction="() => validate(false)" name="Valider"></RippleButton>
+                </div>
+            </slide>
+            <slide class="slider__slide">
+                <img class="slider__image" :src="sliderSecond"/>
+                <div class="validate" v-if="!isValid">
+                    <RippleButton :clickAction="() => validate(false)" name="Valider"></RippleButton>
+                </div>
+            </slide>
             <slide class="slider__slide">
                 <img class="slider__image" :src="sliderFirst"/>
+                <div class="validate" v-if="!isValid">
+                    <RippleButton :clickAction="() => validate(false)" name="Valider"></RippleButton>
+                </div>
             </slide>
-            <slide>
-                <img class="slider__image" :src="sliderSecond"/>
-            </slide>
-            <slide>
-                <img class="slider__image" :src="sliderThree"/>
-            </slide>
-            <slide>
-                <img class="slider__image" :src="sliderFour"/>
-            </slide>
-            <slide>
+            <slide class="slider__slide">
                 <img class="slider__image" :src="sliderFive"/>
+                <div class="validate" v-if="!isValid">
+                    <RippleButton :clickAction="() => validate(true)" name="Valider"></RippleButton>
+                </div>
+            </slide>
+            <slide class="slider__slide">
+                <img class="slider__image" :src="sliderFour"/>
+                <div class="validate" v-if="!isValid">
+                    <RippleButton :clickAction="() => validate(false)" name="Valider"></RippleButton>
+                </div>
             </slide>
         </carousel>
         <div class="slider__group">
@@ -44,11 +56,12 @@
     import SliderFive from '@/assets/img/slider/slider_5.jpg';
     import Comment from '@/components/traps/post/Comment';
     import Indicator from '@/components/traps/Indicator';
+    import RippleButton from '@/components/UI/RippleButton';
 
     export default {
         name: "Slider",
         components: {Carousel, Slide, Comment, Harassment, SliderFirst,
-        SliderSecond, SliderThree, SliderFour, SliderFive, Indicator},
+        SliderSecond, SliderThree, SliderFour, SliderFive, Indicator, RippleButton},
         data: () => ({
             harassment: Harassment,
             sliderFirst: SliderFirst,
@@ -57,20 +70,38 @@
             sliderFour: SliderFour,
             sliderFive: SliderFive,
             points: 0,
-            isValid: false
         }),
+        computed: {
+            isValid: {
+                get: function () {
+                    return this.$store.state.validTrap.slider;
+                },
+                set: function (val) {
+                    this.$store.state.validTrap.slider = val;
+                    this.$store.dispatch('checkValidateAll');
+                }
+            }
+        },
         methods: {
-            changeSlide(i) {
-                if(this.points >= 4) return;
-                this.points += 1;
-                this.$store.dispatch('updateSlider', {amount: this.points});
-                this.$store.dispatch('updateAchievement', {type: 'points', amount: 5});
+            validate(isValid) {
+                this.isValid = true;
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: 20});
+                //todo slider api
+                this.$store.dispatch('updateSlider', {amount: this.points, valid: true});
             }
         },
     }
 </script>
 
 <style scoped lang="scss">
+    .validate {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+        margin: auto;
+        text-align: center;
+    }
     .slider {
         &__container {
             position: relative;
@@ -81,6 +112,9 @@
             .VueCarousel-dot-container {
                 margin: 0;
             }
+        }
+        &__slide {
+            position: relative;
         }
         &__group {
           padding: 0 7rem 3.8rem 7rem;

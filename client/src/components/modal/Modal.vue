@@ -48,7 +48,7 @@
                         >
                             {{buttonFirst}}
                         </button>
-                        <button
+                        <button v-if="buttonSecond"
                                 class="Button-response"
                                 @click="close"
                                 aria-label="Close modal"
@@ -169,6 +169,7 @@
     }
 
     .modal-header {
+        font-weight: bold;
         justify-content: space-between;
         font-size: 1.4rem;
         padding-top: 3.5rem;

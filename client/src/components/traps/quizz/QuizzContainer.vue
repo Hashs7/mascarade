@@ -37,7 +37,8 @@
                     </div>
                     <div class="form__field">
                         <div class="btn-container">
-                            <button @click="sendInfo" class="button__share"> Envoyer </button>
+                            <button @click="quitQuizz" class="button__share">Quitter</button>
+                            <button @click="sendInfo" class="button__share">Envoyer</button>
                         </div>
                     </div>
                 </form>
@@ -87,9 +88,13 @@
             showButton(show) {
                 this.buttonVisible = show;
             },
+            quitQuizz() {
+                this.isValid = true;
+                this.quizzState = "intro";
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: 10});
+            },
             sendInfo() {
                 this.isValid = true;
-
                 //Todo tester si la valeur des champs est vide
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: -5});
                 this.quizzState = "final";

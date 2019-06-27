@@ -23,7 +23,7 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        left: -231px;
+        left: -232px;
         margin: auto;
         width: 70px;
         height: 70px;
