@@ -14,12 +14,12 @@
             <span class="trap__name">{{trapHarassment.name}}</span>
             <span class="trap__number">Élèves qui ont réussi: {{trapHarassment.number}}</span>
             <v-progress-linear height="12" v-model="pourcentHarassment"></v-progress-linear>
-        </div>
+        </div><!--
         <div class="trap-progress">
             <span class="trap__name">{{trapSlider.name}}</span>
             <span class="trap__number">Élèves qui ont réussi: {{trapSlider.number}}</span>
             <v-progress-linear height="12" v-model="pourcentSlider"></v-progress-linear>
-        </div>
+        </div>-->
         <div class="trap-progress">
             <span class="trap__name">{{trapQuizz.name}}</span>
             <span class="trap__number">Élèves qui ont réussi: {{trapQuizz.number}}</span>

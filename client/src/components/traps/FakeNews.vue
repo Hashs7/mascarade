@@ -73,6 +73,7 @@
             },
             updateShare() {
                 this.$store.dispatch('updateScene', {sceneType: 'fakeNews', action: 'shares'});
+                this.$store.dispatch('updateAchievement', {type: 'points', amount: -10});
                 this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1});
             }
         },

@@ -18,7 +18,7 @@ export const initMsgCelebrity = (name) => ({
         repIndex: 0,
         type: 'student'
     },{
-        content: "Comment je peux savoir que c’est vraiment McFly ?",
+        content: "Comment je peux savoir que c’est vraiment Sandy Jules ?",
         repIndex: 1,
         type: 'student'
     }]

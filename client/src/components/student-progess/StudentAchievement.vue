@@ -12,6 +12,9 @@
             </div>
             <div class="nav-right">
                 <div class="nav-link nav-score">
+                    <transition name="fade">
+                        <span class="increase-score" v-if="showIncrease">{{increaseScore}}</span>
+                    </transition>
                     <span class="score item">{{points}}</span>
                     <Score/>
                 </div>
@@ -20,7 +23,7 @@
                         <Msg/>
                     </router-link>
                 </div>
-                <!--<div class="nav-link">
+                <div class="nav-link">
                     <span class="item help">
                         <v-tooltip bottom>
                           <template v-slot:activator="{ on }">
@@ -31,7 +34,7 @@
                           <span>Demander de l'aide à l'intervenant</span>
                         </v-tooltip>
                     </span>
-                </div>-->
+                </div>
             </div>
         </div>
     </div>
@@ -47,6 +50,9 @@
     export default {
         name: "StudentAchievement",
         components: {Logo, Home, Msg, Help, Score},
+        data: () => ({
+            showIncrease: false,
+        }),
         computed: {
             points() {
                 return this.$store.state.score.points;
@@ -57,17 +63,45 @@
             reports() {
                 return this.$store.state.score.reports;
             },
+            increaseScore() {
+                return this.$store.state.score.increaseScore;
+            },
             hasNotif() {
                 return this.$store.state.messages.hasNotif;
             },
             isPlurial() {
                 return type => this.$store.state.score[type] > 1 ? 's' : null;
             }
-        }
+        },
+        watch: {
+            points: function (val) {
+                console.log('increase');
+                this.showIncrease = true;
+                setTimeout(() => { this.showIncrease = false }, 1200);
+            },
+        },
     }
 </script>
 
 <style scoped lang="scss">
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .2s, transform .5s ease;
+    }
+    .fade-enter {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .fade-leave-to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    .increase-score {
+        font-size: 22px;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
     .nav-right {
         display: flex;
         align-items: center;

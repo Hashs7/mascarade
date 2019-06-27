@@ -7,7 +7,7 @@ const conversationCelebrity = {
     id: 0,
     selected: true,
     type: 'celebrity',
-    author: 'McFly et Carlito',
+    author: 'Sandy Jules',
     lastAnswer: null,
     showAnswers: false,
     answers: [],
@@ -17,7 +17,7 @@ const conversationCelebrity = {
 const conversationHacker = {
     id: 1,
     selected: true,
-    author: 'André',
+    author: 'Lucile',
     type: 'hacker',
     lastAnswer: null,
     showAnswers: false,

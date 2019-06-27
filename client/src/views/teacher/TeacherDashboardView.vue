@@ -74,6 +74,7 @@
                 this.$store.commit('updateStudentCharity', data);
             },
             updateDialog(data) {
+                console.log('updateDialog', data);
                 this.$store.commit('updateStudentDialog', data);
             },
             updateScene(data) {

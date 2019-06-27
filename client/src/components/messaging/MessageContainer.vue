@@ -20,6 +20,7 @@
                     v-for="(contact, i) in contacts"
                      :key="i"
                      :id="contact.id"
+                     :img="i === 0 ? jules : lucile"
                      :selected="contact.selected"
                      :name="contact.author"
                      :lastAnswer="contact.lastAnswer" />
@@ -60,6 +61,8 @@
     import {mapActions, mapGetters, mapMutations} from "vuex";
     import Message from '@/components/messaging/Message';
     import Contact from '@/components/messaging/Contact';
+    import jules from "@/assets/img/jules.jpg";
+    import lucile from "@/assets/img/lucile.jpg";
     import {dialogResCelebrity} from './dialogs';
     import {dialogResHacker} from "./dialogHack";
     import {MONTH} from "../../utils/constant";
@@ -73,6 +76,8 @@
             currentDate: null,
             modalCelebrity: false,
             modalHacker: false,
+            jules: jules,
+            lucile: lucile
         }),
         mounted() {
             const day = dayjs().date();

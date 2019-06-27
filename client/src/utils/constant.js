@@ -1,5 +1,5 @@
-// export const BASE_API_URL = 'http://localhost:3000/';
-export const BASE_API_URL = 'https://mascarade.herokuapp.com/';
+export const BASE_API_URL = 'http://localhost:3000/';
+// export const BASE_API_URL = 'https://mascarade.herokuapp.com/';
 
 export const ROUTE_STUDENT_SIGNUP      = '/auth/student/signup?room=';
 export const ROUTE_TEACHER_LOGIN       = '/auth/teacher/login';
@@ -12,7 +12,6 @@ export const ROUTE_STUDENT_DIALOG      = '/auth/student/dialog';
 export const ROUTE_STUDENT_SCENE       = '/auth/student/scene';
 export const ROUTE_STUDENT_SLIDER      = '/auth/student/slider';
 export const ROUTE_STUDENT_QUIZZ       = '/auth/student/quizz';
-
 
 export const ROUTE_STUDENT_SESSION     = '/session/student/';
 export const ROUTE_TEACHER_NEW_SESSION = '/session/new';

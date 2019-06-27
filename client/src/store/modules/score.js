@@ -2,6 +2,7 @@ import {updateAchievement} from "../../utils/API";
 
 const state = {
     points: 0,
+    increaseScore: null,
     shares: 0,
     reports: 0
 };
@@ -21,6 +22,11 @@ const actions = {
 
 const mutations = {
     updateAchievement(state, {type, amount}) {
+        if(amount > 0) {
+            state.increaseScore = '+' + amount;
+        } else {
+            state.increaseScore = '-' + amount;
+        }
         state[type] += amount;
     }
 };

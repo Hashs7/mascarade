@@ -12,6 +12,7 @@
 
 <script>
     import Flash from '@/assets/flash.svg';
+
     export default {
         name: "StudentFlash",
         components: { Flash },
@@ -72,6 +73,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 25px;
+            user-select: none;
             &:first-of-type {
                 margin-top: 20px;
             }

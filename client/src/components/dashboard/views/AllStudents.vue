@@ -56,7 +56,7 @@
             font-size: 14px;
             min-height: 144px;
             margin: 12px;
-            padding: 17px 24px 30px 20px;
+            padding: 16px 24px;
             border-radius: 0.6rem;
             background-color: $white;
             box-shadow: 0px 2px 5px -4px rgba(0, 0, 0, 0.75);

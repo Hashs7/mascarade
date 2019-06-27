@@ -2,7 +2,7 @@
     <div class="content__container">
         <div class="content__header">
             <img class="content__image" alt="" :src="fakeNews"/>
-            <Informations name="Le monde" date="Il y a 3 heures"/>
+            <Informations name="Le Gorafi" date="Il y a 3 heures"/>
         </div>
         <div class="content__group">
             <p class="content__title">{{title}}</p>

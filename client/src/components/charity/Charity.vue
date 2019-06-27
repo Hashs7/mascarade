@@ -59,7 +59,7 @@
             description: null,
             images: [{
                 src: Starvation,
-                type: 'starvation',
+                type: 'Faim dans le monde',
                 title: 'Faim dans le monde',
                 selected: false
             },{
@@ -69,22 +69,22 @@
                 selected: false
             },{
                 src: War,
-                type: 'war',
+                type: 'Guerre',
                 title: "Guerre",
                 selected: false
             },{
                 src: GlobalWarming,
-                type: 'GlobalWarming',
+                type: 'Réchauffement climatique',
                 title: "Réchauffement climatique",
                 selected: false
             },{
                 src: Animal,
-                type: 'animal abuse',
+                type: 'Cause animale',
                 title: "Maltraitance animale",
                 selected: false
             },{
                 src: Pollution,
-                type: 'pollution',
+                type: 'Pollution',
                 title: "Pollution",
                 selected: false
             }]

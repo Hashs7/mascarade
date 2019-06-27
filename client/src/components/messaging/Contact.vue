@@ -1,6 +1,6 @@
 <template>
     <div class="contact-container" @click="selectContact" :class="{active: selected}">
-        <img class="contact-img" src="https://randomuser.me/api/portraits/men/84.jpg" alt="">
+        <img class="contact-img" :src="img" alt="">
         <div class="contact-info">
             <span class="name">{{name}}</span>
             <span class="last-answer">{{lastAnswer}}</span>
@@ -57,6 +57,7 @@
     .contact-img {
         display: inline-block;
         width: 3.2rem;
+        height: 3.2rem;
         vertical-align: middle;
         border-radius: 100%;
         margin-left: 1rem;
@@ -73,6 +74,7 @@
         font-size: 1.4rem;
     }
     .date {
+        text-align: center;
         font-size: 1.2rem;
     }
     .last-answer {

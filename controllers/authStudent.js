@@ -233,9 +233,9 @@ exports.updateAchievement = (req, res, next) => {
             };
             io.getIO().emit('updateAchievement', payload);
 
-            if (shouldShowBilan(currentStudent)) {
+            /*if (shouldShowBilan(currentStudent)) {
                 io.getIO().emit('showBilan', currentStudent._id);
-            }
+            }*/
 
             res.status(201).json({
                 message: 'Achievement a été mis à jour',
@@ -252,15 +252,10 @@ exports.updateAchievement = (req, res, next) => {
 
 exports.updateCharity = (req, res, next) => {
     const {studentId, sessionId, charityType, title, description} = req.body;
-    const type                                                    = ['starvation', 'violences', 'war', 'racism', 'homophobie', 'pollution'];
 
     Student.findById(studentId)
         .populate()
         .then(student => {
-            if (!type.includes(charityType)) {
-                logError("le type n'est pas correct", 401);
-            }
-
             student.charity.type        = charityType;
             student.charity.title       = title;
             student.charity.description = description;
