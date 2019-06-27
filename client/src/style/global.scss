@@ -56,7 +56,6 @@ button:focus, input, textarea {
 
 .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
 	transform: none !important;
-	transform: none !important;
 	color: $white !important;
 	background: $violet !important;
 	border-radius: 100%;
@@ -102,10 +101,10 @@ button:focus, input, textarea {
 .VueCarousel-dot--active {
 	&:after {
 		position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 5px;
-    left: 5px;
+        width: 16px;
+        height: 16px;
+        top: 5px;
+        left: 5px;
 		content: "";
 		border-radius: 100%;
 		border: 2px solid $violet;
@@ -134,6 +133,11 @@ button:focus, input, textarea {
 			display: none;
 		}
 	}
+}
+
+.slider-photos .VueCarousel-navigation-button {
+    top: auto !important;
+    bottom: 30px;
 }
 
 textarea::-webkit-input-placeholder,  ::-webkit-input-placeholder  {

@@ -2,26 +2,17 @@
     <div class="summary__container">
         <div class="summary__content">
             <div class="summary__left">
-                <div class="summary__step">
-                    <img class="summary__circle" :src="circle"/>
-                </div>
+
                 <div class="summary__score">
                     <div class="summary__number">
                         <h1 class="summary__points">{{points}}</h1>
                         <Points />
                     </div>
-                    <ul class="summary__datas">
-                        <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
-                        <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
-                        <li class="flash">{{currentFlash}} flash{{isPlurial('flashs')}}</li>
-                    </ul>
                 </div>
             </div>
             <div class="summary__description">
-                <h1>Wow !</h1>
-                <p>Tu es un vrai expert des réseaux sociaux ! 
-                Tu as l’oeil partout, on ne peut rien te cacher. 
-                Tel un vrai détective privé tu as décelé tous les pièges, rien ne te résistes. Tu te sers d’internet de la bonne manière, continues comme ça ! :) </p>
+                <h1>{{title}}</h1>
+                <p>{{description}}</p>
             </div>
         </div>
     </div>
@@ -30,12 +21,28 @@
 <script>
     import Circle from '@/assets/img/circle.png';
     import Points from '@/assets/score.svg';
+    import {expert, low, medium} from "../../utils/summary";
     export default {
         name: 'StudentSummary',
         components: { Points },
         data: () => ({
             circle: Circle,
+            title: null,
+            description: null
         }),
+        mounted() {
+            if(this.points > 50) {
+                this.title = expert.title;
+                this.description = expert.description;
+            }
+            if(this.points > 20) {
+                this.title = medium.title;
+                this.description = medium.description;
+            } else {
+                this.title = low.title;
+                this.description = low.description;
+            }
+        },
         computed: {
             points() {
                 return this.$store.state.score.points;
@@ -59,6 +66,7 @@
 <style scoped lang="scss">
     .summary {
         &__container {
+            position: relative;
             display: flex;
             justify-content: flex-start;
             align-items: flex-end;
@@ -69,7 +77,6 @@
         &__number {
             display: flex;
             align-items: center;
-            margin-left: 4rem;
             h1 {
                 margin-right: 20px;
             }
@@ -77,11 +84,12 @@
         &__left {
             display: flex;
             align-items: flex-end;
+            margin-right: 80px;
         }
         &__content {
+            margin: auto;
             display: flex;
-            align-items: flex-end;
-            margin-bottom: 80px;
+            align-items: center;
         }
         &__description {
             h1, p {
@@ -123,9 +131,12 @@
             }
         }
         &__step {
+            position: absolute;
+            left: 0;
+            bottom: 30%;
+            margin: auto;
             display: flex;
             align-items: center;
-            margin-bottom: 7rem;
         }
     }
 </style>

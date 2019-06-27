@@ -1,5 +1,20 @@
 <template>
     <div class="message-container">
+        <modal
+                :visible="modalCelebrity"
+                @close="closeModalCelebrity"
+                title="Aïe..."
+                description="Tu viens de te faire arnaquer, ce numéro est payant… Fais très attention aux faux profils de célébrités sur les réseaux, ils sont nombreux !"
+                buttonFirst="Ok"
+                :buttonFirstAction="closeModalCelebrity"/>
+        <modal
+                :visible="modalHacker"
+                @close="closeModalHacker"
+                title="Pas de bol !"
+                description="Tu viens de télécharger un fichier contenant un virus. Soit très prudent lorsque quelqu'un t'envoie un fichier suspect, il peut s'agir d'un pirate."
+                buttonFirst="Ok"
+                :buttonFirstAction="closeModalHacker"/>
+
         <div class="contacts">
             <Contact v-if="contacts.length"
                     v-for="(contact, i) in contacts"
@@ -27,7 +42,7 @@
 
                     <button class="answer outline"
                             v-for="res in responses"
-                            @click="studentResponse(res.content, res.repIndex)">
+                            @click="studentResponse(res.content, res.repIndex, res.convState)">
                         {{res.content}}
                     </button>
                     <button class="answer" @click="studentResponse('Ignorer', 'stop')">Ignorer ce message</button>
@@ -49,12 +64,15 @@
     import {dialogResHacker} from "./dialogHack";
     import {MONTH} from "../../utils/constant";
     import dayjs from "dayjs";
+    import Modal from '@/components/modal/Modal';
 
     export default {
         name: "MessageContainer",
-        components: { Message, Contact },
+        components: { Message, Contact, Modal },
         data: () => ({
-           currentDate: null
+            currentDate: null,
+            modalCelebrity: false,
+            modalHacker: false,
         }),
         mounted() {
             const day = dayjs().date();
@@ -93,18 +111,40 @@
                 'addGroupMessage',
                 'initChat',
             ]),
-            studentResponse(answer, repIndex) {
+            studentResponse(answer, repIndex, convState) {
                 const id = this.getSelectedContact.id;
                 this.getSelectedContact.showAnswers = false;
                 this.addMessage({repIndex, id, answer, type: 'student'});
+                if(convState === 'trap' && id === 0) {
+                    this.modalCelebrity = true;
+                }
 
-                if(repIndex === 'stop' || repIndex === 'report') return;
+                if(convState === 'trap' && id === 1) {
+                    this.modalHacker = true;
+                }
+                if(repIndex === 'stop' || repIndex === 'report') {
+                    if(id === 0) {
+                        this.$store.state.validTrap.convCelebrity = true;
+                    }
+                    if(id === 1) {
+                        this.$store.state.validTrap.convHacker = true;
+                    }
+                    return;
+                }
                 if(this.getSelectedContact.type === 'celebrity') {
                     this.addGroupMessage(dialogResCelebrity[repIndex]);
                 } else {
                     this.addGroupMessage(dialogResHacker[repIndex]);
                 }
             },
+            closeModalCelebrity() {
+                this.modalCelebrity = false;
+                this.$store.dispatch('checkValidateAll');
+            },
+            closeModalHacker() {
+                this.modalHacker = false;
+                this.$store.dispatch('checkValidateAll');
+            }
         }
     }
 </script>

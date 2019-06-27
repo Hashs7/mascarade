@@ -35,13 +35,6 @@
             ></v-text-field>
 
             <v-text-field
-                    v-model="schoolName"
-                    :rules="nameRules"
-                    label="Établissement*"
-                    required
-            ></v-text-field>
-
-            <v-text-field
                     v-model="email"
                     :rules="emailRules"
                     label="E-mail*"
@@ -69,7 +62,7 @@
                     required
             ></v-select>
 
-            <v-menu
+         <!--   <v-menu
                     v-model="menu"
                     :close-on-content-click="false"
                     :nudge-right="40"
@@ -89,14 +82,14 @@
                     ></v-text-field>
                 </template>
                 <v-date-picker v-model="date" @input="menu2 = false"></v-date-picker>
-            </v-menu>
-
+            </v-menu>-->
+            <!--
             <v-checkbox
                     v-model="checkbox"
                     :rules="[v => !!v || 'Vous devez accepter pour continuer']"
                     label="Acceptez-vous les conditions d'utilisation ?"
                     required
-            ></v-checkbox>
+            ></v-checkbox>-->
 
             <v-btn
                     :disabled="!valid"
@@ -138,7 +131,7 @@
             password: '',
             passwordRules: [
                 v => !!v || 'Un mot de passe est requis',
-                v => v.length > 5 || 'Le mot de passe doit faire au moins 5 caractères'
+                v => v.length > 6 || 'Le mot de passe doit faire au moins 6 caractères'
             ],
             gender: null,
             items: [

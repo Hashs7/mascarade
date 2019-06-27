@@ -13,6 +13,7 @@ export const initMsgHacker = (name) => ({
     responses: [{
         content: "Télécharger",
         repIndex: 'stop',
+        convState: 'trap',
         type: 'student'
     },{
         content: "Bonjour, est-ce que je peux le lire directement sans le télécharger",
@@ -35,6 +36,7 @@ const repIndex0 = {
     },{
         content: "Ok je télécharge",
         repIndex: 'stop',
+        convState: 'trap',
         type: 'student'
     }]
 };
@@ -46,15 +48,7 @@ const repIndex1 = {
         delay: 800,
         type: 'stranger'
     }],
-    responses: [{
-        content: "Appeler le numéro et dire les codes",
-        repIndex: 'stop',
-        type: 'student'
-    },{
-        content: "Non je ne veux pas appeler tant pis j'arrête de jouer",
-        repIndex: 'stop',
-        type: 'student'
-    }]
+    responses: []
 };
 
 const repIndex2 = {

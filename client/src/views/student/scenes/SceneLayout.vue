@@ -93,7 +93,7 @@
         left: -200px;
         top: 340px;
         height: calc(100% - 800px);
-        width: 8px;
+        width: 4px;
         background-size: contain;
         background-repeat: repeat-y;
     }

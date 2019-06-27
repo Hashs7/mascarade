@@ -13,19 +13,12 @@ const state = {
 
 const actions = {
     checkValidateAll({state, commit}) {
-        // TODO send to api is finish
-        /*if(state.slider && state.fakeNew &&
+        if(state.slider && state.fakeNew &&
            state.charity && state.quizz &&
            state.harassment && state.convCelebrity && state.convHacker) {
             router.push({path: '/bilan'})
-        }*/
-        console.log('check', state);
-        if( state.fakeNew &&
-           state.charity &&
-           state.harassment) {
-            console.log('push');
-            router.push({path: '/bilan'})
         }
+        // TODO send to api is finish
         /*getStudentSession(sessionId)
             .then(res => {
                 commit('initFlash', {
