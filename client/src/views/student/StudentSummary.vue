@@ -1,8 +1,5 @@
 <template>
     <div class="summary__container">
-        <div class="summary__step">
-            <img class="summary__circle" :src="circle"/>
-        </div>
         <div class="summary__content">
             <div class="summary__left">
 
@@ -11,11 +8,6 @@
                         <h1 class="summary__points">{{points}}</h1>
                         <Points />
                     </div>
-                    <ul class="summary__datas">
-                        <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
-                        <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
-                        <li class="flash">{{currentFlash}} flash{{isPlurial('flashs')}}</li>
-                    </ul>
                 </div>
             </div>
             <div class="summary__description">
@@ -85,7 +77,6 @@
         &__number {
             display: flex;
             align-items: center;
-            margin-left: 4rem;
             h1 {
                 margin-right: 20px;
             }
@@ -93,11 +84,12 @@
         &__left {
             display: flex;
             align-items: flex-end;
+            margin-right: 80px;
         }
         &__content {
             margin: auto;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
         }
         &__description {
             h1, p {
