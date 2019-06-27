@@ -122,7 +122,15 @@
                 if(convState === 'trap' && id === 1) {
                     this.modalHacker = true;
                 }
-                if(repIndex === 'stop' || repIndex === 'report') return;
+                if(repIndex === 'stop' || repIndex === 'report') {
+                    if(id === 0) {
+                        this.$store.state.validTrap.convCelebrity = true;
+                    }
+                    if(id === 1) {
+                        this.$store.state.validTrap.convHacker = true;
+                    }
+                    return;
+                }
                 if(this.getSelectedContact.type === 'celebrity') {
                     this.addGroupMessage(dialogResCelebrity[repIndex]);
                 } else {
@@ -131,9 +139,11 @@
             },
             closeModalCelebrity() {
                 this.modalCelebrity = false;
+                this.$store.dispatch('checkValidateAll');
             },
             closeModalHacker() {
                 this.modalHacker = false;
+                this.$store.dispatch('checkValidateAll');
             }
         }
     }
