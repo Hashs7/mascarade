@@ -43,7 +43,7 @@
                 } else {
                     story = {
                         src: StoryIphone,
-                        name: "Sandy Jules",
+                        name: "Sundy Jules",
                         description: "Tente de gagner ton iphone XR",
                         delay: 1500,
                     };

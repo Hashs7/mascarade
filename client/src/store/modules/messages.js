@@ -7,7 +7,7 @@ const conversationCelebrity = {
     id: 0,
     selected: true,
     type: 'celebrity',
-    author: 'Sandy Jules',
+    author: 'Sundy Jules',
     lastAnswer: null,
     showAnswers: false,
     answers: [],
