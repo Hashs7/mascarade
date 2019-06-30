@@ -168,4 +168,20 @@ In client folder
 npm run build
 ```
 
+### Deployement
+To deploy client, you only need to push on upstream repository or create new pull request
+```
+git remote add upstream git@github.com:Hashs7/mascarade.git
+git add yourcommitfiles
+git commit -m "Your commit message"
+git push upstream develop
+```
+To deploy API, you need to push on heroku repository
+```
+git remote add heroku https://git.heroku.com/mascarade.git
+git add yourcommitfiles
+git commit -m "Your commit message"
+git push heroku origin
+```
+
 
