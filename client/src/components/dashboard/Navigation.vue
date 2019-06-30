@@ -22,7 +22,7 @@
                 drawer: true,
                 items: [
                     { title: 'Accueil', id: 'home' },
-                    { title: 'Tableau de bord', id: 'board' },
+                    { title: 'Sessions', id: 'board' },
                     { title: 'Élèves', id: 'student' },
                 ],
                 mini: true,

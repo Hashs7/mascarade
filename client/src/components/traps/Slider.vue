@@ -1,6 +1,6 @@
 <template>
     <div class="slider__container slider-photos">
-        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
+        <Indicator :type="isValid ? 'valid' : 'invalid'" :score="isValid"/>
         <carousel class="slider__carousel"
                   :per-page="1"
                   :mouse-drag="true"
@@ -83,8 +83,8 @@
             }
         },
         methods: {
-            validate(isValid) {
-                this.isValid = true;
+            validate() {
+                this.isValid = '+' + 20;
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: 20});
                 //todo slider api
                 this.$store.dispatch('updateSlider', {amount: this.points, valid: true});
@@ -108,7 +108,7 @@
             margin-top: 32px;
             background: $white;
             margin-bottom: 50px;
-            border-radius: 10px;
+            border-radius: 30px;
             .VueCarousel-dot-container {
                 margin: 0;
             }
@@ -131,8 +131,8 @@
           font-size: 1.6rem;
         }
         &__image {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
         }
     }
 </style>

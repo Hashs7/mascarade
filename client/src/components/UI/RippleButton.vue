@@ -19,7 +19,7 @@
         <div style="height: 0; width: 0; position: absolute; visibility: hidden;" aria-hidden="true">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="height: 0; width: 0;" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false">
                 <symbol id="ripply-scott" viewBox="0 0 100 100">
-                    <circle cx="1" cy="1" r="1" style="fill: #4E00FF;"/>
+                    <circle cx="1" cy="1" r="1" style="fill: #FF8457;"/>
                 </symbol>
             </svg>
         </div>
@@ -107,7 +107,6 @@
 
     .ripple-obj use {
         opacity: 0.5;
-
     }
 
 </style>

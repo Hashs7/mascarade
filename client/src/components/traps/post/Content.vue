@@ -5,7 +5,7 @@
             <Informations name="Le Gorafi" date="Il y a 3 heures"/>
         </div>
         <div class="content__group">
-            <p class="content__title">{{title}}</p>
+            <h2 class="content__title">{{title}}</h2>
             <div class="content__separate"></div>
             <p class="content__description">{{description}}</p>
         </div>
@@ -49,7 +49,7 @@
         &__separate {
             margin-top: 2rem;
             margin-bottom: 2rem;
-            background: $black;
+            background: $orange;
             height: 2px;
             width: 3rem;
         }
@@ -62,8 +62,8 @@
             img {
                 width: 100%;
                 height: 28rem;
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
             }
         }
     }

@@ -51,7 +51,7 @@
             sendStory() {
                 const story = {
                     src: "https://picsum.photos/300/500",
-                    name: "Le monde",
+                    name: "Le Gorafi",
                     description: "Une future explosion ?",
                     delay: 1500,
                 };

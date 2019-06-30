@@ -17,7 +17,9 @@
     100%{background-position:0% 50%}
 }
 
-
+h2 {
+    color: $orange;
+}
 body {
     width: 100vw;
     font-size: 1.6rem;
@@ -57,7 +59,7 @@ button:focus, input, textarea {
 .VueCarousel-navigation-prev, .VueCarousel-navigation-next {
 	transform: none !important;
 	color: $white !important;
-	background: $violet !important;
+	background: $orange !important;
 	border-radius: 100%;
 	width: 3rem;
 	height: 3rem;
@@ -141,22 +143,22 @@ button:focus, input, textarea {
 }
 
 textarea::-webkit-input-placeholder,  ::-webkit-input-placeholder  {
-	color: $violet;
+	color: $orange;
 	opacity: 0.7;
 }
 
 textarea:-moz-placeholder, :-ms-input-placeholder { /* Firefox 18- */
-	color: $violet;  
+	color: $orange;
 	opacity: 0.7;
 }
 
 textarea::-moz-placeholder {  /* Firefox 19+ */
-	color: $violet;  
+	color: $orange;
 	opacity: 0.7;
 }
 
 textarea:-ms-input-placeholder {
-	color: $violet;  
+	color: $orange;
 	opacity: 0.7;
 }
 
@@ -181,7 +183,7 @@ input[type=radio]:checked:after {
 	top: -3px;
 	left: -1px;
 	position: relative;
-	background-color: $white;
+	background-color: $orange;
 	content: '';
 	display: inline-block;
 	visibility: visible;

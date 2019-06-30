@@ -161,7 +161,7 @@
         max-width: 1300px;
         height: 48rem;
         margin: 48px auto 0 auto;
-        border-radius: 0.5rem;
+        border-radius: 30px;
     }
 
     .no-conversation {
@@ -178,26 +178,28 @@
     .contacts {
         width: 35rem;
         background-color: $grey--light;
-        border-top-left-radius: 0.5rem;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
     }
     .chatbox {
         padding: 16px;
         flex-grow: 1;
         background-color: $grey--light;
-        border-top-right-radius: 0.5rem;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
         overflow-y: scroll;
         width: 100%;
         &-answer {
             display: flex;
             justify-content: center;
         }
-        &::-webkit-scrollbar {
+/*        &::-webkit-scrollbar {
             background-color: $grey--light;
         } 
 
         &::-webkit-scrollbar-thumb {
             background-color: $light--blue;
-        }
+        }*/
     }
     .contact-info {
         border-bottom: 1px solid $grey--dark;

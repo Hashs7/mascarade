@@ -1,6 +1,6 @@
 <template>
     <div class="harassment__container">
-        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
+        <Indicator :type="isValid ? 'valid' : 'invalid'" :score="isValid"/>
 
         <img class="harassment__image" :src="harassment"/>
         <Informations name="Bastien Lartu" date="Il y a 4 jours"/>
@@ -71,17 +71,20 @@
             }
         },
         methods: {
-            valideIndicator() {
-                this.isValid = true;
+            valideIndicator(amount) {
+                let points = amount;
+                if(amount > 0) {
+                    points = "+" + amount
+                }
+                this.isValid = points;
             },
             updateReport() {
-                this.valideIndicator();
+                this.valideIndicator(10);
                 this.$store.dispatch('updateScene', {sceneType: 'harassment', action: 'reports'});
                 this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1});
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: 10});
             },
             updateShare(type, msg) {
-                this.valideIndicator();
                 const {firstname, surname} = this.$store.state;
                 this.response              = {
                     name: firstname + ' ' + surname,
@@ -89,6 +92,7 @@
                     desc: msg
                 };
                 let pointAmount            = type === 'negative' ? -10 : 5;
+                this.valideIndicator(pointAmount);
                 this.$store.dispatch('updateScene', {sceneType: 'harassment', action: msg});
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: pointAmount});
             }
@@ -102,7 +106,7 @@
             position: relative;
             margin: 5rem 0;
             background: $white;
-            border-radius: 10px;
+            border-radius: 30px;
         }
 
         &__group {
@@ -111,8 +115,8 @@
 
         &__image {
             width: 100%;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
         }
 
         &__title {

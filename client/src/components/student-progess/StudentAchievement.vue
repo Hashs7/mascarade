@@ -5,10 +5,6 @@
                 <router-link class="item home" to="/exp">
                     <Logo/>
                 </router-link>
-                <!--<ul class="achievements-datas">
-                    <li class="share">{{shares}} partage{{isPlurial('shares')}}</li>
-                    <li class="report">{{reports}} signalement{{isPlurial('reports')}}</li>
-                </ul>-->
             </div>
             <div class="nav-right">
                 <div class="nav-link nav-score">
@@ -154,7 +150,8 @@
     }
 
     .achievements {
-        background: $gradient;
+        background: $violet;
+        box-shadow: 0px 0px 18px -7px rgba(0, 0, 0, 0.75);
         color: white;
         display: flex;
         justify-content: space-around;

@@ -29,11 +29,11 @@ const repIndex0 = {
     repId: 0,
     stranger: [{
         content: `D’accord tu vas devoir me suivre étape par étape pour que tu puisses recevoir ton iphone 48h après ta participation`,
-        delay: 500,
+        delay: 1500,
         type: 'stranger'
     },{
         content: "Tu es intéressé par quel couleur ?",
-        delay: 1500,
+        delay: 2000,
         type: 'stranger'
     }],
     responses: [{
@@ -52,7 +52,7 @@ const repIndex1 = {
     repId: 1,
     stranger: [{
         content: `C’est mon deuxième compte je l’ai créé spécialement pour les cadeaux pour mes fans et c’est moi qui ai choisi les participants`,
-        delay: 800,
+        delay: 1800,
         type: 'stranger'
     }],
     responses: [{
@@ -75,7 +75,7 @@ const repIndex2 = {
         type: 'stranger'
     },{
         content: "Voilà appelle ce numéro 08 99 63 28 26 il y a un mec qui va te dire le code d’accès et tu me le dis après. Les prix qu’ils vont te dire c’est 3 euros à chaque appel mais ce n’est pas vrai, t’inquiètes c’est gratuit ok ?",
-        delay: 2000,
+        delay: 2300,
         type: 'stranger'
     }],
     responses: [{

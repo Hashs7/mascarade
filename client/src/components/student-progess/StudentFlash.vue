@@ -1,7 +1,9 @@
 <template>
     <div class="flash__container">
-        <span class="flash__title">Flash ton ami</span>
-        <span class="flash__current">{{currentFlash}} flash reçus </span>
+        <div class="flash__current">
+            <span class="counter">{{currentFlash}}</span>
+            <span class="icon"><Flash /></span>
+        </div>
 
         <div class="flash__contact" v-if="students" v-for="(student, i) in students" :key="i">
             <Flash @click="sendFlashTo(student._id)" />
@@ -67,12 +69,25 @@
             font-weight: bold;
         }
         &__current {
-            font-size: 1.5rem;
+            color: $medium--blue;
+            font-size: 35px;
+            line-height: 1;
+            display: flex;
+            font-family: $font-palanquin;
+            font-weight: 900;
+            .counter {
+                margin-right: 10px;
+            }
+            .icon {
+                width: 20px;
+                svg { vertical-align: bottom}
+            }
         }
         &__contact {
             display: flex;
             align-items: center;
             margin-bottom: 25px;
+            color: white;
             user-select: none;
             &:first-of-type {
                 margin-top: 20px;
@@ -83,13 +98,13 @@
                 g {
                     &:hover {
                         transition: 0.2s ease;
-                        fill: $blue;
+                        fill: $orange;
                     }
                 }
             }
         }
         &__name {
-            color: $blue;
+            color: white;
             font-size: 16px;
             margin-left: 10px;
         }

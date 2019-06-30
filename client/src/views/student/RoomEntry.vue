@@ -47,7 +47,7 @@
     .room-container {
         margin: auto;
         padding: 36px;
-        border-radius: 8px;
+        border-radius: 30px;
         background-color: white;
         text-align: center;
     }

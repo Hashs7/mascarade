@@ -33,7 +33,7 @@
 
 <style scoped lang="scss">
     .layout__contain {
-        background-color: $white;
+        background-color: $violet;
         min-height: 100%;
         .layout-content {
            width: 1000px;

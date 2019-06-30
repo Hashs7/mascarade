@@ -119,7 +119,7 @@
         height: 90px;
         display: flex;
         align-items: center;
-        background: $gradient;
+        background-color: $violet;
         position: relative;
     }
     .v-content__wrap {

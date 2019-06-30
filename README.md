@@ -24,6 +24,60 @@
 [socket.io]: https://github.com/socketio/socket.io
 [JsonWebToken]: https://github.com/auth0/node-jsonwebtoken
 
+## Architecture
+This project is using MVC pattern
+
+### Models
+A model represents a set of structured data, called records. Models usually correspond to a collection in a database, attributes correspond to fields, and records correspond to documents.
+In this project, there is 4 models : Flash, Session, Student, Teacher
+they're represent each "collections" in database
+
+### Controllers
+Controllers are the principal objects in our application that are responsible for responding to requests from a web browser. They often act as a middleman between your models and views. Controllers will orchestrate the bulk of the project’s business logic.
+To simplify communicate with MongoDB, we're using mongoose as ODM.
+
+### Routes
+To access to theses controllers, we expose differents routes for the REST API.
+For each models, we have routes which can be called.
+
+### Middlewares
+We have single middlewares to check Token on restricted routes.
+
+### Views
+To manage dynamic and interactive views, we choose vue.js framework in client folder
+
+#### Assets
+In this folder, there are all icons, images and fonts which are loaded in the website
+ 
+#### Components
+In order to modularize the code, we created different type of reusable components. They are in respective folders according to their type.
+
+#### Plugins
+We are using [Vuetify](https://vuetifyjs.com/en/), wich is Material Design Component Framework. They are mainly use in admin dashboard.
+
+#### Router
+In this SPA, we need to manage differents url to access to different views. We are using default vue-router.
+For dashboard page, we had to check if the user is authenticated to show view. There is method "redirectIfNotAuth" to validate token.
+
+#### Views
+[Vue-router](https://github.com/vuejs/vue-router)
+This folder contains all the views connected to the router. We separate the dashboard and student parts.
+
+#### Store
+We're using [Vuex](https://github.com/vuejs/vuex) to have global store which contains all application datas. The components are connected to this store and are refreshed when data change.  
+State : is the main object with datas  
+Actions : are methods call async to perform API actions  
+Mutations : change the current state after actions is done.  
+Getters : are usefull when you need to compute derived state based on store state.
+
+#### Style
+We defined global style for the entire of application. Mainly for layout, variables, buttons and scenes.
+
+#### Translations
+On the landing page, we needed to translate all the content. We're using [vuex-i18n](https://github.com/dkfbasel/vuex-i18n) to create 2 files for each languages and swap the content instantly.
+
+
+
 
 ## Project setup
 ```
@@ -31,29 +85,24 @@ npm install
 cd client && npm install
 ```
 
-### Démarrer le serveur pour l'API
-Créer une base de donnée MongoDB avec [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
-
-Renommer .env.example par .env en renseignant les champs et lancer le serveur
+### Start server for API
+Create MongoDB database with [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
+ 
+Rename .env.example by .env with correct field and start server
 ```
 npm start
 ```
-### Démarrer le client
-Dans le dossier client
+### Start client
+In client folder
 ```
 npm run serve
 ```
-Voir le site : http://localhost:8080
+Site is alive at : http://localhost:8080
 
-### Compiler et minifier le client pour la production
-Dans le dossier client
+### Compile and minify client part for production
+In client folder
 ```
 npm run build
 ```
 
-### Lancer le linter et fix les fichiers
-Dans le dossier client
-```
-npm run lint
-```
 

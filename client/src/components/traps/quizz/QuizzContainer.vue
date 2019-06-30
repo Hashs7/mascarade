@@ -1,11 +1,11 @@
 <template>
     <div class="quizz__container">
-        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
+        <Indicator :type="isValid ? 'valid' : 'invalid'" :score="isValid"/>
 
         <div class="play-container">
             <div v-if="quizzState==='intro'" class="start">
                 <img class="quizz__image" :src="quizz"/>
-                <p class="quizz__title">Quelle star es-tu ?</p>
+                <h2 class="quizz__title">Quelle star es-tu ?</h2>
                 <RippleButton :clickAction="startQuizz" name="JOUER"></RippleButton>
             </div>
             <div v-else-if="quizzState==='response'" class="carousel">
@@ -89,12 +89,12 @@
                 this.buttonVisible = show;
             },
             quitQuizz() {
-                this.isValid = true;
+                this.isValid = 10;
                 this.quizzState = "intro";
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: 10});
             },
             sendInfo() {
-                this.isValid = true;
+                this.isValid = -5;
                 //Todo tester si la valeur des champs est vide
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: -5});
                 this.quizzState = "final";
@@ -110,7 +110,7 @@
             max-width: 600px;
             margin: 0 auto;
             background: $white;
-            border-radius: 10px; 
+            border-radius: 30px;
             .button__share {
                 border-color: $white;
                 color: $white;
@@ -139,8 +139,8 @@
         }
         &__image {
             width: 100%;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
         }
         &__final {
             display: flex;
@@ -168,7 +168,7 @@
         }
         &__finalImage {
             width: 60%;
-            border-radius: 10px;
+            border-radius: 30px;
         }
     }
     .form {
@@ -206,7 +206,7 @@
             padding-bottom: 1rem;
             height: 324px;
             background: $gradient--diagonal;
-            border-radius: 10px;
+            border-radius: 30px;
         }
     }
     .info {
@@ -217,7 +217,7 @@
         padding-bottom: 1rem;
         height: 324px;
         background: $gradient--diagonal;
-        border-radius: 10px;
+        border-radius: 30px;
         .btn-container {
             display: flex;
             justify-content: center;

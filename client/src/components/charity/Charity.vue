@@ -1,6 +1,6 @@
 <template>
     <div class="charity__container">
-        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
+        <Indicator :type="isValid ? 'valid' : 'invalid'" :score="isValid"/>
 
         <div class="img__container">
             <div class="img__select"
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="content__group">
-            <p class="content__title">Bats toi pour une cause ! </p>
+            <h2 class="content__title">Bats toi pour une cause ! </h2>
             <div class="content__separate"></div>
         </div>
         <p class="charity__published">Ton article vient d'être publié</p>
@@ -106,7 +106,7 @@
                 this.images[index].selected = true;
             },
             shareCharity() {
-                this.isValid = true;
+                this.isValid = '+' + 10;
 
                 const {studentId, sessionId} = this.$store.state;
                 const charity = this.images.find(el => el.selected);
@@ -131,12 +131,12 @@
             position: relative;
             margin: 50px 0;
             background: $white;
-            border-radius: 10px;
+            border-radius: 30px;
         }
         &__title, &__description {
             display: block;
-            color: $violet;
-            border: 1px solid $violet;
+            color: $orange;
+            border: 1px solid $orange;
             border-radius: 1rem;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -144,7 +144,7 @@
         }
         &__titleImage {
             opacity: 0;
-            background-color: $violet;
+            background-color: $orange;
             color : $white;
             height: 100%;
             display: flex;
@@ -177,7 +177,7 @@
         &__separate {
             margin-top: 2rem;
             margin-bottom: 2rem;
-            background: $black;
+            background: $orange;
             height: 2px;
             width: 3rem;
         }
@@ -190,8 +190,8 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
     }
     .img__select {
         position: relative;
@@ -203,7 +203,7 @@
         &.selected .indicator-img{
             opacity: 1;  
             height: 100%;
-            border: 4px solid $violet;
+            border: 4px solid $orange;
         }
         &.selected {
             .charity__titleImage {
@@ -216,15 +216,15 @@
             }
         }
         &:first-child {
-            border-top-left-radius: 10px;
+            border-top-left-radius: 30px;
             .indicator, .charity__titleImage {
-                border-top-left-radius: 10px;
+                border-top-left-radius: 30px;
             }
         }
         &:nth-child(3) {
-            border-top-right-radius: 10px;
+            border-top-right-radius: 30px;
             .indicator, .charity__titleImage {
-                border-top-right-radius: 10px;
+                border-top-right-radius: 30px;
             }
         }
     }
@@ -237,6 +237,7 @@
         max-width: 100%;
         min-width: 100%;
         min-height: 40px;
+        color: $orange !important;
     }
     .button {
       &__container {

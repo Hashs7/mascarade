@@ -36,7 +36,7 @@
                 if(index === 0) {
                     story = {
                         src: StoryMoon,
-                        name: "Le monde",
+                        name: "Le Gorafi",
                         description: "Une future explosion ?",
                         delay: 1500,
                     };

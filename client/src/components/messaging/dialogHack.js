@@ -26,7 +26,7 @@ const repIndex0 = {
     convId: 1,
     stranger: [{
         content: 'Tu dois le télécharger sur ton ordinateur pour pouvoir le lire et connaître son contenu',
-        delay: 800,
+        delay: 1200,
         type: 'stranger'
     }],
     responses: [{

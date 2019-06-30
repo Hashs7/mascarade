@@ -1,6 +1,6 @@
 <template>
     <div class="fakeNews__container">
-        <Indicator :type="isValid ? 'valid' : 'invalid'"/>
+        <Indicator :type="isValid ? 'valid' : 'invalid'" :score="isValid" />
 
         <Content title="La nasa envisage de faire exploser la lune…"
                  description="Edgar Phillips-Garret est l’homme qui se cache derrière cette idée folle d’envoyer sur la Lune une sonde équipée d’une charge explosive suffisamment forte pour définitivement la faire disparaître. "/>
@@ -21,7 +21,7 @@
                         description="Va sur un moteur de recherche te renseigner pour savoir si cette information est vraie ou fausse. Vérifie la source de l’information pour pouvoir te faire ton propre avis."
                         question="L’information est-elle correcte ?"
                         buttonFirst="Oui"
-                       @firstAction="hideBtn"
+                       @firstAction="() => hideBtn(-10)"
                         :buttonFirstAction="updateShare"
                         buttonSecond="Non"/>
                 </div>
@@ -61,12 +61,16 @@
             closeModal() {
                 this.isModalVisible = false;
             },
-            hideBtn() {
+            hideBtn(amount) {
+                let points = amount;
+                if(amount > 0) {
+                    points = '+' + amount;
+                }
                 this.showButtons = false;
-                this.isValid = true;
+                this.isValid = points ;
             },
             updateReport() {
-                this.hideBtn();
+                this.hideBtn(10);
                 this.$store.dispatch('updateScene', {sceneType: 'fakeNews', action: 'reports'});
                 this.$store.dispatch('updateAchievement', {type: 'reports', amount: 1});
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: 10});
@@ -86,7 +90,7 @@
             position: relative;
             background: $white;
             margin-top: 2rem;
-            border-radius: 10px;
+            border-radius: 30px;
         }
 
         &__group {
@@ -94,7 +98,7 @@
         }
 
         &__link {
-            color: $violet;
+            color: $orange;
             font-size: 1.2rem;
             margin: 0;
             position: relative;
@@ -112,7 +116,7 @@
                 bottom: 0;
                 width: 100%;
                 height: 2px;
-                background: $violet;
+                background: $orange;
                 transform: scaleX(0);
             }
 
