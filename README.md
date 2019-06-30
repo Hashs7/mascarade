@@ -27,7 +27,7 @@
 ## Architecture
 This project is using MVC pattern
 
-### Models
+### Models 🏗
 A model represents a set of structured data, called records. Models usually correspond to a collection in a database, attributes correspond to fields, and records correspond to documents.
 In this project, there is 4 models : Flash, Session, Student, Teacher
 they're represent each "collections" in database
@@ -51,7 +51,7 @@ const mySchema = new Schema({
 module.exports = mongoose.model('MySchema', mySchema);
 ```
 
-### Controllers
+### Controllers 🕹
 Controllers are the principal objects in our application that are responsible for responding to requests from a web browser. They often act as a middleman between your models and views. Controllers will orchestrate the bulk of the project’s business logic.
 To simplify communicate with MongoDB, we're using mongoose as ODM.
 
@@ -95,7 +95,7 @@ exports.myController = (req, res, next) => {
 };
 ```
 
-### Routes
+### Routes 🛣
 To access to theses controllers, we expose differents routes for the REST API.
 For each models, we have routes which can be called.   
 Call getSessionById controller with the route GET "/student/:sessionId"
@@ -103,10 +103,10 @@ Call getSessionById controller with the route GET "/student/:sessionId"
 router.get('/student/:sessionId', sessionController.getSessionById);
 ```
 
-### Middlewares
+### Middlewares 🛂
 We have single middlewares to check Token on restricted routes.
 
-### Views
+### Views 🖥
 To manage dynamic and interactive views, we choose vue.js framework in client folder
 
 #### Assets
@@ -133,7 +133,7 @@ We're using [Vuex](https://github.com/vuejs/vuex) to have global store which con
 **Mutations** : change the current state after actions is done.  
 **Getters** : are usefull when you need to compute derived state based on store state.
 
-#### Style
+#### Style 
 We defined global style for the entire of application. Mainly for layout, variables, buttons and scenes.
 
 #### Translations
