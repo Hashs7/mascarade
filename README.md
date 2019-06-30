@@ -174,14 +174,14 @@ To deploy client, you only need to push on upstream repository or create new pul
 git remote add upstream git@github.com:Hashs7/mascarade.git
 git add yourcommitfiles
 git commit -m "Your commit message"
-git push upstream develop
+git push upstream master
 ```
 To deploy API, you need to push on heroku repository
 ```
 git remote add heroku https://git.heroku.com/mascarade.git
 git add yourcommitfiles
 git commit -m "Your commit message"
-git push heroku origin
+git push heroku master
 ```
 
 
