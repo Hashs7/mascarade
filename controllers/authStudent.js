@@ -7,24 +7,6 @@ const Student            = require('../models/Student');
 const Flash              = require('../models/Flash');
 const Session            = require('../models/Session');
 
-const shouldShowBilan = (student) => {
-    //TODO slider validation
-    const quizzValid           = student.quizz.length === 5;
-    const charityValid         = student.charity.type;
-    const harassmentValid      = student.harassment.action;
-    const fakeNewsValid        = student.fakeNews.action;
-    const dialogCelebrityValid = student.dialog.celebrity.state === 'stop' || student.dialog.celebrity.state === 'report';
-    const dialogHackerValid    = student.dialog.hacker.state === 'stop' || student.dialog.hacker.state === 'report';
-
-    console.log('shouldShowBilan', quizzValid, charityValid, harassmentValid, fakeNewsValid, dialogCelebrityValid, dialogHackerValid);
-
-    if (quizzValid && charityValid && harassmentValid && fakeNewsValid && dialogCelebrityValid && dialogHackerValid) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 exports.signup = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

@@ -12,7 +12,6 @@ export default {
         updateSlider(state.studentId, state.sessionId, amount)
             .then(res => console.log(res))
             .catch(err => console.log(err))
-
     },
     addSession({commit, state}, className) {
         const options = {

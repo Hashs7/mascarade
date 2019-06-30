@@ -32,13 +32,76 @@ A model represents a set of structured data, called records. Models usually corr
 In this project, there is 4 models : Flash, Session, Student, Teacher
 they're represent each "collections" in database
 
+```
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const mySchema = new Schema({
+    student: {
+        type: Schema.Types.ObjectId,
+        ref: 'Student',
+        required: true
+    },
+    total: {
+        type: Number,
+        required: true
+    }
+});
+
+module.exports = mongoose.model('MySchema', mySchema);
+```
+
 ### Controllers
 Controllers are the principal objects in our application that are responsible for responding to requests from a web browser. They often act as a middleman between your models and views. Controllers will orchestrate the bulk of the project’s business logic.
 To simplify communicate with MongoDB, we're using mongoose as ODM.
 
+```
+exports.myController = (req, res, next) => {
+    //Get all data in request body
+    const {studentId, sessionId, total} = req.body;
+    
+    //Find current student in DB with ID
+    Student.findById(studentId)
+        .populate()
+        .then(student => {
+            //Update his value
+            student.total = total;
+            return student.save()
+        })
+        .then(result => {
+            //Payload datas for response
+            const payload = {
+                studentId,
+                sessionId,
+                total
+            };
+
+            //Emit socket event to update admin view
+            io.getIO().emit('updateCharity', payload);
+            
+            //Send API response
+            res.status(201).json({
+                message: 'myController a été mis à jour',
+                payload
+            });
+        })
+        .catch(err => {
+            //Catch if an error occured
+            if (!err.statusCode) {
+                err.statusCode = 500;
+            }
+            next(err);
+        });
+};
+```
+
 ### Routes
 To access to theses controllers, we expose differents routes for the REST API.
-For each models, we have routes which can be called.
+For each models, we have routes which can be called.   
+Call getSessionById controller with the route GET "/student/:sessionId"
+```
+router.get('/student/:sessionId', sessionController.getSessionById);
+```
 
 ### Middlewares
 We have single middlewares to check Token on restricted routes.
@@ -65,10 +128,10 @@ This folder contains all the views connected to the router. We separate the dash
 
 #### Store
 We're using [Vuex](https://github.com/vuejs/vuex) to have global store which contains all application datas. The components are connected to this store and are refreshed when data change.  
-State : is the main object with datas  
-Actions : are methods call async to perform API actions  
-Mutations : change the current state after actions is done.  
-Getters : are usefull when you need to compute derived state based on store state.
+**State** : is the main object with datas  
+**Actions** : are methods call async to perform API action   
+**Mutations** : change the current state after actions is done.  
+**Getters** : are usefull when you need to compute derived state based on store state.
 
 #### Style
 We defined global style for the entire of application. Mainly for layout, variables, buttons and scenes.
