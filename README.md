@@ -4,7 +4,7 @@
 
 ## Ecosystem
 
-| Dependancy | Description |
+| Dependency | Description |
 |---------|-------------|
 | [vuejs]               | Vue.js is a JavaScript framework |
 | [vue-router]          | Single-page application routing |
