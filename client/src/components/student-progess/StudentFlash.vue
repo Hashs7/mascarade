@@ -75,6 +75,7 @@
             display: flex;
             font-family: $font-palanquin;
             font-weight: 900;
+            margin-bottom: 30px;
             .counter {
                 margin-right: 10px;
             }

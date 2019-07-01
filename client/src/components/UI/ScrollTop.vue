@@ -59,6 +59,10 @@
         margin: auto;
         z-index: 30;
         background-color: $violet;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.9;
+        }
     }
     .translate-enter-active, .translate-leave-active {
         transition: transform .5s;

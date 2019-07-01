@@ -116,6 +116,7 @@
         position: fixed;
         bottom: 50px;
         right: 70px;
+        z-index: 20;
         &.hasNotif .msg:before {
             position: absolute;
             top: -4px;
