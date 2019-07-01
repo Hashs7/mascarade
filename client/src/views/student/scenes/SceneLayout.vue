@@ -50,7 +50,7 @@
     import Harassment from '@/components/traps/Harassment';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
     import StudentFlash from '@/components/student-progess/StudentFlash';
-    import StudentStories from '@/components/StudentStories';
+    import StudentStories from '@/components/stories/StudentStories';
     import Slider from '@/components/traps/Slider';
     import {mapActions, mapMutations} from "vuex";
     import {routePath} from "../../../router/routes";
@@ -91,17 +91,7 @@
             hasNotif() {
                 return this.$store.state.messages.hasNotif;
             },
-        },
-        mounted() {
-            window.addEventListener('visibilitychange', () => {
-                switch(document.visibilityState) {
-                    case 'hidden':
-                        console.log('Tab is hidden');
-                    case 'visible':
-                        console.log('Tab focused');
-                }
-            })
-        },
+        }
     }
 </script>
 

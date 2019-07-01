@@ -9,12 +9,12 @@
                 v-for="(student, i) in currentSessions.students"
                 :key="i" class="students__card">
                 <StudentCard
-                        :id="student._id"
-                        :firstname="student.firstname"
-                        :surname="student.surname"
-                        :points="student.achievements.points"
-                        :shares="student.achievements.shares"
-                        :reports="student.achievements.reports"
+                    :id="student._id"
+                    :firstname="student.firstname"
+                    :surname="student.surname"
+                    :points="student.achievements.points"
+                    :shares="student.achievements.shares"
+                    :reports="student.achievements.reports"
                 />
             </div>
 
@@ -32,10 +32,6 @@
         components: {
             StudentCard,
             StudentModal
-        },
-        mounted() {
-            if (!this.$store.state.sessions.length) return;
-            //TODO get session
         },
         computed: {
             ...mapGetters([

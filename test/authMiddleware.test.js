@@ -4,15 +4,16 @@ const app        = require('../app');
 // jest.setTimeout(30000);
 
 /*describe('Test the root path', () => {
-    test('It should response the GET method', () => {
-        return request(app).get("/").then(response => {
-            expect(response.statusCode).toBe(500)
-        })
+    test('It should response 404 status code', (done) => {
+        request(app)
+            .put('/auth/teacher/signup')
+            .send({ email: 'admin@dev.com', password: 'csuperpassword', firstname: 'Jean', surname: 'Point' })
+            .set('Accept', 'application/json')
+            .then((response) => {
+                expect(response.statusCode).toBe(500);
+                done();
+            });
     });
-});*/
-
-/*describe('Test create new teacher', () => {
-
 });*/
 
 /*test('It should response the GET method', (done) => {
@@ -41,7 +42,7 @@ const app        = require('../app');
     });*!/
 });*/
 
-
+/*
 describe('Test the root path', () => {
     test('It should response 404 status code', (done) => {
         request(app)
@@ -53,18 +54,35 @@ describe('Test the root path', () => {
     });
 });
 
-/*describe('Test the root path', () => {
-    test('It should response 404 status code', (done) => {
+describe('Test teacher routes', () => {
+    test('Login route', (done) => {
+    request(app)
+        .post('/teacher/login')
+        .send({email: 'lucile@mascarade.com', password: 'admin'})
+        .set('Accept', 'application/json')
+        .expect(200)
+        .end((err, res) => {
+            if (err) return done(err);
+            done();
+        });
+    });
+});*/
+
+describe('Test student routes', () => {
+    test('Update achievements route', (done) => {
         request(app)
-            .put('/auth/teacher/signup')
-            .send({ email: 'admin@dev.com', password: 'csuperpassword', firstname: 'Jean', surname: 'Point' })
+            .put('/student/achievement')
+            .send({studentId: '5d15317532ca2e00041d62e6', sessionId: '5d14d85e60811f00046f5146', achievType: 'points', amount: 5})
             .set('Accept', 'application/json')
-            .then((response) => {
-                expect(response.statusCode).toBe(500);
+            .expect(201)
+            .end((err, res) => {
+                if (err) return done(err);
                 done();
             });
     });
-});*/
+});
+
+
 
 function sum(a, b) {
     return a + b;

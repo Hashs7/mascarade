@@ -1,7 +1,7 @@
 const express = require('express');
 const { body } = require('express-validator/check/index');
-const Student = require('../../models/Student');
-const authController = require('../../controllers/authStudent');
+const Student = require('../models/Student');
+const studentController = require('../controllers/student');
 
 const router = express.Router();
 
@@ -35,21 +35,21 @@ router.put(
             .not()
             .isEmpty()
     ],
-    authController.signup
+    studentController.signup
 );
 
-router.post('/login', authController.login);
+router.post('/login', studentController.login);
 
-router.put('/achievement', authController.updateAchievement);
+router.put('/achievement', studentController.updateAchievement);
 
-router.put('/charity', authController.updateCharity);
+router.put('/charity', studentController.updateCharity);
 
-router.put('/dialog', authController.updateDialog);
+router.put('/dialog', studentController.updateDialog);
 
-router.put('/scene', authController.updateScene);
+router.put('/scene', studentController.updateScene);
 
-router.put('/slider', authController.updateSlider);
+router.put('/slider', studentController.updateSlider);
 
-router.put('/quizz', authController.updateQuizz);
+router.put('/quizz', studentController.updateQuizz);
 
 module.exports = router;

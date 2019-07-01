@@ -1,8 +1,8 @@
-const express        = require('express');
-const {body}         = require('express-validator/check/index');
-const Teacher        = require('../../models/Teacher');
-const authController = require('../../controllers/authTeacher');
-const isAuth         = require('../../middlewares/is-auth');
+const express           = require('express');
+const {body}            = require('express-validator/check/index');
+const Teacher           = require('../models/Teacher');
+const teacherController = require('../controllers/teacher');
+const isAuth            = require('../middlewares/is-auth');
 
 const router = express.Router();
 
@@ -32,12 +32,12 @@ router.put(
             .not()
             .isEmpty()
     ],
-    authController.signup
+    teacherController.signup
 );
 
-router.post('/login', authController.login);
+router.post('/login', teacherController.login);
 
-router.get('/is-auth', isAuth, authController.isAuth);
+router.get('/is-auth', isAuth, teacherController.isAuth);
 
 
 module.exports = router;

@@ -82,9 +82,9 @@
 </template>
 
 <script>
-    import {api} from "../utils/API";
-    import {ROUTE_TEACHER_SIGNUP} from "../utils/constant";
-    import {routePath} from "../router/routes";
+    import {api} from "../../utils/API";
+    import {ROUTE_TEACHER_SIGNUP} from "../../utils/constant";
+    import {routePath} from "../../router/routes";
 
     export default {
         name: 'TeacherForm',

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import StudentForm from '@/components/StudentForm';
+    import StudentForm from '@/components/authentification/StudentForm';
 
     export default {
         name: 'StudentSignupView',

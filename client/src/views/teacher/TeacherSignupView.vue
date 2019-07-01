@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import TeacherForm from '@/components/TeacherForm';
+    import TeacherForm from '@/components/authentification/TeacherForm';
 
     export default {
         name: 'TeacherSignupView',
