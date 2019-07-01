@@ -120,26 +120,21 @@
                 const id = this.getSelectedContact.id;
                 this.getSelectedContact.showAnswers = false;
                 this.addMessage({repIndex, id, answer, type: 'student'});
-                if(convState === 'trap' && id === 0) {
-                    this.modalCelebrity = true;
-                }
 
-                if(convState === 'trap' && id === 1) {
-                    this.modalHacker = true;
-                }
+                if(convState === 'trap' && id === 0) { this.modalCelebrity = true }
+                if(convState === 'trap' && id === 1) { this.modalHacker = true }
+
                 if(repIndex === 'stop' || repIndex === 'report') {
-                    if(id === 0) {
-                        this.$store.state.validTrap.convCelebrity = true;
-                    }
-                    if(id === 1) {
-                        this.$store.state.validTrap.convHacker = true;
-                    }
+                    if(id === 0) { this.$store.state.validTrap.convCelebrity = true }
+                    if(id === 1) { this.$store.state.validTrap.convHacker = true }
                     return;
                 }
                 if(this.getSelectedContact.type === 'celebrity') {
-                    this.addGroupMessage(dialogResCelebrity[repIndex]);
+                    const res = dialogResCelebrity.find(el => el.responseId === repIndex);
+                    this.addGroupMessage(res);
                 } else {
-                    this.addGroupMessage(dialogResHacker[repIndex]);
+                    const res = dialogResHacker.find(el => el.responseId === repIndex);
+                    this.addGroupMessage(res);
                 }
             },
             closeModalCelebrity() {

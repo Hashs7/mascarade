@@ -24,6 +24,52 @@
 [socket.io]: https://github.com/socketio/socket.io
 [JsonWebToken]: https://github.com/auth0/node-jsonwebtoken
 
+
+## Project setup
+```
+git clone git@github.com:Hashs7/mascarade.git
+npm install
+cd client && npm install
+```
+
+### Start server for API
+Create MongoDB database with [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
+ 
+Rename .env.example by .env with correct field and start server
+```
+npm start
+```
+### Start client
+In client folder
+```
+npm run serve
+```
+Site is alive at : http://localhost:8080
+
+### Compile and minify client part for production
+In client folder
+```
+npm run build
+```
+
+### Deployement
+To deploy client, you only need to push on upstream repository or create new pull request
+```
+git remote add upstream git@github.com:Hashs7/mascarade.git
+git add yourcommitfiles
+git commit -m "Your commit message"
+git push upstream master
+```
+To deploy API, you need to push on heroku repository
+```
+git remote add heroku https://git.heroku.com/mascarade.git
+git add yourcommitfiles
+git commit -m "Your commit message"
+git push heroku master
+```
+
+
+
 ## Architecture
 This project is using MVC pattern
 
@@ -140,48 +186,127 @@ We defined global style for the entire of application. Mainly for layout, variab
 On the landing page, we needed to translate all the content. We're using [vuex-i18n](https://github.com/dkfbasel/vuex-i18n) to create 2 files for each languages and swap the content instantly.
 
 
+## Using API
+Teacher's routes
+```
+GET /teacher/is-teacher
+Headers : Token
+
+POST /teacher/signup
+Body : email, firstname, surname, password
+
+PUT /teacher/login
+Body : email, password
+```
 
 
-## Project setup
+Student's routes
 ```
-npm install
-cd client && npm install
+PUT /student/signup
+Body : email, firstname, surname, password
+
+POST /student/login
+Body : email, password
+
+PUT /student/achievement
+Body : studentId, sessionId, achievType, amount
+
+PUT /student/charity
+Body : studentId, sessionId, charityType, title, description
+
+PUT /student/dialog
+Body : studentId, sessionId, dialogType, response, state
+
+PUT /student/scene
+Body : studentId, sessionId, sceneType, action
+
+PUT /student/slider
+Body : studentId, sessionId, amount
+
+PUT /student/quizz
+Body : studentId, sessionId, responses
 ```
 
-### Start server for API
-Create MongoDB database with [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
- 
-Rename .env.example by .env with correct field and start server
-```
-npm start
-```
-### Start client
-In client folder
-```
-npm run serve
-```
-Site is alive at : http://localhost:8080
 
-### Compile and minify client part for production
-In client folder
+Session's routes
 ```
-npm run build
+GET /session/all
+
+GET /student/:sessionId
+
+PUT /session/new
+Body : email, firstname, surname, password
 ```
 
-### Deployement
-To deploy client, you only need to push on upstream repository or create new pull request
+
+Flash's routes
 ```
-git remote add upstream git@github.com:Hashs7/mascarade.git
-git add yourcommitfiles
-git commit -m "Your commit message"
-git push upstream master
+PUT /flash/send
+Body : studentFromId, studentToId
 ```
-To deploy API, you need to push on heroku repository
+
+
+### Examples for API request in client with Axios
+Simple request to update student achievements
 ```
-git remote add heroku https://git.heroku.com/mascarade.git
-git add yourcommitfiles
-git commit -m "Your commit message"
-git push heroku master
+//Base url for API
+export const api = axios.create({ baseURL: BASE_API_URL });
+
+// Define method in utils/API.js
+export const updateAchievement = async (studentId, sessionId, achievType, amount) => {
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        url: '/student/achievement',
+        data: {
+            studentId,
+            sessionId,
+            achievType,
+            amount
+        }
+    };
+
+    return api(options)
+};
+
+// Should be use in vuex action
+updateAchievement(rootState.studentId, rootState.sessionId, type, amount)
+    .then(res => {
+        // Call mutation to update state
+        commit('updateAchievement', {type, amount})
+    })
+    .catch(err => console.log(err))
 ```
+
+Request restricted routes with token 
+```
+
+// Define method in utils/API.js
+export const getSessions = async () => {
+    const token = await getTokenState();
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + token
+        },
+        url: ROUTE_TEACHER_ALL_SESSION
+    };
+
+    return api(options)
+};
+
+// Should be use in vuex action
+getSessions()
+    .then(res => {
+        // Call mutation to update state
+        this.$store.commit('initSessions', res.data.sessions);
+    })
+    .catch(err => console.log(err))
+```
+
 
 

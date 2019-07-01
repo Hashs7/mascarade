@@ -26,7 +26,7 @@ export const initMsgCelebrity = (name) => ({
 
 const repIndex0 = {
     convId: 0,
-    repId: 0,
+    responseId: 0,
     stranger: [{
         content: `D’accord tu vas devoir me suivre étape par étape pour que tu puisses recevoir ton iphone 48h après ta participation`,
         delay: 1500,
@@ -49,7 +49,7 @@ const repIndex0 = {
 
 const repIndex1 = {
     convId: 0,
-    repId: 1,
+    responseId: 1,
     stranger: [{
         content: `C’est mon deuxième compte je l’ai créé spécialement pour les cadeaux pour mes fans et c’est moi qui ai choisi les participants`,
         delay: 1800,
@@ -68,7 +68,7 @@ const repIndex1 = {
 
 const repIndex2 = {
     convId: 0,
-    repId: 2,
+    responseId: 2,
     stranger: [{
         content: `Très bon choix maintenant pour confirmer ta participation le système va te demander un code reçu gratuitement par téléphone`,
         delay: 800,
@@ -93,7 +93,7 @@ const repIndex2 = {
 
 const repIndex3 = {
     convId: 0,
-    repId: 3,
+    responseId: 3,
     stranger: [{
         content: `Parce qu’il y a beaucoup de fans qui participent`,
         delay: 800,
@@ -112,7 +112,7 @@ const repIndex3 = {
 
 const repIndex4 = {
     convId: 0,
-    repId: 4,
+    responseId: 4,
     stranger: [{
         content: 'photo floue',
         delay: 800,
@@ -127,32 +127,6 @@ const repIndex4 = {
         repIndex: 'report',
         type: 'student'
     }]
-};
-
-const repIndex5 = {
-    convId: 0,
-    repId: 5,
-    stranger: [{
-        content: "Bravo tu n'est pas tombé dans le piège",
-        delay: 800,
-        type: 'stranger'
-    }],
-    responses: []
-};
-
-const repIndex6 = {
-    convId: 0,
-    repId: 6,
-    stranger: [{
-        content: "Aïe...",
-        delay: 800,
-        type: 'stranger'
-    },{
-        content: "Attention, ",
-        delay: 800,
-        type: 'stranger'
-    }],
-    responses: []
 };
 
 export const dialogResCelebrity = [

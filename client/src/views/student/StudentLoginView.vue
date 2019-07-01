@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import StudentLogin from '@/components/StudentLogin';
+    import StudentLogin from '@/components/authentification/StudentLogin';
 
     export default {
         name: 'StudentLoginView',

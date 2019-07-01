@@ -1,11 +1,11 @@
-const authStudent = require('./auth/authStudent');
-const authTeacher = require('./auth/authTeacher');
-const session     = require('./session');
-const flash       = require('./flash');
+const Student = require('./student');
+const Teacher = require('./teacher');
+const session = require('./session');
+const flash   = require('./flash');
 
 exports.init = (app) => {
-    app.use('/auth/student', authStudent);
-    app.use('/auth/teacher', authTeacher);
+    app.use('/student', Student);
+    app.use('/teacher', Teacher);
     app.use('/session', session);
     app.use('/flash', flash);
 

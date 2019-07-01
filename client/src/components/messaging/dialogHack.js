@@ -24,6 +24,7 @@ export const initMsgHacker = (name) => ({
 
 const repIndex0 = {
     convId: 1,
+    responseId: 0,
     stranger: [{
         content: 'Tu dois le télécharger sur ton ordinateur pour pouvoir le lire et connaître son contenu',
         delay: 1200,
@@ -43,6 +44,7 @@ const repIndex0 = {
 
 const repIndex1 = {
     convId: 1,
+    responseId: 1,
     stranger: [{
         content: "Bravo tu as évité un virus !",
         delay: 800,
@@ -53,6 +55,7 @@ const repIndex1 = {
 
 const repIndex2 = {
     convId: 1,
+    responseId: 2,
     stranger: [{
         content: "Attention virus ! Ton compte vient d'être piraté suite au téléchargement",
         delay: 800,

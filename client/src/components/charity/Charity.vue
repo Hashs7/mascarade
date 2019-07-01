@@ -111,7 +111,6 @@
                 const {studentId, sessionId} = this.$store.state;
                 const charity = this.images.find(el => el.selected);
 
-                //TODO validatation champs non vide
                 updateCharity(studentId,sessionId, charity.type, this.title, this.description)
                     .then(res => {
                         this.$store.dispatch('updateAchievement', {type: 'shares', amount: 1});

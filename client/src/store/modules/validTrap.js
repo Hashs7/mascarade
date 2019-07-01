@@ -1,4 +1,3 @@
-import {getStudentSession, sendFlash} from "../../utils/API";
 import {router} from '../../router'
 
 const state = {
@@ -30,17 +29,7 @@ const actions = {
     },
 };
 
-const mutations = {
-    initFlash(state, {session, studentId}) {
-        state.studentSession = session.students.filter(student => student._id !== studentId)
-    },
-    sendFlash(state, res) {
-        console.log('flash envoyé', res);
-    }
-};
-
 export default {
     state,
-    mutations,
     actions,
 }

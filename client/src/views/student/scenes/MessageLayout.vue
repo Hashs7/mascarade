@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import StudentStories from '@/components/StudentStories';
+    import StudentStories from '@/components/stories/StudentStories';
     import MessageContainer from '@/components/messaging/MessageContainer';
     import Charity from '@/components/charity/Charity';
     import StudentAchievement from '@/components/student-progess/StudentAchievement';
