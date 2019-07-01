@@ -75,6 +75,7 @@
             display: flex;
             font-family: $font-palanquin;
             font-weight: 900;
+            margin-bottom: 30px;
             .counter {
                 margin-right: 10px;
             }
@@ -95,11 +96,11 @@
             svg {
                 width: 18px;
                 cursor: pointer;
-                g {
-                    &:hover {
-                        transition: 0.2s ease;
-                        fill: $orange;
-                    }
+                &:hover path {
+                    fill: $orange;
+                }
+                path {
+                    transition: 0.2s ease;
                 }
             }
         }

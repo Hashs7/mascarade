@@ -7,18 +7,6 @@
                 </router-link>
             </div>
             <div class="nav-right">
-                <div class="nav-link nav-score">
-                    <transition name="fade">
-                        <span class="increase-score" v-if="showIncrease">{{increaseScore}}</span>
-                    </transition>
-                    <span class="score item">{{points}}</span>
-                    <Score/>
-                </div>
-                <div class="nav-link" :class="{hasNotif: hasNotif}">
-                    <router-link class="item msg" to="/messages">
-                        <Msg/>
-                    </router-link>
-                </div>
                 <div class="nav-link">
                     <span class="item help">
                         <v-tooltip bottom>

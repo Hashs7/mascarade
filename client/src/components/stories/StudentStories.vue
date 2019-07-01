@@ -52,6 +52,9 @@
 <style scoped lang='scss'>
     .label {
         display: block;
+        color: $blue;
+        font-weight: bold;
+        font-size: 17px;
     }
     .nav {
         &-scenes {

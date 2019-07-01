@@ -106,6 +106,7 @@
         position: fixed;
         bottom: 50px;
         right: 70px;
+        z-index: 20;
         &.hasNotif .msg:before {
             position: absolute;
             top: -4px;
@@ -141,7 +142,7 @@
                 transform: scale(.8);
             }
             #link-circle {
-                transform: scale(1.5);
+                transform: scale(1.3);
             }
         }
         svg {

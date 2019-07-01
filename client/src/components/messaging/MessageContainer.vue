@@ -4,14 +4,14 @@
                 :visible="modalCelebrity"
                 @close="closeModalCelebrity"
                 title="Aïe..."
-                description="Tu viens de te faire arnaquer, ce numéro est payant… Fais très attention aux faux profils de célébrités sur les réseaux, ils sont nombreux !"
+                description="Tu viens de te faire arnaquer, ce numéro est payant… Fais très attention aux faux profils de célébrités sur les réseaux, ils sont nombreux !"
                 buttonFirst="Ok"
                 :buttonFirstAction="closeModalCelebrity"/>
         <modal
                 :visible="modalHacker"
                 @close="closeModalHacker"
                 title="Pas de bol !"
-                description="Tu viens de télécharger un fichier contenant un virus. Soit très prudent lorsque quelqu'un t'envoie un fichier suspect, il peut s'agir d'un pirate."
+                description="Tu viens de télécharger un fichier contenant un virus. Soit très prudent lorsque quelqu'un t'envoie un fichier suspect, il peut s'agir d'un pirate."
                 buttonFirst="Ok"
                 :buttonFirstAction="closeModalHacker"/>
 
@@ -213,13 +213,13 @@
         flex-direction: column;
         align-items: center;
         font-size: 1.4rem;
-        color: $violet;
+        color: $orange;
     }
 
     .chatbox-separate {
         height: .1rem;
         width: 6rem;
-        background: $violet;
+        background: $orange;
         margin-top: 0.9rem;
         margin-bottom: 2.2rem;
     }
@@ -227,15 +227,14 @@
     .answer {
         margin: 0 4px;
         padding: 0.6rem 1.4rem;
-        color: $violet;
-        border: 1px solid $violet;
+        color: $orange;
+        border: 1px solid $orange;
         border-radius: 2.1rem;
         font-size: 1.3rem;
         &:hover {
             transition: ease 0.2s;
-            background: $violet;
+            background: $orange;
             color: $white;
-            //transform: scale(1.05);
         }
     }
 </style>

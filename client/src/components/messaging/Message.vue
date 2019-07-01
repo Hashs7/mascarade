@@ -22,7 +22,7 @@
 
             .Message-content {
                 border-radius: 3rem 3rem 0 3rem;
-                background-color: $violet;
+                background-color: $orange;
                 font-size: 1.4rem;
                 color: $white;
             }

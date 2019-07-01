@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="content__group">
-            <h2 class="content__title">Bats toi pour une cause ! </h2>
+            <h2 class="content__title">Partage ta passion ! </h2>
             <div class="content__separate"></div>
         </div>
         <p class="charity__published">Ton article vient d'être publié</p>
@@ -41,12 +41,10 @@
 </template>
 
 <script>
-    import Pollution from '@/assets/img/charity/pollution.jpg'
-    import Animal from '@/assets/img/charity/animal_abuse.jpg'
-    import GlobalWarming from '@/assets/img/charity/global_warming.jpg'
-    import Starvation from '@/assets/img/charity/starvation.jpg'
-    import Cyberharcelement from '@/assets/img/charity/cyberharcelement.jpg'
-    import War from '@/assets/img/charity/war.jpg'
+    import Game from '@/assets/img/passion/game.jpg'
+    import Horse from '@/assets/img/passion/horse.jpg'
+    import Read from '@/assets/img/passion/read.jpg'
+    import Sport from '@/assets/img/passion/sport.jpg'
     import {updateCharity} from "../../utils/API";
     import RippleButton from '@/components/UI/RippleButton';
     import Indicator from '@/components/traps/Indicator';
@@ -58,34 +56,24 @@
             title: null,
             description: null,
             images: [{
-                src: Starvation,
-                type: 'Faim dans le monde',
-                title: 'Faim dans le monde',
+                src: Sport,
+                type: 'Sport',
+                title: 'Sport',
                 selected: false
             },{
-                src: Cyberharcelement,
-                type: 'Cyberharcelement',
-                title: 'Cyber harcèlement',
+                src: Read,
+                type: 'Lecture',
+                title: "Lecture",
                 selected: false
             },{
-                src: War,
-                type: 'Guerre',
-                title: "Guerre",
+                src: Horse,
+                type: 'équitation',
+                title: "Équitation",
                 selected: false
             },{
-                src: GlobalWarming,
-                type: 'Réchauffement climatique',
-                title: "Réchauffement climatique",
-                selected: false
-            },{
-                src: Animal,
-                type: 'Cause animale',
-                title: "Maltraitance animale",
-                selected: false
-            },{
-                src: Pollution,
-                type: 'Pollution',
-                title: "Pollution",
+                src: Game,
+                type: 'Jeux vidéos',
+                title: "Jeux vidéos",
                 selected: false
             }]
         }),
@@ -195,7 +183,7 @@
     .img__select {
         position: relative;
         cursor: pointer;
-        width: calc(100% / 3);
+        width: calc(100% / 2);
         height: 120px;
         background-size: cover;
         background-position: center;
@@ -216,13 +204,13 @@
         }
         &:first-child {
             border-top-left-radius: 30px;
-            .indicator, .charity__titleImage {
+            .indicator-img, .charity__titleImage {
                 border-top-left-radius: 30px;
             }
         }
-        &:nth-child(3) {
+        &:nth-child(2) {
             border-top-right-radius: 30px;
-            .indicator, .charity__titleImage {
+            .indicator-img, .charity__titleImage {
                 border-top-right-radius: 30px;
             }
         }
