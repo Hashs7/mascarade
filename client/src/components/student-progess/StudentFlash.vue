@@ -96,11 +96,11 @@
             svg {
                 width: 18px;
                 cursor: pointer;
-                g {
-                    &:hover {
-                        transition: 0.2s ease;
-                        fill: $orange;
-                    }
+                &:hover path {
+                    fill: $orange;
+                }
+                path {
+                    transition: 0.2s ease;
                 }
             }
         }
