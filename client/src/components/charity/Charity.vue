@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="content__group">
-            <h2 class="content__title">Bats toi pour une cause ! </h2>
+            <h2 class="content__title">Partages ta passion ! </h2>
             <div class="content__separate"></div>
         </div>
         <p class="charity__published">Ton article vient d'être publié</p>

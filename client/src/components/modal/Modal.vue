@@ -139,7 +139,7 @@
 
     .modal {
         position: relative;
-        background: $violet;
+        background: $orange;
         border-radius: 0.8rem;
         overflow-x: auto;
         display: flex;

@@ -72,7 +72,7 @@
             align-items: flex-end;
             height: 100vh;
             background-size: cover;
-            background-image: url('~@/assets/img/summary.png'), $gradient--background;
+            background-image: url('~@/assets/img/background_summary.png'), $gradient--background;
         }
         &__number {
             display: flex;

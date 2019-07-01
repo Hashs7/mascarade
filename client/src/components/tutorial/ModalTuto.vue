@@ -106,9 +106,9 @@
 
     .modal-button {
         font-family: "Palanquin", sans-serif;
-        color: $violet;
-        background: $white;
-        border: 1px solid $violet;
+        color: $white;
+        background: $orange;
+        border: 1px solid $orange;
         border-radius: 2.1rem;
         padding: .6rem 2.2rem;
         font-size: 1.8rem;

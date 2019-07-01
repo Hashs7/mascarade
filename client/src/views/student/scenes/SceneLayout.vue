@@ -151,7 +151,7 @@
                 transform: scale(.8);
             }
             #link-circle {
-                transform: scale(1.5);
+                transform: scale(1.3);
             }
         }
         svg {
