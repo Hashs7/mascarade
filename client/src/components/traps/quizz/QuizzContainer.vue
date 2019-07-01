@@ -144,7 +144,7 @@
         }
         &__final {
             display: flex;
-            background-color: $grey--background;
+            background-color: $violet;
         }
         &__finalContent {
             display: flex;
@@ -158,7 +158,7 @@
         }
         &__finalTitle {
             font-size: 35px;
-            color: $violet;
+            color: $white;
             text-transform: uppercase;
             margin-bottom: 0;
             span {
