@@ -45,7 +45,7 @@
             border-top-left-radius: 0.5rem;
         }
         &.active {
-            background-color: $violet;
+            background-color: $orange;
             .contact-info, .date {
                 color: $white;
             }
