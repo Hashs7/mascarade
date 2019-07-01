@@ -189,7 +189,7 @@ On the landing page, we needed to translate all the content. We're using [vuex-i
 ## Using API
 Teacher's routes
 ```
-GET /teacher/is-teacher
+GET /teacher/is-auth
 Headers : Token
 
 POST /teacher/signup
