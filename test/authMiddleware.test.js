@@ -42,7 +42,6 @@ const app        = require('../app');
     });*!/
 });*/
 
-/*
 describe('Test the root path', () => {
     test('It should response 404 status code', (done) => {
         request(app)
@@ -53,7 +52,7 @@ describe('Test the root path', () => {
             });
     });
 });
-
+/*
 describe('Test teacher routes', () => {
     test('Login route', (done) => {
     request(app)
@@ -68,7 +67,7 @@ describe('Test teacher routes', () => {
     });
 });*/
 
-describe('Test student routes', () => {
+/*describe('Test student routes', () => {
     test('Update achievements route', (done) => {
         request(app)
             .put('/student/achievement')
@@ -80,7 +79,7 @@ describe('Test student routes', () => {
                 done();
             });
     });
-});
+});*/
 
 
 
