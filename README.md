@@ -232,10 +232,10 @@ Session's routes
 ```
 GET /session/all
 
-GET /student/:sessionId
+GET /session/:sessionId
 
 PUT /session/new
-Body : email, firstname, surname, password
+Body : className
 ```
 
 
@@ -303,7 +303,7 @@ export const getSessions = async () => {
 getSessions()
     .then(res => {
         // Call mutation to update state
-        this.$store.commit('initSessions', res.data.sessions);
+        commit('initSessions', res.data.sessions);
     })
     .catch(err => console.log(err))
 ```
