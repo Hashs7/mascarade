@@ -41,9 +41,6 @@
         transition: background-color .2s ease;
         padding-bottom: 0.5rem;
         padding-top: 0.5rem;
-        /*&:first-child {
-            border-top-left-radius: 30px;
-        }*/
         &.active {
             background-color: $orange;
             .contact-info, .date {
