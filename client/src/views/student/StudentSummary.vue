@@ -97,17 +97,21 @@
             }
             h1 {
                 font-size: 120px;
+                font-family: $font-palanquin;
+                font-weight: 500;
                 transform: rotate(-14deg);
             }
             p {
-                width: 30rem;
+                width: 32rem;
                 margin-top: 7rem;
             }
         }
         &__points {
             color: $white;
             font-size: 240px;
-            font-weight: bold;
+            font-family: $font-palanquin;
+            font-weight: 500;
+            margin-bottom: 60px;
         }
         &__datas {
             color: $white;
