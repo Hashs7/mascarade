@@ -105,7 +105,7 @@
     .nav-link.message {
         position: fixed;
         bottom: 50px;
-        right: 70px;
+        right: 280px;
         z-index: 20;
         &.hasNotif .msg:before {
             position: absolute;

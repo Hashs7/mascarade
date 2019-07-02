@@ -74,7 +74,7 @@
         justify-content: space-between;
         margin-bottom: 15px;
         span {
-            font-size: 16px;
+            font-size: 11px;
             margin-right: 5px;
         }
     }

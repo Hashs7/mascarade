@@ -35,7 +35,7 @@
         padding: 8px 16px;
         width: 860px;
         border-radius: 0.6rem;
-        box-shadow: 0px 2px 5px -4px rgba(0,0,0,0.75);
+        box-shadow: 0px 2px 8px -4px rgba(0,0,0,0.65);
     }
     .tab-interact {
         display: flex;
