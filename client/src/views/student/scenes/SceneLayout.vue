@@ -15,6 +15,10 @@
                 </div>
             </div>
         </router-link>
+        <div class="student-score">
+            <h1>{{points}}</h1>
+            <Score/>
+        </div>
         <div class="layout-content">
             <div class="layout-flash">
                 <StudentFlash />
@@ -55,13 +59,14 @@
     import {mapActions, mapMutations} from "vuex";
     import {routePath} from "../../../router/routes";
     import Msg from '@/assets/messages.svg';
+    import Score from '@/assets/score_medium.svg';
 
     export default {
         name: "SceneLayout",
         components: {
             MessageContainer, StudentAchievement, Charity,
             StudentStories, FakeNews, Harassment, StudentFlash,
-            Slider, QuizzContainer, ScrollTop, ModalTuto, Msg
+            Slider, QuizzContainer, ScrollTop, ModalTuto, Msg, Score
         },
         data: () => ({
             trails: trails
@@ -91,6 +96,9 @@
             hasNotif() {
                 return this.$store.state.messages.hasNotif;
             },
+            points() {
+                return this.$store.state.score.points;
+            },
         }
     }
 </script>
@@ -101,6 +109,21 @@
     }
     .theme--light.application {
         color: $dark--violet !important;
+    }
+    .student-score {
+        position: fixed;
+        top: 300px;
+        left: 40px;
+        z-index: 20;
+        color: $white;
+        display: flex;
+        align-items: center;
+        h1 {
+            font-size: 60px;
+            font-family: $font-palanquin;
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+        }
     }
     .nav-link.message {
         position: fixed;
