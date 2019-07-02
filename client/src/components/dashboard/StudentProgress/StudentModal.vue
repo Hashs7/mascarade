@@ -19,7 +19,7 @@
                     <v-subheader>Données globales sur l'élève</v-subheader>
                     <v-list-tile>
                         <v-list-tile-content>
-                            <h2>Scores</h2>
+                            <h3>Scores</h3>
                             <div class="students__datas">
                                 <p>Points : {{achievements.points}}</p>
                                 <p>Partages : {{achievements.shares}}</p>

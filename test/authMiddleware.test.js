@@ -1,7 +1,7 @@
 const request    = require('supertest');
 const app        = require('../app');
 
-// jest.setTimeout(30000);
+jest.setTimeout(30000);
 
 /*describe('Test the root path', () => {
     test('It should response 404 status code', (done) => {
@@ -52,7 +52,6 @@ describe('Test the root path', () => {
             });
     });
 });
-/*
 describe('Test teacher routes', () => {
     test('Login route', (done) => {
     request(app)
@@ -65,9 +64,9 @@ describe('Test teacher routes', () => {
             done();
         });
     });
-});*/
+});
 
-/*describe('Test student routes', () => {
+describe('Test student routes', () => {
     test('Update achievements route', (done) => {
         request(app)
             .put('/student/achievement')
@@ -79,7 +78,7 @@ describe('Test teacher routes', () => {
                 done();
             });
     });
-});*/
+});
 
 
 
