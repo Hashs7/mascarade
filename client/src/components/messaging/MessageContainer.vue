@@ -16,6 +16,12 @@
                 :buttonFirstAction="closeModalHacker"/>
 
         <div class="contacts">
+            <router-link to="/exp">
+                <div class="contacts__back">
+                    <Arrow/>
+                    <p>Retour au fil d'actualité</p>
+                </div>
+             </router-link>
             <Contact v-if="contacts.length"
                     v-for="(contact, i) in contacts"
                      :key="i"
@@ -59,6 +65,7 @@
 
 <script>
     import {mapActions, mapGetters, mapMutations} from "vuex";
+    import Arrow from '@/assets/arrow_back.svg';
     import Message from '@/components/messaging/Message';
     import Contact from '@/components/messaging/Contact';
     import jules from "@/assets/img/jules.jpg";
@@ -71,7 +78,7 @@
 
     export default {
         name: "MessageContainer",
-        components: { Message, Contact, Modal },
+        components: { Arrow, Message, Contact, Modal },
         data: () => ({
             currentDate: null,
             modalCelebrity: false,
@@ -175,6 +182,16 @@
         background-color: $grey--light;
         border-top-left-radius: 30px;
         border-bottom-left-radius: 30px;
+        &__back {
+            padding-top: 2.5rem;
+            color: $dark--violet;
+            display: flex;
+            margin-left: 10px;
+            p {
+                font-size: 14px;  
+                margin-left: 10px;  
+            }
+        }
     }
     .chatbox {
         padding: 16px;

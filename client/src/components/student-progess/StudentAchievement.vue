@@ -144,7 +144,7 @@
         display: flex;
         justify-content: space-around;
         position: fixed;
-        top: 0;
+        top: 20px;
         z-index: 35;
         left: 0;
         right: 0;

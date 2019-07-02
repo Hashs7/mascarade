@@ -102,8 +102,9 @@
                 transform: rotate(-14deg);
             }
             p {
-                width: 32rem;
+                width: 42rem;
                 margin-top: 7rem;
+                font-size: 20px;
             }
         }
         &__points {
