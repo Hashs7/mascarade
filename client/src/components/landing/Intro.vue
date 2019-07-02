@@ -52,6 +52,9 @@
         right: 0;
         margin: auto;
         width: 45px;
+        svg {
+            margin-bottom: -25px;
+        }
     }
     .intro {
         &__content {
@@ -72,6 +75,7 @@
                 max-width: 60%;
                 font-weight: 400;
                 margin: 70px auto 0 auto;
+                color: $white;
             }
         }
 
