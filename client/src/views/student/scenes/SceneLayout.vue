@@ -16,8 +16,13 @@
             </div>
         </router-link>
         <div class="student-score">
-            <h1>{{points}}</h1>
-            <Score/>
+            <div class="score-container">
+                <transition name="fade">
+                    <h1 class="increase-score" v-if="showIncrease">{{increaseScore}}</h1>
+                </transition>
+                <h1>{{points}}</h1>
+                <Score/>
+            </div>
         </div>
         <div class="layout-content">
             <div class="layout-flash">
@@ -69,6 +74,7 @@
             Slider, QuizzContainer, ScrollTop, ModalTuto, Msg, Score
         },
         data: () => ({
+            showIncrease: false,
             trails: trails
         }),
         sockets: {
@@ -92,9 +98,18 @@
                 this.$store.state.isTutorial = false;
             },
         },
+        watch: {
+            points: function (val) {
+                this.showIncrease = true;
+                setTimeout(() => { this.showIncrease = false }, 1200);
+            },
+        },
         computed: {
             hasNotif() {
                 return this.$store.state.messages.hasNotif;
+            },
+            increaseScore() {
+                return this.$store.state.score.increaseScore;
             },
             points() {
                 return this.$store.state.score.points;
@@ -110,19 +125,48 @@
     .theme--light.application {
         color: $dark--violet !important;
     }
+    .score-container {
+        position: relative;
+    }
+    .increase-score {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .2s, transform .5s ease;
+    }
+    .fade-enter {
+        opacity: 0;
+        transform: translate(-100%, 20px);
+    }
+    .fade-leave-to {
+        opacity: 0;
+        transform: translate(-100%, -20px);
+    }
     .student-score {
         position: fixed;
         top: 300px;
-        left: 40px;
+        left: 100px;
         z-index: 20;
         color: $white;
         display: flex;
         align-items: center;
+        svg {
+            vertical-align: middle;
+            display: inline-block;
+            width: 50px;
+        }
         h1 {
-            font-size: 60px;
+            vertical-align: middle;
+            display: inline-block;
+            text-align: right;
+            min-width: 70px;
+            font-size: 40px;
             font-family: $font-palanquin;
             margin-right: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
     }
     .nav-link.message {
