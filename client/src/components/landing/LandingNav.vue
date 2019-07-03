@@ -4,15 +4,26 @@
         <p class="navigation__subtitle">{{ $t('navigation.subtitle')}}</p>
 
         <div class="btn-container">
-            <router-link to="room" class="navigation__button">{{ $t('navigation.studentBtn')}}</router-link>
-            <router-link to="teacher/login" class="navigation__button">{{ $t('navigation.teacherBtn')}}</router-link>
+            <RippleButton :name="$t('navigation.studentBtn')" :clickAction="pushRoom" />
+            <RippleButton :name="$t('navigation.teacherBtn')" :clickAction="pushTeacherLogin" />
         </div>
     </div>
 </template>
 
 <script>
+    import RippleButton from '@/components/UI/RippleButton';
     export default {
-        name: "LandingNav"
+        name: "LandingNav",
+        components: { RippleButton },
+        methods: {
+            pushRoom() {
+                console.log(this);
+                this.$router.push('/room');
+            }, 
+            pushTeacherLogin() {
+                this.$router.push('/teacher/login');
+            }
+        },
     }
 </script>
 
@@ -32,19 +43,6 @@
         &__subtitle {
             margin-top: 1.5rem;
             margin-bottom: 8rem;
-        }
-        &__button {
-            background: $gradient;
-            border-radius: 2.1rem;
-            padding: 1.4rem 2rem;
-            color: $white;
-            font-size: 1.4rem;
-            &:first-child {
-                margin-right: 50px;
-            }
-            &:hover {
-                opacity: 0.8;
-            }
         }
     }
 </style>

@@ -197,3 +197,16 @@ input[type=radio]:checked:after {
 		}
 	}
 }
+.navigation {
+	.button__share {
+		padding: 1.2rem 2.4rem !important;
+		border-radius: 4rem;
+	}
+	.btn-container:first-child {
+		button {
+			&:first-child {
+				margin-right: 4rem;
+			}
+		}
+	}
+}
