@@ -95,7 +95,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 40rem;
+        height: 50rem;
         text-align: center;
         color: $white;
         text-transform: uppercase;

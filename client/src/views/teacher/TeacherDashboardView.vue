@@ -116,7 +116,6 @@
         }
     }
     .app-header {
-        margin-top: 13px;
         height: 90px;
         display: flex;
         align-items: center;
