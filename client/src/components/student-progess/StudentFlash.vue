@@ -4,10 +4,19 @@
             <span class="counter">{{currentFlash}}</span>
             <span class="icon"><Flash /></span>
         </div>
-
+        <div class="flash__contact">
+            <div>
+                <Flash @click="sendFlashTo('fake')" />
+                <span class="flash__name">Cédric</span>
+            </div>
+            <span class="number">{{counter}}</span>
+        </div>
         <div class="flash__contact" v-if="students" v-for="(student, i) in students" :key="i">
-            <Flash @click="sendFlashTo(student._id)" />
-            <span class="flash__name">{{student.firstname}}</span>
+            <div>
+                <Flash @click="sendFlashTo(student._id)" />
+                <span class="flash__name">{{student.firstname}}</span>
+            </div>
+            <span class="number">0</span>
         </div>
     </div>
 </template>
@@ -18,6 +27,9 @@
     export default {
         name: "StudentFlash",
         components: { Flash },
+        data: () => ({
+            counter: 0,
+        }),
         computed: {
             students() {
                 return this.$store.state.flash.studentSession
@@ -40,6 +52,10 @@
         },
         methods: {
             sendFlashTo(id) {
+                if(id === 'fake') {
+                    this.counter++;
+                    return;
+                }
                 const studentId = this.$store.state.studentId;
                 this.$store.dispatch('sendFlash', {sender: studentId, receiver: id});
             },
@@ -85,13 +101,20 @@
             }
         }
         &__contact {
+            width: 130px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
             color: white;
             user-select: none;
             &:first-of-type {
                 margin-top: 20px;
+            }
+            .number {
+                margin-left: 20px;
+                font-size: 16px;
+                font-family: $font-avenir;
             }
             svg {
                 width: 18px;
@@ -105,6 +128,7 @@
             }
         }
         &__name {
+            vertical-align: top;
             color: white;
             font-size: 16px;
             margin-left: 10px;

@@ -67,19 +67,20 @@ button:focus, input, textarea {
 
 .quizz__container {
 	.VueCarousel-navigation-prev {
-		top: 0 !important;
-		background: transparent !important;
-		color: $white !important;
+		///*top: 0 !important;
+        border: 2px solid $violet !important;
+        background: transparent !important;
+		color: $violet !important;
 		margin-left: 30px !important;
 	}
 	.VueCarousel-navigation-next {
 		background: transparent !important;
-		border: 2px solid $white !important;
-		color: $white !important;
+		border: 2px solid $violet !important;
+		color: $violet !important;
 		transition: 0.2s ease-in;
 		&:hover {
-			color: $violet !important;
-			background: $white !important;
+			color: $white !important;
+			background: $violet !important;
 		}
 	}
 }
@@ -199,7 +200,8 @@ input[type=radio]:checked:after {
 }
 .navigation {
 	.button__share {
-		padding: 1.2rem 2.4rem !important;
+        font-size: 20px;
+		padding: 1.5rem 4.7rem !important;
 		border-radius: 4rem;
 	}
 	.btn-container:first-child {

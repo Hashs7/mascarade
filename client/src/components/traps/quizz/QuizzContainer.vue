@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div v-else class="start start__form">
-                <p class="quizz__listTitle">Pour connaître ton résultat nous avons besoin :</p>
+                <p class="quizz__listTitle-end">Pour connaître ton résultat nous avons besoin :</p>
                 <form action="" method="get" class="form" autocomplete="off">
                     <div class="form__field">
                         <label for="email">Ton adresse postale</label>
@@ -89,7 +89,7 @@
                 this.buttonVisible = show;
             },
             quitQuizz() {
-                this.isValid = 10;
+                this.isValid = '+'+10;
                 this.quizzState = "intro";
                 this.$store.dispatch('updateAchievement', {type: 'points', amount: 10});
             },
@@ -126,7 +126,8 @@
             font-size: 3rem;
             margin-top: 4rem;
         }
-        &__listTitle {
+        &__listTitle-end {
+            color: $white;
             font-weight: normal;
             margin-bottom: 1rem;
             font-size: 2rem;
@@ -216,20 +217,21 @@
         padding-top: 2rem;
         padding-bottom: 1rem;
         height: 324px;
-        background: $gradient--diagonal;
+        background-color: white;
+        color: $violet;
         border-radius: 30px;
         .btn-container {
             display: flex;
             justify-content: center;
             position : relative;
-            bottom: 12.5rem;
+            bottom: 10.5rem;
             .button__share {
-                border-color: $white;
-                color: $white;
+                border-color: $violet;
+                color: $violet;
                 transition: 0.2s ease;
                 &:hover {
-                    background: $white;
-                    color: $violet;
+                    background: $violet;
+                    color: $white;
                 }
             }
         }

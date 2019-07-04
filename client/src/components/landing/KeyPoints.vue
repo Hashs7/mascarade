@@ -103,7 +103,7 @@
     &__data {
         font-family: $font-palanquin;
         color: $blue;
-        font-size: 50px;
+        font-size: 60px;
     }
 }
 </style>

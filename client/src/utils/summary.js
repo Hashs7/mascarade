@@ -7,7 +7,7 @@ export const expert = {
 
 export const medium = {
     title: 'Pas mal !',
-    description: "Encore quelques efforts avant de devenir un expert des réseaux ! Tu as compris l'utilité réseaux sociaux, mais tu te fais encore avoir par certains types d'informations ! Des outils peuvent t’aider à te faire ton propre avis."
+    description: "Encore quelques efforts avant de devenir un expert des réseaux ! Tu as compris l'utilité des réseaux sociaux, mais tu te fais encore avoir par certains types d'informations ! Des outils peuvent t’aider à te faire ton propre avis."
 };
 
 export const low = {

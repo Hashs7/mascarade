@@ -129,8 +129,9 @@
         position: relative;
     }
     .increase-score {
+        font-size: 35px !important;
         position: absolute;
-        top: 0;
+        bottom: 15px;
         left: 0;
         transform: translateX(-100%);
     }
@@ -163,7 +164,7 @@
             display: inline-block;
             text-align: right;
             min-width: 70px;
-            font-size: 40px;
+            font-size: 60px;
             font-family: $font-palanquin;
             margin-right: 2rem;
             margin-bottom: 1rem;

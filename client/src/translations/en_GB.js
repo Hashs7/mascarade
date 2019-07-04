@@ -45,8 +45,8 @@ export const translationsEn = {
         title: 'Who are we ?',
         dev: {
             label: 'Developers',
-            amelie: ' - Développeuse Front-end',
-            seb: ' - Développeur Fullstack'
+            amelie: ' - Developer Front-end',
+            seb: ' - Developer Fullstack'
         },
         graph: {
             label: 'Designers',
